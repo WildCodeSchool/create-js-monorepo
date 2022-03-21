@@ -1,0 +1,20 @@
+{
+  "name": "template-fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm --prefix ./frontend i && npm --prefix ./backend i",
+    "dev": "npx concurrently \"npm --prefix ./frontend run dev\" \"npm --prefix ./backend run dev\"",
+    "dev-front": "npm --prefix ./frontend run dev",
+    "dev-back": "npm --prefix ./backend run dev",
+    "lint": "npm --prefix ./frontend run lint && npm --prefix ./backend run lint",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "Wild Code School",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^7.0.0"
+  }
+}
