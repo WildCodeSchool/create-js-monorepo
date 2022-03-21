@@ -19,7 +19,7 @@
   },
   "rules": {
     "no-console": [
-      "warn",
+      "error",
       {
         "allow": [
           "warn",
