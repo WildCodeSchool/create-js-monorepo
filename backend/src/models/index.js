@@ -23,7 +23,7 @@ const load = async (models) => {
         models[Manager.table] = new Manager(connection, Manager.table);
       });
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
