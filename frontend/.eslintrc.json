@@ -15,7 +15,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "import"],
   "rules": {
     "no-console": "off",
     "no-restricted-syntax": [
@@ -27,5 +27,18 @@
     ],
     "react/react-in-jsx-scope": "off",
     "react/jsx-one-expression-per-line": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "eslint-import-resolver-custom-alias": {
+        "alias": {
+          "@assets": "./src/assets",
+          "@components": "./src/components",
+          "@pages": "./src/pages",
+          "@services": "./src/services"
+        },
+        "extensions": [".js", ".jsx"]
+      }
+    }
   }
 }

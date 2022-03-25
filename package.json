@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "npm --prefix ./frontend i && npm --prefix ./backend i",
-    "dev": "npx concurrently \"npm --prefix ./frontend run dev\" \"npm --prefix ./backend run dev\"",
+    "install": "npm i && npm --prefix ./frontend i && npm --prefix ./backend i",
+    "dev": "concurrently -n front,back -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm --prefix ./frontend run dev\" \"npm --prefix ./backend run dev\"",
     "dev-front": "npm --prefix ./frontend run dev",
     "dev-back": "npm --prefix ./backend run dev",
     "lint": "npm --prefix ./frontend run lint && npm --prefix ./backend run lint",
@@ -15,6 +15,7 @@
   "author": "Wild Code School",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^7.0.0",
     "husky": "^7.0.0"
   }
 }
