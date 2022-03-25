@@ -4,12 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "setup": "npm i && npm run prepare && npm --prefix ./frontend i && npm --prefix ./backend i",
+    "setup": "npm i && husky install && npm --prefix ./frontend i && npm --prefix ./backend i",
     "dev": "concurrently -n front,back -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm --prefix ./frontend run dev\" \"npm --prefix ./backend run dev\"",
     "dev-front": "npm --prefix ./frontend run dev",
     "dev-back": "npm --prefix ./backend run dev",
-    "lint": "npm --prefix ./frontend run lint && npm --prefix ./backend run lint",
-    "prepare": "husky install"
+    "lint": "npm --prefix ./frontend run lint && npm --prefix ./backend run lint"
   },
   "keywords": [],
   "author": "Wild Code School",
