@@ -18,6 +18,7 @@ Ce template est conçu pour servir de base à tous les projets (P2/P3) suivants 
 - `dev-front` : Démarrage d'un serveur React pour le frontend
 - `dev-back` : Démarrage d'un serveur Express pour le backend
 - `lint` : Exécute des outils de validation de code (sera exécutée automatiquement à chaque _commit_)
+- `fix` : Fixe les erreurs de formatage (à lancer si `lint` ne passe pas)
 
 ## Pour plus d'informations
 

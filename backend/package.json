@@ -7,7 +7,8 @@
     "dev": "nodemon index.js",
     "migrate": "node migrate.js",
     "start": "node index.js",
-    "lint": "echo '----- Checking Backend...' && npx prettier --write . && eslint --fix --ext .js . && echo '----- Done!'"
+    "lint": "echo '----- Checking Backend...' && npx prettier --debug-check . && eslint --ext .js . && echo '----- Done!'",
+    "fix": "prettier --write . && eslint --fix --ext .js ."
   },
   "keywords": [],
   "author": "",
