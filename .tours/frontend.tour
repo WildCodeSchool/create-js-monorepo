@@ -1,0 +1,37 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "02: Frontend",
+  "steps": [
+    {
+      "file": "frontend/src/App.jsx",
+      "description": "From your App.jsx file you'll be able to build your application. Consider you're already in the `<body>` tag of your HTML page and code on !",
+      "line": 5
+    },
+    {
+      "file": "frontend/src/App.jsx",
+      "description": "On this very first line, you see the import of another component: Home (you may delete it if you don't need it, it's just a sample!)\n\nTwo things to note here:\n- this import gets the `Home.jsx` file situated in the `pages` folder (no need to add the \".jsx\" extension in your imports)\n- the `@pages` notation is a shortcut pre-configured by your trainers: wherever you are in your frontend file architecture, it will lead to the `frontend/src/pages` folder. You don't need to know how it was done for now, but there are other shortcuts as this one:\n  - `@assets`\n  - `@components`\n  - `@pages`\n  - `@services`\n",
+      "line": 1
+    },
+    {
+      "file": "frontend/src/assets/.gitignore",
+      "description": "The `src/assets` folder is meant to hold all your non-code files : fonts, images, audio & video files, ...\n\nFeel free to make subfolders to keep it as clean as possible!",
+      "line": 1
+    },
+    {
+      "file": "frontend/src/components/.gitignore",
+      "description": "You may store any component you create in the `src/components` folder (thanks Captain Obvious!)\n\nIt'll allow you to keep the `src` folder clean. As seen in the previous step, please create folders here as you see fit",
+      "line": 1
+    },
+    {
+      "file": "frontend/src/pages/.gitignore",
+      "description": "The `src/pages` folder is meant to hold components directy caled by react-router (or whatever router you're using) (and if you don't understand what I'm saying riht now, don't worry it'll become clearer soon!)\n\nYou want to store here your \"pages\" (even though React apps don't typically work like vanilla HTML websites and don't know of the \"page\" concept)",
+      "line": 1
+    },
+    {
+      "file": "frontend/src/services/.gitignore",
+      "description": "This one is a bit trickier to explain: sometimes, in your React app, you'll need some files which are not components at all : a custom hook, redux files, an API abstraction layer, etc... The `src/services` folder is here for that purpose exactly.\n\nDon't worry if you don't have anything to put in there for now: you'll know when you need it ;-)",
+      "line": 1
+    }
+  ],
+  "ref": "master"
+}
