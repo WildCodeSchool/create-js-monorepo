@@ -1,0 +1,57 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "03: Backend",
+  "steps": [
+    {
+      "file": "backend/index.js",
+      "description": "Aaah, the `backend` folder ! \n\n_Before we begin, a fair warning: it's a bit more advanced than what you've seen previously, so don't dive in there too soon or you may get overwhelmed!_\n\nStill there ? Okay, here we go !",
+      "line": 15
+    },
+    {
+      "file": "backend/index.js",
+      "description": "The irst file you'll run through is the global `index.js`\nIt's just there to set things in motion, and we'll write very few lines of code here:\n- We set environment variables (Hello `.dotenv` !)\n- We call the `src/app.js` file (that's our real app, more on that in a few seconds)\n- We make our app start listening on a specific port (otherwise, even with the best code in the world it would d absolutely nothing)",
+      "line": 1
+    },
+    {
+      "file": "backend/src/app.js",
+      "description": "In the `src/app.js` file, we set up Express and app-wise middlewares (bits of code which are independent from our routes). For example, in this case we:\n- use the `cors` package to specify who has the right to call our backend\n- use the `express.json()` middleware to be able to read our client's request's **body**\n- use the `express.static()` middleware to allow files situated in the `public` folder to be accessed directly, without using routes\n\nWe also call for `src/router.js`, our next stop...",
+      "line": 1
+    },
+    {
+      "file": "backend/src/router.js",
+      "description": "Here, we'll specify which routes are available, and what does every one of them do.\n\nFor lisibility's sake, we don't write route-specifid code, but instead link to methods situated in *Controllers*\n\nFor example, if your client calls a \"GET /items/17\", the request will be redirected to the \"read\" method of the ItemController class.",
+      "line": 1
+    },
+    {
+      "file": "backend/src/controllers/ItemController.js",
+      "description": "Ah, here we are!\n\nThis \"read\" method in ItemController is a classic Express route middleware: given a request (`req`) and a response (`res`) variables, it'll execute code and try to satisfy your clients demands",
+      "line": 16
+    },
+    {
+      "file": "backend/src/controllers/ItemController.js",
+      "description": "Every route middleware's goal is to `res.send` something, be it useful data or an error code. Here you may see we have several possibilities:\n- If we found the item our client requested (remember the \"GET /items/17\" call ?), we send it\n- If we did not find it, we send a 404 (\"Content not found\") status\n- If something goes wrong (MySQL global error, syntax typo ,...) we send a 500 (\"Internal server error\") code (we don't want potential attackers to know what broke !)",
+      "line": 23
+    },
+    {
+      "file": "backend/src/controllers/ItemController.js",
+      "description": "Now, I'm speaking about MySQL errors but there are no \"SELECT * FROM item\" queries here, there's just this `models.item.find()` call...\n\nThat's normal, because your requests manipulate an _Entity_, a _Model_ of your target (here, an item). So we'll have to go to the `src/models/ItemManager.js` file!",
+      "line": 17
+    },
+    {
+      "file": "backend/src/models/ItemManager.js",
+      "description": "Ah, here we are, we found our SQL queries!\n\nAs you can see, every method here is dead simple: \"do something with the DB, and return the result\".\nThat allows us to regroup **all** our queries in the same files, t make it easier to maintain.\n\nHmm, but although we're in the Item model, I can't see the `find` method...\nOur ItemManager is a specialized AbstractManager (that's OOP for you!), we may as well go and see what this one does ?",
+      "line": 3
+    },
+    {
+      "file": "backend/src/models/AbstractManager.js",
+      "description": "Hah! Nailed it! (At last)\n\nWe have a `find` method, which does our `SELECT * FROM` query.\nAnd looking more in detail, we can imagine why: except for the table name, the query is strictly identical to find a specific item, or book, or car, or unicorn... So, it makes sense to write it onl once and make sure *every* somethingManager has access to it by default, doesn't it ?\n\nNote that the same goes for `findAll` ans `delete`: you'll never have to write these queries in your own managers !",
+      "line": 7
+    },
+    {
+      "file": "backend/index.js",
+      "description": "Congrats on following me through this complex architecture! I hope that's a bit clearer now that it was a while ago!",
+      "line": 3
+    }
+  ],
+  "ref": "master"
+}

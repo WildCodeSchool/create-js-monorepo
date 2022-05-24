@@ -1,0 +1,37 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "01: Global behaviour",
+  "steps": [
+    {
+      "file": "README.md",
+      "description": "First thing first: read this file! A few explanations can go a long way towards comprehension...",
+      "line": 1
+    },
+    {
+      "file": "package.json",
+      "description": "Here are the scripts we spoke about in the README.\nEven if you don't understand the exact syntax (and seriously, you don't need to!), know these commands because you'll be using them a lot during your project.\n\nNB: most of these are \"meta-commands\" : they just execute the matching command in the frontend and the backend folders.",
+      "line": 6
+    },
+    {
+      "file": "frontend/package.json",
+      "description": "Here we are, in the *frontend* package.json. I insist on this, but **It is not the same as the other one!**\nCommands listed here will have absolutely zero impact on the rest of the project: that's why you should **always** be in your project's root directory in your Terminal before you run any commands.",
+      "line": 1
+    },
+    {
+      "file": "frontend/package.json",
+      "description": "Side note: You may notice there are a lot of (front-specific!) developer dependancies here. They are the packages used to enforce React-only rules (JSX, Accessibility, ...), and would have no interest nor use in the backend folder.",
+      "line": 16
+    },
+    {
+      "file": "frontend/.env.sample",
+      "description": "Here we have a `.env` safe copy. Ask your trainer for more details on it as you see fit, but please note that:\n- every information you don't want everyone to get their hands on should end here. API keys, your bank account number, passwords, ...\n- all the variables you'll list here (in the \".sample\" version) should have **FAKE** values: the `.env.sample` file will go on GHub, whereas the `.env` one won't",
+      "line": 1
+    },
+    {
+      "file": "frontend/src/App.jsx",
+      "description": "Here, you may see (at last!) your App itself!\n\nCongrats on finishing this first global CodeTour, for further ado on the frontend architecture you may want to check the next one ;-) ",
+      "line": 1
+    }
+  ],
+  "ref": "master"
+}
