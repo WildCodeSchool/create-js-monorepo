@@ -1,9 +1,7 @@
 const express = require("express");
 const path = require("path");
-
 const cors = require("cors");
-
-// let's create express app
+const router = require("./router");
 
 const app = express();
 
@@ -16,13 +14,19 @@ app.use(
 );
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../public")));
 
-// load router
+// Serve REACT APP
+app.use(express.static(path.join(__dirname, "..", "..", "frontend", "dist")));
 
-const router = require("./router");
-
+// API routes
 app.use(router);
+
+// Redirect all requests to the REACT app
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "..", "..", "frontend", "dist", "index.html")
+  );
+});
 
 // ready to export
 module.exports = app;
