@@ -15,6 +15,7 @@ It's pre-configured with a set of tools which'll help students produce industry-
 ### Available Commands
 
 - `setup` : Initialization of frontend and backend, as well as all toolings
+- `migrate` : Run the database migration script
 - `dev` : Starts both servers (frontend + backend) in one terminal
 - `dev-front` : Starts the React frontend server
 - `dev-back` : Starts the Express backend server
