@@ -30,10 +30,7 @@ const models = fs
     const managerInstance = new Manager();
     managerInstance.setConnection(pool);
 
-    // eslint-disable-next-line no-param-reassign
-    acc[managerInstance.table] = managerInstance;
-
-    return acc;
+    return { ...acc, [managerInstance.table]: managerInstance };
   }, {});
 
 const handler = {
