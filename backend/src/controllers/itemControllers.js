@@ -58,7 +58,7 @@ const add = (req, res) => {
   models.item
     .insert(item)
     .then(([result]) => {
-      res.status(201).send({ ...item, id: result.insertId });
+      res.location(`/items/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -69,8 +69,12 @@ const add = (req, res) => {
 const destroy = (req, res) => {
   models.item
     .delete(req.params.id)
-    .then(() => {
-      res.sendStatus(204);
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
     })
     .catch((err) => {
       console.error(err);
