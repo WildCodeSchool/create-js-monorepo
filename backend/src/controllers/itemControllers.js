@@ -1,5 +1,34 @@
 const models = require("../models");
 
+/*
+
+// without db
+
+const items = [
+  { id: 1, title: "Stuff" },
+  { id: 2, title: "Doodads" },
+];
+
+const browse = (req, res) => {
+  res.send(items);
+};
+
+const read = (req, res) => {
+  const existingItem = items.find(
+    (item) => item.id === parseInt(req.params.id, 10)
+  );
+
+  if (existingItem == null) {
+    res.sendStatus(404);
+  } else {
+    res.send(existingItem);
+  }
+};
+
+*/
+
+// with db
+
 const browse = (req, res) => {
   models.item
     .findAll()
@@ -31,8 +60,6 @@ const read = (req, res) => {
 const edit = (req, res) => {
   const item = req.body;
 
-  // TODO validations (length, format...)
-
   item.id = parseInt(req.params.id, 10);
 
   models.item
@@ -52,8 +79,6 @@ const edit = (req, res) => {
 
 const add = (req, res) => {
   const item = req.body;
-
-  // TODO validations (length, format...)
 
   models.item
     .insert(item)
