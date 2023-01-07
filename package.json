@@ -1,8 +1,7 @@
 {
   "name": "template-fullstack",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "project template for the React-Express-MySQL cursus in Wild Code School",
   "scripts": {
     "setup": "npm i && husky install && npm --prefix ./frontend i && npm --prefix ./backend i",
     "migrate": "cd backend/ && node migrate.js && cd ..",
