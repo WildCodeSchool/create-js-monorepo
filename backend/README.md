@@ -12,6 +12,7 @@ This repository is a simple Express MVC structure from scratch.
 
 ```
 DB_HOST=your_db_host
+DB_PORT=your_db_port
 DB_USER=your_db_user
 DB_PASSWORD=your_db_password
 DB_NAME=your_db_name
