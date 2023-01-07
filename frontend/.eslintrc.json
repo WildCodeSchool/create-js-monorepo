@@ -34,18 +34,5 @@
         "assert": "either"
       }
     ]
-  },
-  "settings": {
-    "import/resolver": {
-      "eslint-import-resolver-custom-alias": {
-        "alias": {
-          "@assets": "./src/assets",
-          "@components": "./src/components",
-          "@pages": "./src/pages",
-          "@services": "./src/services"
-        },
-        "extensions": [".js", ".jsx"]
-      }
-    }
   }
 }
