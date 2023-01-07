@@ -9,7 +9,7 @@
     },
     {
       "file": "frontend/src/App.jsx",
-      "description": "On this very first line, you see the import of another component: Home (you may delete it if you don't need it, it's just a sample!)\n\nTwo things to note here:\n- this import gets the `Home.jsx` file situated in the `pages` folder (no need to add the \".jsx\" extension in your imports)\n- the `@pages` notation is a shortcut pre-configured by your trainers: wherever you are in your frontend file architecture, it will lead to the `frontend/src/pages` folder. You don't need to know how it was done for now, but there are other shortcuts as this one:\n  - `@assets`\n  - `@components`\n  - `@pages`\n  - `@services`\n",
+      "description": "On this very first line, you see the import of another component: Home (you may delete it if you don't need it, it's just a sample!)\n\nTwo things to note here:\n- this import gets the `Home.jsx` file situated in the `pages` folder",
       "line": 1
     },
     {
