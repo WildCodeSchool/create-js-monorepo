@@ -8,6 +8,7 @@ Ce template est conçu pour servir de base à tous les projets (P2/P3) suivants 
 
 - Sur VSCode, installer les plugins **Prettier - Code formatter** et **ESLint** et les configurer
 - Cloner ce dépôt, se rendre à l'intérieur
+- Si vous utilisez `yarn` ou `pnpm`, adapter `config/cli` dans le fichier `package.json`
 - Lancer la commande `npm run setup`
 - _NB: Pour exécuter le backend, un fichier d'environnement avec les données de connexion d'une BdD valide est nécesaire. Un modèle se trouve dans `backend/.env.sample`_
 

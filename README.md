@@ -9,6 +9,7 @@ It's pre-configured with a set of tools which'll help students produce industry-
 
 - In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
 - Clone this repo, enter it
+- If you are using `yarn` or `pnpm`, adapt the `config/cli` in `package.json`
 - Run command `npm run setup`
 - _NB: To launch the backend server, you'll need an environment file with database credentials. You'll find a template one in `backend/.env.sample`_
 
