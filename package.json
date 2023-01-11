@@ -6,7 +6,7 @@
     "cli": "npm"
   },
   "scripts": {
-    "setup": "$npm_package_config_cli install && husky install && (cd ./frontend && $npm_package_config_cli install) && (cd ./backend && $npm_package_config_cli install)",
+    "postinstall": "husky install && (cd ./frontend && $npm_package_config_cli install) && (cd ./backend && $npm_package_config_cli install)",
     "migrate": "cd ./backend && node migrate.js",
     "dev": "concurrently -n front,back -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"(cd ./frontend && $npm_package_config_cli run dev)\" \"(cd ./backend && $npm_package_config_cli run dev)\"",
     "dev-front": "cd ./frontend && $npm_package_config_cli run dev",
