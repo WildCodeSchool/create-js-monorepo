@@ -4,23 +4,21 @@ class AbstractManager {
   }
 
   find(id) {
-    return this.connection.query(`select * from  ${this.table} where id = ?`, [
+    return this.database.query(`select * from  ${this.table} where id = ?`, [
       id,
     ]);
   }
 
   findAll() {
-    return this.connection.query(`select * from  ${this.table}`);
+    return this.database.query(`select * from  ${this.table}`);
   }
 
   delete(id) {
-    return this.connection.query(`delete from ${this.table} where id = ?`, [
-      id,
-    ]);
+    return this.database.query(`delete from ${this.table} where id = ?`, [id]);
   }
 
-  setConnection(connection) {
-    this.connection = connection;
+  setDatabase(database) {
+    this.database = database;
   }
 }
 
