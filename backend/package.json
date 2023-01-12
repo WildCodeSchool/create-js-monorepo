@@ -17,8 +17,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mysql2": "^2.3.3",
-    "template-fullstack": "file:.."
+    "mysql2": "^2.3.3"
   },
   "rules": {
     "no-console": [
