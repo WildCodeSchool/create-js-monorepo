@@ -6,19 +6,20 @@
     "cli": "npm"
   },
   "scripts": {
-    "postinstall": "husky install && (cd ./frontend && $npm_package_config_cli install) && (cd ./backend && $npm_package_config_cli install)",
+    "postinstall": "cross-env-shell \"husky install && cd ./frontend && $npm_package_config_cli install && cd ../backend && $npm_package_config_cli install\"",
     "migrate": "cd ./backend && node migrate.js",
-    "dev": "concurrently -n front,back -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"(cd ./frontend && $npm_package_config_cli run dev)\" \"(cd ./backend && $npm_package_config_cli run dev)\"",
-    "dev-front": "cd ./frontend && $npm_package_config_cli run dev",
-    "dev-back": "cd ./backend && $npm_package_config_cli run dev",
-    "lint": "(cd ./frontend && $npm_package_config_cli run lint) && (cd ./backend && $npm_package_config_cli run lint)",
-    "fix": "(cd ./frontend && $npm_package_config_cli run fix) && (cd ./backend && $npm_package_config_cli run fix)"
+    "dev": "concurrently -n front,back -c green,yellow -t 'HH:mm:ss' -p '{name} {time}' 'cross-env-shell \"cd ./frontend && $npm_package_config_cli run dev\"' 'cross-env-shell \"cd ./backend && $npm_package_config_cli run dev\"'",
+    "dev-front": "cross-env-shell \"cd ./frontend && $npm_package_config_cli run dev\"",
+    "dev-back": "cross-env-shell \"cd ./backend && $npm_package_config_cli run dev\"",
+    "lint": "cross-env-shell \"cd ./frontend && $npm_package_config_cli run lint && cd ../backend && $npm_package_config_cli run lint\"",
+    "fix": "cross-env-shell \"cd ./frontend && $npm_package_config_cli run fix && cd ../backend && $npm_package_config_cli run fix\""
   },
   "keywords": [],
   "author": "Wild Code School",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
     "husky": "^8.0.3"
   }
 }
