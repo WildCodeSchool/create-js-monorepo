@@ -22,6 +22,7 @@ Nothing planned right now.
 
 - Allowed usage `console.info` in ESLint configuration (front and back).
 - Bumped dependencies versions. Thanks to [Valentin Dupin](https://github.com/ydainna).
+- Cleaned backend/src/app.js and removed public index.html file to avoid conflicts when serving react build.
 
 - **Breaking change:** removed setup script: `npm install` (or any other alternative) triggers a `postinstall` script.
 
