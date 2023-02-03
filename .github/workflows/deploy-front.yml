@@ -1,28 +1,35 @@
 name: deploy-front
 
 on:
-    push:
-        # change main branch, by default : main
-        branches: [main]
+  push:
+    # change main branch, by default : main
+    branches: [main]
 
 jobs:
-    # This workflow contains a single job called "build"
-    build:
-        # The type of runner that the job will run on
-        runs-on: ubuntu-latest
+  lint:
+    uses: ./.github/workflows/lint.yml
+    permissions:
+      checks: write
+      contents: write
 
-        # Steps represent a sequence of tasks that will be executed as part of the job
-        steps:
-            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-            - uses: actions/checkout@v2
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
-            - name: Set up npm
-              uses: actions/setup-node@v2
-              with:
-                  node-version: "16"
+    needs: lint
 
-            - name: Install caprover
-              run: npm install -g caprover
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-            - name: Caprover Deploy
-              run: caprover deploy -h "${{ secrets.CAPROVER_SERVER }}" -p '${{ secrets.CAPROVER_PASSWORD }}' -b 'main' -a "${{ secrets.CAPROVER_FRONT_APPNAME }}"
+      - name: Set up npm
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: Install caprover
+        run: npm install -g caprover
+
+      - name: Caprover Deploy
+        run: caprover deploy -h "${{ secrets.CAPROVER_SERVER }}" -p '${{ secrets.CAPROVER_PASSWORD }}' -b 'main' -a "${{ secrets.CAPROVER_FRONT_APPNAME }}"

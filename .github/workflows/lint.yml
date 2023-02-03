@@ -1,6 +1,7 @@
-name: Lint
+name: lint
 
 on:
+  workflow_call:
   push:
     branches:
       - main
@@ -32,8 +33,11 @@ jobs:
         with:
           node-version: 16
 
+      - name: Install pnpm
+        run: npm -g install pnpm
+
       - name: Install Node.js dependencies
-        run: npm install
+        run: cd ./frontend && pnpm install && cd ../backend && pnpm install
 
       - name: Run linters
-        run: npm run lint
+        run: cd ./frontend && pnpm run lint && cd ../backend && pnpm run lint
