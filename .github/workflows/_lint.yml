@@ -2,34 +2,22 @@ name: lint
 
 on:
   workflow_call:
-  push:
-    branches:
-      - main
-      - master
-      - develop
-      - dev
-  pull_request:
-    branches:
-      - main
-      - master
-      - develop
-      - dev
-
-permissions:
-  checks: write
-  contents: write
 
 jobs:
-  run-linters:
+  lint:
     name: Run linters
     runs-on: ubuntu-latest
 
+    permissions:
+      checks: write
+      contents: write
+
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16
 
