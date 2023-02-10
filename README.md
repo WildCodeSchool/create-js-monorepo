@@ -9,12 +9,12 @@ It's pre-configured with a set of tools which'll help students produce industry-
 
 - In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
 - Clone this repo, enter it
-- Run command `npm run setup`
+- If you are using `yarn` or `pnpm`, adapt the `config/cli` in `package.json`
+- Run command `npm install`
 - _NB: To launch the backend server, you'll need an environment file with database credentials. You'll find a template one in `backend/.env.sample`_
 
 ### Available Commands
 
-- `setup` : Initialization of frontend and backend, as well as all toolings
 - `migrate` : Run the database migration script
 - `dev` : Starts both servers (frontend + backend) in one terminal
 - `dev-front` : Starts the React frontend server
@@ -33,3 +33,12 @@ It's pre-configured with a set of tools which'll help students produce industry-
 - _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
 - _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
 - _Nodemon_ : Allows to restart the server everytime a .js file is udated
+
+### Deployment
+
+For deployment, you have to go to `secrets` → app `actions` on the github repo to insert via `New repository secret` :
+
+- CAPROVER_BACK_APPNAME : name app on caprover
+- CAPROVER_FRONT_APPNAME : name app on caprover
+- CAPROVER_PASSWORD : password caprover
+- CAPROVER_SERVER : link of domain

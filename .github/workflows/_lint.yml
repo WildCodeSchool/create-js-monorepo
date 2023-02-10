@@ -1,0 +1,31 @@
+name: lint
+
+on:
+  workflow_call:
+
+jobs:
+  lint:
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    permissions:
+      checks: write
+      contents: write
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install pnpm
+        run: npm -g install pnpm
+
+      - name: Install Node.js dependencies
+        run: cd ./frontend && pnpm install && cd ../backend && pnpm install
+
+      - name: Run linters
+        run: cd ./frontend && pnpm run lint && cd ../backend && pnpm run lint
