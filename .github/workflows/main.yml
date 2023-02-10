@@ -1,0 +1,63 @@
+name: main
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  lint:
+    uses: ./.github/workflows/_lint.yml
+    permissions:
+      checks: write
+      contents: write
+
+  check-secrets: # thx https://stackoverflow.com/a/70249520/6612932
+    runs-on: ubuntu-latest
+
+    needs: lint
+
+    outputs:
+      caprover-server: ${{ steps.caprover-server.outputs.defined }}
+
+    steps:
+      - name: Check for secrets.CAPROVER_SERVER availability
+        id: caprover-server
+        # perform secret check & put boolean result as an output
+        shell: bash
+        run: |
+          if [ "${{ secrets.CAPROVER_SERVER }}" != '' ]; then
+            echo "defined=true" >> $GITHUB_OUTPUT;
+          else
+            echo "defined=false" >> $GITHUB_OUTPUT;
+          fi
+
+  deploy:
+    if: needs.check-secrets.outputs.caprover-server == 'true'
+
+    runs-on: ubuntu-latest
+
+    needs: check-secrets
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Set up npm
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install caprover
+        run: npm install -g caprover
+
+      - name: Deploy back
+        run: caprover deploy -h "${{ secrets.CAPROVER_SERVER }}" -p '${{ secrets.CAPROVER_PASSWORD }}' -b 'main' -a "${{ secrets.CAPROVER_BACK_APPNAME }}"
+
+      - name: Deploy front
+        run: caprover deploy -h "${{ secrets.CAPROVER_SERVER }}" -p '${{ secrets.CAPROVER_PASSWORD }}' -b 'main' -a "${{ secrets.CAPROVER_FRONT_APPNAME }}"
