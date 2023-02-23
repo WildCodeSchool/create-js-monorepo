@@ -42,3 +42,10 @@ For deployment, you have to go to `secrets` → app `actions` on the github repo
 - CAPROVER_FRONT_APPNAME : name app on caprover
 - CAPROVER_PASSWORD : password caprover
 - CAPROVER_SERVER : link of domain
+
+In the backend Folder as in the frontend, don't forget to update the **DockerFile** with all the needed env key.
+*Example as follow for an JWT SECRET (name of the variable should match the one on the project and CapRover config)*.
+```
+ARG JWT_SECRET_TOKEN=${JWT_SECRET_TOKEN}
+ENV JWT_SECRET_TOKEN=${JWT_SECRET_TOKEN}
+```
