@@ -1,8 +1,4 @@
 {
-  "name": "mvc-express",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
     "migrate": "node migrate.js",
@@ -10,25 +6,11 @@
     "lint": "echo '----- Checking Backend...' && npx prettier --debug-check . && eslint --ext .js . && echo '----- Done!'",
     "fix": "prettier --write . && eslint --fix --ext .js ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mysql2": "^3.0.1"
-  },
-  "rules": {
-    "no-console": [
-      "error",
-      {
-        "allow": [
-          "warn",
-          "error"
-        ]
-      }
-    ]
   },
   "devDependencies": {
     "eslint": "^8.32.0",
