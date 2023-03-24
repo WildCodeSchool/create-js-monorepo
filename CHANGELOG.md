@@ -7,11 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Nothing planned right now.
+
+[Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues/new) if you have any request/feedback :)
+
+## [2.0.1] - 2023-03-24
+
 ### Changed
 
 - Removed useless code in `package.json` files.
-
-[Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues/new) if you have any request/feedback :)
 
 ## [2.0.0] - 2023-02-10
 
