@@ -11,6 +11,12 @@ Nothing planned right now.
 
 [Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues/new) if you have any request/feedback :)
 
+## [2.0.2] - 2023-04-12
+
+### Added
+
+- Git commands for Windows users, to fix issues with different newline formats (see [README.md](README.md#windows-users)).
+
 ## [2.0.1] - 2023-03-24
 
 ### Changed
