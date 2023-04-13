@@ -13,4 +13,7 @@ export default defineConfig({
       "@services": path.resolve(__dirname, "src/services"),
     },
   },
+  server: {
+    port: import.meta.VITE_PORT ?? 3000,
+  },
 });
