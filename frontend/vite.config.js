@@ -14,6 +14,6 @@ export default defineConfig({
     },
   },
   server: {
-    port: import.meta.VITE_PORT ?? 3000,
+    port: 3000,
   },
 });
