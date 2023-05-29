@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2023-05-29
+
 ### Added
 
 - Git commands for Windows users, to fix issues with different newline formats (see [README.md](README.md#windows-users)).
