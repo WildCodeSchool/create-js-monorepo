@@ -7,7 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Nothing planned right now.
+## [3.0.0] - 2023-05-29
+
+### Added
+
+- Git commands for Windows users, to fix issues with different newline formats (see [README.md](README.md#windows-users)).
+
+### Changed
+
+- Changed default ports configuration to 3000 for frontend and 6000 for backend. Thanks to [Loris Chastanet](https://github.com/lchastanet).
+
+- **Breaking change:** removed cutomized alias for imports in frontend.
+
+### Fixed
+
+- Moved `vite` `and `@`vitejs/plugin-react` as regular dependencies in frontend, and fixed imports in config. Thanks to [Pierre Paillard](https://github.com/PPaillard/).
 
 [Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues/new) if you have any request/feedback :)
 
