@@ -29,6 +29,8 @@ const database = new sqlite.Database(databasePath, (err) => {
   }
 });
 
+// provide the database through AbstractManager class
+
 class AbstractManager {
   constructor({ table }) {
     this.table = table;
