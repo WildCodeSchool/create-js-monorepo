@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "nodemon index.js",
-    "migrate": "node migrate.js",
+    "db:migrate": "node migrate.js",
+    "db:seed": "node seed.js",
     "start": "node index.js",
     "lint": "echo '----- Checking Backend...' && npx prettier --debug-check . && eslint --ext .js . && echo '----- Done!'",
     "fix": "prettier --write . && eslint --fix --ext .js ."
@@ -10,9 +11,10 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mysql2": "^3.0.1"
+    "sqlite3": "^5.1.6"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "eslint": "^8.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",

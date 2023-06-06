@@ -1,32 +1,46 @@
 require("dotenv").config();
 
-const fs = require("fs");
-const mysql = require("mysql2/promise");
+const fs = require("node:fs");
+const path = require("node:path");
 
-const migrate = async () => {
-  const { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
+// drop database if exists
 
-  const connection = await mysql.createConnection({
-    host: DB_HOST,
-    port: DB_PORT,
-    user: DB_USER,
-    password: DB_PASSWORD,
-    multipleStatements: true,
-  });
+const databasePath = path.join(
+  __dirname,
+  "database",
+  `${process.env.DB_NAME}.sqlite`
+);
 
-  await connection.query(`drop database if exists ${DB_NAME}`);
-  await connection.query(`create database ${DB_NAME}`);
-  await connection.query(`use ${DB_NAME}`);
-
-  const sql = fs.readFileSync("./database.sql", "utf8");
-
-  await connection.query(sql);
-
-  connection.end();
-};
-
-try {
-  migrate();
-} catch (err) {
-  console.error(err);
+if (fs.existsSync(databasePath)) {
+  fs.unlinkSync(databasePath);
 }
+
+// create database
+
+const sqlite = require("sqlite3").verbose();
+
+const database = new sqlite.Database(databasePath);
+
+// read SQL from schema
+
+const schemaPath = path.join(__dirname, "database", "schema.sql");
+
+const sql = fs.readFileSync(schemaPath, "utf8");
+
+// execute sql to create tables
+
+database.exec(sql, (err) => {
+  if (err) {
+    console.error(err);
+  }
+});
+
+// close database
+
+database.close((err) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.info(`${databasePath} updated from ${schemaPath} 🆙`);
+  }
+});
