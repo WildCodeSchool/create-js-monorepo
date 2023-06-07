@@ -1,8 +1,6 @@
-require("dotenv").config();
+// build database path
 
 const path = require("node:path");
-
-// build database path
 
 const databasePath = path.join(
   __dirname,
