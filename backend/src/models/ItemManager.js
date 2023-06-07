@@ -5,64 +5,46 @@ class ItemManager extends AbstractManager {
     super({ table: "item" });
   }
 
-  create(item, callback) {
-    // when using database.run, you must use an old-school function () { ... }
-    // rather than an arrow function for the callback, otherwise this.lastID
-    // will be undefined.
-
-    function handleInsert(err) {
-      callback(err, this.lastID);
-    }
-
-    this.database.run(
+  async create(item) {
+    const [result] = await this.database.query(
       `insert into ${this.table} (title) values (?)`,
-      [item.title],
-      handleInsert
+      [item.title]
     );
+
+    return result.insertId;
   }
 
-  read(id, callback) {
-    this.database.get(
+  async read(id) {
+    const [rows] = await this.database.query(
       `select * from ${this.table} where id = ?`,
-      [id],
-      callback
+      [id]
     );
+
+    return rows[0];
   }
 
-  readAll(callback) {
-    this.database.all(`select * from ${this.table}`, callback);
+  async readAll() {
+    const [rows] = await this.database.query(`select * from ${this.table}`);
+
+    return rows;
   }
 
-  update(item, callback) {
-    // when using database.run, you must use an old-school function () { ... }
-    // rather than an arrow function for the callback, otherwise this.changes
-    // will be undefined.
-
-    function handleUpdate(err) {
-      callback(err, this.changes);
-    }
-
-    this.database.run(
+  async update(item) {
+    const [result] = await this.database.query(
       `update ${this.table} set title = ? where id = ?`,
-      [item.title, item.id],
-      handleUpdate
+      [item.title, item.id]
     );
+
+    return result.affectedRows;
   }
 
-  delete(id, callback) {
-    // when using database.run, you must use an old-school function () { ... }
-    // rather than an arrow function for the callback, otherwise this.changes
-    // will be undefined.
-
-    function handleDelete(err) {
-      callback(err, this.changes);
-    }
-
-    this.database.run(
+  async delete(id) {
+    const [result] = await this.database.query(
       `delete from ${this.table} where id = ?`,
-      [id],
-      handleDelete
+      [id]
     );
+
+    return result.affectedRows;
   }
 }
 

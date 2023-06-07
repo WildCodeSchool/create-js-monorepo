@@ -1,65 +1,71 @@
 const tables = require("../tables");
 
-const browse = (req, res, next) => {
-  tables.item.readAll((err, rows) => {
-    if (err) {
-      next(err);
-    } else {
-      res.send(rows);
-    }
-  });
+const browse = async (req, res, next) => {
+  try {
+    const rows = await tables.item.readAll();
+
+    res.send(rows);
+  } catch (err) {
+    next(err);
+  }
 };
 
-const read = (req, res, next) => {
-  tables.item.read(req.params.id, (err, row) => {
-    if (err) {
-      next(err);
-    } else if (row == null) {
+const read = async (req, res, next) => {
+  try {
+    const row = await tables.item.read(req.params.id);
+
+    if (row == null) {
       res.sendStatus(404);
     } else {
       res.send(row);
     }
-  });
+  } catch (err) {
+    next(err);
+  }
 };
 
-const edit = (req, res, next) => {
+const edit = async (req, res, next) => {
   const item = req.body;
 
   item.id = parseInt(req.params.id, 10);
 
-  tables.item.update(item, (err, changes) => {
-    if (err) {
-      next(err);
-    } else if (changes === 0) {
+  try {
+    const affectedRows = await tables.item.update(item);
+
+    if (affectedRows === 0) {
       res.sendStatus(404);
     } else {
       res.sendStatus(204);
     }
-  });
+  } catch (err) {
+    next(err);
+  }
 };
 
-const add = (req, res, next) => {
+const add = async (req, res, next) => {
   const item = req.body;
 
-  tables.item.create(item, (err, insertID) => {
-    if (err) {
-      next(err);
-    } else {
-      res.location(`/items/${insertID}`).sendStatus(201);
-    }
-  });
+  try {
+    const insertId = await tables.item.create(item);
+
+    res.location(`/items/${insertId}`).sendStatus(201);
+  } catch (err) {
+    next(err);
+  }
 };
 
-const destroy = (req, res, next) => {
-  tables.item.delete(req.params.id, (err, changes) => {
-    if (err) {
-      next(err);
-    } else if (changes === 0) {
+const destroy = async (req, res, next) => {
+  try {
+    const affectedRows = await tables.item.delete(req.params.id);
+
+    if (affectedRows === 0) {
       res.sendStatus(404);
     } else {
       res.sendStatus(204);
     }
-  });
+  } catch (err) {
+    next(err);
+  }
 };
 
 module.exports = {

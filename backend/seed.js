@@ -2,57 +2,55 @@ require("dotenv").config();
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { faker } = require("@faker-js/faker");
-const fs = require("node:fs");
-const path = require("node:path");
 
-// check database exists
+// get variables from .env file
 
-const databasePath = path.join(
-  __dirname,
-  "database",
-  `${process.env.DB_NAME}.sqlite`
-);
+const { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
 
-if (!fs.existsSync(databasePath)) {
-  throw new Error(`${databasePath} doesn't exists. Did you run 'migrate'?`);
-}
+// fill the database
 
-// open database
+const mysql = require("mysql2/promise");
 
-const sqlite = require("sqlite3").verbose();
+const seed = async () => {
+  const database = await mysql.createConnection({
+    host: DB_HOST,
+    port: DB_PORT,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    multipleStatements: true,
+  });
 
-const database = new sqlite.Database(databasePath);
+  await database.query(`use ${DB_NAME}`);
 
-/* ************************************************************************* */
-// that's where you should generate your seed data
-/* ************************************************************************* */
+  /* ************************************************************************* */
+  // that's where you should generate your seed data
+  /* ************************************************************************* */
 
-// optional: truncate tables
+  // optional: truncate tables
 
-database.run("delete from item");
+  await database.query("truncate item");
 
-// insert fake data
+  // insert fake data
 
-for (let i = 0; i < 10; i += 1) {
-  database.run(
-    "insert into item(title) values (?)",
-    [faker.lorem.word()],
-    (err) => {
-      if (err) {
-        console.error(err);
-      }
-    }
-  );
-}
+  const queries = [];
 
-/* ************************************************************************* */
-
-// close database
-
-database.close((err) => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.info(`${databasePath} filled with seeds 🌱`);
+  for (let i = 0; i < 10; i += 1) {
+    queries.push(
+      database.query("insert into item(title) values (?)", [faker.lorem.word()])
+    );
   }
-});
+
+  /* ************************************************************************* */
+
+  await Promise.all(queries);
+
+  database.end();
+};
+
+try {
+  seed();
+
+  console.info(`${DB_NAME} filled from ${__filename} 🌱`);
+} catch (err) {
+  console.error(err);
+}
