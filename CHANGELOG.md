@@ -7,6 +7,69 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Installed `@faker-js/faker` in backend.
+
+- Made the backend more verbose with additional logs and more comments.
+
+### Changed
+
+- Exposed header `Location` in CORS configuration in backend.
+
+- Moved to async/await syntax in `backend/src/controllers/itemControllers.js`, and moved error handling into an error middleware in `app.js`.
+
+- **Breaking change:** refactored models. Managers like `backend/src/models/ItemManager.js` should declare every CRUD methods: they do not inherit read and delete methods from `AbstractManager` anymore. Methods `find`, `findAll` and `insert` are renamed as `read`, `readAll` and `create`. Moved to async/await syntax.
+
+- **Breaking change:** manager registration should be done in `backend/src/tables.js` instead of `backend/src/models/index.js`.
+
+For example, a `FooManager.js` model was previously registered in `backend/src/models/index.js` like this:
+
+```js
+const models = {};
+
+const FooManager = require("./FooManager");
+
+models.foo = new FooManager();
+models.foo.setDatabase(pool);
+```
+
+Now it should be registered in `backend/src/tables.js` like this:
+
+```js
+const tables = {};
+
+const FooManager = require("./models/FooManager");
+
+tables.foo = new FooManager();
+```
+
+(note you don't need the `setDatabase(pool)` line anymore)
+
+Usage in controllers changes from this:
+
+```js
+const models = require("../models");
+
+// ...
+
+models.foo.callSomeCrudMethod();
+```
+
+To this:
+
+```js
+const tables = require("../tables");
+
+// ...
+
+tables.foo.callSomeCrudMethod();
+```
+
+- **Breaking change:** split ̀`database.sql` logic into table creation in a file `backend/database/schema.sql` and table filling in a file `backend/seed.js`. Updated `backend/migrate.js` accordingly.
+
+- **Breaking change:** renamed `migrate` script as `db:migrate`, and added a `db:seed` script.
+
 ## [3.0.0] - 2023-05-29
 
 ### Added
