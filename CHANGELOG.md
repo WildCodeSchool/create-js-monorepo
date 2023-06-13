@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Installed `react-router-dom` in front, and did a non breaking change in `main.jsx`: pages can be added to the router, or everything can be developped in App setting aside the router features.
+
+- Uninstalled `husky` in front (useless dependency).
+
 ## [3.0.0] - 2023-05-29
 
 ### Added
