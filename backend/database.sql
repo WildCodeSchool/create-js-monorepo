@@ -21,12 +21,14 @@ CREATE TABLE IF NOT EXISTS `mydb`.`User` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `Email` VARCHAR(255) NOT NULL,
   `Hashed_password` VARCHAR(255) NOT NULL,
+  `Admin` BOOLEAN DEFAULT False,
   PRIMARY KEY (`Id`))
 ENGINE = InnoDB;
 
-INSERT INTO User (Email, Hashed_password)
+INSERT INTO User (Email, Hashed_password, Admin)
 VALUES ("yann.richard9@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$cXFnN2s1ZHU0aTAwMDAwMA$XFP3Vrp4/huxiy9p4p2EAw"),
 ("user.random@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$MTIzNDU2Nzg$1VS2Xgo4ph6WkoRshjCsJg");
+("admin.name@toto.com", "$argon2id$v=19$m=16,t=2,p=1$MTIzNDU2Nzg$YZOi4iOIKvdXpwWfSqQj9A", true)
 -- -----------------------------------------------------
 -- Table `mydb`.`Phone`
 -- -----------------------------------------------------
