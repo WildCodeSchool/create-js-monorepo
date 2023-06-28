@@ -6,7 +6,7 @@ function Presentation() {
   const navigate = useNavigate();
 
   const handleDiscoverClick = () => {
-    navigate("/home");
+    navigate("/login");
   };
   return (
     <div className={styles["Presentation-page"]}>
