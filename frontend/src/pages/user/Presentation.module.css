@@ -1,0 +1,48 @@
+.Presentation-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #233142, #517fa4);  }
+  
+  .logo {
+    margin-top: 5rem;
+    text-align: center;
+  }
+  
+  .Description {
+    background-color: #2e3f54;
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3)
+  }
+  
+  .button {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .button button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #2e3f54;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  .button button:hover {
+    background-color: #3256c9;
+    filter: brightness(90%);
+  }
+
+  
+  
