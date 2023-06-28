@@ -51,6 +51,28 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Phone` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO Phone (Brand, Model, RAM, Storage, Status, Total_value, User_Id)
+VALUES 
+    ( 'Samsung', 'Galaxy S20', 8, 128, 'Comme neuf', 120, 1),
+    ( 'Samsung', 'Galaxy S10', 4, 64, 'Bon état', 80, 2),
+    ( 'Samsung', 'Galaxy A52', 6, 128, 'Passable', 100, 2),
+    ( 'Samsung', 'Galaxy Note 10', 8, 256, 'Comme neuf', 150, 2),
+    ( 'Samsung', 'Galaxy S21', 12, 256, 'Mauvais', 180, 2),
+    ( 'iPhone', 'iPhone 12', 4, 64, 'Comme neuf', 90, 2),
+    ( 'iPhone', 'iPhone 11 Pro', 6, 128, 'Bon état', 120, 1),
+    ( 'iPhone', 'iPhone XR', 3, 64, 'Passable', 70, 2),
+    ( 'iPhone', 'iPhone SE', 4, 128, 'Mauvais', 100, 1),
+    ( 'iPhone', 'iPhone 13', 8, 256, 'Comme neuf', 150, 2),
+    ( 'Huawei', 'P40 Pro', 8, 256, 'Comme neuf', 140, 2),
+    ( 'Huawei', 'Mate 30 Pro', 8, 128, 'Bon état', 120, 1),
+    ( 'Huawei', 'P30 Lite', 4, 64, 'Passable', 80, 2),
+    ( 'Huawei', 'Nova 7i', 6, 128, 'Mauvais', 110, 2),
+    ( 'Huawei', 'P20 Pro', 6, 256, 'Comme neuf', 160, 2),
+    ( 'Xiaomi', 'Mi 11', 8, 256, 'Comme neuf', 180, 1),
+    ( 'Xiaomi', 'Redmi Note 9', 4, 128, 'Bon état', 100, 2),
+    ( 'Xiaomi', 'Poco X3', 6, 64, 'Passable', 90, 1),
+    ( 'Xiaomi', 'Mi 10T Pro', 8, 128, 'Mauvais', 140, 2),
+    ( 'Xiaomi', 'Redmi 9', 4, 64, 'Comme neuf', 80, 2);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
