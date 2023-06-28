@@ -1,14 +1,18 @@
 .test {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .footer {
-    background-color: #002743;
-    height: 10vh;
-    display: flex;
-    justify-content: space-around;
+  background-color: #002743;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 img {
-    width : 10vw; 
+  width: 10vw;
 }

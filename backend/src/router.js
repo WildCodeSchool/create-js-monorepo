@@ -2,7 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
-const { validateUser } = require("./services/validators");
+const { validatePhone } = require("./services/validatorsPhone");
+const { validateUser } = require("./services/validatorsUser");
 const { getUserByEmailMiddleware } = require("./controllers/authControllers");
 const {
   hashPassword,
@@ -23,6 +24,14 @@ router.get("/api/users/:id", userControllers.read);
 router.put("/api/users/:id", userControllers.edit);
 router.post("/api/users", validateUser, hashPassword, userControllers.add);
 router.delete("/api/users/:id", userControllers.destroy);
+
+const phoneControllers = require("./controllers/phoneControllers");
+
+router.get("/api/phone", phoneControllers.browse);
+router.get("/api/phones/:id", phoneControllers.read);
+router.put("/api/phones/:id", phoneControllers.edit);
+router.post("/api/phones", validatePhone, phoneControllers.add);
+router.delete("/api/phones/:id", phoneControllers.destroy);
 
 const itemControllers = require("./controllers/itemControllers");
 

@@ -1,17 +1,30 @@
 .test {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .header {
-    background-color: #002743;
-    height: 10vh;
-    display: flex;
-    justify-content: space-around;
+  background-color: #002743;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
 }
 
-.body {
-    height: 80vh; 
+.title1 {
+  color: #ffcc38;
+  display: flex;
+  justify-content: center;
 }
+
+.title2 {
+  color: #ffcc38;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  position: relative;
+}
+
 img {
-    width : 10vw; 
+  width: 10vw;
 }
