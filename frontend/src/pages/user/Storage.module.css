@@ -1,0 +1,17 @@
+.test {
+    text-decoration: underline;
+}
+
+.header {
+    background-color: #002743;
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.body {
+    height: 80vh; 
+}
+img {
+    width : 10vw; 
+}
