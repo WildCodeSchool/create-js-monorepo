@@ -1,6 +1,6 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import APIService from "../services/APIService";
 
 const UserContext = createContext();
@@ -11,11 +11,11 @@ export function UserContextProvider({ children }) {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user") || "{}")
   );
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!user.id) navigate("/");
-  }, [user.id]);
+  // useEffect(() => {
+  //   if (!user.id) navigate("/");
+  // }, [user.id]);
 
   const login = (_user) => {
     setUser(_user);
