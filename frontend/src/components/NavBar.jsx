@@ -1,8 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import BurgerMenu from "./BurgerMenu";
-import Logo from "../assets/logo.png";
+import navbarLogo from "../assets/navbar_logo.png";
 import addSymbol from "../assets/add_symbol.png";
 import interrogation from "../assets/interrogation.png";
 
@@ -13,7 +14,7 @@ function NavBar() {
       <div className="nav flex items-center md:flex-col justify-between fixed top-0 left-0 w-screen md:w-1/5 h-65px md:h-screen text-white bg-[#002743] z-">
         <div className="flex flex-col items-center gap-20 md:w-full">
           <img
-            src={Logo}
+            src={navbarLogo}
             alt="logo"
             className="w-[40%] my-[8px] md:w-[30%] md:mt-[56px] "
           />
@@ -25,13 +26,21 @@ function NavBar() {
               <img src={addSymbol} alt="symbole plus" className="w-[14px]" />
               <p>Estimer un smartphone</p>
             </button>
-            <button
+            {/* <button
               type="button"
               className="flex items-center align-baseline gap-2 w-[100%] "
             >
               <img src={addSymbol} alt="symbole plus" className="w-[14px]" />
               <p>Ajouter des références</p>
-            </button>
+            </button> */}
+            <Link
+              to="/upload"
+              className="flex items-center align-baseline gap-2 w-[100%]"
+            >
+              {" "}
+              <img src={addSymbol} alt="symbole plus" className="w-[14px]" />
+              <p>Ajouter des références</p>
+            </Link>
           </div>
         </div>
         <div className="w-[100%] hidden md:flex flex-col items-center justify-between">

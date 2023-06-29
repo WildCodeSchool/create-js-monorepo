@@ -1,11 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Modal from "react-modal";
+import Home from "./pages/Home";
+// import UploadCSV from "./pages/UploadCSV";
 import FormModal from "./components/FormModal";
 import "./reset.css";
 import "./App.css";
 import ToggleModal from "./components/ToggleModal";
-import Home from "./pages/Home";
 
 Modal.setAppElement("#root");
 function App() {
@@ -31,7 +33,6 @@ function App() {
     conditionning: "",
     price_reference: "",
   });
-
   const [selectedSystemId, setSelectedSystemId] = useState(null);
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
@@ -42,6 +43,8 @@ function App() {
   const [selectedNetwork, setSelectedNetwork] = useState("");
   const [selectedConditionning, setSelectedConditionning] = useState("");
   const [priceRefecence, setPriceRefecence] = useState("");
+
+  // const [csvUrl, setCsvUrl] = useState("");
   return (
     <Router>
       <div className="App overflow-hidden">
