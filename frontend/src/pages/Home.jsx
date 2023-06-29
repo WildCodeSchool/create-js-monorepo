@@ -1,36 +1,15 @@
-import Counter from "../components/Counter";
-import logo from "../assets/logo.svg";
-
-export default function Home() {
+export default function Home({ openModalToggle }) {
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p className="text-red-500">Hello Vite + React !</p>
-
-      <Counter />
-
-      <p>
-        Edit <code>App.jsx</code> and save to test HMR updates.
-      </p>
-      <p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <section className="flex justify-center">
+      <div className="my-12">
+        <button
+          type="button"
+          onClick={openModalToggle}
+          className="w-[13dvw] p-3 bg-blue-500 text-white rounded-full"
         >
-          Learn React
-        </a>
-        {" | "}
-        <a
-          className="App-link"
-          href="https://vitejs.dev/guide/features.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vite Docs
-        </a>
-      </p>
-    </header>
+          Toggle Modal
+        </button>
+      </div>
+    </section>
   );
 }

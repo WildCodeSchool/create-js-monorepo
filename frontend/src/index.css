@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .custom-bg-color {
+    background-color: rgba(0, 172, 176, 0.1);
+  }
+  .custom-bg2-color {
+    background-color: #002743;
+  }
+
+  .bg-img {
+    background-image: url("./assets/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .bg-img-mob {
+    background-image: url("./assets/bg-logo-mobile.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
