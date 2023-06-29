@@ -15,13 +15,13 @@ function Presentation() {
         <img src={logo} alt="Logo" className={styles.logo} />
       </div>
       <div className={styles.Description}>
-        <h1 className={styles.Welcome}>Welcome</h1>
+        <h1 className={styles.Welcome}>Bienvenue !</h1>
         <p>
           Notre plateforme vous permet de facilement et rapidement estimer la
-          valeur des téléphones mobile usagés qui sont donnés à Emaus. cet outil
-          d'évaluation, vous pouvez obtenir une estimation juste et transparente
-          pour chaque téléphone que vous recevez, ce qui vous aidera dans vos
-          activités quotidiennes.
+          valeur des téléphones mobile usagés qui sont donnés à Emaus. Grâce à
+          cet outil d'évaluation, vous pouvez obtenir une estimation juste et
+          transparente pour chaque téléphone que vous recevez, ce qui vous
+          aidera dans vos activités quotidiennes.
         </p>
         <div className={styles.button}>
           <button
@@ -29,7 +29,7 @@ function Presentation() {
             className={styles.buttontext}
             onClick={handleDiscoverClick}
           >
-            Discover
+            Découvrir
           </button>
         </div>
       </div>

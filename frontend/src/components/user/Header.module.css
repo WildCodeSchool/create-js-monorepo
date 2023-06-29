@@ -3,7 +3,7 @@
 }
 
 .header {
-    background-color: #002743;
+    background: linear-gradient(135deg, #2e3f54, #5a7290);
     height: 10vh;
     display: flex;
     justify-content: space-around;
