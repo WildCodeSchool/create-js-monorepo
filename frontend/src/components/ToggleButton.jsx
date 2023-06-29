@@ -27,45 +27,8 @@ const getImageByLabel = (id) => {
   }
 };
 
-const featureKeyMapping = {
-  Os: "hasOs",
-  Ram: "hasRam",
-  Mémoire: "hasMemory",
-  Ecran: "hasScreen",
-  Réseau: "hasNetwork",
-  Chargeur: "hasCharger",
-};
-
-function ToggleButton({
-  label,
-  isChecked,
-  handleToggleChange,
-  hasFeature,
-  id,
-  showMessages,
-}) {
+function ToggleButton({ label, isChecked, handleToggleChange, id }) {
   const imageSrc = getImageByLabel(id);
-  const featureKey = featureKeyMapping[id];
-
-  function getMessageByFeature(feature) {
-    switch (feature) {
-      case "hasOs":
-        return "Le téléphone doit avoir une version d'Android supérieure à 8 ou une version d'iOS supérieure à 7 !";
-      case "hasRam":
-        return "Le téléphone doit avoir au moins 4 Go de RAM !";
-      case "hasMemory":
-        return "Le téléphone doit avoir une capacité de stockage d'au moins 32 Go !";
-      case "hasScreen":
-        return "Le téléphone doit avoir un écran d'au moins 4 pouces !";
-      case "hasNetwork":
-        return "Le téléphone doit être compatible avec le réseau 4G ou supérieur !";
-      case "hasCharger":
-        return "Assurez-vous de posséder le chargeur et le câble correspondants !";
-      default:
-        return null;
-    }
-  }
-  const message = getMessageByFeature(featureKey);
   const handleClick = () => {
     handleToggleChange(id);
   };
@@ -92,13 +55,6 @@ function ToggleButton({
           />
         </button>
       </div>
-      {showMessages && !hasFeature[featureKey] && (
-        <div className="w-full ">
-          <p className="text-red-500 text-center text-xs xl:text-base">
-            {message}
-          </p>
-        </div>
-      )}
     </section>
   );
 }

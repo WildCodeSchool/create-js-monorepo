@@ -44,6 +44,19 @@ function App() {
   const [selectedConditionning, setSelectedConditionning] = useState("");
   const [priceRefecence, setPriceRefecence] = useState("");
 
+  const resetFormModal = () => {
+    setModalFormOpen(true);
+    setSelectedSystemId(null);
+    setSelectedBrand(null);
+    setSelectedModel(null);
+    setSelectedVersionSystem("");
+    setSelectedRam("");
+    setSelectedMemory("");
+    setScreenSize("");
+    setSelectedNetwork("");
+    setSelectedConditionning("");
+    setPriceRefecence("");
+  };
   // const [csvUrl, setCsvUrl] = useState("");
   return (
     <Router>
@@ -90,6 +103,9 @@ function App() {
           openModalToggle={openModalToggle}
           closeModalToggle={closeModalToggle}
           modalToggleIsOpen={modalToggleIsOpen}
+          setModalToggleIsOpen={setModalToggleIsOpen}
+          setModalFormOpen={setModalFormOpen}
+          resetFormModal={resetFormModal}
         />
       </div>
     </Router>
