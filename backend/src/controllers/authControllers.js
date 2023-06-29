@@ -1,21 +1,21 @@
 const models = require("../models");
 
-const getUserByEmailMiddleware = (req, res, next) => {
+const getUserByEmailMiddleware = async (req, res, next) => {
   const { email } = req.body;
 
-  models.user
-    .findByEmailWithPassword(email)
-    .then(([users]) => {
-      if (users[0]) {
-        [req.user] = users;
-        next();
-      } else {
-        res.sendStatus(401);
-      }
-    })
-    .catch(() => {
-      res.sendStatus(500);
-    });
+  try {
+    const users = await models.user.findByEmailWithPassword(email);
+    if (users.length > 0) {
+      // eslint-disable-next-line prefer-destructuring
+      req.user = users[0];
+      next();
+    } else {
+      res.sendStatus(401);
+    }
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    res.sendStatus(500);
+  }
 };
 
 module.exports = {
