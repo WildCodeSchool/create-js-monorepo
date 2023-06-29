@@ -5,22 +5,12 @@ import { useFormik } from "formik";
 import { toast } from "react-toastify";
 import APIService from "../../services/APIService";
 import { useUserContext } from "../../contexts/UserContext";
+import styles from "./Login.module.css";
+import logo from "../../assets/logo.svg";
 
 function Login() {
   const { login } = useUserContext();
   const navigate = useNavigate();
-
-  // const validationSchema = yup.object({
-  //   email: yup
-  //     .string("Entrez votre adresse mail")
-  //     .email("Entrez une adresse mail valide")
-  //     .required("Une adresse mail est requise"),
-  //   password: yup
-  //     .string("Entrez votre mot de passe")
-  //     .min(8, "Le mot de passe doit être de 8 caractères minimum")
-  //     .max(30, "Le mot de passe ne doit pas dépasser 30 caractères")
-  //     .required("Le mot de passe est requis"),
-  // });
 
   const formik = useFormik({
     initialValues: {
@@ -36,59 +26,49 @@ function Login() {
         console.error("Login error:", err);
         toast.error("An error occurred during login.");
       }
-      // try {
-      //   const response = await fetch("http://localhost:6000/api/login", {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(values),
-      //   });
-      //   console.log(response)
-      //   if (response.ok) {
-      //     toast.success("Login successful");
-      //     navigate("/home");
-      //   } else {
-      //     toast.error("Login failed. Please check your credentials.");
-      //   }
-      // } catch (error) {
-      //   console.error("Login error:", error);
-      //   toast.error("An error occurred during login.");
-      // }
     },
   });
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={formik.handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
+    <div className={styles["login-container"]}>
+      <img src={logo} alt="Logo" className={styles.logo} />
+      <form className={styles["form-container"]} onSubmit={formik.handleSubmit}>
+        <h1 className={styles["login-title"]}>Welcome</h1>
+        <div className="form-email">
+          <label htmlFor="email" className={styles["label-text"]}>
+            Email:
+          </label>
           <input
             type="email"
             id="email"
             name="email"
             value={formik.values.email}
             onChange={formik.handleChange}
+            className={styles["input-change"]}
           />
           {formik.touched.email && formik.errors.email && (
             <div>{formik.errors.email}</div>
           )}
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className={styles["form-Password"]}>
+          <label htmlFor="password" className={styles["label-text"]}>
+            Password:
+          </label>
           <input
             type="password"
             id="password"
             name="password"
             value={formik.values.password}
             onChange={formik.handleChange}
+            className={styles["input-password"]}
           />
           {formik.touched.password && formik.errors.password && (
             <div>{formik.errors.password}</div>
           )}
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className={styles["login-button"]}>
+          Login
+        </button>
       </form>
     </div>
   );
