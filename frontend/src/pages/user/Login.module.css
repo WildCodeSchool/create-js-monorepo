@@ -1,0 +1,105 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #2e3f54, #5a7290);
+}
+
+.input-change{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.input-password{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.form-container {
+    background: linear-gradient(135deg, #2e3f54, #5a7290);
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+    margin-bottom: 80px;
+}
+
+.login-button {
+    width: 100px;
+    padding: 10px 20px;
+font-size: 18px;
+background-color: #2e3f54;
+color: #fff;
+border: none;
+border-radius: 5px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+transition: transform 0.2s;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.login-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+}
+
+.login-button:active {
+    transform: scale(0.95);
+}
+
+.login-button:focus {
+    outline: none;
+}
+
+.login-title {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin-top: -60px;
+    color: whitesmoke;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.label-text {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: whitesmoke;
+  }
+
+.logo{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 60px;
+}

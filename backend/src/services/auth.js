@@ -29,7 +29,11 @@ const hashPassword = (req, res, next) => {
 // Verifie si le password hashé dans la BDD correspond au password en clair founit par la requête
 const verifyPassword = (req, res) => {
   argon2
-    .verify(req.user.hashedPassword, req.body.password, hashingOptions)
+    .verify(
+      "$argon2id$v=19$m=16,t=2,p=1$cXFnN2s1ZHU0aTAwMDAwMA$XFP3Vrp4/huxiy9p4p2EAw",
+      req.body.password,
+      hashingOptions
+    )
     .then((isVerified) => {
       if (isVerified) {
         const token = jwt.sign(

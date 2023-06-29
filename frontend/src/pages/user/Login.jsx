@@ -1,48 +1,73 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+// import * as yup from "yup";
+import { toast } from "react-toastify";
+import APIService from "../../services/APIService";
+import { useUserContext } from "../../contexts/UserContext";
+import styles from "./Login.module.css";
+import logo from "../../assets/logo.svg";
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const { login } = useUserContext();
   const navigate = useNavigate();
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: async (values) => {
+      try {
+        await APIService.post("/api/login", values);
+        login(values);
+        navigate("/home");
+      } catch (err) {
+        console.error("Login error:", err);
+        toast.error("An error occurred during login.");
+      }
+    },
+  });
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setUsername("");
-    setPassword("");
-    navigate("/home");
-  };
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
+    <div className={styles["login-container"]}>
+      <img src={logo} alt="Logo" className={styles.logo} />
+      <form className={styles["form-container"]} onSubmit={formik.handleSubmit}>
+        <div className="form-email">
+          <label htmlFor="email" className={styles["label-text"]}>
+            Email:
+          </label>
           <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={handleUsernameChange}
+            type="email"
+            id="email"
+            name="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            className={styles["input-change"]}
           />
+          {formik.touched.email && formik.errors.email && (
+            <div>{formik.errors.email}</div>
+          )}
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className={styles["form-Password"]}>
+          <label htmlFor="password" className={styles["label-text"]}>
+            Password:
+          </label>
           <input
             type="password"
             id="password"
-            value={password}
-            onChange={handlePasswordChange}
+            name="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            className={styles["input-password"]}
           />
+          {formik.touched.password && formik.errors.password && (
+            <div>{formik.errors.password}</div>
+          )}
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className={styles["login-button"]}>
+          Login
+        </button>
       </form>
     </div>
   );
