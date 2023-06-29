@@ -1,11 +1,68 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
+import Papa from "papaparse";
 
 function UploadCSV({ csvUrl, setCsvUrl }) {
+  function tableauToJson(tableau) {
+    const keys = tableau[0]; // Les clés sont définies par le premier tableau
+    const result = [];
+
+    for (let i = 1; i < tableau.length; i++) {
+      const values = tableau[i];
+      const obj = {};
+
+      for (let j = 0; j < values.length; j++) {
+        const key = keys[j];
+        let value = values[j];
+
+        // Conversion de certaines valeurs en types appropriés (par exemple, 'system_id' en nombre)
+        if (key === "system_id") {
+          value = Number(value);
+        }
+
+        obj[key] = value;
+      }
+
+      result.push(obj);
+    }
+
+    return result;
+  }
   const handleDataBaseUpload = (url) => {
-    // eslint-disable-next-line no-restricted-syntax
-    console.log(url);
+    axios
+      .get(url)
+      .then((response) => {
+        const { data } = response;
+        Papa.parse(data, {
+          complete: (parsedData) => {
+            const allresults = parsedData.data;
+            const resultat = tableauToJson(allresults);
+            const results = JSON.stringify(resultat, null, 2);
+            axios
+              .post(`${import.meta.env.VITE_BACKEND_URL}/smartphone`, results)
+              .then(() => {
+                setCsvUrl("");
+              })
+              .catch((error) => {
+                console.error("Erreur lors de l'envoi des données :", error);
+              });
+          },
+          error: (err) => {
+            console.error("Erreur lors de la lecture du fichier CSV :", err);
+          },
+        });
+      })
+      .catch((error) => {
+        console.error(
+          "Erreur lors de la récupération des données CSV :",
+          error
+        );
+      });
   };
+
   return (
     <div className="md:ml-[20%] mx-auto">
       <div>
