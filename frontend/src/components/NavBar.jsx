@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import BurgerMenu from "./BurgerMenu";
-import Logo from "../assets/logo.png";
+import navbarLogo from "../assets/navbar_logo.png";
 import addSymbol from "../assets/add_symbol.png";
 import interrogation from "../assets/interrogation.png";
 
@@ -14,7 +14,7 @@ function NavBar() {
       <div className="nav flex items-center md:flex-col justify-between fixed top-0 left-0 w-screen md:w-1/5 h-65px md:h-screen text-white bg-[#002743] z-">
         <div className="flex flex-col items-center gap-20 md:w-full">
           <img
-            src={Logo}
+            src={navbarLogo}
             alt="logo"
             className="w-[40%] my-[8px] md:w-[30%] md:mt-[56px] "
           />
