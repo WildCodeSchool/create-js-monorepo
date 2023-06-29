@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import BurgerMenu from "./BurgerMenu";
 import Logo from "../assets/logo.png";
@@ -25,13 +26,21 @@ function NavBar() {
               <img src={addSymbol} alt="symbole plus" className="w-[14px]" />
               <p>Estimer un smartphone</p>
             </button>
-            <button
+            {/* <button
               type="button"
               className="flex items-center align-baseline gap-2 w-[100%] "
             >
               <img src={addSymbol} alt="symbole plus" className="w-[14px]" />
               <p>Ajouter des références</p>
-            </button>
+            </button> */}
+            <Link
+              to="/upload"
+              className="flex items-center align-baseline gap-2 w-[100%]"
+            >
+              {" "}
+              <img src={addSymbol} alt="symbole plus" className="w-[14px]" />
+              <p>Ajouter des références</p>
+            </Link>
           </div>
         </div>
         <div className="w-[100%] hidden md:flex flex-col items-center justify-between">
