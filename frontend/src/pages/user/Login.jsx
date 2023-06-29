@@ -36,6 +36,25 @@ function Login() {
         console.error("Login error:", err);
         toast.error("An error occurred during login.");
       }
+      // try {
+      //   const response = await fetch("http://localhost:6000/api/login", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify(values),
+      //   });
+      //   console.log(response)
+      //   if (response.ok) {
+      //     toast.success("Login successful");
+      //     navigate("/home");
+      //   } else {
+      //     toast.error("Login failed. Please check your credentials.");
+      //   }
+      // } catch (error) {
+      //   console.error("Login error:", error);
+      //   toast.error("An error occurred during login.");
+      // }
     },
   });
 
