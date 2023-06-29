@@ -25,6 +25,12 @@ class phoneManager extends AbstractManager {
     );
   }
 
+  findByBrand(brand) {
+    return this.database.query(`select * from  ${this.table} where Brand = ?`, [
+      brand,
+    ]);
+  }
+
   update(Phone) {
     return this.database.query(
       `UPDATE ${this.table} set Brand = ?, Model = ?, RAM = ?, Storage = ?, Status = ?, Value_M = ?, Value_S = ?, Weigthing = ?, Total_value = ?, User_Id = ? WHERE id = ?`,

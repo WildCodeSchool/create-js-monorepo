@@ -28,6 +28,23 @@ const read = (req, res) => {
     });
 };
 
+const select = (req, res) => {
+  const brand = parseInt(req.params.id, 10);
+
+  models.Phone.findByBrand(brand)
+    .then(([rows]) => {
+      if (rows[0]) {
+        res.send(rows[0]);
+      } else {
+        res.status(404).send("Phone not found");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+    });
+};
+
 const edit = (req, res) => {
   const Phone = req.body;
 
@@ -83,4 +100,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  select,
 };

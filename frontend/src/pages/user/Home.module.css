@@ -21,6 +21,13 @@
   justify-content: center;
 }
 
+.select {
+  margin-top: 3em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 body {
   position: relative;
 }
