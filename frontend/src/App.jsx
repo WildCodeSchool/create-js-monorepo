@@ -6,6 +6,7 @@ import "./App.css";
 import { useState } from "react";
 import ToggleModal from "./components/ToggleModal";
 import Modal from "react-modal";
+import Home from "./pages/Home"
 
 Modal.setAppElement("#root");
 function App() {
@@ -43,8 +44,13 @@ function App() {
   const [selectedConditionning, setSelectedConditionning] = useState("");
   const [priceRefecence, setPriceRefecence] = useState("");
   return (
-    <div className="App overflow-hidden">
-      <FormModal
+   
+    
+    
+   
+        <Router>
+      <div className="App overflow-hidden">
+          <FormModal
         modalFormOpen={modalFormOpen}
         setModalFormOpen={setModalFormOpen}
         setSelectedValues={setSelectedValues}
@@ -69,8 +75,14 @@ function App() {
         setSelectedConditionning={setSelectedConditionning}
         setPriceRefecence={setPriceRefecence}
       />
-      <NavBar />
-    </div>
+        <Switch>
+          <Route exact path="/" component={<Home openModalToggle={openModalToggle}/> }  />
+        </Switch>
+        <ToggleModal 
+        openModalToggle = {openModalToggle}
+        closeModalToggle = {closeModalToggle}/>
+      </div>
+    </Router>
   );
 }
 

@@ -1,6 +1,8 @@
+import NavBar from "./components/NavBar";
 export default function Home({ openModalToggle }) {
   return (
     <section className="flex justify-center">
+       <NavBar />
       <div className="my-12">
         <button
           type="button"
