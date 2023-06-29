@@ -1,15 +1,26 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Modal from "react-modal";
 import Home from "./pages/Home";
+// eslint-disable-next-line no-unused-vars
 import UploadCSV from "./pages/UploadCSV";
-import NavBar from "./components/NavBar";
 import FormModal from "./components/FormModal";
-
 import "./reset.css";
 import "./App.css";
+import ToggleModal from "./components/ToggleModal";
+import NavBar from "./components/NavBar";
 
+Modal.setAppElement("#root");
 function App() {
+  const [modalToggleIsOpen, setModalToggleIsOpen] = useState(false);
+  const openModalToggle = () => {
+    setModalToggleIsOpen(true);
+  };
+
+  const closeModalToggle = () => {
+    setModalToggleIsOpen(false);
+  };
   const [modalFormOpen, setModalFormOpen] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [selectedValues, setSelectedValues] = useState({
@@ -35,6 +46,20 @@ function App() {
   const [selectedConditionning, setSelectedConditionning] = useState("");
   const [priceRefecence, setPriceRefecence] = useState("");
 
+  const resetFormModal = () => {
+    setModalFormOpen(true);
+    setSelectedSystemId(null);
+    setSelectedBrand(null);
+    setSelectedModel(null);
+    setSelectedVersionSystem("");
+    setSelectedRam("");
+    setSelectedMemory("");
+    setScreenSize("");
+    setSelectedNetwork("");
+    setSelectedConditionning("");
+    setPriceRefecence("");
+  };
+  // eslint-disable-next-line no-unused-vars
   const [csvUrl, setCsvUrl] = useState("");
   return (
     <Router>
@@ -65,14 +90,27 @@ function App() {
           setPriceRefecence={setPriceRefecence}
         />
         <NavBar />
-      </div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/upload"
-          element={<UploadCSV csvUrl={csvUrl} setCsvUrl={setCsvUrl} />}
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <Home
+                openModalToggle={openModalToggle}
+                closeModalToggle={closeModalToggle}
+              />
+            }
+          />
+        </Routes>
+        <ToggleModal
+          openModalToggle={openModalToggle}
+          closeModalToggle={closeModalToggle}
+          modalToggleIsOpen={modalToggleIsOpen}
+          setModalToggleIsOpen={setModalToggleIsOpen}
+          setModalFormOpen={setModalFormOpen}
+          resetFormModal={resetFormModal}
         />
-      </Routes>
+      </div>
     </Router>
   );
 }

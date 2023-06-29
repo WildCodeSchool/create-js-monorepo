@@ -1,9 +1,11 @@
 import HomePage from "../components/HomePage";
 
-export default function Home() {
+/* eslint-disable react/prop-types */
+
+export default function Home({ openModalToggle }) {
   return (
     <div>
-      <HomePage />
+      <HomePage openModalToggle={openModalToggle} />
     </div>
   );
 }
