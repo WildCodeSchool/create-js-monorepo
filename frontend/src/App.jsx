@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Modal from "react-modal";
 import Home from "./pages/Home";
-// import UploadCSV from "./pages/UploadCSV";
+// eslint-disable-next-line no-unused-vars
+import UploadCSV from "./pages/UploadCSV";
 import FormModal from "./components/FormModal";
 import "./reset.css";
 import "./App.css";
 import ToggleModal from "./components/ToggleModal";
+import NavBar from "./components/NavBar";
 
 Modal.setAppElement("#root");
 function App() {
@@ -57,7 +59,8 @@ function App() {
     setSelectedConditionning("");
     setPriceRefecence("");
   };
-  // const [csvUrl, setCsvUrl] = useState("");
+  // eslint-disable-next-line no-unused-vars
+  const [csvUrl, setCsvUrl] = useState("");
   return (
     <Router>
       <div className="App overflow-hidden">
@@ -86,7 +89,7 @@ function App() {
           setSelectedConditionning={setSelectedConditionning}
           setPriceRefecence={setPriceRefecence}
         />
-
+        <NavBar />
         <Routes>
           <Route
             exact
