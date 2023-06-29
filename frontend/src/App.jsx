@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
 import FormModal from "./components/FormModal";
 import "./reset.css";
 import "./App.css";
@@ -19,7 +20,6 @@ function App() {
     conditionning: "",
     price_reference: "",
   });
-
   const [selectedSystemId, setSelectedSystemId] = useState(null);
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
@@ -58,6 +58,7 @@ function App() {
         setPriceRefecence={setPriceRefecence}
       />
       <NavBar />
+      <Home />
     </div>
   );
 }
