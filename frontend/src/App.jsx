@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import NavBar from "./components/NavBar";
 import FormModal from "./components/FormModal";
 import "./reset.css";
 import "./App.css";
-import { useState } from "react";
 import ToggleModal from "./components/ToggleModal";
 import Modal from "react-modal";
-import Home from "./pages/Home"
+import Home from "./pages/Home";
 
 Modal.setAppElement("#root");
 function App() {
@@ -44,43 +42,44 @@ function App() {
   const [selectedConditionning, setSelectedConditionning] = useState("");
   const [priceRefecence, setPriceRefecence] = useState("");
   return (
-   
-    
-    
-   
-        <Router>
+    <Router>
       <div className="App overflow-hidden">
-          <FormModal
-        modalFormOpen={modalFormOpen}
-        setModalFormOpen={setModalFormOpen}
-        setSelectedValues={setSelectedValues}
-        selectedSystemId={selectedSystemId}
-        selectedBrand={selectedBrand}
-        selectedModel={selectedModel}
-        selectedVersionSystem={selectedVersionSystem}
-        selectedRam={selectedRam}
-        selectedMemory={selectedMemory}
-        screenSize={screenSize}
-        selectedNetwork={selectedNetwork}
-        selectedConditionning={selectedConditionning}
-        priceRefecence={priceRefecence}
-        setSelectedSystemId={setSelectedSystemId}
-        setSelectedBrand={setSelectedBrand}
-        setSelectedModel={setSelectedModel}
-        setSelectedVersionSystem={setSelectedVersionSystem}
-        setSelectedRam={setSelectedRam}
-        setSelectedMemory={setSelectedMemory}
-        setScreenSize={setScreenSize}
-        setSelectedNetwork={setSelectedNetwork}
-        setSelectedConditionning={setSelectedConditionning}
-        setPriceRefecence={setPriceRefecence}
-      />
+        <FormModal
+          modalFormOpen={modalFormOpen}
+          setModalFormOpen={setModalFormOpen}
+          setSelectedValues={setSelectedValues}
+          selectedSystemId={selectedSystemId}
+          selectedBrand={selectedBrand}
+          selectedModel={selectedModel}
+          selectedVersionSystem={selectedVersionSystem}
+          selectedRam={selectedRam}
+          selectedMemory={selectedMemory}
+          screenSize={screenSize}
+          selectedNetwork={selectedNetwork}
+          selectedConditionning={selectedConditionning}
+          priceRefecence={priceRefecence}
+          setSelectedSystemId={setSelectedSystemId}
+          setSelectedBrand={setSelectedBrand}
+          setSelectedModel={setSelectedModel}
+          setSelectedVersionSystem={setSelectedVersionSystem}
+          setSelectedRam={setSelectedRam}
+          setSelectedMemory={setSelectedMemory}
+          setScreenSize={setScreenSize}
+          setSelectedNetwork={setSelectedNetwork}
+          setSelectedConditionning={setSelectedConditionning}
+          setPriceRefecence={setPriceRefecence}
+        />
         <Switch>
-          <Route exact path="/" component={<Home openModalToggle={openModalToggle}/> }  />
+          <Route
+            exact
+            path="/"
+            component={<Home openModalToggle={openModalToggle} />}
+          />
         </Switch>
-        <ToggleModal 
-        openModalToggle = {openModalToggle}
-        closeModalToggle = {closeModalToggle}/>
+        <ToggleModal
+          openModalToggle={openModalToggle}
+          closeModalToggle={closeModalToggle}
+        />
       </div>
     </Router>
   );
