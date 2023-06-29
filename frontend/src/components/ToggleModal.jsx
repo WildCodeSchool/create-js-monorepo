@@ -5,21 +5,6 @@ import ToggleButton from "./ToggleButton";
 import logo from "../assets/Logo_1.png";
 import cross from "../assets/cross.png";
 
-// const customStyles = {
-//   // content: {
-//   //   top: "45%",
-//   //   left: "50%",
-//   //   right: "auto",
-//   //   bottom: "auto",
-//   //   marginRight: "-50%",
-//   //   transform: "translate(-50%, -50%)",
-//   //   width: "80%",
-//   //   backgroundColor: "#002743",
-//   //   padding: "0",
-//   //   display: "flex",
-//   // },
-// };
-
 function ToggleModal({ closeModalToggle, modalToggleIsOpen }) {
   const [toggleStates, setToggleStates] = useState({
     os: false,

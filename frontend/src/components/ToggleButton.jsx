@@ -67,7 +67,7 @@ function ToggleButton({
   }
   const message = getMessageByFeature(featureKey);
   const handleClick = () => {
-    handleToggleChange(id); // Appeler la fonction de basculement avec l'ID correspondant
+    handleToggleChange(id);
   };
 
   return (
