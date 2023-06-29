@@ -1,18 +1,18 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import styles from "./Storage.module.css";
-import Database from "../../assets/Database.svg";
+import styles from "./Memory.module.css";
 import Header from "../../components/user/Header";
 import Footer from "../../components/user/Footer";
+import RAM from "../../assets/RAM.svg";
 
-export default function Storage() {
+export default function Memory() {
   const validationSchema = Yup.object({
-    storage: Yup.number().integer().required("*"),
+    memory: Yup.number().integer().required("*"),
   });
 
   const formik = useFormik({
     initialValues: {
-      storage: "",
+      memory: "",
     },
     validationSchema,
 
@@ -25,8 +25,8 @@ export default function Storage() {
       <Header />
       <div className={styles.body}>
         <div className={styles.descriptioncontainer}>
-          <img src={Database} alt="database" />
-          <h2> Choisissez la capacité de stockage </h2>
+          <img src={RAM} alt="memory" />
+          <h2> Choisissez la mémoire RAM </h2>
         </div>
         <form onSubmit={formik.handleSubmit}>
           <div className={styles.rowcontainer}>
@@ -34,90 +34,104 @@ export default function Storage() {
               <label>
                 <input
                   type="radio"
-                  name="storage"
+                  name="memory"
+                  value="1"
+                  checked={formik.values.memory === "1"}
+                  onChange={formik.handleChange}
+                />
+                1 go
+              </label>
+            </div>
+            <div className={styles.checkbox}>
+              <label>
+                <input
+                  type="radio"
+                  name="memory"
+                  value="2"
+                  checked={formik.values.memory === "2"}
+                  onChange={formik.handleChange}
+                />
+                2 gos
+              </label>
+            </div>
+          </div>
+          <div className={styles.rowcontainer}>
+            <div className={styles.checkbox}>
+              <label>
+                <input
+                  type="radio"
+                  name="memory"
+                  value="3"
+                  checked={formik.values.memory === "3"}
+                  onChange={formik.handleChange}
+                />
+                3 gos
+              </label>
+            </div>
+            <div className={styles.checkbox}>
+              <label>
+                <input
+                  type="radio"
+                  name="memory"
+                  value="4"
+                  checked={formik.values.memory === "4"}
+                  onChange={formik.handleChange}
+                />
+                4 gos
+              </label>
+            </div>
+          </div>
+          <div className={styles.rowcontainer}>
+            <div className={styles.checkbox}>
+              <label>
+                <input
+                  type="radio"
+                  name="memory"
+                  value="6"
+                  checked={formik.values.memory === "6"}
+                  onChange={formik.handleChange}
+                />
+                6 gos
+              </label>
+            </div>
+            <div className={styles.checkbox}>
+              <label>
+                <input
+                  type="radio"
+                  name="memory"
+                  value="8"
+                  checked={formik.values.memory === "8"}
+                  onChange={formik.handleChange}
+                />
+                8 gos
+              </label>
+            </div>
+          </div>
+          <div className={styles.rowcontainer}>
+            <div className={styles.checkbox}>
+              <label>
+                <input
+                  type="radio"
+                  name="memory"
+                  value="12"
+                  checked={formik.values.memory === "12"}
+                  onChange={formik.handleChange}
+                />
+                12 gos
+              </label>
+            </div>
+            <div className={styles.checkbox}>
+              <label>
+                <input
+                  type="radio"
+                  name="memory"
                   value="16"
-                  checked={formik.values.storage === "16"}
+                  checked={formik.values.memory === "16"}
                   onChange={formik.handleChange}
                 />
                 16 gos
               </label>
             </div>
-            <div className={styles.checkbox}>
-              <label>
-                <input
-                  type="radio"
-                  name="storage"
-                  value="32"
-                  checked={formik.values.storage === "32"}
-                  onChange={formik.handleChange}
-                />
-                32 gos
-              </label>
-            </div>
-          </div>
-          <div className={styles.rowcontainer}>
-            <div className={styles.checkbox}>
-              <label>
-                <input
-                  type="radio"
-                  name="storage"
-                  value="64"
-                  checked={formik.values.storage === "64"}
-                  onChange={formik.handleChange}
-                />
-                64 gos
-              </label>
-            </div>
-            <div className={styles.checkbox}>
-              <label>
-                <input
-                  type="radio"
-                  name="brand"
-                  value="128"
-                  checked={formik.values.storage === "128"}
-                  onChange={formik.handleChange}
-                />
-                128 gos
-              </label>
-            </div>
-          </div>
-          <div className={styles.rowcontainer}>
-            <div className={styles.checkbox}>
-              <label>
-                <input
-                  type="radio"
-                  name="storage"
-                  value="256"
-                  checked={formik.values.storage === "256"}
-                  onChange={formik.handleChange}
-                />
-                256 gos
-              </label>
-            </div>
-            <div className={styles.checkbox}>
-              <label>
-                <input
-                  type="radio"
-                  name="brand"
-                  value="512"
-                  checked={formik.values.storage === "512"}
-                  onChange={formik.handleChange}
-                />
-                512 gos
-              </label>
-            </div>
-          </div>
-          <div className={styles.singlecheckbox}>
-            <label>
-              <input
-                type="radio"
-                name="brand"
-                value="1000"
-                checked={formik.values.storage === "1000"}
-                onChange={formik.handleChange}
-              />
-              1 To
-            </label>
           </div>
           <div className={styles.buttoncontainer}>
             <button type="submit">Suivant</button>

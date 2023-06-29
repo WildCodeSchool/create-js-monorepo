@@ -8,7 +8,7 @@ export default function Footer() {
     <div className={styles.footer}>
       <img src={registered} alt="arrow" />
       <img src={plus} alt="logo" />
-      <img src={question} alt="logout" />
+      <img src={question} alt="question" />
     </div>
   );
 }
