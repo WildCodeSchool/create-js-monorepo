@@ -1,9 +1,34 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ReactModal from "react-modal";
 
 // eslint-disable-next-line react/prop-types
-function FormModal({ isOpen, setModalOpen }) {
+function FormModal({
+  modalFormOpen,
+  setModalFormOpen,
+  setSelectedValues,
+  selectedSystemId,
+  selectedBrand,
+  selectedModel,
+  selectedVersionSystem,
+  selectedRam,
+  selectedMemory,
+  screenSize,
+  selectedNetwork,
+  selectedConditionning,
+  priceRefecence,
+  setSelectedSystemId,
+  setSelectedBrand,
+  setSelectedModel,
+  setSelectedVersionSystem,
+  setSelectedRam,
+  setSelectedMemory,
+  setScreenSize,
+  setSelectedNetwork,
+  setSelectedConditionning,
+  setPriceRefecence,
+}) {
   const customModalStyles = {
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -13,41 +38,7 @@ function FormModal({ isOpen, setModalOpen }) {
   const [smartphone, setSmartphone] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const [selectedSystemId, setSelectedSystemId] = useState(null);
-
-  const [selectedBrand, setSelectedBrand] = useState(null);
-
-  const [selectedModel, setSelectedModel] = useState(null);
-
-  const [selectedVersionSystem, setSelectedVersionSystem] = useState("");
-
-  const [selectedRam, setSelectedRam] = useState("");
-
-  const [selectedMemory, setSelectedMemory] = useState("");
-
-  const [screenSize, setScreenSize] = useState("");
-
-  const [selectedNetwork, setSelectedNetwork] = useState("");
-
-  const [selectedConditionning, setSelectedConditionning] = useState("");
-
-  const [priceRefecence, setPriceRefecence] = useState("");
-
   const [showModal, setShowModal] = useState(false);
-
-  // eslint-disable-next-line no-unused-vars
-  const [selectedValues, setSelectedValues] = useState({
-    brand: null,
-    model: null,
-    system_id: null,
-    version_system: null,
-    ram: "",
-    memory: "",
-    screen_size: "",
-    network: "",
-    conditionning: "",
-    price_reference: "",
-  });
 
   useEffect(() => {
     axios
@@ -105,8 +96,22 @@ function FormModal({ isOpen, setModalOpen }) {
       conditionning: selectedConditionning,
       price_reference: priceRefecence,
     });
+    setModalFormOpen(false);
   };
-  // console.log(selectedValues);
+
+  const cancel = () => {
+    setModalFormOpen(false);
+    setSelectedBrand(null);
+    setSelectedModel(null);
+    setSelectedSystemId("");
+    setSelectedVersionSystem("");
+    setSelectedRam("");
+    setSelectedMemory("");
+    setScreenSize("");
+    setSelectedNetwork("");
+    setSelectedConditionning("");
+    setPriceRefecence("");
+  };
 
   const content = () => {
     return (
@@ -503,7 +508,7 @@ function FormModal({ isOpen, setModalOpen }) {
                     <line x1="12" y1="8" x2="12" y2="8" />
                   </svg>
                   {showModal && (
-                    <div className="ml-2 bg-white bg-opacity-90 shadow rounded">
+                    <div className="ml-2 bg-white bg-opacity-90 shadow rounded absolute mt-8">
                       <p>Vous devez récupérer le prix de référence sur...</p>
                     </div>
                   )}
@@ -521,7 +526,9 @@ function FormModal({ isOpen, setModalOpen }) {
               <button type="button" onClick={validation}>
                 Valider
               </button>
-              <button type="button">Annuler</button>
+              <button type="button" onClick={cancel}>
+                Annuler
+              </button>
             </div>
           </div>
         )}
@@ -531,10 +538,8 @@ function FormModal({ isOpen, setModalOpen }) {
 
   return (
     <ReactModal
-      isOpen={isOpen}
-      onRequestClose={() => {
-        setModalOpen(false);
-      }}
+      isOpen={modalFormOpen}
+      onRequestClose={cancel}
       style={customModalStyles}
       ariaHideApp={false}
       className="h-fit lg:h-[610px] w-[60vw] lg:w-[50vw] border-none rounded-2xl p-5 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-auto bg-white flex"
