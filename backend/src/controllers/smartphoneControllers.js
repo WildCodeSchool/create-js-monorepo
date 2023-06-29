@@ -32,7 +32,20 @@ const readSystemId = (req, res) => {
     });
 };
 
+const addSmartphonesFromCSV = (req, res) => {
+  models.smartphones
+    .addSmartphone(req.body)
+    .then((rows) => {
+      res.status(200).send(rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   readSystemId,
+  addSmartphonesFromCSV,
 };
