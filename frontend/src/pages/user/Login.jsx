@@ -33,7 +33,6 @@ function Login() {
     <div className={styles["login-container"]}>
       <img src={logo} alt="Logo" className={styles.logo} />
       <form className={styles["form-container"]} onSubmit={formik.handleSubmit}>
-        <h1 className={styles["login-title"]}>Welcome</h1>
         <div className="form-email">
           <label htmlFor="email" className={styles["label-text"]}>
             Email:

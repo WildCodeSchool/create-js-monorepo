@@ -1,48 +1,85 @@
 .Presentation-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    background: linear-gradient(to bottom right, #233142, #517fa4);  }
-  
-  .logo {
-    margin-top: 5rem;
-    text-align: center;
-  }
-  
-  .Description {
-    background-color: #2e3f54;
-    text-align: center;
-    margin-bottom: 3rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3)
-  }
-  
-  .button {
-    text-align: center;
-    margin-bottom: 5rem;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  background: linear-gradient(135deg, #2e3f54, #5a7290);
+}
 
-  .button button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #2e3f54;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-  }
-  
-  .button button:hover {
-    background-color: #3256c9;
-    filter: brightness(90%);
-  }
+.logo {
+  margin-top: 2rem;
+  text-align: center;
+  width: 100px;
+height: 100px;
+
+}
+
+.Description {
+  background: linear-gradient(135deg, #2e3f54, #5a7290);
+  text-align: center;
+  margin-bottom: 7rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  font-family: "Cego UI", Arial, sans-serif;
+  color: white;
+
+}
+
+.Description P {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.button {
+  text-align: center;
+  margin-bottom: 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;  
+}
+
+.button button {
+  width: 130px;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #2e3f54;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.button button:hover {
+  transform: scale(0.95);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) ;
+}
+
+.button button:active{
+  outline: none;
+}
+
+.buttontext {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin-top: -40px;
+  color: whitesmoke;
+}
+
 
   
   
