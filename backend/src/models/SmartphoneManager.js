@@ -1,19 +1,5 @@
 const AbstractManager = require("./AbstractManager");
 
-// CREATE TABLE IF NOT EXISTS `smartphone` (
-//   `id` INT NOT NULL AUTO_INCREMENT,
-//   `brand` VARCHAR(255) NOT NULL,
-//   `model` VARCHAR(255) NOT NULL,
-//   `system_id` INT NOT NULL,
-//   `version_system` VARCHAR(255) NOT NULL,
-//   `ram` VARCHAR(10),
-//   `memory` VARCHAR(10),
-//   `screen_size` VARCHAR(20) NOT NULL,
-//   `network` VARCHAR(10) NOT NULL,
-//   PRIMARY KEY (`id`),
-//   CONSTRAINT `fk_smartphone_system` FOREIGN KEY (`system_id`) REFERENCES `system`(`id`)
-// );
-
 class SmartphoneManager extends AbstractManager {
   constructor() {
     super({ table: "smartphone" });
@@ -48,7 +34,7 @@ class SmartphoneManager extends AbstractManager {
   }
 
   addSmartphones(smartphonesArray) {
-    for (const smartphone of smartphonesArray) {
+    const insertPromises = smartphonesArray.map((smartphone) =>
       this.database.query(
         `INSERT INTO smartphone (brand, model, system_id, version_system, ram, memory, screen_size, network) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
         [
@@ -61,8 +47,10 @@ class SmartphoneManager extends AbstractManager {
           smartphone.screen_size,
           smartphone.network,
         ]
-      );
-    }
+      )
+    );
+
+    return Promise.all(insertPromises);
   }
 }
 

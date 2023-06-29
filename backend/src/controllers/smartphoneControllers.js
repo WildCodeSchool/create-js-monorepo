@@ -33,8 +33,8 @@ const readSystemId = (req, res) => {
 };
 
 const addSmartphonesFromCSV = (req, res) => {
-  models.smartphones
-    .addSmartphone(req.body)
+  models.smartphone
+    .addSmartphones(req.body)
     .then((rows) => {
       res.status(200).send(rows);
     })
