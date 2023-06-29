@@ -7,14 +7,18 @@ function HomePage() {
   return (
     <div className="home-page-container">
       <h1>Commencer l'estimation du prix des téléphones</h1>
-      <button type="button">Commencer l'estimation</button>
-      <button type="button">Ajouter des références</button>
-      <Lottie
-        animationData={animationData}
-        play
-        loop
-        style={{ width: 500, height: 500 }}
-      />
+      <div className="buttons-container">
+        <button type="button">Commencer l'estimation</button>
+        <button type="button">Ajouter des références</button>
+      </div>
+      <div className="lottie-container">
+        <Lottie
+          animationData={animationData}
+          play
+          loop
+          style={{ width: 500, height: 400 }}
+        />
+      </div>
     </div>
   );
 }
