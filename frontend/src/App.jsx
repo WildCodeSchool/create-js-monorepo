@@ -1,7 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from "react";
-import NavBar from "./components/NavBar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import UploadCSV from "./pages/UploadCSV";
+import NavBar from "./components/NavBar";
 import FormModal from "./components/FormModal";
+
 import "./reset.css";
 import "./App.css";
 
@@ -30,36 +34,46 @@ function App() {
   const [selectedNetwork, setSelectedNetwork] = useState("");
   const [selectedConditionning, setSelectedConditionning] = useState("");
   const [priceRefecence, setPriceRefecence] = useState("");
+
+  const [csvUrl, setCsvUrl] = useState("");
   return (
-    <div className="App overflow-hidden">
-      <FormModal
-        modalFormOpen={modalFormOpen}
-        setModalFormOpen={setModalFormOpen}
-        setSelectedValues={setSelectedValues}
-        selectedSystemId={selectedSystemId}
-        selectedBrand={selectedBrand}
-        selectedModel={selectedModel}
-        selectedVersionSystem={selectedVersionSystem}
-        selectedRam={selectedRam}
-        selectedMemory={selectedMemory}
-        screenSize={screenSize}
-        selectedNetwork={selectedNetwork}
-        selectedConditionning={selectedConditionning}
-        priceRefecence={priceRefecence}
-        setSelectedSystemId={setSelectedSystemId}
-        setSelectedBrand={setSelectedBrand}
-        setSelectedModel={setSelectedModel}
-        setSelectedVersionSystem={setSelectedVersionSystem}
-        setSelectedRam={setSelectedRam}
-        setSelectedMemory={setSelectedMemory}
-        setScreenSize={setScreenSize}
-        setSelectedNetwork={setSelectedNetwork}
-        setSelectedConditionning={setSelectedConditionning}
-        setPriceRefecence={setPriceRefecence}
-      />
-      <NavBar />
-      <Home />
-    </div>
+    <Router>
+      <div className="App overflow-hidden">
+        <FormModal
+          modalFormOpen={modalFormOpen}
+          setModalFormOpen={setModalFormOpen}
+          setSelectedValues={setSelectedValues}
+          selectedSystemId={selectedSystemId}
+          selectedBrand={selectedBrand}
+          selectedModel={selectedModel}
+          selectedVersionSystem={selectedVersionSystem}
+          selectedRam={selectedRam}
+          selectedMemory={selectedMemory}
+          screenSize={screenSize}
+          selectedNetwork={selectedNetwork}
+          selectedConditionning={selectedConditionning}
+          priceRefecence={priceRefecence}
+          setSelectedSystemId={setSelectedSystemId}
+          setSelectedBrand={setSelectedBrand}
+          setSelectedModel={setSelectedModel}
+          setSelectedVersionSystem={setSelectedVersionSystem}
+          setSelectedRam={setSelectedRam}
+          setSelectedMemory={setSelectedMemory}
+          setScreenSize={setScreenSize}
+          setSelectedNetwork={setSelectedNetwork}
+          setSelectedConditionning={setSelectedConditionning}
+          setPriceRefecence={setPriceRefecence}
+        />
+        <NavBar />
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/upload"
+          element={<UploadCSV csvUrl={csvUrl} setCsvUrl={setCsvUrl} />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
