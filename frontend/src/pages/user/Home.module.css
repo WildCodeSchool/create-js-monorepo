@@ -10,15 +10,15 @@
 }
 
 .title1 {
-  color: #ffcc38;
   display: flex;
   justify-content: center;
 }
 
 .title2 {
-  color: #ffcc38;
   display: flex;
   justify-content: center;
+  margin-top: 2em;
+
 }
 
 .select {
@@ -26,12 +26,27 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 2em;
 }
 
-body {
-  position: relative;
+.select1 {
+  width: 50vw;
+}
+
+
+.body {
+  height: 42vh;
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 0.9em;
+  padding-top: 2em;
 }
 
 img {
   width: 10vw;
+}
+
+.validate {
+  margin-top: 2.5em;
+  background-color: #Be2539;
 }

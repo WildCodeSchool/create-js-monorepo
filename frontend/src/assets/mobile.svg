@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 188.67 356.77" version="1.0">
+  <defs id="defs4">
+    <radialGradient id="radialGradient3188" gradientUnits="userSpaceOnUse" cy="208.35" cx="225.45" gradientTransform="matrix(.88444 0 0 1.6724 63.727 -149.41)" r="106.66">
+      <stop id="stop3183" stop-color="#a09f9e" offset="0"/>
+      <stop id="stop3186" stop-color="#e7e4e4" offset="1"/>
+    </radialGradient>
+    <radialGradient id="radialGradient3200" gradientUnits="userSpaceOnUse" cy="474.75" cx="103.78" gradientTransform="matrix(1 0 0 1.0184 0 -8.75)" r="21.574">
+      <stop id="stop3196" offset="0"/>
+      <stop id="stop3198" stop-color="#757c7c" offset="1"/>
+    </radialGradient>
+    <linearGradient id="linearGradient3190" y2="199.17" gradientUnits="userSpaceOnUse" y1="199.17" x2="351.83" x1="173.71">
+      <stop id="stop3184" offset="0"/>
+      <stop id="stop3192" stop-color="#9e9c9e" offset=".5"/>
+      <stop id="stop3194" stop-color="#7f7f7f" offset=".75"/>
+      <stop id="stop3188" offset="1"/>
+    </linearGradient>
+    <linearGradient id="linearGradient3204" y2="65.359" gradientUnits="userSpaceOnUse" y1="52.714" x2="261.03" x1="261.03">
+      <stop id="stop3200" stop-color="#000200" offset="0"/>
+      <stop id="stop3202" stop-color="#acaeb0" offset="1"/>
+    </linearGradient>
+  </defs>
+  <g id="layer1" transform="translate(-168.78 -20.657)" fill-rule="evenodd">
+    <rect id="rect2402" stroke-linejoin="round" ry="20.397" height="355.89" width="187.79" stroke="#000" stroke-linecap="round" y="21.099" x="169.23" stroke-width=".88444" fill="url(#radialGradient3188)"/>
+    <rect id="rect3174" ry="19.256" height="335.99" width="177.29" y="31.177" x="174.13" fill="url(#linearGradient3190)"/>
+    <rect id="rect3178" ry="10.825" height="236.51" width="168.99" y="81.599" x="178.27" fill="#9898e9"/>
+    <path id="path3190" stroke-linejoin="round" d="m124.85 474.75a21.074 21.471 0 1 1 -42.146 0 21.074 21.471 0 1 1 42.146 0z" transform="matrix(.88444 0 0 .88444 170.98 -75.96)" stroke="#000" stroke-linecap="round" fill="url(#radialGradient3200)"/>
+    <rect id="rect3192" stroke-linejoin="round" ry="0" height="17.03" width="15.623" stroke="#fff" stroke-linecap="round" y="335.41" x="254.96" stroke-width="2.7683"/>
+    <rect id="rect3196" ry="4.5161" height="9.0322" width="34.322" y="56.326" x="243.87" fill="url(#linearGradient3204)"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>mobile phone with big screen</dc:title>
+        <dc:date>2008-08-27T08:12:44</dc:date>
+        <dc:description>a mobile phone with big touch screen.</dc:description>
+        <dc:source>http://openclipart.org/detail/18694/mobile-phone-with-big-screen-by-motudo</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>motudo</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>image</rdf:li>
+            <rdf:li>media</rdf:li>
+            <rdf:li>mobile</rdf:li>
+            <rdf:li>phone</rdf:li>
+            <rdf:li>png</rdf:li>
+            <rdf:li>public domain</rdf:li>
+            <rdf:li>svg</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

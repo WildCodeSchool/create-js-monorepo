@@ -51,28 +51,28 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Phone` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO Phone (Brand, Model, RAM, Storage, Status, User_Id)
+INSERT INTO Phone (Brand, Model, RAM, Storage, Status, Total_value, User_Id)
 VALUES 
-    ( 'Samsung', 'Galaxy S20', 8, 128, 'Comme neuf', 1),
-    ( 'Samsung', 'Galaxy S10', 4, 64, 'Bon état', 2),
-    ( 'Samsung', 'Galaxy A52', 6, 128, 'Passable', 2),
-    ( 'Samsung', 'Galaxy Note 10', 8, 256, 'Comme neuf', 2),
-    ( 'Samsung', 'Galaxy S21', 12, 256, 'Mauvais', 2),
-    ( 'iPhone', 'iPhone 12', 4, 64, 'Comme neuf', 2),
-    ( 'iPhone', 'iPhone 11 Pro', 6, 128, 'Bon état', 1),
-    ( 'iPhone', 'iPhone XR', 3, 64, 'Passable', 2),
-    ( 'iPhone', 'iPhone SE', 4, 128, 'Mauvais', 1),
-    ( 'iPhone', 'iPhone 13', 8, 256, 'Comme neuf', 2),
-    ( 'Huawei', 'P40 Pro', 8, 256, 'Comme neuf', 2),
-    ( 'Huawei', 'Mate 30 Pro', 8, 128, 'Bon état', 1),
-    ( 'Huawei', 'P30 Lite', 4, 64, 'Passable', 2),
-    ( 'Huawei', 'Nova 7i', 6, 128, 'Mauvais', 2),
-    ( 'Huawei', 'P20 Pro', 6, 256, 'Comme neuf', 2),
-    ( 'Xiaomi', 'Mi 11', 8, 256, 'Comme neuf', 1),
-    ( 'Xiaomi', 'Redmi Note 9', 4, 128, 'Bon état', 2),
-    ( 'Xiaomi', 'Poco X3', 6, 64, 'Passable', 1),
-    ( 'Xiaomi', 'Mi 10T Pro', 8, 128, 'Mauvais', 2),
-    ( 'Xiaomi', 'Redmi 9', 4, 64, 'Comme neuf', 2);
+    ( 'Samsung', 'Galaxy S20', 8, 128, 'Réparable', 80, 1),
+    ( 'Samsung', 'Galaxy S10', 4, 64, 'Bloqué', 8, 2),
+    ( 'Samsung', 'Galaxy A52', 6, 128, 'Reconditionnable', 45, 2),
+    ( 'Samsung', 'Galaxy Note 10', 8, 256, 'Réparable', 90, 2),
+    ( 'Samsung', 'Galaxy S21', 12, 256, 'Reconditionné', 70, 2),
+    ( 'Apple', 'iPhone 12', 4, 64, 'Réparable', 77, 2),
+    ( 'Apple', 'iPhone 11 Pro', 6, 128, 'Bloqué', 15, 1),
+    ( 'Apple', 'iPhone XR', 3, 64, 'Reconditionnable', 27, 2),
+    ( 'Apple', 'iPhone SE', 4, 128, 'Reconditionné', 55, 1),
+    ( 'Apple', 'iPhone 13', 8, 256, 'Réparable', 90, 2),
+    ( 'Huawei', 'P40 Pro', 8, 256, 'Réparable', 90, 2),
+    ( 'Huawei', 'Mate 30 Pro', 8, 128, 'Bloqué', 21, 1),
+    ( 'Huawei', 'P30 Lite', 4, 64, 'Reconditionnable', 30, 2),
+    ( 'Huawei', 'Nova 7i', 6, 128, 'Reconditionné', 60, 2),
+    ( 'Huawei', 'P20 Pro', 6, 256, 'Réparable', 90, 2),
+    ( 'Xiaomi', 'Mi 11', 8, 256, 'Réparable', 94, 1),
+    ( 'Xiaomi', 'Redmi Note 9', 4, 128, 'Bloqué', 13, 2),
+    ( 'Xiaomi', 'Poco X3', 6, 64, 'Reconditionnable', 40, 1),
+    ( 'Xiaomi', 'Mi 10T Pro', 8, 128, 'Reconditionné', 65, 2),
+    ( 'Xiaomi', 'Redmi 9', 4, 64, 'Réparable', 76, 2);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

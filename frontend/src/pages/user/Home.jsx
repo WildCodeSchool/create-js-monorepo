@@ -21,42 +21,32 @@ export default function Home() {
     onSubmit: () => {
       APIService.get(`/api/phones`).then((response) => {
         setPhones(response.data);
-        // selected &&
-        //   console.log(
-        //     selected.reduce((acc, array) => {
-        //       acc.push(...array);
-        //     })
-        //   );
-        // console.log(
-        //   response.data.Brand /* .filter((phone) => phone.Brand === "Samsung") */
-        // );
-        // login(user);
-        // navigate("/");
       });
-      // récupérer brand et model dans un state pour pouvoir les afficher en fin de parcours
     },
   });
 
   return (
     <div>
       <Header />
-      <h1 className={styles.title1}>BIENVENUE</h1>
       <h1 className={styles.title2}>Rechercher un téléphone</h1>
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.select}>
           <select
+            className={styles.select1}
             name="brand"
             onChange={formik.handleChange}
             value={formik.values.brand}
             type="select"
           >
-            <option placeholder="">Sélectionnez une marque</option>
+            <option value="">Sélectionnez une marque</option>
             <option value="Samsung">Samsung</option>
             <option value="Apple">Apple</option>
-            <option value="Huawe">Huawei</option>
+            <option value="Huawei">Huawei</option>
             <option value="Xiaomi">Xiaomi</option>
           </select>
-          <button type="submit">Valider</button>
+          <button className={styles.validate} type="submit">
+            Valider
+          </button>
         </div>
       </form>
       <ul>

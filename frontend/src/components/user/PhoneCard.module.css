@@ -1,1 +1,12 @@
-
+.container {
+  background: linear-gradient(135deg, #2e3f54, #5a7290);
+  width: 75vw;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2em;
+  margin:auto
+}
