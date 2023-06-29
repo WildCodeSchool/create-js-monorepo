@@ -20,7 +20,6 @@ function App() {
     conditionning: "",
     price_reference: "",
   });
-
   const [selectedSystemId, setSelectedSystemId] = useState(null);
   const [selectedBrand, setSelectedBrand] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
