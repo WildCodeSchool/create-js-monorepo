@@ -12,7 +12,6 @@ router.delete("/items/:id", itemControllers.destroy);
 
 const smartphoneControllers = require("./controllers/smartphoneControllers");
 
-// router.get("/smartphone", smartphoneControllers.browse);
 router.get("/smartphone", smartphoneControllers.readSystemId);
 
 module.exports = router;
