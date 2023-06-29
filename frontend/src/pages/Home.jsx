@@ -1,8 +1,10 @@
-import NavBar from "./components/NavBar";
+/* eslint-disable react/prop-types */
+import NavBar from "../components/NavBar";
+
 export default function Home({ openModalToggle }) {
   return (
     <section className="flex justify-center">
-       <NavBar />
+      <NavBar />
       <div className="my-12">
         <button
           type="button"

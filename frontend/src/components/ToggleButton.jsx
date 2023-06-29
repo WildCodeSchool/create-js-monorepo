@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Toggle from "react-toggle";
 import osLogo from "../assets/ordinateur.png";
@@ -35,17 +36,16 @@ const featureKeyMapping = {
   Chargeur: "hasCharger",
 };
 
-const ToggleButton = ({
+function ToggleButton({
   label,
   isChecked,
   handleToggleChange,
   hasFeature,
   id,
   showMessages,
-}) => {
+}) {
   const imageSrc = getImageByLabel(id);
   const featureKey = featureKeyMapping[id];
-  const message = getMessageByFeature(featureKey);
 
   function getMessageByFeature(feature) {
     switch (feature) {
@@ -65,7 +65,7 @@ const ToggleButton = ({
         return null;
     }
   }
-
+  const message = getMessageByFeature(featureKey);
   const handleClick = () => {
     handleToggleChange(id); // Appeler la fonction de basculement avec l'ID correspondant
   };
@@ -101,6 +101,6 @@ const ToggleButton = ({
       )}
     </section>
   );
-};
+}
 
 export default ToggleButton;

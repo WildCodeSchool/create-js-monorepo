@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react/prop-types */
+import React, { useState } from "react";
 import Modal from "react-modal";
 import ToggleButton from "./ToggleButton";
 import logo from "../assets/Logo_1.png";
 import cross from "../assets/cross.png";
 
-const customStyles = {
-  // content: {
-  //   top: "45%",
-  //   left: "50%",
-  //   right: "auto",
-  //   bottom: "auto",
-  //   marginRight: "-50%",
-  //   transform: "translate(-50%, -50%)",
-  //   width: "80%",
-  //   backgroundColor: "#002743",
-  //   padding: "0",
-  //   display: "flex",
-  // },
-};
+// const customStyles = {
+//   // content: {
+//   //   top: "45%",
+//   //   left: "50%",
+//   //   right: "auto",
+//   //   bottom: "auto",
+//   //   marginRight: "-50%",
+//   //   transform: "translate(-50%, -50%)",
+//   //   width: "80%",
+//   //   backgroundColor: "#002743",
+//   //   padding: "0",
+//   //   display: "flex",
+//   // },
+// };
 
-const ToggleModal = ({ isOpen, closeModalToggle }) => {
+function ToggleModal({ closeModalToggle, modalToggleIsOpen }) {
   const [toggleStates, setToggleStates] = useState({
     os: false,
     ram: false,
@@ -56,7 +57,7 @@ const ToggleModal = ({ isOpen, closeModalToggle }) => {
   }
   return (
     <Modal
-      isOpen={isOpen}
+      isOpen={modalToggleIsOpen}
       onRequestClose={closeModalToggle}
       // style={customStyles}
       className=" w-[95%] border-2 border-solid border-blue-950 xl:border-none xl:p-0 h-fit xl:custom-bg2-color xl:w-[80%] rounded-2xl fixed top-[45%] xl:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex"
@@ -68,6 +69,7 @@ const ToggleModal = ({ isOpen, closeModalToggle }) => {
       </div>
       <div className="w-full p-5 xl:h-full bg-img-mob xl:bg-img xl:text-blue-950   xl:w-[75%] xl:ml-auto">
         <button
+          type="button"
           className="custom-bg2-color hover:bg-blue-700 p-1 mb-4 ml-auto block rounded"
           onClick={closeModalToggle}
         >
@@ -137,6 +139,6 @@ const ToggleModal = ({ isOpen, closeModalToggle }) => {
       </div>
     </Modal>
   );
-};
+}
 
 export default ToggleModal;
