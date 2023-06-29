@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import styles from "./PhoneCard.module.css";
 
-export default function PhoneCard() {
+export default function PhoneCard({ phone }) {
   return (
     <div className={styles.card}>
       <div className={styles.body}>
-        <h2>hello</h2>
+        <h2>{phone.Brand}</h2>
       </div>
     </div>
   );

@@ -11,8 +11,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`User`
@@ -26,9 +24,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`User` (
 ENGINE = InnoDB;
 
 INSERT INTO User (Email, Hashed_password, Admin)
-VALUES ("yann.richard9@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$cXFnN2s1ZHU0aTAwMDAwMA$XFP3Vrp4/huxiy9p4p2EAw"),
-("user.random@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$MTIzNDU2Nzg$1VS2Xgo4ph6WkoRshjCsJg");
-("admin.name@toto.com", "$argon2id$v=19$m=16,t=2,p=1$MTIzNDU2Nzg$YZOi4iOIKvdXpwWfSqQj9A", true)
+VALUES ("yann.richard9@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$cXFnN2s1ZHU0aTAwMDAwMA$XFP3Vrp4/huxiy9p4p2EAw", false),
+("user.random@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$MTIzNDU2Nzg$1VS2Xgo4ph6WkoRshjCsJg", false),
+("admin.name@toto.com", "$argon2id$v=19$m=16,t=2,p=1$MTIzNDU2Nzg$YZOi4iOIKvdXpwWfSqQj9A", true);
 -- -----------------------------------------------------
 -- Table `mydb`.`Phone`
 -- -----------------------------------------------------

@@ -29,7 +29,7 @@ const read = (req, res) => {
 };
 
 const select = (req, res) => {
-  const brand = parseInt(req.params.id, 10);
+  const { brand } = req.params;
 
   models.Phone.findByBrand(brand)
     .then(([rows]) => {

@@ -27,9 +27,9 @@ router.delete("/api/users/:id", userControllers.destroy);
 
 const phoneControllers = require("./controllers/phoneControllers");
 
-router.get("/api/phone", phoneControllers.browse);
+router.get("/api/phones", phoneControllers.browse);
 router.get("/api/phones/:id", phoneControllers.read);
-router.get("/api/phones/", phoneControllers.select);
+router.get("/api/phones/:brand", phoneControllers.select);
 router.put("/api/phones/:id", phoneControllers.edit);
 router.post("/api/phones", validatePhone, phoneControllers.add);
 router.delete("/api/phones/:id", phoneControllers.destroy);
