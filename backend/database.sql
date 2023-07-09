@@ -6,6 +6,15 @@ CREATE TABLE user (
   hashedPassword VARCHAR(255) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO
+user(firstname, lastname, email,
+hashedPassword)
+VALUES
+('Arthur',
+'Dent',
+'arthur@gmail.com',
+'$argon2d$v=19$m=12,t=3,p=1$ejBtbmxxZmkxbWswMDAwMA$sBTSUhRTTx8WKm3ZNbHsXA');
+
 CREATE TABLE types (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   title VARCHAR(50) NOT NULL,

@@ -24,16 +24,16 @@
 }
 
 .connexionbox{
-    color: #908D8D;
-    background-color: #F5F5F5;
-    border: 1px solid #908D8D;
+    color: var(--text-color);
+    background-color: var( --light-background-color);
+    border: 1px solid var(--text-color);
     padding: 1rem 1rem;
     margin-right: 1rem;
     font-size: 1rem;
     border-radius: 0.5rem;
     font-weight: bold;
-    box-shadow: 3px 3px 5px #908D8D;
     text-align: center;
+    text-decoration: none;
     
 }
 
@@ -44,11 +44,12 @@
     align-items: center;
 }
 .img h2{
-    color: #908D8D;
+    color: var(--text-color);
     font-size: 1.2rem;
     font-style: italic;
     text-align: center;
-    
+    white-space:pre-line;
+    margin: 0.2rem;   
 }
 
 @media screen and (min-width : 768px) {
@@ -62,20 +63,21 @@
     padding: 10px;
     height: auto;
     align-items:flex-start;
-    width: 100%
+    width: 100%;
+    margin-top: 1rem;
 }
 
 .connexionbox{
-    color: #908D8D;
-    background-color: #F5F5F5;
-    border: 1px solid #908D8D;
+    color: var(--text-color);
+    background-color: var(--light-background-color);
+    border: 1px solid var(--text-color);
     padding: 1rem 1rem;
     margin-right: 1rem;
     font-size: 1rem;
     margin-top: 1rem;
     border-radius: 0.5rem;
     font-weight: bold;
-    box-shadow: 3px 3px 5px #908D8D;
+    box-shadow: 3px 3px 5px var(--text-color);
     text-align: center;
 }
 
