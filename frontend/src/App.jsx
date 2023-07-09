@@ -1,10 +1,10 @@
 import Home from "./pages/Home";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-pink">
       <Home />
-      <p>coucou</p>
     </div>
   );
 }
