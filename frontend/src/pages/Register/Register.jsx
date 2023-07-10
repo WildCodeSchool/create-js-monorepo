@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { ToastContainer } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import APIService from "../../services/APIService";
 import "react-toastify/dist/ReactToastify.css";
 import notifySuccess, {
@@ -8,19 +8,26 @@ import notifySuccess, {
 } from "../../services/ToastNotificationService";
 import s from "./Register.module.css";
 import notehub from "../../assets/notehub.png";
+import validationSchema from "../../services/validationSchema";
 
 export default function Register() {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       firstname: "",
       lastname: "",
       email: "",
       password: "",
+      confirmPassword: "",
     },
+    validationSchema,
 
     onSubmit: () => {
-      APIService.post(`/users`, formik.values)
+      const { confirmPassword, ...formData } = formik.values;
+      APIService.post(`/users`, formData)
         .then(() => {
+          navigate("/");
           notifySuccess("Compte crée");
         })
 
@@ -57,8 +64,11 @@ export default function Register() {
               onChange={formik.handleChange}
               value={formik.values.email}
             />
+            {formik.errors.email && (
+              <div className={s.error}>{formik.errors.email}</div>
+            )}
             <input
-              type="text"
+              type="password"
               name="password"
               id="password"
               required="required"
@@ -67,16 +77,22 @@ export default function Register() {
               onChange={formik.handleChange}
               value={formik.values.password}
             />
+            {formik.errors.password && (
+              <div className={s.error}>{formik.errors.password}</div>
+            )}
             <input
-              type="text"
+              type="password"
               name="confirmPassword"
               id="confirmPassword"
               required="required"
               placeholder="confirmation du mot de passe"
               className={s.input}
               onChange={formik.handleChange}
-              value={formik.values.confirmpassword}
+              value={formik.values.confirmPassword}
             />
+            {formik.errors.confirmPassword && (
+              <div className={s.error}>{formik.errors.confirmPassword}</div>
+            )}
           </div>
           <div className={s.information}>
             <label htmlFor="identifiants" className={s.label}>
@@ -92,6 +108,9 @@ export default function Register() {
               onChange={formik.handleChange}
               value={formik.values.lastname}
             />
+            {formik.errors.lastname && (
+              <div className={s.error}>{formik.errors.lastname}</div>
+            )}
             <input
               type="text"
               name="firstname"
@@ -102,6 +121,9 @@ export default function Register() {
               onChange={formik.handleChange}
               value={formik.values.firstname}
             />
+            {formik.errors.name && (
+              <div className={s.error}>{formik.errors.name}</div>
+            )}
           </div>
           <button type="submit" className={s.button}>
             Connexion
