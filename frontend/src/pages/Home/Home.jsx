@@ -9,7 +9,9 @@ export default function Home() {
         <Link to="/register" className={s.connexionbox}>
           Créer un compte
         </Link>
-        <div className={s.connexionbox}>Se connecter</div>
+        <Link to="/notespage" className={s.connexionbox}>
+          Se connecter
+        </Link>
       </div>
       <div className={s.img}>
         <img src={notehub} alt="logo" className={s.notehub} />

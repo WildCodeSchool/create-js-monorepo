@@ -1,17 +1,5 @@
 const models = require("../models");
 
-const browse = (req, res) => {
-  models.user
-    .findAll()
-    .then(([rows]) => {
-      res.send(rows);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
 const add = (req, res) => {
   const newuser = req.body;
 
@@ -28,5 +16,4 @@ const add = (req, res) => {
 
 module.exports = {
   add,
-  browse,
 };

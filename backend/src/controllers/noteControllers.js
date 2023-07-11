@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.user
+  models.note
     .findAllNotes()
     .then(([rows]) => {
       res.send(rows);
