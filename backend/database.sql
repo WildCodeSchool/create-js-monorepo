@@ -7,7 +7,7 @@ CREATE TABLE user (
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO
-user(firstname, lastname, email,
+user (firstname, lastname, email,
 hashedPassword)
 VALUES
 ('Arthur',
@@ -17,33 +17,37 @@ VALUES
 
 CREATE TABLE types (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  title VARCHAR(50) NOT NULL,
-  user_id INT NOT NULL,
-  CONSTRAINT fk_types_user
-  FOREIGN KEY (user_id)
-  REFERENCES user(id)
+  tag VARCHAR(50)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO 
+types (tag)
+VALUES ('Autres'),('Epinglées');
+
 
 
 CREATE TABLE category (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  title VARCHAR(50) NOT NULL,
-  user_id INT NOT NULL,
-  CONSTRAINT fk_category_user
-  FOREIGN KEY (user_id)
-  REFERENCES user(id)
+  list VARCHAR(50) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO
+category (list)
+VALUES ('Notes'),
+('Personnel');
 
 CREATE TABLE color (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   color VARCHAR(20)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO
+color (color)
+VALUES ('#EEEAEA'), ('#B171A3'), ('#EF8CC8'), ('#FOB7E4');
 
 CREATE TABLE note (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   title VARCHAR(255) NOT NULL,
   content TEXT,
-  modification_date DATE NOT NULL,
   user_id INT NOT NULL,
   CONSTRAINT fk_note_user
   FOREIGN KEY (user_id)
@@ -61,4 +65,11 @@ CREATE TABLE note (
   FOREIGN KEY (category_id)
   REFERENCES category(id)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO
+note (title, content, user_id, color_id, types_id, category_id)
+VALUES ('Titre pro',
+'préparer le résumé du cahier des charges
+lire les exemples de projet
+commencer la rédaction', '1', '2', '1', '1');
 

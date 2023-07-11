@@ -10,4 +10,7 @@ const userControllers = require("./controllers/userControllers");
 router.get("/users", userControllers.browse);
 router.post("/users", hashPassword, userControllers.add);
 
+// routes privées quand login ok
+router.get("/notes", userControllers.browse);
+
 module.exports = router;
