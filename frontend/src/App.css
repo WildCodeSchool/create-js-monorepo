@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+  }
+  
+
+body{
+    background-image: url("./src/assets/pink.png");
+    font-family: 'Montserrat', sans-serif;
+} 
+
+:root{
+    --text-color: #908D8D;
+    --light-background-color: #F5F5F5;
+    --dark-background-color: #E2DADA
+    }

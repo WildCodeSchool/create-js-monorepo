@@ -1,0 +1,103 @@
+.home {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.connexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 10px;
+    margin-bottom: 1rem;
+    min-width: 20rem;
+    
+}
+
+.connexionbox{
+    color: var(--text-color);
+    background-color: var( --light-background-color);
+    border: 1px solid var(--text-color);
+    padding: 1rem 1rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    
+}
+
+.img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.img h2{
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    white-space:pre-line;
+    margin: 0.2rem;   
+}
+
+@media screen and (min-width : 768px) {
+
+.connexion{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    height: auto;
+    align-items:flex-start;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.connexionbox{
+    color: var(--text-color);
+    background-color: var(--light-background-color);
+    border: 1px solid var(--text-color);
+    padding: 1rem 1rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    box-shadow: 3px 3px 5px var(--text-color);
+    text-align: center;
+}
+
+.img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img.nothub{
+    max-width: 50rem;
+    height: auto
+}
+
+.img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+}

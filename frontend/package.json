@@ -9,6 +9,7 @@
   "dependencies": {
     "@vitejs/plugin-react": "^3.0.1",
     "axios": "^1.4.0",
+    "formik": "^2.4.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -19,6 +20,7 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.14",
     "eslint": "^8.32.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.6.0",
@@ -28,6 +30,7 @@
     "eslint-plugin-react": "^7.32.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
+    "postcss": "^8.4.25",
     "prettier": "^2.8.3"
   }
 }
