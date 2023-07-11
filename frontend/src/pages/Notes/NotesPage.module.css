@@ -1,0 +1,35 @@
+.notespage{
+    position: relative;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.notecontainer{
+    display: flex;
+    justify-content:flex-end;
+    margin: 3% 3%;
+    position: absolute;
+    top:15%;
+    left:15%
+}
+
+@media screen and (min-width : 768px) {
+    .notecontainer{
+    display: flex;
+    position: absolute;
+    width: 75%;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    right: 1%;
+    top: 10%;
+    margin: 3% 3% 3% 3%;
+    flex-grow:1;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+}

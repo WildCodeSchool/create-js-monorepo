@@ -1,12 +1,8 @@
 const AbstractManager = require("./AbstractManager");
 
-class userManager extends AbstractManager {
+class UserManager extends AbstractManager {
   constructor() {
     super({ table: "user" });
-  }
-
-  findAll() {
-    return this.database.query(`select * from  ${this.table}`);
   }
 
   insert(user) {
@@ -17,4 +13,4 @@ class userManager extends AbstractManager {
   }
 }
 
-module.exports = userManager;
+module.exports = UserManager;

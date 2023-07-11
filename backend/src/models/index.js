@@ -34,6 +34,11 @@ const UserManager = require("./UserManager");
 models.user = new UserManager();
 models.user.setDatabase(pool);
 
+const NoteManager = require("./NoteManager");
+
+models.note = new NoteManager();
+models.note.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
