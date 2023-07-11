@@ -15,6 +15,7 @@ CREATE TABLE types (
   REFERENCES user(id)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 CREATE TABLE category (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   title VARCHAR(50) NOT NULL,
@@ -38,15 +39,15 @@ CREATE TABLE note (
   CONSTRAINT fk_note_user
   FOREIGN KEY (user_id)
   REFERENCES user(id),
-  color_id INT NOT NULL,
+  color_id INT,
   CONSTRAINT fk_note_color
   FOREIGN KEY (color_id)
   REFERENCES color(id),
-  types_id INT NOT NULL,
+  types_id INT,
   CONSTRAINT fk_note_types
   FOREIGN KEY (types_id)
   REFERENCES types(id),
-  category_id INT NOT NULL,
+  category_id INT,
   CONSTRAINT fk_note_category
   FOREIGN KEY (category_id)
   REFERENCES category(id)
