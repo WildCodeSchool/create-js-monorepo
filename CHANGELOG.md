@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.2] - 2023-07-12
+
+### Fixed
+
+- Fixed deploy workflow. Thanks to [Pierre Paillard]([https://github.com/vandanjon](https://github.com/PPaillard)).
+
 ## [3.0.1] - 2023-07-10
 
 ### Fixed
