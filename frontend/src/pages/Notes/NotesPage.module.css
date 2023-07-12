@@ -11,15 +11,21 @@
 .notecontainer{
     display: flex;
     justify-content:flex-end;
+    flex-direction: column;
     margin: 3% 3%;
     position: absolute;
     top:15%;
-    left:15%
+    left:15%;
+    /* pour conserver les espaces et les retours à la ligne dans le texte :*/
+    white-space: pre-wrap; 
+    /* aller à la ligne :*/
+    overflow-wrap: break-word;
 }
 
 @media screen and (min-width : 768px) {
     .notecontainer{
     display: flex;
+    flex-direction: row;
     position: absolute;
     width: 75%;
     height: auto;
@@ -27,9 +33,12 @@
     justify-content: flex-start;
     right: 1%;
     top: 10%;
-    margin: 3% 3% 3% 3%;
+    margin: 1rem;
     flex-grow:1;
     flex-shrink: 1;
     flex-basis: 0;
+}
+li{
+    margin: 0.4rem;
 }
 }

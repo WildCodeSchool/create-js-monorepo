@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { notifyError } from "../../services/ToastNotificationService";
 import s from "./NotesPage.module.css";
 import ListNotes from "../../components/ListNotes/ListNotes";
+import CreateNote from "../../components/CreateNote/CreateNote";
 
 export default function NotesPage() {
   const [listNotes, setListNotes] = useState(null);
@@ -20,6 +21,7 @@ export default function NotesPage() {
 
   return (
     <div className={s.notespage}>
+      <CreateNote />
       <ul className={s.notecontainer}>
         {listNotes &&
           listNotes.map((notes) => <ListNotes key={notes.id} notes={notes} />)}

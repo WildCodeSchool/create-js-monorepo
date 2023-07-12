@@ -1,0 +1,32 @@
+form{
+    position: relative;
+    width: 600px;
+    margin: 32px auto 50px auto;
+    background-color: var(--light-background-color);
+    padding: 1rem;
+    border-radius: 0.6rem;
+    border: 1px solid var(--dark-background-color);
+    box-shadow: 0px 1px 7px var(--dark-background-color);
+}
+
+form input{
+    width: 100%;
+    border: none;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 1rem;
+    resize: none;
+    background-color: var(--light-background-color);
+}
+
+form textarea{
+    width: 100%;
+    border: none;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 1rem;
+    resize: none;
+    background-color: var(--light-background-color);
+}
