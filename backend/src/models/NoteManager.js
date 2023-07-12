@@ -13,6 +13,20 @@ class NoteManager extends AbstractManager {
     JOIN color ON color.id= n.color_id
     JOIN category ON category.id = n.category_id;`);
   }
+
+  insert(note) {
+    return this.database.query(
+      `INSERT INTO ${this.table} (title, content, user_id, color_id, types_id, category_id) VALUES (?,?,?,?,?,?)`,
+      [
+        note.title,
+        note.content,
+        note.user_id,
+        note.color_id,
+        note.types_id,
+        note.category_id,
+      ]
+    );
+  }
 }
 
 module.exports = NoteManager;
