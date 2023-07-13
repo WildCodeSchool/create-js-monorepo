@@ -13,6 +13,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Uninstalled `husky` in front (useless dependency).
 
+## [3.0.2] - 2023-07-12
+
+### Fixed
+
+- Fixed deploy workflow. Thanks to [Pierre Paillard](https://github.com/PPaillard).
+
+## [3.0.1] - 2023-07-10
+
+### Fixed
+
+- Removed useless eslint disable comment in `backend/index.js`. Thanks to [Benoît Vandanjon](https://github.com/vandanjon).
+
+- Fixed pre-commit hook to reject modifications in the root directory.
+
 ## [3.0.0] - 2023-05-29
 
 ### Added
