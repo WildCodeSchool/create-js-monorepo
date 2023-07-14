@@ -11,13 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Installed `@faker-js/faker` in backend.
 
-- Made the backend more verbose with additional logs and more comments.
-
 ### Changed
 
-- Exposed header `Location` in CORS configuration in backend.
+- Moved to async/await syntax in `backend/src/controllers/itemControllers.js`, and passed error handling to next middleware.
 
-- Moved to async/await syntax in `backend/src/controllers/itemControllers.js`, and moved error handling into an error middleware in `app.js`.
+- **Breaking change:** Removed item update and delete routes, and the associated CRUD methods in `ItemManager`.
 
 - **Breaking change:** refactored models. Managers like `backend/src/models/ItemManager.js` should declare every CRUD methods: they do not inherit read and delete methods from `AbstractManager` anymore. Methods `find`, `findAll` and `insert` are renamed as `read`, `readAll` and `create`. Moved to async/await syntax.
 
@@ -69,6 +67,10 @@ tables.foo.callSomeCrudMethod();
 - **Breaking change:** split ̀`database.sql` logic into table creation in a file `backend/database/schema.sql` and table filling in a file `backend/seed.js`. Updated `backend/migrate.js` accordingly.
 
 - **Breaking change:** renamed `migrate` script as `db:migrate`, and added a `db:seed` script.
+
+- **Breaking change:** removed fallback values for `.env` variables. They have to be defined.
+
+- **Breaking change:** removed magic configuration, and added pedagogical comments to help rewrite it.
 
 ## [3.0.2] - 2023-07-12
 
