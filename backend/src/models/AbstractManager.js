@@ -25,8 +25,7 @@ database
     console.warn(
       "Warning:",
       "Failed to get a DB connection.",
-      "Did you create a .env file with valid credentials?",
-      "Routes using models won't work as intended"
+      "Did you create a .env file with valid credentials?"
     );
   });
 
