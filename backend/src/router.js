@@ -15,5 +15,6 @@ const noteControllers = require("./controllers/noteControllers");
 
 router.get("/notes", noteControllers.browse);
 router.post("/notes", noteControllers.add);
+router.delete("/notes", noteControllers.destroy);
 
 module.exports = router;
