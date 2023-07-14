@@ -5,14 +5,6 @@ class NoteManager extends AbstractManager {
     super({ table: "note" });
   }
 
-  // findAllNotes() {
-  //   return this.database
-  //     .query(`SELECT n.id, n.title, n.content, types_id, tag, color_id, color, category_id, list FROM ${this.table} AS n
-  //   JOIN types ON types.id = n.types_id
-  //   JOIN color ON color.id= n.color_id
-  //   JOIN category ON category.id = n.category_id;`);
-  // }
-
   findAllNotes() {
     return this.database.query(`SELECT * FROM ${this.table} ;`);
   }

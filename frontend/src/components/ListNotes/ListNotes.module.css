@@ -1,4 +1,5 @@
 .container{
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -9,7 +10,10 @@
     padding-bottom: 2rem;
     line-height:1.5;
     font-size: 0.9rem;
-
+     /* pour conserver les espaces et les retours à la ligne dans le texte :*/
+     white-space: pre-wrap; 
+     /* aller à la ligne :*/
+     overflow-wrap: break-word;
 }
 
 h3{
