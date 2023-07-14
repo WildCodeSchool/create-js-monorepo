@@ -5,6 +5,8 @@ class ItemManager extends AbstractManager {
     super({ table: "item" });
   }
 
+  // the C of CRUD
+
   async create(item) {
     const [result] = await this.database.query(
       `insert into ${this.table} (title) values (?)`,
@@ -13,6 +15,8 @@ class ItemManager extends AbstractManager {
 
     return result.insertId;
   }
+
+  // the Rs of CRUD
 
   async read(id) {
     const [rows] = await this.database.query(
@@ -23,29 +27,19 @@ class ItemManager extends AbstractManager {
     return rows[0];
   }
 
-  async readAll() {
+  async readAll(/* options: try to add some */) {
     const [rows] = await this.database.query(`select * from ${this.table}`);
 
     return rows;
   }
 
-  async update(item) {
-    const [result] = await this.database.query(
-      `update ${this.table} set title = ? where id = ?`,
-      [item.title, item.id]
-    );
+  // the U of CRUD
 
-    return result.affectedRows;
-  }
+  // ???
 
-  async delete(id) {
-    const [result] = await this.database.query(
-      `delete from ${this.table} where id = ?`,
-      [id]
-    );
+  // the D of CRUD
 
-    return result.affectedRows;
-  }
+  // ???
 }
 
 module.exports = ItemManager;

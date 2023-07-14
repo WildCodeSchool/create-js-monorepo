@@ -39,4 +39,6 @@ class AbstractManager {
   }
 }
 
+// ready to export
+
 module.exports = AbstractManager;
