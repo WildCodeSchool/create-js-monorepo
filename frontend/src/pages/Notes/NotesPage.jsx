@@ -17,11 +17,13 @@ export default function NotesPage() {
           notifyError("La requête a échoué");
         }
       });
-  }, []);
+  }, [listNotes]);
 
   return (
     <div className={s.notespage}>
-      <CreateNote />
+      <div className={s.createnote}>
+        <CreateNote />
+      </div>
       <ul className={s.notecontainer}>
         {listNotes &&
           listNotes.map((notes) => <ListNotes key={notes.id} notes={notes} />)}

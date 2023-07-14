@@ -2,24 +2,39 @@
     position: relative;
     min-height: 100vh;
     min-width: 100vw;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    overflow: scroll;
 }
 
 .notecontainer{
     display: flex;
     justify-content:flex-end;
     flex-direction: column;
-    margin: 3% 3%;
     position: absolute;
-    top:15%;
+    top:18%;
     left:15%;
     /* pour conserver les espaces et les retours à la ligne dans le texte :*/
     white-space: pre-wrap; 
     /* aller à la ligne :*/
     overflow-wrap: break-word;
+}
+
+li{
+    margin: 0.2rem;
+}
+
+.createnote{
+    display: flex;
+    justify-content:flex-end;
+    position: absolute;
+    top:3%;
+    left:15%;
+    z-index: 3;   
+    width: fit-content;
+    height: fit-content; 
+    border: 2px solid var(--dark-background-color);
 }
 
 @media screen and (min-width : 768px) {
@@ -32,13 +47,28 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     right: 1%;
-    top: 10%;
+    top: 20%;
     margin: 1rem;
     flex-grow:1;
     flex-shrink: 1;
     flex-basis: 0;
 }
-li{
-    margin: 0.4rem;
+    li{
+        margin: 0.4rem;
+   
+}
+  
+    .createnote{
+        display: flex;
+        position: absolute;
+        top: 3%;
+        display: flex;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        box-shadow: 5px 5px 5px var(--text-color);   
+        width: fit-content;
+        height: fit-content; 
+        border-radius: 0.6rem;
 }
 }

@@ -1,15 +1,13 @@
-form{
-    position: relative;
-    width: 600px;
-    margin: 32px auto 50px auto;
+.form{
+    width: 300px;
+    margin: auto;
     background-color: var(--light-background-color);
     padding: 1rem;
     border-radius: 0.6rem;
-    border: 1px solid var(--dark-background-color);
-    box-shadow: 0px 1px 7px var(--dark-background-color);
+    border: 1px solid var(--dark-background-color);  
 }
 
-form input{
+.input{
     width: 100%;
     border: none;
     padding: 4px 10px;
@@ -18,9 +16,11 @@ form input{
     font-size: 1rem;
     resize: none;
     background-color: var(--light-background-color);
+    font-family: 'Montserrat', sans-serif;
+    
 }
 
-form textarea{
+.textarea{
     width: 100%;
     border: none;
     padding: 4px 10px;
@@ -29,4 +29,49 @@ form textarea{
     font-size: 1rem;
     resize: none;
     background-color: var(--light-background-color);
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+
+.button{
+    font-size: 24px;
+}
+
+@media screen and (min-width : 768px) {
+    .form{
+        width: 600px;
+        margin: auto;
+        background-color: var(--light-background-color);
+        padding: 1rem;
+        border-radius: 0.6rem;
+        border: 1px solid var(--dark-background-color);  
+    }
+    
+    .input{
+        width: 100%;
+        border: none;
+        padding: 4px 10px;
+        margin-bottom: 20px;
+        outline: none;
+        font-size: 1rem;
+        resize: none;
+        background-color: var(--light-background-color);
+        font-family: 'Montserrat', sans-serif;
+        
+    }
+    
+    .textarea{
+        width: 100%;
+        border: none;
+        padding: 4px 10px;
+        margin-bottom: 20px;
+        outline: none;
+        font-size: 1rem;
+        resize: none;
+        background-color: var(--light-background-color);
+        font-family: 'Montserrat', sans-serif;
+
+    }
+    
 }
