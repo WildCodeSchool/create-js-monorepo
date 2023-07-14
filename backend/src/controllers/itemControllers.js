@@ -1,46 +1,40 @@
+// get access to database tables
+
 const tables = require("../tables");
+
+// the B of BREAD
 
 const browse = async (req, res, next) => {
   try {
-    const rows = await tables.item.readAll();
+    const items = await tables.item.readAll();
 
-    res.send(rows);
+    res.json(items);
   } catch (err) {
     next(err);
   }
 };
+
+// the R of BREAD
 
 const read = async (req, res, next) => {
   try {
-    const row = await tables.item.read(req.params.id);
+    const item = await tables.item.read(req.params.id);
 
-    if (row == null) {
+    if (item == null) {
       res.sendStatus(404);
     } else {
-      res.send(row);
+      res.json(item);
     }
   } catch (err) {
     next(err);
   }
 };
 
-const edit = async (req, res, next) => {
-  const item = req.body;
+// the E of BREAD
 
-  item.id = parseInt(req.params.id, 10);
+// ???
 
-  try {
-    const affectedRows = await tables.item.update(item);
-
-    if (affectedRows === 0) {
-      res.sendStatus(404);
-    } else {
-      res.sendStatus(204);
-    }
-  } catch (err) {
-    next(err);
-  }
-};
+// the A of BREAD
 
 const add = async (req, res, next) => {
   const item = req.body;
@@ -48,30 +42,22 @@ const add = async (req, res, next) => {
   try {
     const insertId = await tables.item.create(item);
 
-    res.location(`/items/${insertId}`).sendStatus(201);
+    res.status(201).json({ insertId });
   } catch (err) {
     next(err);
   }
 };
 
-const destroy = async (req, res, next) => {
-  try {
-    const affectedRows = await tables.item.delete(req.params.id);
+// the D of BREAD
 
-    if (affectedRows === 0) {
-      res.sendStatus(404);
-    } else {
-      res.sendStatus(204);
-    }
-  } catch (err) {
-    next(err);
-  }
-};
+// ???
+
+// ready to export
 
 module.exports = {
   browse,
   read,
-  edit,
+  // edit,
   add,
-  destroy,
+  // destroy,
 };
