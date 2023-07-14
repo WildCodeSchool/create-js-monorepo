@@ -11,8 +11,10 @@ const userControllers = require("./controllers/userControllers");
 router.post("/users", hashPassword, userControllers.add);
 
 // routes privées quand login ok
-const noteController = require("./controllers/noteControllers");
+const noteControllers = require("./controllers/noteControllers");
 
-router.get("/notes", noteController.browse);
+router.get("/notes", noteControllers.browse);
+router.post("/notes", noteControllers.add);
+router.delete("/notes/:id", noteControllers.destroy);
 
 module.exports = router;

@@ -1,4 +1,5 @@
 .container{
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -9,11 +10,15 @@
     padding-bottom: 2rem;
     line-height:1.5;
     font-size: 0.9rem;
-
+     /* pour conserver les espaces et les retours à la ligne dans le texte :*/
+     white-space: pre-wrap; 
+     /* aller à la ligne :*/
+     overflow-wrap: break-word;
 }
 
 h3{
     margin-bottom: 0.6rem;
+    text-overflow: ellipsis;
 }
 
 @media screen and (min-width : 768px) {
@@ -22,8 +27,11 @@ h3{
         flex-shrink: 1;
         flex-grow:1;
         flex-basis: 300px;
-        max-width: 400px;
-        
-       
+        max-width: 400px;      
+}
+
+    .container:hover{
+        box-shadow: 1px 1px 3px var(--text-color);
+   
 }
 }

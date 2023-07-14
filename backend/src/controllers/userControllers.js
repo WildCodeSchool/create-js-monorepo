@@ -1,10 +1,10 @@
 const models = require("../models");
 
 const add = (req, res) => {
-  const newuser = req.body;
+  const newUser = req.body;
 
   models.user
-    .insert(newuser)
+    .insert(newUser)
     .then(([result]) => {
       res.location(`/users/${result.insertId}`).sendStatus(201);
     })

@@ -129,8 +129,8 @@ export default function Register() {
             Connexion
           </button>
         </form>
-        <ToastContainer limit={1} />
       </div>
+      <ToastContainer limit={1} />
     </div>
   );
 }
