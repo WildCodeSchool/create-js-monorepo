@@ -80,7 +80,7 @@ export default function CreateNote({ fetchNotes }) {
           value={note.content}
           onClick={handleExpanded}
           onChange={handleChange}
-          rows={isDeployed ? 3 : 1}
+          rows={isDeployed ? 15 : 1}
           required="required"
           id="content"
         />

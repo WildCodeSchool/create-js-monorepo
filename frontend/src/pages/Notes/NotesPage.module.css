@@ -1,40 +1,40 @@
-.notespage{
-    position: relative;
-    min-height: 100vh;
-    min-width: 100vw;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    overflow: scroll;
+.notespage {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: scroll;
 }
 
-.notecontainer{
-    display: flex;
-    justify-content:flex-end;
-    flex-direction: column;
-    position: absolute;
-    top:18%;
-    left:15%;
+.notecontainer {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  position: absolute;
+  top: 18%;
+  left: 15%;
 }
 
-li{
-    margin: 0.2rem;
+li {
+  margin: 0.2rem;
 }
 
-.createnote{
-    display: flex;
-    justify-content:flex-end;
-    position: absolute;
-    top:3%;
-    left:15%;
-    z-index: 3;   
-    width: fit-content;
-    height: fit-content; 
-    border: 2px solid var(--dark-background-color);
+.createnote {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 3%;
+  left: 15%;
+  z-index: 3;
+  width: fit-content;
+  height: fit-content;
+  border: 2px solid var(--dark-background-color);
 }
 
-@media screen and (min-width : 768px) {
-    .notecontainer{
+@media screen and (min-width: 768px) {
+  .notecontainer {
     display: flex;
     flex-direction: row;
     position: absolute;
@@ -45,26 +45,25 @@ li{
     right: 1%;
     top: 20%;
     margin: 1rem;
-    flex-grow:1;
+    flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0;
-}
-    li{
-        margin: 0.4rem;
-   
-}
-  
-    .createnote{
-        display: flex;
-        position: absolute;
-        top: 3%;
-        display: flex;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 3;
-        box-shadow: 5px 5px 5px var(--text-color);   
-        width: fit-content;
-        height: fit-content; 
-        border-radius: 0.6rem;
-}
+  }
+  li {
+    margin: 0.4rem;
+  }
+
+  .createnote {
+    display: flex;
+    position: absolute;
+    top: 3%;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    box-shadow: 5px 5px 5px var(--text-color);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 0.6rem;
+  }
 }

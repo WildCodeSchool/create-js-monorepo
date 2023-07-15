@@ -1,0 +1,59 @@
+.overlay{
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+}
+
+.container {
+    padding: 1.3rem;
+    border-radius: 0.6rem;
+    width: 100%;
+    height: 100%;
+    max-width: 350px;
+    max-height: 600px;
+    z-index: 5;
+    background-color: var(--light-background-color);
+    border: 1px solid var(--dark-background-color);
+}
+
+.input {
+    width: 100%;
+    border: none;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 1rem;
+    resize: none;
+    background-color: var(--light-background-color);
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .textarea {
+    width: 100%;
+    border: none;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 1rem;
+    resize: none;
+    background-color: var(--light-background-color);
+    font-family: "Montserrat", sans-serif;
+  } 
+
+
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 500px;
+        max-height: 600px;
+       
+    }
+    
+}

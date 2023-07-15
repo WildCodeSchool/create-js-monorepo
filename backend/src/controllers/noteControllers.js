@@ -12,6 +12,24 @@ const browse = (req, res) => {
     });
 };
 
+const read = (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  models.note
+    .find(id)
+    .then(([rows]) => {
+      if (rows[0]) {
+        res.send(rows[0]);
+      } else {
+        res.status(404).send("User not found");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+    });
+};
+
 const add = (req, res) => {
   const newNote = req.body;
 
@@ -66,6 +84,7 @@ const destroy = (req, res) => {
 
 module.exports = {
   browse,
+  read,
   add,
   edit,
   destroy,
