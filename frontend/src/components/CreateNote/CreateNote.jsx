@@ -1,7 +1,5 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { RiAddCircleLine as Add } from "react-icons/ri";
-import { ToastContainer } from "react-toastify";
 import APIService from "../../services/APIService";
 import notifySuccess, {
   notifyError,
@@ -49,7 +47,9 @@ export default function CreateNote({ fetchNotes }) {
   const handleExpanded = () => {
     setIsDeployed(true);
   };
-
+  const handleClose = () => {
+    setIsDeployed(false);
+  };
   const handleChange = async (e) => {
     setNote({
       ...note,
@@ -58,39 +58,49 @@ export default function CreateNote({ fetchNotes }) {
   };
 
   return (
-    <>
-      <form action="addNote" onSubmit={handleSubmit} className={s.form}>
-        {isDeployed && (
-          <input
-            type="text"
-            placeholder="Titre"
-            name="title"
-            className={s.input}
-            value={note.title}
-            onChange={handleChange}
-            required="required"
-            id="title"
-          />
-        )}
-        <textarea
+    <form action="addNote" onSubmit={handleSubmit} className={s.form}>
+      {isDeployed && (
+        <input
           type="text"
-          placeholder="Créer une note..."
-          name="content"
-          className={s.textarea}
-          value={note.content}
-          onClick={handleExpanded}
+          placeholder="Titre"
+          name="title"
+          className={s.input}
+          value={note.title}
           onChange={handleChange}
-          rows={isDeployed ? 15 : 1}
           required="required"
-          id="content"
+          id="title"
         />
-
-        <button type="submit">
-          <Add className={s.button} />
+      )}
+      <textarea
+        type="text"
+        placeholder="Créer une note..."
+        name="content"
+        className={s.textarea}
+        value={note.content}
+        onClick={handleExpanded}
+        onChange={handleChange}
+        rows={isDeployed ? 15 : 1}
+        required="required"
+        id="content"
+      />
+      <div className={s.openclose}>
+        <button
+          type="submit"
+          className={s.button}
+          style={{ display: isDeployed ? "block" : "none" }}
+        >
+          Ajouter
         </button>
-      </form>
-      <ToastContainer limit={1} />
-    </>
+        <button
+          type="button"
+          className={s.button}
+          onClick={handleClose}
+          style={{ display: isDeployed ? "block" : "none" }}
+        >
+          Fermer
+        </button>
+      </div>
+    </form>
   );
 }
 

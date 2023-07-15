@@ -1,12 +1,11 @@
-import { ToastContainer } from "react-toastify";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import { PencilSquare } from "react-bootstrap-icons";
 import APIService from "../../services/APIService";
 import notifySuccess, {
   notifyError,
 } from "../../services/ToastNotificationService";
 import s from "./EditNote.module.css";
+import DeleteNote from "../DeleteNote/DeleteNote";
 
 export default function EditNote({ setOpenModal, selectedNote, fetchNotes }) {
   if (!setOpenModal) return null;
@@ -34,8 +33,8 @@ export default function EditNote({ setOpenModal, selectedNote, fetchNotes }) {
         const res = await APIService.put(`/notes/${selectedNote}`, note);
 
         if (res) {
-          notifySuccess("La note a été modifiée");
           fetchNotes();
+          notifySuccess("La note a été modifiée");
         } else {
           throw new Error();
         }
@@ -62,9 +61,11 @@ export default function EditNote({ setOpenModal, selectedNote, fetchNotes }) {
     <div className={s.overlay}>
       <div className={s.container}>
         <form action="note" className={s.container}>
-          <button type="button" onClick={handleClose}>
-            X
-          </button>
+          <div className={s.closebutton}>
+            <button type="button" onClick={handleClose} className={s.close}>
+              X
+            </button>
+          </div>
           <input
             type="text"
             name="title"
@@ -83,10 +84,16 @@ export default function EditNote({ setOpenModal, selectedNote, fetchNotes }) {
             required="required"
             id="content"
           />
-          <button type="button" className={s.button} onClick={handleEdit}>
-            Enregister
-          </button>
-          <ToastContainer limit={1} />
+          <div className={s.buttonContainer}>
+            <button type="button" className={s.button} onClick={handleEdit}>
+              Enregistrer
+            </button>
+            <DeleteNote
+              selectedNote={note.id}
+              fetchNotes={fetchNotes}
+              className={s.button}
+            />
+          </div>
         </form>
       </div>
     </div>

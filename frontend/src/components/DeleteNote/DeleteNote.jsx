@@ -1,6 +1,4 @@
-import { MdDelete as Delete } from "react-icons/md";
 import PropTypes from "prop-types";
-import { ToastContainer } from "react-toastify";
 import s from "./DeleteNote.module.css";
 import APIService from "../../services/APIService";
 import notifySuccess, {
@@ -14,8 +12,8 @@ export default function DeleteNote({ selectedNote, fetchNotes }) {
       try {
         const res = await APIService.delete(`/notes/${selectedNote}`);
         if (res) {
-          notifySuccess("La note a été supprimée");
           fetchNotes();
+          notifySuccess("La note a été supprimée");
         } else {
           throw new Error();
         }
@@ -29,9 +27,8 @@ export default function DeleteNote({ selectedNote, fetchNotes }) {
   return (
     <div>
       <button type="button" className={s.button} onClick={handleDelete}>
-        <Delete className={s.button} />
+        Supprimer
       </button>
-      <ToastContainer limit={1} />
     </div>
   );
 }

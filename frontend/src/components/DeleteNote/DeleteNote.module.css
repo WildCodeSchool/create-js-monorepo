@@ -1,3 +1,14 @@
 .button {
-  font-size: 20px;
+  font-size: 0.8rem;
+  background-color: var(--dark-background-color);
+  color: var(--text-color);
+  border-radius: 0.3rem;
+  padding: 3px 5px;
+}
+
+@media screen and (min-width: 768px) {
+  
+  .button{
+      font-size: 1rem;
+  }
 }

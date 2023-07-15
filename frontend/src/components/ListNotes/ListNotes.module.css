@@ -14,6 +14,8 @@
   white-space: pre-wrap;
   /* aller à la ligne :*/
   overflow-wrap: break-word;
+  
+ 
 }
 
 h3 {
@@ -21,9 +23,25 @@ h3 {
   text-overflow: ellipsis;
 }
 
-.modalcontainer{
-  background-color: red;
+.note{
+  margin-bottom: 1rem;
+} 
+
+.button {
+  position: absolute;
+  font-size: 0.8rem;
+  background-color: var(--dark-background-color);
+  color: var(--text-color);
+  border-radius: 0.3rem;
+  padding: 3px 5px;
+  width:min-content;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+   
 }
+
+
 @media screen and (min-width: 768px) {
   .container {
     width: 350px;
@@ -35,5 +53,9 @@ h3 {
 
   .container:hover {
     box-shadow: 1px 1px 3px var(--text-color);
+  }
+
+  .note{
+    margin-bottom: 2rem;
   }
 }

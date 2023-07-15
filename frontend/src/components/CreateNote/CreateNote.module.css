@@ -32,8 +32,19 @@
 }
 
 .button {
-  font-size: 24px;
+  font-size: 0.8rem;
+  background-color: var(--dark-background-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-radius: 0.3rem;
+  padding: 3px 5px;
 }
+
+.openclose {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 @media screen and (min-width: 768px) {
   .form {
@@ -68,4 +79,8 @@
     background-color: var(--light-background-color);
     font-family: "Montserrat", sans-serif;
   }
+
+  .button {
+    font-size: 1rem;
+}
 }
