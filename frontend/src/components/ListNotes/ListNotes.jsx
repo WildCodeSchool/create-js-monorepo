@@ -1,19 +1,36 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import s from "./ListNotes.module.css";
-import DeleteNote from "../DeleteNote/DeleteNote";
+import EditNote from "../EditNote/EditNote";
 
 export default function ListNotes({ note, fetchNotes }) {
+  const [openModal, setOpenModal] = useState(false);
   return (
-    <li className={s.container}>
-      <h3>{note.title}</h3>
-      <p>{note.content}</p>
-      <p>{note.color}</p>
-      <DeleteNote
-        selectedNote={note.id}
-        fetchNotes={fetchNotes}
-        className={s.delete}
-      />
-    </li>
+    <div>
+      <li className={s.container}>
+        <div className={s.note}>
+          <h3>{note.title}</h3>
+          <p>{note.content}</p>
+          <p>{note.color}</p>
+        </div>
+        <button
+          type="button"
+          onClick={() => setOpenModal(true)}
+          className={s.button}
+        >
+          Modifier
+        </button>
+
+        {openModal && (
+          <EditNote
+            setOpenModal={setOpenModal}
+            className={s.modalcontainer}
+            selectedNote={note.id}
+            fetchNotes={fetchNotes}
+          />
+        )}
+      </li>
+    </div>
   );
 }
 

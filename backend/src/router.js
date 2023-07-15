@@ -14,7 +14,9 @@ router.post("/users", hashPassword, userControllers.add);
 const noteControllers = require("./controllers/noteControllers");
 
 router.get("/notes", noteControllers.browse);
+router.get("/notes/:id", noteControllers.read);
 router.post("/notes", noteControllers.add);
+router.put("/notes/:id", noteControllers.edit);
 router.delete("/notes/:id", noteControllers.destroy);
 
 module.exports = router;

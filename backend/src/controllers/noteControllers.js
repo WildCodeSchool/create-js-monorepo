@@ -12,6 +12,24 @@ const browse = (req, res) => {
     });
 };
 
+const read = (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  models.note
+    .find(id)
+    .then(([rows]) => {
+      if (rows[0]) {
+        res.send(rows[0]);
+      } else {
+        res.status(404).send("User not found");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+    });
+};
+
 const add = (req, res) => {
   const newNote = req.body;
 
@@ -19,6 +37,26 @@ const add = (req, res) => {
     .insert(newNote)
     .then(([result]) => {
       res.location(`/notes/${result.insertId}`).sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const edit = (req, res) => {
+  const note = req.body;
+
+  note.id = parseInt(req.params.id, 10);
+
+  models.note
+    .update(note)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
     })
     .catch((err) => {
       console.error(err);
@@ -43,8 +81,11 @@ const destroy = (req, res) => {
       res.sendStatus(500);
     });
 };
+
 module.exports = {
   browse,
+  read,
   add,
+  edit,
   destroy,
 };

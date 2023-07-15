@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Home from "./pages/Home/Home";
 import "./App.css";
 import Register from "./pages/Register/Register";
@@ -12,6 +13,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/notespage" element={<NotesPage />} />
       </Routes>
+      <ToastContainer limit={1} />
     </div>
   );
 }
