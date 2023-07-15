@@ -10,6 +10,7 @@ import notifySuccess, {
 export default function DeleteNote({ selectedNote, fetchNotes }) {
   const handleDelete = async () => {
     if (selectedNote !== "") {
+      // verifie qu'une note a bien été sélectionnée
       try {
         const res = await APIService.delete(`/notes/${selectedNote}`);
         if (res) {

@@ -22,6 +22,21 @@ class NoteManager extends AbstractManager {
       ]
     );
   }
+
+  update(note) {
+    return this.database.query(
+      `UPDATE ${this.table} SET title = ?, content = ?, user_id = ?, color_id = ?, types_id = ?, category_id = ? where id = ?`,
+      [
+        note.title,
+        note.content,
+        note.user_id,
+        note.color_id,
+        note.types_id,
+        note.category_id,
+        note.id,
+      ]
+    );
+  }
 }
 
 module.exports = NoteManager;

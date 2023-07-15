@@ -17,7 +17,6 @@ export default function CreateNote({ fetchNotes }) {
     types_id: null,
     category_id: null,
   });
-  const [isDeployed, setIsDeployed] = useState(false);
   const resetForm = () => {
     setNote({
       title: "",
@@ -28,6 +27,7 @@ export default function CreateNote({ fetchNotes }) {
       category_id: null,
     });
   };
+  const [isDeployed, setIsDeployed] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +40,9 @@ export default function CreateNote({ fetchNotes }) {
         fetchNotes();
       } else throw new Error();
     } catch (err) {
-      notifyError("La note n'a pas pu être ajoutée");
+      if (err.request?.status === 500) {
+        notifyError("La requete a échouée.");
+      }
     }
   };
 

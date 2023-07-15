@@ -16,8 +16,8 @@ export default function NotesPage() {
       const response = await APIService.get("/notes");
       setListNotes(response.data);
     } catch (err) {
-      if (err.request.status === 401) {
-        notifyError("La requête a échoué");
+      if (err.request?.status === 500) {
+        notifyError("La requete a échouée.");
       }
     }
   };

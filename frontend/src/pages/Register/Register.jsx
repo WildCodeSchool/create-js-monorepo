@@ -32,8 +32,8 @@ export default function Register() {
         })
 
         .catch((error) => {
-          if (error.response?.status === 401) {
-            notifyError("Problème lors de l'inscription");
+          if (error.response?.status === 500) {
+            notifyError("L'inscription a échoué");
           }
         });
     },
