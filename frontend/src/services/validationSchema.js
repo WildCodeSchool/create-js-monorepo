@@ -2,19 +2,13 @@ import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
   firstname: Yup.string()
-
     .min(2, "Trop court!")
-
     .max(50, "Trop long!")
-
     .required("Requis"),
 
   lastname: Yup.string()
-
     .min(2, "Trop court!")
-
     .max(50, "Trop long!")
-
     .required("Requis"),
 
   email: Yup.string().email("Email invalide").required("Requis"),

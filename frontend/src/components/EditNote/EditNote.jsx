@@ -59,43 +59,41 @@ export default function EditNote({ setOpenModal, selectedNote, fetchNotes }) {
 
   return (
     <div className={s.overlay}>
-      <div className={s.container}>
-        <form action="note" className={s.container}>
-          <div className={s.closebutton}>
-            <button type="button" onClick={handleClose} className={s.close}>
-              X
-            </button>
-          </div>
-          <input
-            type="text"
-            name="title"
-            className={s.input}
-            defaultValue={note.title}
-            onChange={handleChange}
-            id="title"
+      <form action="note" className={s.container}>
+        <div className={s.closebutton}>
+          <button type="button" onClick={handleClose} className={s.close}>
+            X
+          </button>
+        </div>
+        <input
+          type="text"
+          name="title"
+          className={s.input}
+          defaultValue={note.title}
+          onChange={handleChange}
+          id="title"
+        />
+        <textarea
+          type="text"
+          name="content"
+          rows="18"
+          className={s.textarea}
+          defaultValue={note.content}
+          onChange={handleChange}
+          required="required"
+          id="content"
+        />
+        <div className={s.buttonContainer}>
+          <button type="button" className={s.button} onClick={handleEdit}>
+            Enregistrer
+          </button>
+          <DeleteNote
+            selectedNote={note.id}
+            fetchNotes={fetchNotes}
+            className={s.button}
           />
-          <textarea
-            type="text"
-            name="content"
-            rows="18"
-            className={s.textarea}
-            defaultValue={note.content}
-            onChange={handleChange}
-            required="required"
-            id="content"
-          />
-          <div className={s.buttonContainer}>
-            <button type="button" className={s.button} onClick={handleEdit}>
-              Enregistrer
-            </button>
-            <DeleteNote
-              selectedNote={note.id}
-              fetchNotes={fetchNotes}
-              className={s.button}
-            />
-          </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   );
 }

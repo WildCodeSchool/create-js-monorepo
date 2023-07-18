@@ -8,13 +8,17 @@
   overflow: scroll;
 }
 
+
 .notecontainer {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
   position: absolute;
-  top: 18%;
+  top: 15%;
   left: 15%;
+  margin-right: 0;
+  padding-top: 20;
+  
 }
 
 li {
@@ -32,29 +36,29 @@ li {
   height: fit-content;
   border: 2px solid var(--dark-background-color);
 }
-.notehub{
-  display: none;
-}
+
 
 @media screen and (min-width: 768px) {
   .notespage{
     position: relative;
   }
+
   .notecontainer {
     display: flex;
     flex-direction: row;
     position: absolute;
-    width: 75%;
+    width: 80%;
     height: auto;
     flex-wrap: wrap;
     justify-content: flex-start;
     right: 1%;
-    top: 20%;
+    top: 15%;
     margin: 1rem;
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0;
   }
+
   li {
     margin: 0.4rem;
   }
@@ -73,10 +77,6 @@ li {
     border-radius: 0.6rem;
   }
 
-  .notehub{
-      display: block;
-      height: 180px;
-      position: absolute;
-      top: 0;   
-  }
+ 
 }
+

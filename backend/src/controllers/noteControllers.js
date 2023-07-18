@@ -21,7 +21,25 @@ const read = (req, res) => {
       if (rows[0]) {
         res.send(rows[0]);
       } else {
-        res.status(404).send("User not found");
+        res.status(404).send("Note not found");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+    });
+};
+
+const readByCategories = (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  models.note
+    .findNotesByCategories(id)
+    .then(([rows]) => {
+      if (rows[0]) {
+        res.send(rows);
+      } else {
+        res.status(404).send("Notes not found");
       }
     })
     .catch((err) => {
@@ -85,6 +103,7 @@ const destroy = (req, res) => {
 module.exports = {
   browse,
   read,
+  readByCategories,
   add,
   edit,
   destroy,
