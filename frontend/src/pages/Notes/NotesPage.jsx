@@ -6,11 +6,12 @@ import { notifyError } from "../../services/ToastNotificationService";
 import s from "./NotesPage.module.css";
 import ListNotes from "../../components/ListNotes/ListNotes";
 import CreateNote from "../../components/CreateNote/CreateNote";
-import notehub from "../../assets/notehub.png";
+import CategoriesList from "../../components/CategoriesList/CategoriesList";
 
 export default function NotesPage() {
   const [listNotes, setListNotes] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const fetchNotes = async () => {
     try {
@@ -18,7 +19,7 @@ export default function NotesPage() {
       setListNotes(response.data);
     } catch (err) {
       if (err.request?.status === 500) {
-        notifyError("La requete a échouée.");
+        notifyError("La requete a échoué");
       }
     }
   };
@@ -28,28 +29,39 @@ export default function NotesPage() {
   }, []);
 
   return (
-    <>
-      <img src={notehub} alt="logo" className={s.notehub} />
-      <div className={s.notespage}>
-        <div className={s.createnote}>
-          <CreateNote fetchNotes={fetchNotes} />
-        </div>
-        <ul className={s.notecontainer}>
-          {listNotes &&
-            listNotes.map((note) => (
+    <div className={s.notespage}>
+      <CategoriesList
+        // passage en props de l'id category
+        setSelectedCategory={setSelectedCategory}
+        className={s.categories}
+      />
+      <div className={s.createnote}>
+        <CreateNote fetchNotes={fetchNotes} />
+      </div>
+      <ul className={s.notecontainer}>
+        {listNotes &&
+          listNotes
+            // filtre le tableau listNotes et retourne un nouveau tableau avec les éléments spécifiés
+            .filter(
+              (note) =>
+                selectedCategory === null ||
+                // si id note = selecteCategory la note est incluse dans le tableau filtré
+                note.categories_id === selectedCategory
+            )
+
+            .map((note) => (
               <ListNotes
                 key={note.id}
                 note={note}
                 // passage de la requête get en props
                 fetchNotes={fetchNotes}
-                // permet de stocker l'identifiant de la note
+                // passage en props de l'id note
                 selectedNote={selectedNote}
                 setSelectedNote={setSelectedNote}
               />
             ))}
-        </ul>
-        <ToastContainer limit={1} />
-      </div>
-    </>
+      </ul>
+      <ToastContainer limit={1} />
+    </div>
   );
 }

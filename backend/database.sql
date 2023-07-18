@@ -26,15 +26,15 @@ VALUES ('Autres'),('Epinglées');
 
 
 
-CREATE TABLE category (
+CREATE TABLE categories (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   list VARCHAR(50) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO
-category (list)
-VALUES ('Notes'),
-('Personnel');
+categories (list)
+VALUES 
+('To do list'), ('Dev web'), ('Recettes');
 
 CREATE TABLE color (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -60,16 +60,16 @@ CREATE TABLE note (
   CONSTRAINT fk_note_types
   FOREIGN KEY (types_id)
   REFERENCES types(id),
-  category_id INT,
-  CONSTRAINT fk_note_category
-  FOREIGN KEY (category_id)
-  REFERENCES category(id)
+  categories_id INT,
+  CONSTRAINT fk_note_categories
+  FOREIGN KEY (categories_id)
+  REFERENCES categories(id)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO
-note (title, content, user_id, color_id, types_id, category_id)
+note (title, content, user_id, color_id, types_id, categories_id)
 VALUES ('Titre pro',
 'préparer le résumé du cahier des charges
 lire les exemples de projet
-commencer la rédaction', '1', '2', '1', '1');
+commencer la rédaction', '1', '2', '1', '3');
 
