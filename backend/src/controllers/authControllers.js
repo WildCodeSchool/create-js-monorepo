@@ -3,6 +3,7 @@ const models = require("../models");
 const getUserByEmailMiddleWare = (req, res, next) => {
   // user existe avec cet email?
   const { email } = req.body;
+
   models.user
     .findByEmailWithPassword(email)
     .then(([users]) => {
@@ -12,6 +13,7 @@ const getUserByEmailMiddleWare = (req, res, next) => {
         next();
       } else {
         // si l'utilisateur avec ce mail n'existe pas
+        console.warn("Mail doesnt exist");
         res.sendStatus(401);
       }
     })

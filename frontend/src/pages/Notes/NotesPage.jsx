@@ -7,8 +7,10 @@ import s from "./NotesPage.module.css";
 import ListNotes from "../../components/ListNotes/ListNotes";
 import CreateNote from "../../components/CreateNote/CreateNote";
 import CategoriesList from "../../components/CategoriesList/CategoriesList";
+import { useUserContext } from "../../components/Contexts/UserContext";
 
 export default function NotesPage() {
+  const { user, logout } = useUserContext;
   const [listNotes, setListNotes] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -30,6 +32,13 @@ export default function NotesPage() {
 
   return (
     <div className={s.notespage}>
+      <h3>
+        Bienvenue, {user.user_firstname} {user.user_lastname}
+      </h3>
+      <button type="button" className={s.button} onClick={() => logout()}>
+        Se déconnecter
+      </button>
+
       <CategoriesList
         // passage en props de l'id category
         setSelectedCategory={setSelectedCategory}
