@@ -22,13 +22,13 @@ export default function Register() {
       password: "",
       confirmPassword: "",
     },
-    registerSchema,
+    validationSchema: registerSchema,
 
     onSubmit: () => {
       const { confirmPassword, ...formData } = formik.values;
       APIService.post(`/register`, formData)
         .then(() => {
-          navigate("/");
+          navigate("/login");
           notifySuccess("Compte crée");
         })
 

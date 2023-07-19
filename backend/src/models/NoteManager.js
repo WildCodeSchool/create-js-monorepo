@@ -9,13 +9,15 @@ class NoteManager extends AbstractManager {
   //   return this.database.query(`SELECT * FROM ${this.table} ;`);
   // }
 
-  findAllNotes() {
-    return this.database
-      .query(`SELECT n.id, n.title, n.content, user_id, firstname, lastname, types_id, tag, color_id, color, categories_id, categories.list FROM ${this.table} AS n
+  findAllNotesByUserId(userId) {
+    return this.database.query(
+      `SELECT n.id, n.title, n.content, user_id, firstname, lastname, types_id, tag, color_id, color, categories_id, categories.list FROM ${this.table} AS n
     LEFT JOIN types ON types.id = n.types_id
     LEFT JOIN user ON user.id = n.user_id
     LEFT JOIN color ON color.id= n.color_id
-    LEFT JOIN categories ON categories.id = n.categories_id ORDER BY n.id DESC;`);
+    LEFT JOIN categories ON categories.id = n.categories_id WHERE n.user_id = ? ORDER BY n.id DESC;`,
+      [userId]
+    );
   }
 
   findNotesByCategories(id) {

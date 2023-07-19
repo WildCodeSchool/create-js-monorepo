@@ -13,6 +13,14 @@ VALUES
 ('Arthur',
 'Dent',
 'arthur@gmail.com',
+'$argon2d$v=19$m=12,t=3,p=1$ejBtbmxxZmkxbWswMDAwMA$sBTSUhRTTx8WKm3ZNbHsXA'),
+('Jim',
+'Hopper',
+'jim@gmail.com',
+'$argon2d$v=19$m=12,t=3,p=1$ejBtbmxxZmkxbWswMDAwMA$sBTSUhRTTx8WKm3ZNbHsXA'),
+('Sheldon',
+'Cooper',
+'sheldon@gmail.com',
 '$argon2d$v=19$m=12,t=3,p=1$ejBtbmxxZmkxbWswMDAwMA$sBTSUhRTTx8WKm3ZNbHsXA');
 
 CREATE TABLE types (
@@ -72,6 +80,6 @@ VALUES ('Titre pro',
 'préparer le résumé du cahier des charges
 lire les exemples de projet
 commencer la rédaction', '1', '2', '1', '2'), 
-('Tiramisu au speculoos', 'Ingrédients : 250g de mascarpone, 100g de sucre, 2 oeufs, 1 paquet de speculoos, café. Mélanger le mascarpone avec les jaunes et le sucre, monter les blancs en neige et les incorporer délicatement au mélange mascarpone, sucre, jaune. Tremper les speculoos dans le café et disposer la moitié sur une première couche dans un plat, puis répéter les étapes une seconde fois. Saupoudrez de chocolat Van Houten et réserver au réfrigérateur pendant 3h minimum.', '1', '2', '1', '3'),
-('Important','31/07: envoi résumé cahier des charges, 23/08: dossiers à envoyer', '1', '2', '1','1');
+('Tiramisu au speculoos', 'Ingrédients : 250g de mascarpone, 100g de sucre, 2 oeufs, 1 paquet de speculoos, café. Mélanger le mascarpone avec les jaunes et le sucre, monter les blancs en neige et les incorporer délicatement au mélange mascarpone, sucre, jaune. Tremper les speculoos dans le café et disposer la moitié sur une première couche dans un plat, puis répéter les étapes une seconde fois. Saupoudrez de chocolat Van Houten et réserver au réfrigérateur pendant 3h minimum.', '2', '2', '1', '3'),
+('Important','31/07: envoi résumé cahier des charges, 23/08: dossiers à envoyer', '3', '2', '1','1');
 

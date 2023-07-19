@@ -40,6 +40,14 @@
     width: 290px;
     padding-left: 0.3rem;
   }
+
+  .inputField:focus,
+    .inputField:valid {
+      background-color: var(--dark-background-color);
+      color: var(--text-color);
+      border: 1px solid var(--text-color);
+      border-radius: 0.3rem;
+    }
   
   .input:last-child {
     margin-bottom: 1rem;
@@ -74,11 +82,24 @@
     left: 1%;
   }
 
+  .error{
+    font-size: 0.7rem;
+  }
+
   @media screen and (min-width: 768px) {
     .input {
       width: 290px;
       height: 3rem;
       margin: 1rem;
+      box-shadow: 3px 3px 5px var(--text-color);
+    }
+
+    .inputField:focus,
+    .inputField:valid {
+      background-color: var(--dark-background-color);
+      color: var(--text-color);
+      border: 1px solid var(--text-color);
+      border-radius: 0.3rem;
       box-shadow: 3px 3px 5px var(--text-color);
     }
   
@@ -132,10 +153,10 @@
       top: 3%;
       left: 91%;
     }
-  
-    .arrow {
-      display: none;
-      margin-left: 0.3rem;
+    .error{
+      font-size: 0.7rem;
+      padding-left: 1rem;
     }
-  }
   
+  
+  }

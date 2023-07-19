@@ -34,7 +34,7 @@
     transition: width 3s ease-in-out;
   }
   
-  .close {
+  .closeMenu {
     align-self: flex-end;
     display: block;
     background-color: var(--dark-background-color);
@@ -78,7 +78,7 @@
       background-color: rgba(226,218,218,0.6);
     }
 
-    .close{
+    .closeMenu{
         display: none;
     }
 
