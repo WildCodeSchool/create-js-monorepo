@@ -14,10 +14,11 @@ const {
   register,
 } = require("./controllers/authControllers");
 // routes publiques
-// auth
 
 router.post("/register", hashPassword, register);
 router.post("/login", getUserByEmailMiddleWare, verifyPassword);
+
+// auth
 router.get("/logout", verifyToken, logout);
 
 // routes privées

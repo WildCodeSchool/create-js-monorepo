@@ -50,11 +50,14 @@ const verifyPassword = (req, res) => {
 
         delete req.body.password;
         delete req.user.hashedPassword;
+        delete req.user.email;
 
-        // Put token in cookie and send user
+        // Put token in cookie and send user, le cookie stocke le token d'accès
         res
           .cookie("access_token", token, {
+            // restreint l'accès au cookie pour le serveur uniquement
             httpOnly: true,
+            // le cookie ne sera défini que si l'application est en production
             secure: process.env.NODE_ENV === "production",
           })
           .send(req.user);
@@ -66,6 +69,7 @@ const verifyPassword = (req, res) => {
     });
 };
 
+// middleware pour vérifier la validité du token d'accès
 const verifyToken = (req, res, next) => {
   try {
     // Get token by cookies
@@ -73,7 +77,7 @@ const verifyToken = (req, res, next) => {
 
     if (!token) return res.sendStatus(403);
 
-    // Verify token with JWT_SECRET
+    // Verify token with JWT_SECRET si valide, les info de l'utilisateur sont assignées à req.payloads
     req.payloads = jwt.verify(token, JWT_SECRET);
     return next();
   } catch (err) {
@@ -83,6 +87,7 @@ const verifyToken = (req, res, next) => {
 };
 
 const logout = (req, res) => {
+  // supression du cookie "access_token"
   res.clearCookie("access_token").sendStatus(200);
 };
 

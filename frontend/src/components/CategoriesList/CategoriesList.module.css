@@ -6,15 +6,16 @@
   .burger {
     display: block;   
     z-index: 20; 
-    
   }
   
   .open{
     position: fixed;
-    top: 3.5%;
-    left : 0%;
+    top: 1%;
+    left : 1%;
     background-color: var(--light-background-color);
     border-radius: 0.2rem;
+    color: var(--text-color);
+    font-weight: bold;
 
   }
   .menu {

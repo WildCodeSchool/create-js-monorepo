@@ -14,22 +14,23 @@ export function UserContextProvider({ children }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user.id) navigate("/");
+    if (!user.id) navigate("/register");
   }, [user.id]);
+
+  const login = (_user) => {
+    setUser(_user);
+    localStorage.setItem("user", JSON.stringify(_user));
+  };
 
   const logout = async () => {
     try {
       await APIService.get("/logout");
+      navigate("/");
       setUser({});
       localStorage.removeItem("user");
     } catch (error) {
       console.error(error);
     }
-  };
-
-  const login = (_user) => {
-    setUser(_user);
-    localStorage.setItem("user", JSON.stringify(_user));
   };
 
   const memo = useMemo(() => {

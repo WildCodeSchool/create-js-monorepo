@@ -10,20 +10,22 @@ const router = require("./router");
 
 const app = express();
 
-// use some application-level middlewares
-
+// configure le middleware cors pour permettre les requête provenant de l'url spécifié dans le .env frontend_url ou si cette variable n'est pas définie à partir de localhost 3000
 app.use(
   cors({
     origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
     optionsSuccessStatus: 200,
+    // permet l'utilisation de cookies
     credentials: true,
   })
 );
 
+app.use(cookieParser());
+
+// configure le middleware pour parser les données JSON dans les requêtes
 app.use(express.json());
 
 // import and mount the API routes
-app.use(cookieParser());
 
 app.use(router);
 

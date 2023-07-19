@@ -110,7 +110,7 @@ export default function CreateNote({ fetchNotes }) {
           Enregistrer
         </button>
 
-        <div className={s.modalContainer}>
+        <div>
           <button
             type="button"
             className={s.button}

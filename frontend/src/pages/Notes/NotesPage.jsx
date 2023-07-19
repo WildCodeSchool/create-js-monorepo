@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
+import { RiLogoutCircleRLine as Logout } from "react-icons/ri";
 import APIService from "../../services/APIService";
 import "react-toastify/dist/ReactToastify.css";
 import { notifyError } from "../../services/ToastNotificationService";
@@ -10,7 +11,7 @@ import CategoriesList from "../../components/CategoriesList/CategoriesList";
 import { useUserContext } from "../../components/Contexts/UserContext";
 
 export default function NotesPage() {
-  const { user, logout } = useUserContext;
+  const { logout } = useUserContext();
   const [listNotes, setListNotes] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -32,11 +33,8 @@ export default function NotesPage() {
 
   return (
     <div className={s.notespage}>
-      <h3>
-        Bienvenue, {user.user_firstname} {user.user_lastname}
-      </h3>
       <button type="button" className={s.button} onClick={() => logout()}>
-        Se déconnecter
+        <Logout />
       </button>
 
       <CategoriesList

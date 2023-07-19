@@ -24,7 +24,7 @@ export default function ListNotes({ note, fetchNotes }) {
         {openModal && (
           <EditNote
             setOpenModal={setOpenModal}
-            className={s.modalcontainer}
+            // className={s.modalcontainer}
             selectedNote={note.id}
             fetchNotes={fetchNotes}
           />
