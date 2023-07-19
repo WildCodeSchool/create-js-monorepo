@@ -32,6 +32,8 @@
     "husky": "^8.0.3"
   },
   "dependencies": {
+    "install": "^0.13.0",
+    "npm": "^9.8.0",
     "react-bootstrap-icons": "^1.10.3"
   }
 }

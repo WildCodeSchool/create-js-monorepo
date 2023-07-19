@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import APIService from "../../services/APIService";
 import notifySuccess, {
@@ -13,7 +13,7 @@ export default function CreateNote({ fetchNotes }) {
     user_id: null,
     color_id: null,
     types_id: null,
-    category_id: null,
+    categories_id: null,
   });
   const resetForm = () => {
     setNote({
@@ -22,10 +22,27 @@ export default function CreateNote({ fetchNotes }) {
       user_id: null,
       color_id: null,
       types_id: null,
-      category_id: null,
+      categories_id: null,
     });
   };
   const [isDeployed, setIsDeployed] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [categories, setCategories] = useState(false);
+  const handleClick = () => {
+    setOpenModal(true);
+  };
+
+  useEffect(() => {
+    APIService.get(`/categories`)
+      .then((response) => {
+        setCategories(response.data);
+      })
+      .catch((error) => {
+        if (error.response?.status === 500) {
+          notifyError("La requête a échoué");
+        }
+      });
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -83,22 +100,63 @@ export default function CreateNote({ fetchNotes }) {
         required="required"
         id="content"
       />
+
       <div className={s.openclose}>
         <button
           type="submit"
           className={s.button}
           style={{ display: isDeployed ? "block" : "none" }}
         >
-          Ajouter
+          Enregistrer
         </button>
-        <button
-          type="button"
-          className={s.button}
-          onClick={handleClose}
-          style={{ display: isDeployed ? "block" : "none" }}
-        >
-          Fermer
-        </button>
+
+        <div className={s.modalContainer}>
+          <button
+            type="button"
+            className={s.button}
+            style={{ display: isDeployed ? "block" : "none" }}
+            onClick={handleClick}
+          >
+            Ajouter un libellé
+          </button>
+
+          {openModal && (
+            <div className={s.container}>
+              <label htmlFor="category">Note associée à un libellé</label>
+              {/* <input
+                type="text"
+                placeholder="Saisissez le nom du libellé"
+                name="category"
+                className={s.input}
+                value={note.categories_id}
+                onChange={handleChange}
+                id="category"
+              /> */}
+              {categories.map((category) => (
+                <div key={category.id}>
+                  <input
+                    type="checkbox"
+                    id="category"
+                    name="category"
+                    onClick={handleExpanded}
+                    value={category.list}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor="category">{category.list}</label>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <button
+            type="button"
+            className={s.button}
+            onClick={handleClose}
+            style={{ display: isDeployed ? "block" : "none" }}
+          >
+            Fermer
+          </button>
+        </div>
       </div>
     </form>
   );
