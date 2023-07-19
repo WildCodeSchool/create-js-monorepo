@@ -39,6 +39,11 @@ const CompetenceManager = require("./CompetenceManager");
 models.competence = new CompetenceManager();
 models.competence.setDatabase(pool);
 
+const ProjetManager = require("./ProjetManager");
+
+models.projet = new ProjetManager();
+models.projet.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
