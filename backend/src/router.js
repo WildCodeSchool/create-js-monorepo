@@ -2,15 +2,27 @@ const express = require("express");
 
 const router = express.Router();
 
-const { hashPassword } = require("./services/auth");
+const {
+  hashPassword,
+  verifyPassword,
+  verifyToken,
+  logout,
+} = require("./services/auth");
 
-const userControllers = require("./controllers/userControllers");
-
+const {
+  getUserByEmailMiddleWare,
+  register,
+} = require("./controllers/authControllers");
 // routes publiques
 
-router.post("/users", hashPassword, userControllers.add);
+router.post("/register", hashPassword, register);
+router.post("/login", getUserByEmailMiddleWare, verifyPassword);
 
-// routes privées quand login ok
+// auth
+router.get("/logout", verifyToken, logout);
+
+// routes privées
+router.use(verifyToken);
 const noteControllers = require("./controllers/noteControllers");
 
 router.get("/notes", noteControllers.browse);

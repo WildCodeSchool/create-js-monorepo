@@ -9,7 +9,7 @@ export default function Home() {
         <Link to="/register" className={s.connexionbox}>
           Créer un compte
         </Link>
-        <Link to="/notespage" className={s.connexionbox}>
+        <Link to="/login" className={s.connexionbox}>
           Se connecter
         </Link>
       </div>

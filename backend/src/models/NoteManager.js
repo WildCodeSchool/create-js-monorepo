@@ -6,7 +6,9 @@ class NoteManager extends AbstractManager {
   }
 
   findAllNotes() {
-    return this.database.query(`SELECT * FROM ${this.table} ;`);
+    return this.database.query(
+      `SELECT * FROM ${this.table}  ORDER BY id DESC ;`
+    );
   }
 
   findNotesByCategories(id) {
