@@ -4,6 +4,7 @@ const router = express.Router();
 
 const itemControllers = require("./controllers/itemControllers");
 const competenceControllers = require("./controllers/CompetenceControllers");
+const projetControllers = require("./controllers/ProjetControlers");
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
@@ -13,5 +14,7 @@ router.delete("/items/:id", itemControllers.destroy);
 
 router.get("/softskills", competenceControllers.getAllSoftSkills);
 router.get("/hardskills", competenceControllers.getAllHardSkills);
+
+router.get("/projet", projetControllers.getAllProjet);
 
 module.exports = router;
