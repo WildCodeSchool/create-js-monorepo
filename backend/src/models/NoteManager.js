@@ -15,7 +15,7 @@ class NoteManager extends AbstractManager {
     LEFT JOIN types ON types.id = n.types_id
     LEFT JOIN user ON user.id = n.user_id
     LEFT JOIN color ON color.id= n.color_id
-    LEFT JOIN categories ON categories.id = n.categories_id;`);
+    LEFT JOIN categories ON categories.id = n.categories_id ORDER BY n.id DESC;`);
   }
 
   findNotesByCategories(id) {

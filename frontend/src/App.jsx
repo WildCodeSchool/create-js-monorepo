@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home";
 import "./App.css";
 import Register from "./pages/Register/Register";
 import NotesPage from "./pages/Notes/NotesPage";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/notespage" element={<NotesPage />} />
       </Routes>
       <ToastContainer limit={1} />

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
+import { RiLogoutCircleRLine as Logout } from "react-icons/ri";
 import APIService from "../../services/APIService";
 import "react-toastify/dist/ReactToastify.css";
 import { notifyError } from "../../services/ToastNotificationService";
@@ -7,8 +8,10 @@ import s from "./NotesPage.module.css";
 import ListNotes from "../../components/ListNotes/ListNotes";
 import CreateNote from "../../components/CreateNote/CreateNote";
 import CategoriesList from "../../components/CategoriesList/CategoriesList";
+import { useUserContext } from "../../components/Contexts/UserContext";
 
 export default function NotesPage() {
+  const { logout } = useUserContext();
   const [listNotes, setListNotes] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -30,6 +33,10 @@ export default function NotesPage() {
 
   return (
     <div className={s.notespage}>
+      <button type="button" className={s.button} onClick={() => logout()}>
+        <Logout />
+      </button>
+
       <CategoriesList
         // passage en props de l'id category
         setSelectedCategory={setSelectedCategory}

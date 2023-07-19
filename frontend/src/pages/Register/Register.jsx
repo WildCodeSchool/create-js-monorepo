@@ -8,10 +8,11 @@ import notifySuccess, {
 } from "../../services/ToastNotificationService";
 import s from "./Register.module.css";
 import notehub from "../../assets/notehub.png";
-import validationSchema from "../../services/validationSchema";
+import validationSchemas from "../../services/validationSchema";
 
 export default function Register() {
   const navigate = useNavigate();
+  const registerSchema = validationSchemas.validationSchemaRegister;
 
   const formik = useFormik({
     initialValues: {
@@ -21,11 +22,11 @@ export default function Register() {
       password: "",
       confirmPassword: "",
     },
-    validationSchema,
+    registerSchema,
 
     onSubmit: () => {
       const { confirmPassword, ...formData } = formik.values;
-      APIService.post(`/users`, formData)
+      APIService.post(`/register`, formData)
         .then(() => {
           navigate("/");
           notifySuccess("Compte crée");

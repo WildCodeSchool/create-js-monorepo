@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-const validationSchema = Yup.object().shape({
+const validationSchemaRegister = Yup.object().shape({
   firstname: Yup.string()
     .min(2, "Trop court!")
     .max(50, "Trop long!")
@@ -14,10 +14,7 @@ const validationSchema = Yup.object().shape({
   email: Yup.string().email("Email invalide").required("Requis"),
 
   password: Yup.string()
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$/,
-      "Le mot de passe doit contenir au moins 7 caractères, dont une minuscule, une majuscule et un chiffre"
-    )
+    .min(7, "Le mot de passe doit comporter 7 caractères minimum")
     .required("Requis"),
 
   confirmPassword: Yup.string()
@@ -25,4 +22,16 @@ const validationSchema = Yup.object().shape({
     .required("Requis"),
 });
 
-export default validationSchema;
+const validationSchemaLogin = Yup.object().shape({
+  email: Yup.string().email("Email invalide").required("Requis"),
+
+  password: Yup.string()
+    .min(7, "Le mot de passe doit comporter 7 caractères minimum")
+    .required("Requis"),
+});
+const validationSchemas = {
+  validationSchemaRegister,
+  validationSchemaLogin,
+};
+
+export default validationSchemas;
