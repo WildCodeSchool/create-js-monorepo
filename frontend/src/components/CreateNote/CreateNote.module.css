@@ -45,6 +45,18 @@
   justify-content: space-between;
 }
 
+.container {
+  padding: 1.5rem;
+  border-radius: 0.6rem;
+  width: 100%;
+  height: 100%;
+  max-width: 100px;
+  max-height: 100px;
+
+}
+
+
+
 
 @media screen and (min-width: 768px) {
   .form {

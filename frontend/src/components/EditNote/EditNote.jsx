@@ -5,7 +5,6 @@ import notifySuccess, {
   notifyError,
 } from "../../services/ToastNotificationService";
 import s from "./EditNote.module.css";
-import DeleteNote from "../DeleteNote/DeleteNote";
 
 export default function EditNote({ setOpenModal, selectedNote, fetchNotes }) {
   if (!setOpenModal) return null;
@@ -87,11 +86,6 @@ export default function EditNote({ setOpenModal, selectedNote, fetchNotes }) {
           <button type="button" className={s.button} onClick={handleEdit}>
             Enregistrer
           </button>
-          <DeleteNote
-            selectedNote={note.id}
-            fetchNotes={fetchNotes}
-            className={s.button}
-          />
         </div>
       </form>
     </div>
