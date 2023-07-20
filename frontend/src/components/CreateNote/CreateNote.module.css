@@ -52,11 +52,18 @@
   height: 100%;
   max-width: 100px;
   max-height: 100px;
-
 }
 
+.libelleContainer {
+  background-color: var(--light-background-color);
+}
 
-
+.modalContainer {
+  padding: 0.5rem;
+}
+.label{
+  padding: 0.5rem;
+}
 
 @media screen and (min-width: 768px) {
   .form {
