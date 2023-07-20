@@ -8,6 +8,13 @@ class CategoriesManager extends AbstractManager {
   findAllCategories() {
     return this.database.query(`SELECT * FROM ${this.table} ;`);
   }
+
+  insert(categories) {
+    return this.database.query(
+      `INSERT INTO ${this.table} (list, user_id) VALUES(?,?)`,
+      [categories.list, categories.id]
+    );
+  }
 }
 
 module.exports = CategoriesManager;
