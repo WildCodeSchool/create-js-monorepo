@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import s from "./CreateNote.module.css";
 import APIService from "../../services/APIService";
@@ -6,6 +7,7 @@ import { notifyError } from "../../services/ToastNotificationService";
 import AddCategory from "../AddCategory/AddCategory";
 
 export default function CreateNoteModal({ handleChange }) {
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -13,8 +15,11 @@ export default function CreateNoteModal({ handleChange }) {
       .then((response) => {
         setCategories(response.data);
       })
-      .catch((error) => {
-        if (error.response?.status === 500) {
+      .catch((err) => {
+        if (err.request?.status === 403) {
+          notifyError("Accès non autorisé");
+          navigate("/login");
+        } else if (err.request?.status === 500) {
           notifyError("La requête a échoué");
         }
       });

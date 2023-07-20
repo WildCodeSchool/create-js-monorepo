@@ -24,7 +24,7 @@ Create `.env` files in /frontend and /backend following `.env.sample` examples.
 - Express server will be accessible at the address set in the .env of the frontend
 - React frontend will be accessible at the address set in the .env of the backend
 
-👉 To try NoteHub, you can create your 👈
+👉 To try NoteHub, you can create an account and log in 👈
 
 ### Windows users
 

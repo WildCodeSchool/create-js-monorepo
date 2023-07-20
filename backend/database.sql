@@ -46,7 +46,7 @@ CREATE TABLE categories (
 INSERT INTO
 categories (list)
 VALUES 
-('To do list'), ('Dev web'), ('Recettes');
+('Personnel'), ('Organisation'), ('Dev Web');
 
 CREATE TABLE color (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,

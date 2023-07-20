@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import APIService from "../../services/APIService";
 import notifySuccess, {
@@ -7,6 +8,8 @@ import notifySuccess, {
 import s from "./EditNote.module.css";
 
 export default function EditNote({ setOpenModal, selectedNote, fetchNotes }) {
+  const navigate = useNavigate();
+
   if (!setOpenModal) return null;
   const [note, setNote] = useState({
     title: "",
@@ -22,7 +25,14 @@ export default function EditNote({ setOpenModal, selectedNote, fetchNotes }) {
       .then((response) => {
         setNote(response.data);
       })
-      .catch((error) => notifyError(`${error}"La requête a échoué"`));
+      .catch((err) => {
+        if (err.request?.status === 403) {
+          notifyError("Accès non autorisé");
+          navigate("/login");
+        } else if (err.request?.status === 500) {
+          notifyError("La requête a échoué");
+        }
+      });
   }, []);
 
   const handleEdit = async (e) => {
