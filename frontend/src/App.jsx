@@ -1,14 +1,13 @@
-import Home from "./pages/Home";
+import React from "react";
+import Main from "./pages/Main";
 
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      <p>coucou</p>
-    </div>
+    <body>
+      <Main />
+    </body>
   );
 }
-
 export default App;

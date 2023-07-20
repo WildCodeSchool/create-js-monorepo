@@ -16,6 +16,46 @@ class CompetenceManager extends AbstractManager {
       `SELECT * FROM ${this.table} WHERE type = 'hardskills'`
     );
   }
+
+  addHardSkill(content) {
+    return this.database
+      .query(
+        "INSERT INTO competence (content, type) VALUES (?, 'hardskills')",
+        [content]
+      )
+      .then((result) => {
+        const newSkillId = result.insertId;
+        const newSkill = {
+          Id: newSkillId,
+          content,
+          type: "hardskills",
+        };
+        return newSkill;
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }
+
+  addSoftSkill(content) {
+    return this.database
+      .query(
+        "INSERT INTO competence (content, type) VALUES (?, 'softskills')",
+        [content]
+      )
+      .then((result) => {
+        const newSkillId = result.insertId;
+        const newSkill = {
+          Id: newSkillId,
+          content,
+          type: "softskills",
+        };
+        return newSkill;
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }
 }
 
 module.exports = CompetenceManager;
