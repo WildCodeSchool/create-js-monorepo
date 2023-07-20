@@ -22,7 +22,7 @@ export default function CreateNoteModal({ handleChange }) {
   return (
     <div className={s.modalContainer}>
       <label htmlFor="category">Note associée à un libellé</label>
-      <input
+      {/* <input
         type="text"
         placeholder="Saisissez le nom du libellé"
         name="category"
@@ -30,9 +30,9 @@ export default function CreateNoteModal({ handleChange }) {
         value={category.id}
         onChange={handleChange}
         id="category"
-      />
+      />  */}
       {categories.map((category) => (
-        <div key={category.id}>
+        <div key={category.id} className={s.radio}>
           <input
             type="radio"
             id="categories_id"

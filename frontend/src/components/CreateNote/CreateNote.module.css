@@ -59,10 +59,16 @@
 }
 
 .modalContainer {
+  font-size: 0.9rem;
   padding: 0.5rem;
 }
+
+.radio{
+  margin: 0.5rem;
+} 
+
 .label{
-  padding: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 @media screen and (min-width: 768px) {
