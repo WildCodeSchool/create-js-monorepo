@@ -8,7 +8,7 @@ import Burger from "../../assets/Burger";
 import notehub from "../../assets/notehub.png";
 import AddCategory from "../AddCategory/AddCategory";
 
-export default function CategoriesList({ setSelectedCategory }) {
+export default function CategoriesList({ setSelectedCategory, fetchNotes }) {
   const navigate = useNavigate;
   // indique si le menu est ouvert ou fermé
   const [categories, setCategories] = useState(false);
@@ -83,7 +83,7 @@ export default function CategoriesList({ setSelectedCategory }) {
             >
               Notes
             </button>
-            <ul>
+            <ul className={s.categoryList}>
               {/* pour trier les notes en fonction des catégories vérifie si categories existe et n'est pas nul */}
               {categories &&
                 // retourne un élement pour chaque catégorie
@@ -116,6 +116,7 @@ export default function CategoriesList({ setSelectedCategory }) {
                   fetchCategories={fetchCategories}
                   setOpenModal={setOpenModal}
                   className={s.modalAdd}
+                  fetchNotes={fetchNotes}
                 />
               )}
             </div>
@@ -128,4 +129,5 @@ export default function CategoriesList({ setSelectedCategory }) {
 
 CategoriesList.propTypes = {
   setSelectedCategory: PropTypes.string.isRequired,
+  fetchNotes: PropTypes.func.isRequired,
 };

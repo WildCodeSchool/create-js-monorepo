@@ -121,7 +121,12 @@ export default function CreateNote({ fetchNotes }) {
         </div>
       </form>
       <div className={s.libelleContainer}>
-        {openModal && <CreateNoteModal handleChange={handleChange} />}
+        {openModal && (
+          <CreateNoteModal
+            handleChange={handleChange}
+            fetchNotes={fetchNotes}
+          />
+        )}
       </div>
     </div>
   );
