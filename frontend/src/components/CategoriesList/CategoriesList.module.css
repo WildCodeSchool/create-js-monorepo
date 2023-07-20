@@ -1,6 +1,13 @@
+.menu{
+    height: 100vh;
+    overflow-y: auto;
+}
+
+
 .menuContainer {
     position: relative;
     z-index: 20; 
+   
   }
   
   .burger {
@@ -24,6 +31,7 @@
     position: fixed; 
     top: 0;
     left: 0;
+    bottom:0;
     height: 100vh;
     padding: 10px;
     box-sizing: border-box;
@@ -31,7 +39,6 @@
     flex-direction: column;
     border-radius: 0 2% 2% 0;
     z-index: 10; 
-    transition: width 3s ease-in-out;
   }
   
   .closeMenu {
@@ -73,7 +80,8 @@
   }
   .addButton  {
     color: var(--text-color);
-    font-size: 2.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
     margin: 0 auto;
     background-color: rgba(226,218,218,0.1);
     margin-bottom: 2rem;
@@ -153,7 +161,7 @@
 
     .addButton  {
       color: var(--text-color);
-      font-size: 2.5rem;
+      font-size: 1.2rem;
       margin: 0 auto;
       background-color: rgba(226,218,218,0.1);
       margin-bottom: 2rem;

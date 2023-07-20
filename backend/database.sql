@@ -46,7 +46,7 @@ CREATE TABLE categories (
 INSERT INTO
 categories (list)
 VALUES 
-('Personnel'), ('Organisation'), ('Dev Web');
+('Organisation'), ('Personnel'), ('Dev Web'), ('Idées lecture');
 
 CREATE TABLE color (
   id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -83,7 +83,7 @@ note (title, content, user_id, color_id, types_id, categories_id)
 VALUES ('Titre pro',
 'préparer le résumé du cahier des charges
 lire les exemples de projet
-commencer la rédaction', '1', '2', '1', '2'), 
-('Tiramisu au speculoos', 'Ingrédients : 250g de mascarpone, 100g de sucre, 2 oeufs, 1 paquet de speculoos, café. Mélanger le mascarpone avec les jaunes et le sucre, monter les blancs en neige et les incorporer délicatement au mélange mascarpone, sucre, jaune. Tremper les speculoos dans le café et disposer la moitié sur une première couche dans un plat, puis répéter les étapes une seconde fois. Saupoudrez de chocolat Van Houten et réserver au réfrigérateur pendant 3h minimum.', '2', '2', '1', '3'),
-('Important','31/07: envoi résumé cahier des charges, 23/08: dossiers à envoyer', '3', '2', '1','1');
+commencer la rédaction', '1', '2', '1', '3'), 
+('Tiramisu au speculoos', 'Ingrédients : 250g de mascarpone, 100g de sucre, 2 oeufs, 1 paquet de speculoos, café. Mélanger le mascarpone avec les jaunes et le sucre, monter les blancs en neige et les incorporer délicatement au mélange mascarpone, sucre, jaune. Tremper les speculoos dans le café et disposer la moitié sur une première couche dans un plat, puis répéter les étapes une seconde fois. Saupoudrez de chocolat Van Houten et réserver au réfrigérateur pendant 3h minimum.', '1', '2', '1', '2'),
+('Important','31/07: envoi résumé cahier des charges, 23/08: dossiers à envoyer', '1', '2', '1','3');
 

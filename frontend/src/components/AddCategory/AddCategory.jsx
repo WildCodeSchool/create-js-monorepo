@@ -24,6 +24,7 @@ export default function AddCategory({ fetchCategories, setOpenModal }) {
       if (res) {
         notifySuccess("Votre catégorie a été créée");
         fetchCategories();
+        handleClose();
       } else throw new Error();
     } catch (err) {
       if (err.request?.status === 403) {
@@ -56,7 +57,7 @@ export default function AddCategory({ fetchCategories, setOpenModal }) {
           onChange={handleChange}
           id="category"
         />
-        <button type="submit" onClick={handleClose} className={s.button}>
+        <button type="submit" className={s.button}>
           Ajouter
         </button>
       </div>

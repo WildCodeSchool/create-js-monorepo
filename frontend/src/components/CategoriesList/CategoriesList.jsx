@@ -8,8 +8,8 @@ import Burger from "../../assets/Burger";
 import notehub from "../../assets/notehub.png";
 import AddCategory from "../AddCategory/AddCategory";
 
-export default function CategoriesList({ setSelectedCategory, fetchNotes }) {
-  const navigate = useNavigate;
+export default function CategoriesList({ setSelectedCategory }) {
+  const navigate = useNavigate();
   // indique si le menu est ouvert ou fermé
   const [categories, setCategories] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,6 +74,7 @@ export default function CategoriesList({ setSelectedCategory, fetchNotes }) {
           <button type="button" onClick={toggleMenu} className={s.closeMenu}>
             X
           </button>
+
           <div className={s.buttoncontainer}>
             {/* pour afficher toutes les notes au clic */}
             <button
@@ -83,42 +84,47 @@ export default function CategoriesList({ setSelectedCategory, fetchNotes }) {
             >
               Notes
             </button>
-            <ul className={s.categoryList}>
-              {/* pour trier les notes en fonction des catégories vérifie si categories existe et n'est pas nul */}
-              {categories &&
-                // retourne un élement pour chaque catégorie
-                categories.map((category) => (
-                  <li key={category.id} className={s.category}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        // mise à jour de la catégorie sélectionnée avec l'id de la catégorie
-                        setSelectedCategory(category.id);
-                        // le menu se ferme lorsque l'utilisateur a cliqué sur une catégorie
-                        setIsMenuOpen(false);
-                      }}
-                      className={s.category}
-                    >
-                      {/* afficher le contenu de la catégorie */}
-                      {category.list}
-                    </button>
-                  </li>
-                ))}
-            </ul>
-          </div>
-          <div className={s.addContainer}>
-            <button type="button" className={s.addButton} onClick={handleClick}>
-              +
-            </button>
             <div>
-              {openModal && (
-                <AddCategory
-                  fetchCategories={fetchCategories}
-                  setOpenModal={setOpenModal}
-                  className={s.modalAdd}
-                  fetchNotes={fetchNotes}
-                />
-              )}
+              <ul className={s.categoryList}>
+                {/* pour trier les notes en fonction des catégories vérifie si categories existe et n'est pas nul */}
+                {categories &&
+                  // retourne un élement pour chaque catégorie
+                  categories.map((category) => (
+                    <li key={category.id} className={s.category}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          // mise à jour de la catégorie sélectionnée avec l'id de la catégorie
+                          setSelectedCategory(category.id);
+                          // le menu se ferme lorsque l'utilisateur a cliqué sur une catégorie
+                          setIsMenuOpen(false);
+                        }}
+                        className={s.category}
+                      >
+                        {/* afficher le contenu de la catégorie */}
+                        {category.list}
+                      </button>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+            <div className={s.addContainer}>
+              <button
+                type="button"
+                className={s.addButton}
+                onClick={handleClick}
+              >
+                + Ajouter un libellé
+              </button>
+              <div>
+                {openModal && (
+                  <AddCategory
+                    fetchCategories={fetchCategories}
+                    setOpenModal={setOpenModal}
+                    className={s.modalAdd}
+                  />
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -129,5 +135,4 @@ export default function CategoriesList({ setSelectedCategory, fetchNotes }) {
 
 CategoriesList.propTypes = {
   setSelectedCategory: PropTypes.string.isRequired,
-  fetchNotes: PropTypes.func.isRequired,
 };
