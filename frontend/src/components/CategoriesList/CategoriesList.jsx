@@ -57,7 +57,7 @@ export default function CategoriesList({ setSelectedCategory }) {
         <div className={s.menu}>
           <img src={notehub} alt="logo" className={s.notehub} />
           {/* fermeture du menu */}
-          <button type="button" onClick={toggleMenu} className={s.close}>
+          <button type="button" onClick={toggleMenu} className={s.closeMenu}>
             X
           </button>
           <div className={s.buttoncontainer}>

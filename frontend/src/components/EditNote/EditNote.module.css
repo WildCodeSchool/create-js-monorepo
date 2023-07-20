@@ -1,6 +1,6 @@
 .overlay{
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.2);
+    /* position: relative; */
+    background-color: rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     right: 0;
@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 4;
+    z-index: 20;
 }
 
 .container {

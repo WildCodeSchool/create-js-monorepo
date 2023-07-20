@@ -5,9 +5,14 @@ class NoteManager extends AbstractManager {
     super({ table: "note" });
   }
 
-  findAllNotes() {
+  findAllNotesByUserId(userId) {
     return this.database.query(
-      `SELECT * FROM ${this.table}  ORDER BY id DESC ;`
+      `SELECT n.id, n.title, n.content, n.user_id, firstname, lastname, types_id, tag, color_id, color, categories_id, categories.list FROM ${this.table} AS n
+    LEFT JOIN types ON types.id = n.types_id
+    LEFT JOIN user ON user.id = n.user_id
+    LEFT JOIN color ON color.id= n.color_id
+    LEFT JOIN categories ON categories.id = n.categories_id WHERE n.user_id = ? ORDER BY n.id DESC;`,
+      [userId]
     );
   }
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { RiLogoutCircleRLine as Logout } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 import APIService from "../../services/APIService";
 import "react-toastify/dist/ReactToastify.css";
 import { notifyError } from "../../services/ToastNotificationService";
@@ -15,13 +16,17 @@ export default function NotesPage() {
   const [listNotes, setListNotes] = useState(null);
   const [selectedNote, setSelectedNote] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const navigate = useNavigate;
 
   const fetchNotes = async () => {
     try {
       const response = await APIService.get("/notes");
       setListNotes(response.data);
     } catch (err) {
-      if (err.request?.status === 500) {
+      if (err.request?.status === 403) {
+        notifyError("Accès non autorisé");
+        navigate("/login");
+      } else if (err.request?.status === 500) {
         notifyError("La requete a échoué");
       }
     }
@@ -33,22 +38,28 @@ export default function NotesPage() {
 
   return (
     <div className={s.notespage}>
+      <h3 className={s.user}>
+        {listNotes && listNotes.length > 0
+          ? `Bienvenue ${listNotes[0].firstname} ${listNotes[0].lastname}`
+          : ""}
+      </h3>
       <button type="button" className={s.button} onClick={() => logout()}>
         <Logout />
       </button>
+      <div className={s.listCategory}>
+        <CategoriesList
+          // passage en props de l'id category
+          setSelectedCategory={setSelectedCategory}
+        />
+      </div>
 
-      <CategoriesList
-        // passage en props de l'id category
-        setSelectedCategory={setSelectedCategory}
-        className={s.categories}
-      />
       <div className={s.createnote}>
         <CreateNote fetchNotes={fetchNotes} />
       </div>
       <ul className={s.notecontainer}>
         {listNotes &&
           listNotes
-            // filtre le tableau listNotes et retourne un nouveau tableau avec les éléments spécifiés
+            // filtre le tableau listNotes et retourne un nouveau tableau avec les éléments spécifiés pour filtrer par category
             .filter(
               (note) =>
                 selectedCategory === null ||

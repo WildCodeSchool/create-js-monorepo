@@ -14,8 +14,6 @@
   white-space: pre-wrap;
   /* aller à la ligne :*/
   overflow-wrap: break-word;
-  
- 
 }
 
 h3 {
@@ -25,20 +23,18 @@ h3 {
 
 .note{
   margin-bottom: 1rem;
+  
 } 
 
-.button {
+.buttonModify {
   position: absolute;
   font-size: 0.8rem;
   background-color: var(--dark-background-color);
   color: var(--text-color);
   border-radius: 0.3rem;
   padding: 3px 5px;
-  width:min-content;
   bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-   
+  left: 3%;  
 }
 
 

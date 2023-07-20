@@ -1,8 +1,10 @@
 const models = require("../models");
 
 const browse = (req, res) => {
+  // info utilisateur stockées dans payload.sub
+  const userId = req.payloads.sub.id;
   models.note
-    .findAllNotes()
+    .findAllNotesByUserId(userId)
     .then(([rows]) => {
       res.send(rows);
     })
@@ -14,9 +16,10 @@ const browse = (req, res) => {
 
 const read = (req, res) => {
   const id = parseInt(req.params.id, 10);
+  const userId = req.payloads.sub.id;
 
   models.note
-    .find(id)
+    .find(id, userId)
     .then(([rows]) => {
       if (rows[0]) {
         res.send(rows[0]);
@@ -32,9 +35,10 @@ const read = (req, res) => {
 
 const readByCategories = (req, res) => {
   const id = parseInt(req.params.id, 10);
+  const userId = req.payloads.sub.id;
 
   models.note
-    .findNotesByCategories(id)
+    .findNotesByCategories(id, userId)
     .then(([rows]) => {
       if (rows[0]) {
         res.send(rows);
@@ -49,8 +53,11 @@ const readByCategories = (req, res) => {
 };
 
 const add = (req, res) => {
-  const newNote = req.body;
-
+  const newNote = {
+    ...req.body,
+    // ajout de l'id de l'utilisateur à la nouvelle note
+    user_id: req.payloads.sub.id,
+  };
   models.note
     .insert(newNote)
     .then(([result]) => {
@@ -63,8 +70,11 @@ const add = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const note = req.body;
-
+  const note = {
+    ...req.body,
+    // ajout de l'id de l'utilisateur à la nouvelle note
+    user_id: req.payloads.sub.id,
+  };
   note.id = parseInt(req.params.id, 10);
 
   models.note
@@ -84,9 +94,10 @@ const edit = (req, res) => {
 
 const destroy = (req, res) => {
   const id = parseInt(req.params.id, 10);
+  const userId = req.payloads.sub.id;
 
   models.note
-    .delete(id)
+    .delete(id, userId)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);

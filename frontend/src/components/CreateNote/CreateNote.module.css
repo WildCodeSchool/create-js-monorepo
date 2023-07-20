@@ -45,6 +45,31 @@
   justify-content: space-between;
 }
 
+.container {
+  padding: 1.5rem;
+  border-radius: 0.6rem;
+  width: 100%;
+  height: 100%;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.libelleContainer {
+  background-color: var(--light-background-color);
+}
+
+.modalContainer {
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+.radio{
+  margin: 0.5rem;
+} 
+
+.label{
+  padding-left: 0.5rem;
+}
 
 @media screen and (min-width: 768px) {
   .form {

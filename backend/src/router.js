@@ -23,6 +23,7 @@ router.get("/logout", verifyToken, logout);
 
 // routes privées
 router.use(verifyToken);
+
 const noteControllers = require("./controllers/noteControllers");
 
 router.get("/notes", noteControllers.browse);
