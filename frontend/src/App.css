@@ -1,56 +1,96 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(216, 216, 216);
+}
+
+main {
+  display: flex;
+  height: 100%;
+  width: 100%;
   flex-direction: column;
   align-items: center;
+  background-image: url("./assets/background.jpg");
+  background-repeat: repeat;
+}
+
+.presentation {
+  display: flex;
+  flex-direction: row;
+  width: 65%;
+  height: 30vh;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(20, 20, 20);
+  box-shadow: 0 5px 15px rgba(143, 143, 143, 0.25);
+  margin-bottom: 40px;
+  border-radius: 1.5rem;
+}
+h1 {
+  color: rgb(255, 255, 255);
+  font-size: 1.4;
+}
+h3 {
+  color: rgb(180, 180, 180);
+  font-size: 1.2;
+}
+.profil-photos {
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+}
+.skills {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: row;
+  height: auto;
+  width: 65%;
+  background-color: rgb(20, 20, 20);
+  box-shadow: 0 5px 15px rgba(143, 143, 143, 0.25);
+  margin-bottom: 40px;
+  padding: 40px;
+  border-radius: 1.5rem;
+}
+h2 {
+  color: rgb(223, 223, 223);
+}
+ul {
+  padding-top: 30px;
+  list-style-type: none;
+}
+li {
+  color: rgb(223, 223, 223);
+}
+.projet {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: start;
+  flex-direction: row;
+  height: 30vh;
+  width: 65%;
+  background-color: rgb(20, 20, 20);
+  box-shadow: 0 5px 15px rgba(143, 143, 143, 0.25);
+  margin-bottom: 40px;
+  border-radius: 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-button {
-  font-size: calc(10px + 2vmin);
+.contact {
+  display: flex;
+  padding-left: 4rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  width: 65%;
+  background-color: rgb(20, 20, 20);
+  box-shadow: 0 5px 15px rgba(143, 143, 143, 0.25);
+  border-radius: 1.5rem;
 }

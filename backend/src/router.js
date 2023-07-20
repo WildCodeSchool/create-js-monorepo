@@ -17,4 +17,7 @@ router.get("/hardskills", competenceControllers.getAllHardSkills);
 
 router.get("/projet", projetControllers.getAllProjet);
 
+router.post("/softskills", competenceControllers.addSoftSkill);
+router.post("/hardskills", competenceControllers.addHardSkill);
+
 module.exports = router;
