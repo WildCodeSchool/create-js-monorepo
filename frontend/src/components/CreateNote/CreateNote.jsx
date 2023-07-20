@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import APIService from "../../services/APIService";
 import notifySuccess, {
@@ -8,6 +9,7 @@ import s from "./CreateNote.module.css";
 import CreateNoteModal from "./CreateNoteModal";
 
 export default function CreateNote({ fetchNotes }) {
+  const navigate = useNavigate();
   const [note, setNote] = useState({
     title: "",
     content: "",
@@ -45,8 +47,11 @@ export default function CreateNote({ fetchNotes }) {
         setOpenModal(false);
       } else throw new Error();
     } catch (err) {
-      if (err.request?.status === 500) {
-        notifyError("La requete a échouée.");
+      if (err.request?.status === 403) {
+        notifyError("Accès non autorisé");
+        navigate("/login");
+      } else if (err.request?.status === 500) {
+        notifyError("La requete a échoué");
       }
     }
   };
@@ -121,7 +126,12 @@ export default function CreateNote({ fetchNotes }) {
         </div>
       </form>
       <div className={s.libelleContainer}>
-        {openModal && <CreateNoteModal handleChange={handleChange} />}
+        {openModal && (
+          <CreateNoteModal
+            handleChange={handleChange}
+            fetchNotes={fetchNotes}
+          />
+        )}
       </div>
     </div>
   );

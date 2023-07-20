@@ -1,6 +1,13 @@
+.menu{
+    height: 100vh;
+    overflow-y: auto;
+}
+
+
 .menuContainer {
     position: relative;
     z-index: 20; 
+   
   }
   
   .burger {
@@ -24,6 +31,7 @@
     position: fixed; 
     top: 0;
     left: 0;
+    bottom:0;
     height: 100vh;
     padding: 10px;
     box-sizing: border-box;
@@ -31,7 +39,6 @@
     flex-direction: column;
     border-radius: 0 2% 2% 0;
     z-index: 10; 
-    transition: width 3s ease-in-out;
   }
   
   .closeMenu {
@@ -47,27 +54,34 @@
     width: 100px;
     background-color: rgba(226,218,218,0.2);
     z-index: 40;
-    padding: 0;
+    
     font-size: 1.2rem;
     display: flex;
-    justify-content: flex-start;
-    margin-left: 1rem;
+    justify-content: center;
+    margin-left: 2rem;
     color: var(--text-color);
     font-weight: bold;
   }
 
-  .category {
+  .categoryList {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .category{
     margin-top: 0.7rem;
     color: var(--text-color);
     font-weight: bold;
     background-color: rgba(226,218,218,0.1); 
     padding-left: 0;
-    width: 100px;
+    width: 170px;
     font-size: 1.2rem;
   }
   .addButton  {
     color: var(--text-color);
-    font-size: 2.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
     margin: 0 auto;
     background-color: rgba(226,218,218,0.1);
     margin-bottom: 2rem;
@@ -78,8 +92,8 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    position: absolute;
-    top: 25%;
+    position: fixed;
+    top: 5%; 
     width: 100%;
     position: relative;
   }
@@ -113,7 +127,7 @@
       font-size: 1.2rem;
       color: var(--text-color);
       font-weight: bold;
-      margin-left: 1.3rem;
+      margin-left: 2rem;
       margin-top: 20rem;
 
     }
@@ -140,14 +154,14 @@
       flex-direction: column;
       text-align: center;
       position: absolute;
-      top: 35%;
+      top: 20%;
       width: 100%;
       position: relative;
     }
 
     .addButton  {
       color: var(--text-color);
-      font-size: 2.5rem;
+      font-size: 1.2rem;
       margin: 0 auto;
       background-color: rgba(226,218,218,0.1);
       margin-bottom: 2rem;

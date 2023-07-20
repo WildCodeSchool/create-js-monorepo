@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import s from "./AddCategory.module.css";
 import APIService from "../../services/APIService";
@@ -7,6 +8,7 @@ import notifySuccess, {
 } from "../../services/ToastNotificationService";
 
 export default function AddCategory({ fetchCategories, setOpenModal }) {
+  const navigate = useNavigate();
   const handleClose = () => {
     setOpenModal(false);
   };
@@ -22,10 +24,14 @@ export default function AddCategory({ fetchCategories, setOpenModal }) {
       if (res) {
         notifySuccess("Votre catégorie a été créée");
         fetchCategories();
+        handleClose();
       } else throw new Error();
     } catch (err) {
-      if (err.request?.status === 500) {
-        notifyError("La requete a échouée.");
+      if (err.request?.status === 403) {
+        notifyError("Accès non autorisé");
+        navigate("/login");
+      } else if (err.request?.status === 500) {
+        notifyError("La requete a échoué");
       }
     }
   };
@@ -51,7 +57,7 @@ export default function AddCategory({ fetchCategories, setOpenModal }) {
           onChange={handleChange}
           id="category"
         />
-        <button type="submit" onClick={handleClose} className={s.button}>
+        <button type="submit" className={s.button}>
           Ajouter
         </button>
       </div>

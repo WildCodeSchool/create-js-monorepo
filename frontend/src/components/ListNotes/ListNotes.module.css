@@ -43,10 +43,11 @@ h3 {
   justify-content: space-between;
 }
 
-.category p{
+.category {
   color: var(--text-color);
   font-weight: bolder;
   font-style: italic;
+  padding-right: 0.2rem;
 }
 
 

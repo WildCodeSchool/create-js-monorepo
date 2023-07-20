@@ -1,9 +1,30 @@
+# NoteHub
+
+I present to you the last full stack project that I realized in a few days during my training at the Wild Code School in July 2023 after 5 months of intensive training. I made this project in React JS for the frontend and Express for the backend.
+
 ## Concept
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+NoteHub is an application that makes your life easier, like Google Keep but in a girly version, you can write down everything that comes to mind and sort your notes by category.
 
-## Setup & Use
+## Project Initialization
+
+- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
+- Clone this repo, enter it
+- If you are using `yarn` or `pnpm`, adapt the `config/cli` in `package.json`
+- Run command `npm install`
+- _NB: To launch the backend server, you'll need an environment file with database credentials. You'll find a template one in `backend/.env.sample`_
+
+## Configuration
+
+Create `.env` files in /frontend and /backend following `.env.sample` examples.
+
+## Use
+
+- Run frontend and backend server together : `npm run dev`
+- Express server will be accessible at the address set in the .env of the frontend
+- React frontend will be accessible at the address set in the .env of the backend
+
+👉 To try NoteHub, you can create an account and log in 👈
 
 ### Windows users
 
@@ -13,14 +34,6 @@ Be sure to run these commands in a git terminal to avoid [issues with newline fo
 git config --global core.eol lf
 git config --global core.autocrlf false
 ```
-
-### Project Initialization
-
-- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
-- Clone this repo, enter it
-- If you are using `yarn` or `pnpm`, adapt the `config/cli` in `package.json`
-- Run command `npm install`
-- _NB: To launch the backend server, you'll need an environment file with database credentials. You'll find a template one in `backend/.env.sample`_
 
 ### Available Commands
 
