@@ -38,10 +38,10 @@ export default function NotesPage() {
 
   return (
     <div className={s.notespage}>
-      <h3>
+      <h3 className={s.user}>
         {listNotes && listNotes.length > 0
           ? `Bienvenue ${listNotes[0].firstname} ${listNotes[0].lastname}`
-          : "null"}
+          : ""}
       </h3>
       <button type="button" className={s.button} onClick={() => logout()}>
         <Logout />

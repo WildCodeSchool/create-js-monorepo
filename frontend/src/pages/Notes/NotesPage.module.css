@@ -6,12 +6,11 @@
   justify-content: center;
   flex-direction: column;
   overflow: scroll;
-  text-align: center;
 }
 
 .notecontainer {
   display: flex;
-  justify-content:center;
+  /* justify-content:center; */
   margin: 0 auto; 
   flex-direction: column;
   padding-top: 150px; 
@@ -46,12 +45,13 @@ li {
   background-color: rgba(226,218,218,0.1);
 }
 
-h3 {
-margin-top: 1rem;
+.user {
+  margin-top: 1rem;
   font-size: 1rem;
+  text-align: center;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1300px) {
   .notespage{
     position: relative;
   }
@@ -102,8 +102,19 @@ margin-top: 1rem;
     position: absolute;
     top: 3%;
     left: 95%;
-    
+    z-index: 20;
   }
+
+  .user {
+    position: absolute;
+    top: 1%;
+    margin-top: 15rem;
+    font-size: 1rem;
+    margin-left: 1.2rem;
+    z-index: 40;
+    font-style: italic;
+    
+    } 
 
  
 }
