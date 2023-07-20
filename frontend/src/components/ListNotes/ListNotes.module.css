@@ -1,6 +1,7 @@
 .container {
   position: relative;
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
   width: 300px;
   background-color: var(--light-background-color);
@@ -35,6 +36,17 @@ h3 {
   padding: 3px 5px;
   bottom: 5%;
   left: 3%;  
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category p{
+  color: var(--text-color);
+  font-weight: bolder;
+  font-style: italic;
 }
 
 

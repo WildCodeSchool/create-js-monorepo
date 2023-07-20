@@ -10,8 +10,10 @@ export default function ListNotes({ note, fetchNotes }) {
     <div>
       <li className={s.container}>
         <div className={s.note}>
-          <h3>{note.title}</h3>
-          <p>{note.list}</p>
+          <div className={s.title}>
+            <h3>{note.title}</h3>
+            <p className={s.category}>{note.list}</p>
+          </div>
           <p>{note.content}</p>
         </div>
         <div className={s.buttonContainer}>
