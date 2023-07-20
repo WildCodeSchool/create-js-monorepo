@@ -46,19 +46,20 @@ export default function NotesPage() {
       <button type="button" className={s.button} onClick={() => logout()}>
         <Logout />
       </button>
+      <div className={s.listCategory}>
+        <CategoriesList
+          // passage en props de l'id category
+          setSelectedCategory={setSelectedCategory}
+        />
+      </div>
 
-      <CategoriesList
-        // passage en props de l'id category
-        setSelectedCategory={setSelectedCategory}
-        className={s.categories}
-      />
       <div className={s.createnote}>
         <CreateNote fetchNotes={fetchNotes} />
       </div>
       <ul className={s.notecontainer}>
         {listNotes &&
           listNotes
-            // filtre le tableau listNotes et retourne un nouveau tableau avec les éléments spécifiés
+            // filtre le tableau listNotes et retourne un nouveau tableau avec les éléments spécifiés pour filtrer par category
             .filter(
               (note) =>
                 selectedCategory === null ||
