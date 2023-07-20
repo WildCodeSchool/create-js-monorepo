@@ -56,6 +56,20 @@ class CompetenceManager extends AbstractManager {
         throw error;
       });
   }
+
+  deleteSoftSkill(id) {
+    return this.database.query(
+      `DELETE FROM ${this.table} WHERE Id = ? AND type = 'softskills'`,
+      [id]
+    );
+  }
+
+  deleteHardSkill(id) {
+    return this.database.query(
+      `DELETE FROM ${this.table} WHERE Id = ? AND type = 'hardskills'`,
+      [id]
+    );
+  }
 }
 
 module.exports = CompetenceManager;
