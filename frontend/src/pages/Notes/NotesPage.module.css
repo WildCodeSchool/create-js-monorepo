@@ -3,17 +3,16 @@
   min-height: 100vh;
   min-width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   overflow: scroll;
 }
 
 .notecontainer {
   display: flex;
-  /* justify-content:center; */
   margin: 0 auto; 
   flex-direction: column;
-  padding-top: 150px; 
+  padding-top: 170px; 
   margin-top: 1rem;
 }
 
@@ -46,9 +45,11 @@ li {
 }
 
 .user {
-  margin-top: 1rem;
+  position: absolute;
+  top: 2%;
   font-size: 1rem;
-  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media screen and (min-width: 1300px) {
@@ -108,6 +109,7 @@ li {
   .user {
     position: absolute;
     top: 1%;
+    left: 5%;
     margin-top: 15rem;
     font-size: 1rem;
     margin-left: 1.2rem;

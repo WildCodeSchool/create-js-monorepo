@@ -16,6 +16,7 @@ export default function CreateNote({ fetchNotes }) {
     types_id: null,
     categories_id: null,
   });
+
   const resetForm = () => {
     setNote({
       title: "",

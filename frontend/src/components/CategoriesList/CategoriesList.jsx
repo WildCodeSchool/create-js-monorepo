@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import s from "./CategoriesList.module.css";
 import { notifyError } from "../../services/ToastNotificationService";
 import APIService from "../../services/APIService";
 import Burger from "../../assets/Burger";
 import notehub from "../../assets/notehub.png";
+import AddCategory from "../AddCategory/AddCategory";
 
 export default function CategoriesList({ setSelectedCategory }) {
+  const navigate = useNavigate;
   // indique si le menu est ouvert ou fermé
   const [categories, setCategories] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,16 +37,27 @@ export default function CategoriesList({ setSelectedCategory }) {
     setSelectedCategory(null);
   };
 
+  const [openModal, setOpenModal] = useState(false);
+  const handleClick = () => {
+    setOpenModal(true);
+  };
+
+  const fetchCategories = async () => {
+    try {
+      const response = await APIService.get(`/categories`);
+      setCategories(response.data);
+    } catch (err) {
+      if (err.request?.status === 403) {
+        notifyError("Accès non autorisé");
+        navigate("/login");
+      } else if (err.request?.status === 500) {
+        notifyError("La requete a échoué");
+      }
+    }
+  };
+
   useEffect(() => {
-    APIService.get(`/categories`)
-      .then((response) => {
-        setCategories(response.data);
-      })
-      .catch((error) => {
-        if (error.response?.status === 500) {
-          notifyError("La requête a échoué");
-        }
-      });
+    fetchCategories();
   }, []);
 
   return (
@@ -70,7 +84,7 @@ export default function CategoriesList({ setSelectedCategory }) {
               Notes
             </button>
             <ul>
-              {/* vérifie si categories existe et n'est pas nul */}
+              {/* pour trier les notes en fonction des catégories vérifie si categories existe et n'est pas nul */}
               {categories &&
                 // retourne un élement pour chaque catégorie
                 categories.map((category) => (
@@ -91,6 +105,20 @@ export default function CategoriesList({ setSelectedCategory }) {
                   </li>
                 ))}
             </ul>
+          </div>
+          <div className={s.addContainer}>
+            <button type="button" className={s.addButton} onClick={handleClick}>
+              +
+            </button>
+            <div>
+              {openModal && (
+                <AddCategory
+                  fetchCategories={fetchCategories}
+                  setOpenModal={setOpenModal}
+                  className={s.modalAdd}
+                />
+              )}
+            </div>
           </div>
         </div>
       )}

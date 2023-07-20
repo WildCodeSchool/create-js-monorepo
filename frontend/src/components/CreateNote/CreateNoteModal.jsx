@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import s from "./CreateNote.module.css";
 import APIService from "../../services/APIService";
 import { notifyError } from "../../services/ToastNotificationService";
+import AddCategory from "../AddCategory/AddCategory";
 
 export default function CreateNoteModal({ handleChange }) {
   const [categories, setCategories] = useState([]);
@@ -21,6 +22,7 @@ export default function CreateNoteModal({ handleChange }) {
 
   return (
     <div className={s.modalContainer}>
+      <AddCategory />
       <label htmlFor="category">Note associée à un libellé</label>
       {categories.map((category) => (
         <div key={category.id} className={s.radio}>

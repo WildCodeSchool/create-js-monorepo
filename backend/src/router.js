@@ -36,6 +36,6 @@ router.delete("/notes/:id", noteControllers.destroy);
 const categoriesControllers = require("./controllers/categoriesControllers");
 
 router.get("/categories", categoriesControllers.browse);
-router.post("/categories", noteControllers.add);
+router.post("/categories", categoriesControllers.add);
 
 module.exports = router;
