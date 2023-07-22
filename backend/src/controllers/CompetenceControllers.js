@@ -3,7 +3,7 @@ const models = require("../models");
 const getAllSoftSkills = (req, res) => {
   models.competence
 
-    .findAllSoftSkills()
+    .findAll("softskills")
     .then(([row]) => res.send(row))
     .catch((err) => {
       console.error(err);
@@ -14,7 +14,7 @@ const getAllSoftSkills = (req, res) => {
 const getAllHardSkills = (req, res) => {
   models.competence
 
-    .findAllHardSkills()
+    .findAll("hardskills")
     .then(([row]) => res.send(row))
     .catch((err) => {
       console.error(err);
@@ -77,6 +77,31 @@ const deleteHardSkill = (req, res) => {
       res.status(500).json({ message: "Failed to delete Hard Skill" });
     });
 };
+const updateSoftSkill = (req, res) => {
+  const { id } = req.params;
+  const { content } = req.body;
+
+  models.competence
+    .updateSoftSkill(id, content)
+    .then((updatedSkill) => res.json(updatedSkill))
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ message: "Failed to update Soft Skill" });
+    });
+};
+
+const updateHardSkill = (req, res) => {
+  const { id } = req.params;
+  const { content } = req.body;
+
+  models.competence
+    .updateHardSkill(id, content)
+    .then((updatedSkill) => res.json(updatedSkill))
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ message: "Failed to update Hard Skill" });
+    });
+};
 module.exports = {
   getAllSoftSkills,
   getAllHardSkills,
@@ -84,4 +109,6 @@ module.exports = {
   addSoftSkill,
   deleteHardSkill,
   deleteSoftSkill,
+  updateHardSkill,
+  updateSoftSkill,
 };

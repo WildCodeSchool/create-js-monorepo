@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import SkillItem from "../services/skillItem";
 
 function Skills() {
   const [softSkills, setSoftSkills] = useState([]);
@@ -42,7 +43,7 @@ function Skills() {
 
     fetchSoftSkills();
     fetchHardSkills();
-  }, []);
+  }, [showAddForm]);
 
   const handleAddSkill = () => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/${selectedType}`, {
@@ -72,13 +73,73 @@ function Skills() {
       });
   };
 
+  const handleUpdateSkill = (id, updatedContent) => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/${selectedType}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ content: updatedContent }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erreur lors de la mise à jour de la compétence");
+        }
+        if (selectedType === "softskills") {
+          setSoftSkills((prevSoftSkills) =>
+            prevSoftSkills.map((skill) =>
+              skill.Id === id ? { ...skill, content: updatedContent } : skill
+            )
+          );
+        } else if (selectedType === "hardskills") {
+          setHardSkills((prevHardSkills) =>
+            prevHardSkills.map((skill) =>
+              skill.Id === id ? { ...skill, content: updatedContent } : skill
+            )
+          );
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleDeleteSkill = (id) => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/${selectedType}/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erreur lors de la suppression de la compétence");
+        }
+        if (selectedType === "softskills") {
+          setSoftSkills((prevSoftSkills) =>
+            prevSoftSkills.filter((skill) => skill.Id !== id)
+          );
+        } else if (selectedType === "hardskills") {
+          setHardSkills((prevHardSkills) =>
+            prevHardSkills.filter((skill) => skill.Id !== id)
+          );
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className="skills">
       <div className="softskills">
         <h2>Soft Skills</h2>
         <ul>
           {softSkills.map((skill) => (
-            <li key={skill.Id}>{skill.content}</li>
+            <li key={skill.Id}>
+              <SkillItem
+                skill={skill}
+                onDelete={handleDeleteSkill}
+                onUpdate={handleUpdateSkill}
+              />
+            </li>
           ))}
         </ul>
         {showAddForm && selectedType === "softskills" && (
@@ -88,7 +149,7 @@ function Skills() {
               value={newSkill}
               onChange={(e) => setNewSkill(e.target.value)}
             />
-            <button type="button" onClick={handleAddSkill}>
+            <button type="button" onClick={handleAddSkill} className="validé">
               Ajouter un Soft Skill
             </button>
             <button type="button" onClick={() => setShowAddForm(false)}>
@@ -98,13 +159,14 @@ function Skills() {
         )}
         {!showAddForm && (
           <button
+            className="add"
             type="button"
             onClick={() => {
               setSelectedType("softskills");
               setShowAddForm(true);
             }}
           >
-            Ajouter un Soft Skill
+            ajouter un Soft Skill
           </button>
         )}
       </div>
@@ -112,7 +174,13 @@ function Skills() {
         <h2>Hard Skills</h2>
         <ul>
           {hardSkills.map((skill) => (
-            <li key={skill.Id}>{skill.content}</li>
+            <li key={skill.Id}>
+              <SkillItem
+                skill={skill}
+                onDelete={handleDeleteSkill}
+                onUpdate={handleUpdateSkill}
+              />
+            </li>
           ))}
         </ul>
         {showAddForm && selectedType === "hardskills" && (
@@ -122,8 +190,8 @@ function Skills() {
               value={newSkill}
               onChange={(e) => setNewSkill(e.target.value)}
             />
-            <button type="button" onClick={handleAddSkill}>
-              Ajouter un Hard Skill
+            <button type="button" onClick={handleAddSkill} className="valider">
+              ajouter un Hard Skill
             </button>
             <button type="button" onClick={() => setShowAddForm(false)}>
               Annuler
@@ -132,13 +200,14 @@ function Skills() {
         )}
         {!showAddForm && (
           <button
+            className="add"
             type="button"
             onClick={() => {
               setSelectedType("hardskills");
               setShowAddForm(true);
             }}
           >
-            Ajouter un Hard Skill
+            ajouter un Hard Skill
           </button>
         )}
       </div>

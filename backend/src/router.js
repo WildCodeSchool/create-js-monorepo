@@ -23,4 +23,7 @@ router.post("/hardskills", competenceControllers.addHardSkill);
 router.delete("/softskills/:id", competenceControllers.deleteSoftSkill);
 router.delete("/hardskills/:id", competenceControllers.deleteHardSkill);
 
+router.put("/softskills/:id", competenceControllers.updateSoftSkill);
+router.put("/hardskills/:id", competenceControllers.updateHardSkill);
+
 module.exports = router;

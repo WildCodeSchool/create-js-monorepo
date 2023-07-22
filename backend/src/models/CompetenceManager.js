@@ -5,16 +5,10 @@ class CompetenceManager extends AbstractManager {
     super({ table: "competence" });
   }
 
-  findAllSoftSkills() {
-    return this.database.query(
-      `SELECT * FROM ${this.table} WHERE type = 'softskills'`
-    );
-  }
-
-  findAllHardSkills() {
-    return this.database.query(
-      `SELECT * FROM ${this.table} WHERE type = 'hardskills'`
-    );
+  findAll(type) {
+    return this.database.query(`SELECT * FROM ${this.table} WHERE type = ?`, [
+      type,
+    ]);
   }
 
   addHardSkill(content) {
@@ -68,6 +62,20 @@ class CompetenceManager extends AbstractManager {
     return this.database.query(
       `DELETE FROM ${this.table} WHERE Id = ? AND type = 'hardskills'`,
       [id]
+    );
+  }
+
+  updateSoftSkill(id, content) {
+    return this.database.query(
+      `UPDATE ${this.table} SET content = ? WHERE Id = ? AND type = 'softskills'`,
+      [content, id]
+    );
+  }
+
+  updateHardSkill(id, content) {
+    return this.database.query(
+      `UPDATE ${this.table} SET content = ? WHERE Id = ? AND type = 'hardskills'`,
+      [content, id]
     );
   }
 }

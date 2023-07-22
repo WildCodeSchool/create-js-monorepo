@@ -94,3 +94,20 @@ li {
   box-shadow: 0 5px 15px rgba(143, 143, 143, 0.25);
   border-radius: 1.5rem;
 }
+.add {
+  border-color: black;
+  color: rgb(0, 0, 0);
+  margin-top: 30px;
+}
+.edit {
+  height: 0.8rem;
+}
+.eddit {
+  margin-left: 0.3rem;
+}
+.supp {
+  height: 0.8rem;
+}
+.sup {
+  margin-left: 1rem;
+}
