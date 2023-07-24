@@ -44,8 +44,6 @@ const managers = [
 ];
 ```
 
-(note you don't need the instantiation line, nor the `setDatabase(pool)` one anymore: list the mananagers and they will be registered by a loop afterward)
-
 Usage in controllers changes from this:
 
 ```js
