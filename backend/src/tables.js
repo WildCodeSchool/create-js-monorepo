@@ -1,15 +1,24 @@
-// Create an empty object to hold data managers for different tables
-const tables = {};
-
 /* ************************************************************************* */
 // Register Data Managers for Tables
 /* ************************************************************************* */
 
-// Import the ItemManager module responsible for handling data operations for the "item" table
+// Import the manager modules responsible for handling data operations on the tables
 const ItemManager = require("./models/ItemManager");
 
-// Register the ItemManager instance as the data manager for the "item" table
-tables.item = new ItemManager();
+const managers = [
+  ItemManager,
+  // Add other managers here
+];
+
+// Create an empty object to hold data managers for different tables
+const tables = {};
+
+// Register each manager as data access point for its table
+managers.forEach((ManagerClass) => {
+  const manager = new ManagerClass();
+
+  tables[manager.table] = manager;
+});
 
 /* ************************************************************************* */
 
