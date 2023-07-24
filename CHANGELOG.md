@@ -35,14 +35,16 @@ models.foo.setDatabase(pool);
 Now it should be registered in `backend/src/tables.js` like this:
 
 ```js
-const tables = {};
-
 const FooManager = require("./models/FooManager");
 
-tables.foo = new FooManager();
+const managers = [
+  // ...
+  // Add other managers here
+  FooManager,
+];
 ```
 
-(note you don't need the `setDatabase(pool)` line anymore)
+(note you don't need the instantiation line, nor the `setDatabase(pool)` one anymore: list the mananagers and they will be registered by a loop afterward)
 
 Usage in controllers changes from this:
 
