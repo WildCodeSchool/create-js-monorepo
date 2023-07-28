@@ -24,7 +24,8 @@ git config --global core.autocrlf false
 
 ### Available Commands
 
-- `migrate` : Run the database migration script
+- `db:migrate` : Run the database migration script
+- `db:seed` : Run the database seed script
 - `dev` : Starts both servers (frontend + backend) in one terminal
 - `dev-front` : Starts the React frontend server
 - `dev-back` : Starts the Express backend server

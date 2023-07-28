@@ -1,91 +1,67 @@
-const models = require("../models");
+// Import access to database tables
+const tables = require("../tables");
 
-const browse = (req, res) => {
-  models.item
-    .findAll()
-    .then(([rows]) => {
-      res.send(rows);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
+// The B of BREAD - Browse (Read All) operation
+const browse = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const items = await tables.item.readAll();
+
+    // Respond with the items in JSON format
+    res.json(items);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
 };
 
-const read = (req, res) => {
-  models.item
-    .find(req.params.id)
-    .then(([rows]) => {
-      if (rows[0] == null) {
-        res.sendStatus(404);
-      } else {
-        res.send(rows[0]);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
+// The R of BREAD - Read operation
+const read = async (req, res, next) => {
+  try {
+    // Fetch a specific item from the database based on the provided ID
+    const item = await tables.item.read(req.params.id);
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the item in JSON format
+    if (item == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(item);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
 };
 
-const edit = (req, res) => {
+// The E of BREAD - Edit (Update) operation
+// This operation is not yet implemented
+
+// The A of BREAD - Add (Create) operation
+const add = async (req, res, next) => {
+  // Extract the item data from the request body
   const item = req.body;
 
-  // TODO validations (length, format...)
+  try {
+    // Insert the item into the database
+    const insertId = await tables.item.create(item);
 
-  item.id = parseInt(req.params.id, 10);
-
-  models.item
-    .update(item)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
-      } else {
-        res.sendStatus(204);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).json({ insertId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
 };
 
-const add = (req, res) => {
-  const item = req.body;
+// The D of BREAD - Destroy (Delete) operation
+// This operation is not yet implemented
 
-  // TODO validations (length, format...)
-
-  models.item
-    .insert(item)
-    .then(([result]) => {
-      res.location(`/items/${result.insertId}`).sendStatus(201);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
-const destroy = (req, res) => {
-  models.item
-    .delete(req.params.id)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
-      } else {
-        res.sendStatus(204);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
+// Ready to export the controller functions
 module.exports = {
   browse,
   read,
-  edit,
+  // edit,
   add,
-  destroy,
+  // destroy,
 };
