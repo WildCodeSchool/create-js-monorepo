@@ -1,6 +1,6 @@
 {
   "name": "template-fullstack",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "project template for the React-Express-MySQL cursus in Wild Code School",
   "homepage": "https://github.com/wildcodeschool/js-template-fullstack#readme",
   "bugs": {
@@ -15,7 +15,8 @@
   },
   "scripts": {
     "postinstall": "cross-env-shell \"husky install && cd ./frontend && $npm_package_config_cli install && cd ../backend && $npm_package_config_cli install\"",
-    "migrate": "cd ./backend && node migrate.js",
+    "db:migrate": "cd ./backend && node migrate.js",
+    "db:seed": "cd ./backend && node seed.js",
     "dev": "cross-env-shell 'concurrently -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"$npm_package_config_cli:dev-*\"'",
     "dev-front": "cross-env-shell \"cd ./frontend && $npm_package_config_cli run dev\"",
     "dev-back": "cross-env-shell \"cd ./backend && $npm_package_config_cli run dev\"",
@@ -26,7 +27,7 @@
   "author": "Wild Code School",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^7.6.0",
+    "concurrently": "^8.2.0",
     "cross-env": "^7.0.3",
     "husky": "^8.0.3"
   }

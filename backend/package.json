@@ -1,24 +1,25 @@
 {
   "scripts": {
     "dev": "nodemon index.js",
-    "migrate": "node migrate.js",
+    "db:migrate": "node migrate.js",
+    "db:seed": "node seed.js",
     "start": "node index.js",
     "lint": "echo '----- Checking Backend...' && npx prettier --debug-check . && eslint --ext .js . && echo '----- Done!'",
     "fix": "prettier --write . && eslint --fix --ext .js ."
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mysql2": "^3.0.1"
+    "mysql2": "^3.5.2"
   },
   "devDependencies": {
-    "eslint": "^8.32.0",
+    "@faker-js/faker": "^8.0.2",
+    "eslint": "^8.46.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "nodemon": "^2.0.20",
-    "prettier": "2.8.3"
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "nodemon": "^3.0.1",
+    "prettier": "3.0.0"
   }
 }
