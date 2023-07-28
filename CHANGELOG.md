@@ -7,11 +7,74 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Installed `@faker-js/faker` in backend.
+
 ### Changed
 
 - Installed `react-router-dom` in front, and did a non breaking change in `main.jsx`: pages can be added to the router, or everything can be developped in App setting aside the router features.
 
 - Uninstalled `husky` in front (useless dependency).
+
+- Moved to async/await syntax in `backend/src/controllers/itemControllers.js`, and passed error handling to next middleware.
+
+- **Breaking change:** Removed item update and delete routes, and the associated CRUD methods in `ItemManager`.
+
+- **Breaking change:** refactored models. Managers like `backend/src/models/ItemManager.js` should declare every CRUD methods: they do not inherit read and delete methods from `AbstractManager` anymore. Methods `find`, `findAll` and `insert` are renamed as `read`, `readAll` and `create`. Moved to async/await syntax.
+
+- **Breaking change:** manager registration should be done in `backend/src/tables.js` instead of `backend/src/models/index.js`.
+
+For example, a `FooManager.js` model was previously registered in `backend/src/models/index.js` like this:
+
+```js
+const models = {};
+
+const FooManager = require("./FooManager");
+
+models.foo = new FooManager();
+models.foo.setDatabase(pool);
+```
+
+Now it should be registered in `backend/src/tables.js` like this:
+
+```js
+const FooManager = require("./models/FooManager");
+
+const managers = [
+  // ...
+  // Add other managers here
+  FooManager,
+];
+```
+
+Usage in controllers changes from this:
+
+```js
+const models = require("../models");
+
+// ...
+
+models.foo.callSomeCrudMethod();
+```
+
+To this:
+
+```js
+const tables = require("../tables");
+
+// ...
+
+tables.foo.callSomeCrudMethod();
+```
+
+- **Breaking change:** split ̀`database.sql` logic into table creation in a file `backend/database/schema.sql` and table filling in a file `backend/seed.js`. Updated `backend/migrate.js` accordingly.
+
+- **Breaking change:** renamed `migrate` script as `db:migrate`, and added a `db:seed` script.
+
+- **Breaking change:** removed fallback values for `.env` variables. They have to be defined.
+
+- **Breaking change:** removed magic configuration, and added pedagogical comments to help rewrite it.
 
 ## [3.0.2] - 2023-07-12
 
