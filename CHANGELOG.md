@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Installed `react-router-dom` in front, and did a non breaking change in `main.jsx`: pages can be added to the router, or everything can be developped in App setting aside the router features.
+
+- Uninstalled `husky` in front (useless dependency).
+
 - Moved to async/await syntax in `backend/src/controllers/itemControllers.js`, and passed error handling to next middleware.
 
 - **Breaking change:** Removed item update and delete routes, and the associated CRUD methods in `ItemManager`.
