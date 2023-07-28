@@ -1,7 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-fileList=$(git diff --cached --name-only :^README.md :^LISEZ-MOI.md :^frontend :^backend)
+fileList=$(git diff --cached --name-only :^README.md :^frontend :^backend)
 
 echo '----- Checking Root...'
 
