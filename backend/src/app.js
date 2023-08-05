@@ -25,9 +25,9 @@ const app = express();
 // 4. Be sure to only have URLs in the array with domains from which you want to allow requests.
 // For example: ["http://mysite.com", "http://another-domain.com"]
 
-/*
-const cors = require("cors");
+// const cors = require("cors");
 
+/*
 app.use(
   cors({
     origin: [
@@ -84,30 +84,11 @@ app.use(
 
 /* ************************************************************************* */
 
-// Import the API routes from the router module
+// Import and mount API routes
+
 const router = require("./router");
 
-// Mount the API routes under the "/api" endpoint
 app.use("/api", router);
-
-/* ************************************************************************* */
-
-// Middleware for Error Logging (Uncomment to enable)
-// Important: Error-handling middleware should be defined last, after other app.use() and routes calls.
-
-/*
-// Define a middleware function to log errors
-const logErrors = (err, req, res, next) => {
-  // Log the error to the console for debugging purposes
-  console.error(err);
-
-  // Pass the error to the next middleware in the stack
-  next(err);
-};
-
-// Mount the logErrors middleware globally
-app.use(logErrors);
-*/
 
 /* ************************************************************************* */
 
@@ -126,15 +107,15 @@ app.use(logErrors);
 // 1. Uncomment the lines related to serving static files and redirecting unhandled requests.
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your frontend's build artifacts are located.
 
+// const reactBuildPath = `${__dirname}/../../frontend/dist`;
+
+// serve react resources
+
+// app.use(express.static(reactBuildPath));
+
+// redirect unhandled requests to the react index file
+
 /*
-const reactBuildPath = `${__dirname}/../../frontend/dist`;
-
-// Serve react resources
-
-app.use(express.static(reactBuildPath));
-
-// Redirect unhandled requests to the react index file
-
 app.get("*", (req, res) => {
   res.sendFile(`${reactBuildPath}/index.html`);
 });
