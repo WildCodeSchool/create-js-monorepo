@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Installed `supertest` in backend, and added smoke testing samples in a `backend/tests/itemRoutes.spec.js` file.
+
+### Changed
+
+- Isolated `database` client from `backend/src/models/AbstractManager.js` into a separate file `backend/database/client.js`, so it is accessible to test suite in a consistent way.
+
 ## [4.0.0] - 2023-07-28
 
 ### Added
