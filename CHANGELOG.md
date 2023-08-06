@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Updated code tours in `.tours` folder.
+
 ## [4.0.0] - 2023-07-28
 
 ### Added
