@@ -24,7 +24,7 @@ git config --global core.autocrlf false
 
 ### Before you start
 
-- To ensure compatibility and prevent conflicts, please consistently employ a **single** package manager: `npm` , `yarn`, or `pnpm`.
+- To ensure compatibility and prevent conflicts, please consistently employ a **single** package manager: `npm`, `yarn`, or `pnpm`.
 
 ### Available Commands
 
