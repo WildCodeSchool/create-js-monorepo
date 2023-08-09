@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.1] - 2023-08-09
+
+### Fixed
+
+- Fixed [issue #84](https://github.com/WildCodeSchool/js-template-fullstack/issues/84): provided lock files for `pnpm` and `yarn`, and fixed pre-commit hook to allow changes in root `package.json`. Thanks to [Ayoub Idrissi Ouedrhiri](https://github.com/ioayoub).
+
+- Updated code tours in `.tours` folder.
+
 ## [4.0.0] - 2023-07-28
 
 ### Added
