@@ -22,6 +22,10 @@ git config --global core.autocrlf false
 - Run command `npm install` (or equivalent using `yarn` or `pnpm`)
 - Create environment files (`.env`) in both `backend` and `frontend`: you can copy `.env.sample` files as starters (**don't** delete them)
 
+### Before you start
+
+- To ensure compatibility and prevent conflicts, please consistently employ a **single** package manager: `npm`, `yarn`, or `pnpm`.
+
 ### Available Commands
 
 - `db:migrate` : Run the database migration script
