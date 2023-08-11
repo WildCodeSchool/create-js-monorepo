@@ -23,6 +23,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Isolated `database` client from `backend/src/models/AbstractManager.js` into a separate file `backend/database/client.js`, so it is accessible to test suite in a consistent way.
 
+### Changed
+
+- Run GitHub workflows only on PRs, and not on push anymore: branches are protected and should never be changed except with a PR.
+
 ## [4.0.1] - 2023-08-09
 
 ### Fixed
