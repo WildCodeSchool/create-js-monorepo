@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added support for network-wide testing (ie: mobile testing) using `--host` option of Vite. Thamks to [Loïc Brassart](https://github.com/LoicBrassart).
+
 ## [4.0.1] - 2023-08-09
 
 ### Fixed
