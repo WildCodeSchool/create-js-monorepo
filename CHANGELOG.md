@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed [issue #11](https://github.com/WildCodeSchool/js-template-fullstack/issues/11): installed and configured `lint-staged`.
+
 ### Added
 
 - Installed `supertest` in backend, and added smoke testing samples in a `backend/tests/itemRoutes.spec.js` file.

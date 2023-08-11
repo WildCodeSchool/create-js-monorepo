@@ -4,8 +4,6 @@
     "db:migrate": "node migrate.js",
     "db:seed": "node seed.js",
     "start": "node index.js",
-    "lint": "echo '----- Checking Backend...' && npx prettier --debug-check . && eslint --ext .js . && echo '----- Done!'",
-    "fix": "prettier --write . && eslint --fix --ext .js .",
     "test": "jest"
   },
   "dependencies": {
@@ -24,5 +22,9 @@
     "nodemon": "^3.0.1",
     "prettier": "3.0.0",
     "supertest": "^6.3.3"
+  },
+  "lint-staged": {
+    "*": "prettier --check",
+    "*.js": "eslint"
   }
 }

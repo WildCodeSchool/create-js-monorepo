@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -24,8 +26,11 @@ jobs:
       - name: Install pnpm
         run: npm -g install pnpm
 
-      - name: Install Node.js dependencies
-        run: cd ./frontend && pnpm install && cd ../backend && pnpm install
+      - name: Set package.json config.cli
+        run: sed -i 's/.*"cli":.*/"cli":"pnpm"/' package.json
+
+      - name: Install package dependencies
+        run: pnpm install
 
       - name: Run linters
-        run: cd ./frontend && pnpm run lint && cd ../backend && pnpm run lint
+        run: npx lint-staged --diff="origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF}"
