@@ -9,9 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Installed `supertest` in backend, and added smoke testing samples in a `backend/tests/itemRoutes.spec.js` file.
+
 - Added a section in `backend/src/app.js` for error handling. Reminder: [an error-handling middleware _must_ have 4 parameters](https://stackoverflow.com/a/51826777/6612932)
 
 - Added support for network-wide testing (ie: mobile testing) using `--host` option of Vite. Thamks to [Loïc Brassart](https://github.com/LoicBrassart).
+
+### Changed
+
+- Isolated `database` client from `backend/src/models/AbstractManager.js` into a separate file `backend/database/client.js`, so it is accessible to test suite in a consistent way.
 
 ## [4.0.1] - 2023-08-09
 
