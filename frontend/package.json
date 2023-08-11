@@ -2,9 +2,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "lint": "echo '----- Checking Frontend...' && prettier --debug-check . && eslint --ext .jsx . && echo '----- Done!'",
-    "fix": "prettier --write . && eslint --fix --ext .jsx ."
+    "preview": "vite preview"
   },
   "dependencies": {
     "prop-types": "^15.8.1",
@@ -24,5 +22,9 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.0.0",
     "vite": "^4.4.7"
+  },
+  "lint-staged": {
+    "*": "prettier --check",
+    "*.jsx": "eslint"
   }
 }

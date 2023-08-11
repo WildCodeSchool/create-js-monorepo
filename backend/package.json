@@ -3,9 +3,7 @@
     "dev": "nodemon index.js",
     "db:migrate": "node migrate.js",
     "db:seed": "node seed.js",
-    "start": "node index.js",
-    "lint": "echo '----- Checking Backend...' && npx prettier --debug-check . && eslint --ext .js . && echo '----- Done!'",
-    "fix": "prettier --write . && eslint --fix --ext .js ."
+    "start": "node index.js"
   },
   "dependencies": {
     "dotenv": "^16.3.1",
@@ -21,5 +19,9 @@
     "eslint-plugin-prettier": "^5.0.0",
     "nodemon": "^3.0.1",
     "prettier": "3.0.0"
+  },
+  "lint-staged": {
+    "*": "prettier --check",
+    "*.js": "eslint"
   }
 }
