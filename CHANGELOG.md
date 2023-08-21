@@ -13,7 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Installed `supertest` in backend, and added smoke testing samples in a `backend/tests/itemRoutes.spec.js` file.
+- Installed `supertest` in backend, and added smoke testing samples in a `backend/tests/items/routes.spec.js` file.
+
+- Added unit testing samples in a `backend/tests/items/manager.spec.js` file.
 
 - Added a section in `backend/src/app.js` for error handling. Reminder: [an error-handling middleware _must_ have 4 parameters](https://stackoverflow.com/a/51826777/6612932)
 
