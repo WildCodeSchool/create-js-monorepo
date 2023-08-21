@@ -1,5 +1,5 @@
 // Import required dependencies
-const { app, request, tables } = require("./setup");
+const { app, request, tables } = require("../setup");
 
 // Define a sample item for testing
 const testItem = {
