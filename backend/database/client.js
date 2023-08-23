@@ -29,5 +29,8 @@ client
     console.error("Error message:", error.message);
   });
 
+// Store database name into client for further uses
+client.databaseName = DB_NAME;
+
 // Ready to export
 module.exports = client;
