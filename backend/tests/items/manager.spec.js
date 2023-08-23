@@ -1,14 +1,14 @@
 // Import required dependencies
 const { database, tables } = require("../setup");
 
-// Define a sample item for testing
-const testItem = {
-  title: "Sample Item",
-};
-
 // Test suite for the create method of ItemManager
 describe("Create item", () => {
   it("should create an item successfully", async () => {
+    // Define a sample item for testing
+    const testItem = {
+      title: "Sample Item",
+    };
+
     // Send a create request to the item table with a test item
     const insertId = await tables.item.create(testItem);
 

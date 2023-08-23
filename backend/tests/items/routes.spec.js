@@ -1,14 +1,14 @@
 // Import required dependencies
 const { app, request, tables } = require("../setup");
 
-// Define a sample item for testing
-const testItem = {
-  title: "Sample Item",
-};
-
 // Test suite for the GET /api/items route
 describe("GET /api/items", () => {
   it("should fetch items successfully", async () => {
+    // Define a sample item for testing
+    const testItem = {
+      title: "Sample Item",
+    };
+
     // Create a sample item in the database
     const insertId = await tables.item.create(testItem);
 
@@ -31,6 +31,11 @@ describe("GET /api/items", () => {
 // Test suite for the GET /api/items/:id route
 describe("GET /api/items/:id", () => {
   it("should fetch a single item successfully", async () => {
+    // Define a sample item for testing
+    const testItem = {
+      title: "Sample Item",
+    };
+
     // Create a sample item in the database
     const insertId = await tables.item.create(testItem);
 
@@ -59,6 +64,11 @@ describe("GET /api/items/:id", () => {
 // Hint: enabling log could help ;)
 describe("POST /api/items", () => {
   it("should add a new item successfully", async () => {
+    // Define a sample item for testing
+    const testItem = {
+      title: "Sample Item",
+    };
+
     // Send a POST request to the /api/items endpoint with a test item
     const response = await request(app).post("/api/items").send(testItem);
 
@@ -82,6 +92,11 @@ describe("POST /api/items", () => {
 // Test suite for the PUT /api/items/:id route
 describe("PUT /api/items/:id", () => {
   it("should update an existing item successfully", async () => {
+    // Define a sample item for testing
+    const testItem = {
+      title: "Sample Item",
+    };
+
     // Create a sample item in the database
     const insertId = await tables.item.create(testItem);
 
@@ -110,6 +125,11 @@ describe("PUT /api/items/:id", () => {
 // Test suite for the DELETE /api/items/:id route
 describe("DELETE /api/items/:id", () => {
   it("should delete an existing item successfully", async () => {
+    // Define a sample item for testing
+    const testItem = {
+      title: "Sample Item",
+    };
+
     // Create a sample item in the database
     const insertId = await tables.item.create(testItem);
 
