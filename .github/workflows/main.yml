@@ -58,8 +58,8 @@ jobs:
       - name: Install caprover
         run: npm install -g caprover
 
-      - name: Deploy back
-        run: caprover deploy -h "${{ secrets.CAPROVER_SERVER }}" -p '${{ secrets.CAPROVER_PASSWORD }}' -b 'main' -a "${{ secrets.CAPROVER_BACK_APPNAME }}"
-
       - name: Deploy front
         run: caprover deploy -h "${{ secrets.CAPROVER_SERVER }}" -p '${{ secrets.CAPROVER_PASSWORD }}' -b 'main' -a "${{ secrets.CAPROVER_FRONT_APPNAME }}"
+      
+      - name: Deploy back
+        run: caprover deploy -h "${{ secrets.CAPROVER_SERVER }}" -p '${{ secrets.CAPROVER_PASSWORD }}' -b 'main' -a "${{ secrets.CAPROVER_BACK_APPNAME }}"
