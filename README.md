@@ -46,7 +46,7 @@ git config --global core.autocrlf false
 - _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
 - _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
 
-### Deployment
+### Deployment with Caprover
 
 For deployment, you have to go to `secrets` → app `actions` on the github repo to insert via `New repository secret` :
 
@@ -54,3 +54,21 @@ For deployment, you have to go to `secrets` → app `actions` on the github repo
 - CAPROVER_FRONT_APPNAME : name app on caprover
 - CAPROVER_PASSWORD : password caprover
 - CAPROVER_SERVER : link of domain
+
+### Deployment with Traefik
+
+>⚠️ Prerequisites : You must have installed and configured Traefik on your VPS beforehand.
+> https://github.com/WildCodeSchool/vps-traefik-starter-kit/
+
+For deployment, you have to go to `secrets` → app `actions` on the github repo to insert via `New repository secret` :
+- SSH_HOST : IP address of your VPS
+- SSH_USER : SSH login to your VPS
+- SSH_PASSWORD : SSH connection password to your VPS
+
+And a public variable from the tab `/settings/variables/actions`
+- PROJECT_NAME : the name of the project used to create the subdomain for frontend.  
+The backend subdomain will be automatically created with the suffix -backend. 
+The global variable VITE_BACKEND_URL will be automatically created and pre-filled on the basis of this information.
+
+Use this same tab to add the other environment variables required for the project if any.
+

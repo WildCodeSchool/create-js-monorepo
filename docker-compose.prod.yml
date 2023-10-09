@@ -1,0 +1,51 @@
+version: '3.4'
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: ${PROJECT_NAME:-project}-frontend-web
+    volumes:
+      - ./frontend:/var/www
+    env_file:
+      - ../envs/.env-${GITHUB_REPOSITORY_NAME}
+#    environment:
+#      VITE_BACKEND_URL: "https://${PROJECT_NAME:-project}-backend.${HOST:-localhost}"
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.${PROJECT_NAME:-project}-secure.entrypoints=websecure"
+      - "traefik.http.routers.${PROJECT_NAME:-project}-secure.rule=Host(`${PROJECT_NAME:-project}.${HOST:-localhost}`)"
+
+  backend:
+    build: ./backend
+    container_name: ${PROJECT_NAME:-project}-backend-web
+    volumes:
+      - ./backend:/var/www
+      - ./backend/docker-entry.sh:/etc/entrypoint.sh
+    entrypoint: [ "sh", "/etc/entrypoint.sh" ]
+    env_file:
+      - ../envs/.env-${GITHUB_REPOSITORY_NAME}
+    environment:
+      APP_PORT: 3310
+      APP_SECRET: 123456789
+      FRONTEND_URL: "https://${PROJECT_NAME}.${HOST}"
+      DB_HOST: ${DATABASE_SUBDOMAIN_NAME}-db
+      DB_PORT: 3306
+      DB_USER: ${USER_NAME}
+      DB_PASSWORD: ${USER_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      JWT_SECRET: JWT_SECRET
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.${PROJECT_NAME:-project}-backend-secure.entrypoints=websecure"
+      - "traefik.http.routers.${PROJECT_NAME:-project}-backend-secure.rule=Host(`${PROJECT_NAME:-project}-backend.${HOST:-localhost}`)"
+      - "traefik.http.services.${PROJECT_NAME:-project}-backend.loadbalancer.server.port=3310"
+
+networks:
+  proxy:
+    external: true
