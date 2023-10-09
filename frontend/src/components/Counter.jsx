@@ -5,6 +5,7 @@ export default function Counter() {
 
   return (
     <p>
+      <button type="button">I'm a button</button>
       <button
         type="button"
         onClick={() => setCount((oldCount) => oldCount + 1)}
