@@ -1,0 +1,4 @@
+{
+    "pattern":"^S\\d{1}US\\d{1,2}\/[a-z0-9]+(-[a-z0-9]+)*$",
+    "errorMsg":"Oopsie! Seems like you didn't respect our standard for branch naming. Correct formatting is 'S{number}US{number}/branch-name-in-camel-case'. Exemple: 'S3US12/feature-add-user-model'"
+}
