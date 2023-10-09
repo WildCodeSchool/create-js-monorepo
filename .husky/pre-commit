@@ -11,7 +11,7 @@ then
 
   echo "$fileList\n"
 
-  echo "use 'git restore ...' to fix the problem"
+  echo "use 'git restore --staged ...' to fix the problem"
   echo "(and ask your instructor why you should not change these files)\n"
 
   exit 1
