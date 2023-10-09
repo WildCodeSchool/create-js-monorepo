@@ -1,14 +1,9 @@
-version: '3.4'
+version: "3.4"
 
 services:
-  frontend:
-    build: ./frontend
+  web:
+    build: .
     volumes:
-      - ./frontend:/var/www
-
-  backend:
-    build: ./backend
-    volumes:
-      - ./backend:/var/www
-      - ./backend/docker-entry.sh:/etc/entrypoint.sh
+      - .:/var/www
+      - ./docker-entry.sh:/etc/entrypoint.sh
     entrypoint: ["sh", "/etc/entrypoint.sh"]

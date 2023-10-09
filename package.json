@@ -20,7 +20,11 @@
     "dev": "cross-env-shell 'concurrently -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"$npm_package_config_cli:dev-*\"'",
     "dev-front": "cross-env-shell \"cd ./frontend && $npm_package_config_cli run dev\"",
     "dev-back": "cross-env-shell \"cd ./backend && $npm_package_config_cli run dev\"",
-    "lint": "lint-staged"
+    "lint": "lint-staged",
+    "prebuild": "$npm_package_config_cli install",
+    "build": "cross-env-shell \"cd ./frontend && $npm_package_config_cli run build && cd ../backend && $npm_package_config_cli run build\"",
+    "prestart": "$npm_package_config_cli run build",
+    "start": "cross-env-shell \"cd ./backend && $npm_package_config_cli run start\""
   },
   "keywords": [],
   "author": "Wild Code School",

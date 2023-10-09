@@ -1,27 +1,17 @@
 version: '3.4'
 
 services:
-  frontend:
-    ports:
-      - "3000:80"
-    environment:
-      VITE_BACKEND_URL: http://localhost:3310
-#    depends_on:
-#      backend:
-#        condition: service_healthy
-
-  backend:
+  web:
     ports:
       - "3310:3310"
     environment:
       APP_PORT: 3310
-      FRONTEND_URL: http://localhost:3000
+      APP_SECRET: 123456789
       DB_HOST: database
       DB_PORT: 3306
       DB_USER: user
       DB_PASSWORD: password
       DB_NAME: js_template_fullstack
-      JWT_SECRET: JWT_SECRET
     depends_on:
       database:
         condition: service_healthy
