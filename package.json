@@ -23,7 +23,6 @@
     "lint": "lint-staged",
     "prebuild": "$npm_package_config_cli install",
     "build": "cross-env-shell \"cd ./frontend && $npm_package_config_cli run build && cd ../backend && $npm_package_config_cli run build\"",
-    "prestart": "$npm_package_config_cli run build",
     "start": "cross-env-shell \"cd ./backend && $npm_package_config_cli run start\""
   },
   "keywords": [],
