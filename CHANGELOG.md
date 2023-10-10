@@ -19,15 +19,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added a section in `backend/src/app.js` for error handling. Reminder: [an error-handling middleware _must_ have 4 parameters](https://stackoverflow.com/a/51826777/6612932)
 
-- Added support for network-wide testing (ie: mobile testing) using `--host` option of Vite. Thamks to [Loïc Brassart](https://github.com/LoicBrassart).
+- Added support for network-wide testing (ie: mobile testing) using `--host` option of Vite. Thanks to [Loïc Brassart](https://github.com/LoicBrassart).
 
 ### Changed
 
 - Isolated `database` client from `backend/src/models/AbstractManager.js` into a separate file `backend/database/client.js`, so it is accessible to test suite in a consistent way.
 
-### Changed
-
-- Run GitHub workflows only on PRs, and not on push anymore: branches are protected and should never be changed except with a PR.
+- **Breaking change:** Refactored deployment using Traefik. Thanks to [Jean-François Morin](https://github.com/jfm-wcs) and [Anthony Gorski](https://github.com/GorskiAnthony).
 
 ## [4.0.1] - 2023-08-09
 
