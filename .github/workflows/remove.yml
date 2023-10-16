@@ -1,0 +1,16 @@
+name: Remove-from-Traefik
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove from VPS
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.SSH_USER }}
+          host: ${{ secrets.SSH_HOST }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: cd && cd traefik/deploy && bash ./remove-project.sh ${{ github.event.repository.name }}

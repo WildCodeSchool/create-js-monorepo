@@ -15,7 +15,10 @@ const mysql = require("mysql2/promise");
 
 const migrate = async () => {
   try {
-    // Create a new connection to the database
+    // Read the SQL statements from the schema file
+    const sql = fs.readFileSync(schema, "utf8");
+
+    // Create a specific connection to the database
     const database = await mysql.createConnection({
       host: DB_HOST,
       port: DB_PORT,
@@ -32,9 +35,6 @@ const migrate = async () => {
 
     // Switch to the newly created database
     await database.query(`use ${DB_NAME}`);
-
-    // Read the SQL statements from the schema file
-    const sql = fs.readFileSync(schema, "utf8");
 
     // Execute the SQL statements to update the database schema
     await database.query(sql);
