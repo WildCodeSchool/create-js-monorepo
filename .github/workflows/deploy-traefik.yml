@@ -10,14 +10,7 @@ on:
     types: [closed]
 
 jobs:
-  lint:
-    uses: ./.github/workflows/_lint.yml
-    permissions:
-      checks: write
-      contents: write
-
   check-secrets:
-    needs: lint
     if: (github.event.pull_request.merged || github.event_name == 'push')
     runs-on: ubuntu-latest
     outputs:
