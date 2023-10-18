@@ -59,8 +59,9 @@ For deployment, you have to go to `secrets` → app `actions` on the github repo
 
 And a public variable from the tab `/settings/variables/actions`
 
-- PROJECT_NAME : the name of the project used to create the subdomain for frontend.  
-  The backend subdomain will be automatically created with the suffix -backend.
-  The global variable VITE_BACKEND_URL will be automatically created and pre-filled on the basis of this information.
+- PROJECT_NAME : the name of the project used to create the subdomain for frontend.
+
+The backend subdomain will be automatically created with the suffix -backend.
+The global variable VITE_BACKEND_URL will be automatically created and pre-filled on the basis of this information.
 
 Use this same tab to add the other environment variables required for the project if any.
