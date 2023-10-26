@@ -2,6 +2,7 @@ name: dev
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
     branches:
       - main
       - develop
@@ -22,12 +23,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Cache dependencies
+        id: cache-nextjob
+        uses: actions/cache@v3
         with:
-          node-version: 16
+          path: |
+            ./node_modules
+            ./backend/node_modules
+            ./frontend/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install package dependencies
+        if: steps.cache-nextjob.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Run linters
