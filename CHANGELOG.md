@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nothing right now. [Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues) if you find something.
 
+## [4.1.2] - 2023-10-26
+
+### Changed
+
+- Removing `yarn` and `pnpm` package managers in favor of npm.
+
+- Use of the cache to optimize job execution time.
+
 ## [4.1.1] - 2023-10-18
 
 ### Fixed
