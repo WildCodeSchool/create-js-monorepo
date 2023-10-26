@@ -27,14 +27,8 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install pnpm
-        run: npm -g install pnpm
-
-      - name: Set package.json config.cli
-        run: sed -i 's/.*"cli":.*/"cli":"pnpm"/' package.json
-
       - name: Install package dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Run linters
         run: npx lint-staged --diff="origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF}"
