@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Nothing right now. [Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues) if you find something.
+
+## [4.1.1] - 2023-10-18
+
+### Fixed
+
+- Fixed GitHub actions for lint.
+
+## [4.1.0] - 2023-10-16
+
 ### Fixed
 
 - Fixed [issue #11](https://github.com/WildCodeSchool/js-template-fullstack/issues/11): installed and configured `lint-staged`.

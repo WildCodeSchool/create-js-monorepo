@@ -1,7 +1,11 @@
-name: lint
+name: dev
 
 on:
-  workflow_call:
+  pull_request:
+    branches:
+      - main
+      - develop
+      - dev
 
 jobs:
   lint:

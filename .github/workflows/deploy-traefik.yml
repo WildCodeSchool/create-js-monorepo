@@ -2,18 +2,16 @@ name: CD-traefik
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types: [closed]
 
 jobs:
-  lint:
-    uses: ./.github/workflows/_lint.yml
-    permissions:
-      checks: write
-      contents: write
-
   check-secrets:
-    needs: lint
+    if: (github.event.pull_request.merged || github.event_name == 'push')
     runs-on: ubuntu-latest
     outputs:
       caprover-server: ${{ steps.caprover-server.outputs.defined }}
