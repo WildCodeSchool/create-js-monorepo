@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nothing right now. [Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues) if you find something.
 
+## [4.1.2] - 2023-10-31
+
+### Changed
+
+- Refined `lint-staged` configuration to focus on code files only. Thanks to [Dimitri Lavaury-Collot](https://github.com/Gwada).
+
+- Removed `yarn` and `pnpm` package managers in favor of npm. Thanks to [Dimitri Lavaury-Collot](https://github.com/Gwada).
+
+- Used cache to optimize job execution time. Thanks to [Dimitri Lavaury-Collot](https://github.com/Gwada).
+
 ## [4.1.1] - 2023-10-18
 
 ### Fixed

@@ -18,13 +18,8 @@ git config --global core.autocrlf false
 
 - In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
 - Clone this repo, enter it
-- If you are using `yarn` or `pnpm`, adapt the `config/cli` in `package.json`
-- Run command `npm install` (or equivalent using `yarn` or `pnpm`)
+- Run command `npm install`
 - Create environment files (`.env`) in both `backend` and `frontend`: you can copy `.env.sample` files as starters (**don't** delete them)
-
-### Before you start
-
-- To ensure compatibility and prevent conflicts, please consistently employ a **single** package manager: `npm`, `yarn`, or `pnpm`.
 
 ### Available Commands
 
