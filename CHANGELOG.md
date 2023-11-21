@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed GitHub actions for deployment when repository is hosted on a GitHub organization account. Thanks to [Jean-François Morin](https://github.com/jfm-wcs) and [Julien Richard](https://github.com/jujuck).
+
 - Nothing right now. [Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues) if you find something.
 
 ## [4.1.2] - 2023-10-31
