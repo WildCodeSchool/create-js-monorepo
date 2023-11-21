@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added `clean` script in root `package.json`. Thanks to [Damien Buchet](https://github.com/dbuchet) for the idea.
+
 ### Fixed
 
 - Fixed allow list in pre-commit hook : root `package.json` file can **not** be changed anymore (but root `package-lock.json` may be regenerated).
