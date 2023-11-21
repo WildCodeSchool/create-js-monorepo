@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added `clean` script in root `package.json`. Thanks to [Damien Buchet](https://github.com/dbuchet) for the idea.
 
+### Changed
+
+- Changed `--cached` option of the `git diff` command in the pre-commit hook for the alias `--staged` to be more explicit.
+
 ### Fixed
 
 - Fixed allow list in pre-commit hook : root `package.json` file can **not** be changed anymore (but root `package-lock.json` may be regenerated).
