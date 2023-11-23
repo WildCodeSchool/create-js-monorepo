@@ -29,7 +29,6 @@ jobs:
 
   deploy:
     needs: check-secrets
-    if: needs.check-secrets.outputs.defined == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to VPS
