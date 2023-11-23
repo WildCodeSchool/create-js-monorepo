@@ -58,18 +58,21 @@ And a public variable from the tab `/settings/variables/actions`
   Warning, underscore are not allowed. They can cause trouble with the let's encrypt certificate
 Use this same tab to add the other environment variables required for the project if any.
 
-Only the backend will be accessible. The root path "/" will redirect to the dist folder on your frontend. In order to allow that, please uncomment the line as explain on `backend/src/app.js` (Line 102).
-Because the backend will deserve the front, the global variable VITE_BACKEND_URL is fill with a blank string.
+Only the backend will be accessible. The root path "/" will redirect to the dist folder on your frontend. In order to allow that, please uncomment the corresponding lines as explain on `backend/src/app.js` (Line 102).
+Because the backend will serve the front, the global variable VITE_BACKEND_URL will be an empty string.
+
 Your url will be ` https://${PROJECT-NAME}.${subdomain}.wilders.dev/`.
 
 ### About the database
-The database is automaticaly deploy with the name of your repo. On the build of the projet (`docker-entry.sh`), the script `npm run migrate` is executed. If you want to seed automaticaly your database with the `seed.js` file, please replace the command *build* on you `backend/package.json` by `node migrate.js && node seed.js`
 
-### About picture
-Warning, don't use any public folder on your frontend. This folder won't be accessible online. In place, use the one on your backend folder
+The database is automaticaly deployed with the name of your repo. During the build of the projet (`docker-entry.sh`), the `npm build` command is executed. By default, this will run `node migrate.js && node seed.js` in the backend, creating and seeding the database. If you don't want to seed automaticaly your database with the `seed.js` file, please replace the command *build* on you `backend/package.json` by `node migrate.js`.
+
+### About public assets (pictures, fonts...)
+
+Warning, don't use any public folder on your frontend. This folder won't be accessible online. In place, use the one on your backend folder. Prefer [static assets](https://vitejs.dev/guide/assets) when possible.
 
 ### About Logs
-If you want to access the logs of your online projet (to follow the deployement or to watch any bug error), connect to your VPS (ssh user@host).
-Then, go on your specific project and run  `docker compose logs -t -f`.
 
+If you want to access the logs of your online projet (to follow the deployement or to watch any bug error), connect to your VPS (`ssh user@host`).
+Then, go on your specific project and run `docker compose logs -t -f`.
 
