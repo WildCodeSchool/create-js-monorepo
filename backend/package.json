@@ -3,7 +3,7 @@
     "dev": "nodemon index.js",
     "db:migrate": "node migrate.js",
     "db:seed": "node seed.js",
-    "build": "node migrate.js",
+    "build": "node migrate.js && node seed.js",
     "start": "node index.js",
     "test": "jest"
   },
