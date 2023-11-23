@@ -29,7 +29,6 @@ jobs:
 
   deploy:
     needs: check-secrets
-    if: needs.check-secrets.outputs.defined == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to VPS
@@ -38,4 +37,4 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           host: ${{ secrets.SSH_HOST }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script: cd && cd traefik/deploy && bash ./js-project.sh ${{ github.actor }} ${{ github.event.repository.name }} ${{ vars.PROJECT_NAME }} '${{ toJSON(vars) }}'
+          script: cd && cd traefik/deploy && bash ./js-project.sh {{ github.event.repository.owner.name }} ${{ github.event.repository.name }} ${{ vars.PROJECT_NAME }} '${{ toJSON(vars) }}'
