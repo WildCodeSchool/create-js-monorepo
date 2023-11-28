@@ -1,9 +1,10 @@
 {
   "scripts": {
     "dev": "nodemon index.js",
-    "db:migrate": "node migrate.js",
-    "db:seed": "node seed.js",
-    "build": "node migrate.js",
+    "db:migrate": "node ./bin/migrate.js",
+    "db:seed": "node ./bin/seed.js",
+    "build": "node ./bin/secret.js && node ./bin/migrate.js",
+    "secret:generate": "node ./bin/secret.js",
     "start": "node index.js",
     "test": "jest"
   },
