@@ -9,13 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added `secret:generate` script in backend `package.json` to generate app secret in `.env` programmatically.
-
 - Added `clean` script in root `package.json`. Thanks to [Damien Buchet](https://github.com/dbuchet) for the idea.
 
 ### Changed
-
-- Moved backend `migrate.js` and `seed.js` files in a `bin` directory.
 
 - Changed `--cached` option of the `git diff` command in the pre-commit hook for the alias `--staged` to be more explicit.
 
