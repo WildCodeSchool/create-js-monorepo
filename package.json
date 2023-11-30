@@ -21,7 +21,7 @@
     "prebuild": "npm install",
     "build": "cross-env-shell \"cd ./frontend && npm run build && cd ../backend && npm run build\"",
     "start": "cross-env-shell \"cd ./backend && npm run start\"",
-    "clean": "cross-env-shell \"rm -rf ./node_modules ./package-lock-json ./backend/node_modules ./backend/package-lock.json ./frontend/node_modules ./frontend/package-lock.json\""
+    "clean": "cross-env-shell \"rm -rf ./node_modules ./package-lock.json ./backend/node_modules ./backend/package-lock.json ./frontend/node_modules ./frontend/package-lock.json\""
   },
   "keywords": [],
   "author": "Wild Code School",
