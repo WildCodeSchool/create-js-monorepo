@@ -65,4 +65,4 @@ INSERT INTO pkmn_type (id, name, image) VALUES
 (25, 'Pikachu', 'An electric-type Pokémon with yellow fur.', 'https://archives.bulbagarden.net/media/upload/thumb/4/4a/0025Pikachu.png/70px-0025Pikachu.png'),
 (26, 'Raichu', 'The evolved form of Pikachu, an electric Pokémon with enhanced power.', 'https://archives.bulbagarden.net/media/upload/thumb/b/b0/0026Raichu.png/70px-0026Raichu.png');
 
-UPDATE pokemon SET type_id = 1 WHERE id IN (1, 2, 3);
+UPDATE pokemon SET pkmn_type_id = 1 WHERE id IN (1, 2, 3);
