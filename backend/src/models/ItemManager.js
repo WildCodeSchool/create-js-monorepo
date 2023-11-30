@@ -1,59 +1,59 @@
 const AbstractManager = require("./AbstractManager");
 
-class ItemManager extends AbstractManager {
+class pokemonManager extends AbstractManager {
   constructor() {
     // Call the constructor of the parent class (AbstractManager)
-    // and pass the table name "item" as configuration
-    super({ table: "item" });
+    // and pass the table name "pokemon" as configuration
+    super({ table: "pokemon" });
   }
 
   // The C of CRUD - Create operation
 
-  async create(item) {
-    // Execute the SQL INSERT query to add a new item to the "item" table
+  async create(pokemon) {
+    // Execute the SQL INSERT query to add a new pokemon to the "pokemon" table
     const [result] = await this.database.query(
       `insert into ${this.table} (title) values (?)`,
-      [item.title]
+      [pokemon.name]
     );
 
-    // Return the ID of the newly inserted item
+    // Return the ID of the newly inserted pokemon
     return result.insertId;
   }
 
   // The Rs of CRUD - Read operations
 
   async read(id) {
-    // Execute the SQL SELECT query to retrieve a specific item by its ID
+    // Execute the SQL SELECT query to retrieve a specific pokemon by its ID
     const [rows] = await this.database.query(
       `select * from ${this.table} where id = ?`,
       [id]
     );
 
-    // Return the first row of the result, which represents the item
+    // Return the first row of the result, which represents the pokemon
     return rows[0];
   }
 
   async readAll() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    // Execute the SQL SELECT query to retrieve all pokemons from the "pokemon" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
 
-    // Return the array of items
+    // Return the array of pokemons
     return rows;
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
+  // TODO: Implement the update operation to modify an existing pokemon
 
-  // async update(item) {
+  // async update(pokemon) {
   //   ...
   // }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
+  // TODO: Implement the delete operation to remove an pokemon by its ID
 
   // async delete(id) {
   //   ...
   // }
 }
 
-module.exports = ItemManager;
+module.exports = pokemonManager;

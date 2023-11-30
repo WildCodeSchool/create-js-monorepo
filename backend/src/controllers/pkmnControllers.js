@@ -4,11 +4,11 @@ const tables = require("../tables");
 // The B of BREAD - Browse (Read All) operation
 const browse = async (req, res, next) => {
   try {
-    // Fetch all items from the database
-    const items = await tables.item.readAll();
+    // Fetch all pokemons from the database
+    const pokemons = await tables.pokemon.readAll();
 
-    // Respond with the items in JSON format
-    res.json(items);
+    // Respond with the pokemons in JSON format
+    res.json(pokemons);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -18,15 +18,15 @@ const browse = async (req, res, next) => {
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
-    // Fetch a specific item from the database based on the provided ID
-    const item = await tables.item.read(req.params.id);
+    // Fetch a specific pokemon from the database based on the provided ID
+    const pokemon = await tables.pokemon.read(req.params.id);
 
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the item in JSON format
-    if (item == null) {
+    // If the pokemon is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the pokemon in JSON format
+    if (pokemon == null) {
       res.sendStatus(404);
     } else {
-      res.json(item);
+      res.json(pokemon);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -39,14 +39,14 @@ const read = async (req, res, next) => {
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
-  // Extract the item data from the request body
-  const item = req.body;
+  // Extract the pokemon data from the request body
+  const pokemon = req.body;
 
   try {
-    // Insert the item into the database
-    const insertId = await tables.item.create(item);
+    // Insert the pokemon into the database
+    const insertId = await tables.pokemon.create(pokemon);
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted pokemon
     res.status(201).json({ insertId });
   } catch (err) {
     // Pass any errors to the error-handling middleware

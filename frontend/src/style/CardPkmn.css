@@ -1,0 +1,28 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  justify-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+.card {
+  border: 1px solid black;
+  width: 200px;
+  padding: 1rem;
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  text-align: center;
+  font-size: 10px;
+  color: black;
+}

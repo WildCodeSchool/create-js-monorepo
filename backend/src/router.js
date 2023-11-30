@@ -6,17 +6,17 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Import itemControllers module for handling item-related operations
-const itemControllers = require("./controllers/itemControllers");
+// Import pkmnControllers module for handling pkmn-related operations
+const pkmnControllers = require("./controllers/pkmnControllers");
 
-// Route to get a list of items
-router.get("/items", itemControllers.browse);
+// Route to get a list of pkmns
+router.get("/pokemons", pkmnControllers.browse);
 
-// Route to get a specific item by ID
-router.get("/items/:id", itemControllers.read);
+// Route to get a specific pkmn by ID
+router.get("/pokemons/:id", pkmnControllers.read);
 
-// Route to add a new item
-router.post("/items", itemControllers.add);
+// Route to add a new pkmn
+router.post("/types", pkmnControllers.add);
 
 /* ************************************************************************* */
 
