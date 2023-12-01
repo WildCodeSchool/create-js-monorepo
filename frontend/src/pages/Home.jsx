@@ -2,7 +2,6 @@ import React from "react";
 
 import logomon from "../assets/logomon.svg";
 
-import CardPkmn from "../components/CardPkmn";
 import "../App.css";
 
 function Home() {
@@ -10,9 +9,8 @@ function Home() {
     <div className="home">
       <header className="home-header">
         <img src={logomon} className="home-logo" alt="logo" />
-        <p>Poképedia v.1</p>
+        <p>Pokepedia v.1</p>
       </header>
-      <CardPkmn />
     </div>
   );
 }

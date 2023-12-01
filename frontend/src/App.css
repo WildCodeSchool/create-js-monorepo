@@ -4,9 +4,9 @@
 
 body {
   margin: 0;
-  background-color: #282c34;
-  font-family: "Press Start 2P";
-  font-size: 12px;
+  background-color: #a52b2b;
+  font-family: "ConnectionRegular";
+  letter-spacing: 0.05em;
 }
 
 .home {

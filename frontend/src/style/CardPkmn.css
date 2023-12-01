@@ -1,11 +1,3 @@
-.list {
-  display: grid;
-  grid-template-columns: repeat(3, 150px);
-  justify-items: center;
-  justify-content: center;
-  gap: 100px;
-}
-
 .card {
   border: 1px solid black;
   width: 200px;
@@ -17,12 +9,12 @@
 
 .card-img {
   width: 100%;
-  height: auto;
   margin-bottom: 1rem;
 }
 
 .card-text {
   text-align: center;
-  font-size: 10px;
+  font-size: 14px;
+  font-weight: bolder;
   color: black;
 }

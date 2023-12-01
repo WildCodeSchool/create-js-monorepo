@@ -1,7 +1,15 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
+
+import CardDesc from "../components/CardDesc";
 
 function PkmnPage() {
-  return <div>PkmnPage</div>;
+  const pokemon = useLoaderData();
+  return (
+    <div className="card-page">
+      <CardDesc pokemon={pokemon} />
+    </div>
+  );
 }
 
 export default PkmnPage;
