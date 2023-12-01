@@ -1,0 +1,50 @@
+.card-page {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.card-desc {
+  border: 1px solid black;
+  width: 100em;
+  padding: 1rem;
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+
+.card-desc-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.text-desc {
+  width: 50%;
+}
+
+h1,
+h2,
+p {
+  text-align: center;
+  margin-top: 100px;
+}
+
+p {
+  overflow: hidden;
+  border-right: 0.15em solid rgba(14, 14, 14, 0);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation:
+    typing 4.5s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

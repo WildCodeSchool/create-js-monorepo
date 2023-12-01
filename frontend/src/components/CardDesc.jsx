@@ -8,8 +8,10 @@ function CardDesc({ pokemon }) {
     <div key={pokemon.id} className="card-desc">
       <div className="card-desc-body">
         <img className="card-desc-img" src={pokemon.image} alt={pokemon.name} />
-
-        <figcaption className="card-desc-text">{pokemon.name}</figcaption>
+        <div className="text-desc">
+          <h1>{pokemon.name}</h1>
+          <p>{pokemon.description}</p>
+        </div>
       </div>
     </div>
   );

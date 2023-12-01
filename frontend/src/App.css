@@ -1,14 +1,3 @@
-:root::-webkit-scrollbar {
-  display: none;
-}
-
-body {
-  margin: 0;
-  background-color: #a52b2b;
-  font-family: "ConnectionRegular";
-  letter-spacing: 0.05em;
-}
-
 .home {
   text-align: center;
 }

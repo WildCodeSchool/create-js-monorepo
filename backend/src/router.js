@@ -14,10 +14,6 @@ router.get("/pokemons", pkmnControllers.browse);
 
 // Route to get a specific pkmn by ID
 router.get("/pokemons/:id", pkmnControllers.read);
-
-// Route to add a new pkmn
-router.post("/types", pkmnControllers.add);
-
 /* ************************************************************************* */
 
 module.exports = router;

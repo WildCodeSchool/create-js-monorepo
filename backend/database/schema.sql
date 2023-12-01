@@ -1,5 +1,5 @@
 
-create table pkmn_type (
+create table type (
   id int unsigned primary key auto_increment not null,
   name varchar(50) not null,
   image varchar(255) not null
@@ -13,10 +13,10 @@ create table pokemon (
 );
 
 ALTER TABLE pokemon
-ADD COLUMN pkmn_type_id INTEGER,
-ADD CONSTRAINT fk_type_id FOREIGN KEY (pkmn_type_id) REFERENCES pkmn_type(id);
+ADD COLUMN type_id INTEGER,
+ADD CONSTRAINT fk_type_id FOREIGN KEY (type_id) REFERENCES type(id);
 
-INSERT INTO pkmn_type (name, image) VALUES
+INSERT INTO type (name, image) VALUES
 ('Grass', 'http://www.rw-designer.com/icon-view/21171.png'),
 ('Fire', 'http://www.rw-designer.com/icon-view/21169.png'),
 ('Water', 'http://www.rw-designer.com/icon-view/21170.png'),
@@ -65,4 +65,14 @@ INSERT INTO pkmn_type (name, image) VALUES
 ('Pikachu', 'An electric-type Pokémon with yellow fur.', 'https://archives.bulbagarden.net/media/upload/thumb/4/4a/0025Pikachu.png/600px-0025Pikachu.png'),
 ('Raichu', 'The evolved form of Pikachu, an electric Pokémon with enhanced power.', 'https://archives.bulbagarden.net/media/upload/thumb/b/b0/0026Raichu.png/600px-0026Raichu.png');
 ('Sandshrew', 'A ground-type Pokémon with tough sand-colored skin.', 'https://archives.bulbagarden.net/media/upload/thumb/e/e9/0027Sandshrew.png/600px-0027Sandshrew.png');
-UPDATE pokemon SET pkmn_type_id = 1 WHERE id IN (1, 2, 3);
+UPDATE pokemon SET type_id = 1 WHERE id IN (1, 2, 3);
+UPDATE pokemon SET type_id = 2 WHERE id IN (4, 5, 6);
+UPDATE pokemon SET type_id = 3 WHERE id IN (7, 8, 9);
+UPDATE pokemon SET type_id = 4 WHERE id IN (10, 11, 12,13,14,15);
+UPDATE pokemon SET type_id = 5 WHERE id IN (19, 20);
+UPDATE pokemon SET type_id = 6 WHERE id IN (16, 17, 18,21,22);
+UPDATE pokemon SET type_id = 7 WHERE id IN (23, 24);
+UPDATE pokemon SET type_id = 8 WHERE id IN (25, 26);
+UPDATE pokemon SET type_id = 9 WHERE id IN (27);
+
+SELECT t.name, t.image FROM type as t join pokemon as p on  p.type_id = t.id

@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import AllPkmns from "./pages/AllPkmns";
 import PkmnPage from "./pages/PkmnPage";
 import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
