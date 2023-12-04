@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-function PkmnType({ pktype }) {
-  return <div>PkmnType{pktype.icon}</div>;
+function PkmnType({ pokemon }) {
+  return <div>PkmnType{pokemon.id}</div>;
 }
 
 export default PkmnType;

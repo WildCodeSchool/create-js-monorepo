@@ -50,13 +50,11 @@ const router = createBrowserRouter([
       {
         path: "/types",
         element: <PkmnType />,
-        loader: ({ params }) => {
+        loader: ({ request }) => {
+          const query = new URL(request.url).search;
+
           return axios
-            .get(
-              `${import.meta.env.VITE_BACKEND_URL}/api/pokemons/${
-                params.pokemonId
-              }`
-            )
+            .get(`${import.meta.env.VITE_BACKEND_URL}/api/pokemons${query}`)
             .then((res) => res.data)
             .catch((err) => console.error(err));
         },
