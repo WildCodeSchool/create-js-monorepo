@@ -25,7 +25,7 @@ class pokemonManager extends AbstractManager {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific pokemon by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `select * from ${this.table} inner join pktype on pktype.id = ${this.table}.type_id where ${this.table}.id = ?`,
       [id]
     );
 

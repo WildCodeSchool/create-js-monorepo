@@ -7,6 +7,7 @@ import axios from "axios";
 import App from "./App";
 import Home from "./pages/Home";
 import AllPkmns from "./pages/AllPkmns";
+import PkmnType from "./pages/PkmnType";
 import PkmnPage from "./pages/PkmnPage";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -35,6 +36,20 @@ const router = createBrowserRouter([
       {
         path: "/pokemons/:pokemonId",
         element: <PkmnPage />,
+        loader: ({ params }) => {
+          return axios
+            .get(
+              `${import.meta.env.VITE_BACKEND_URL}/api/pokemons/${
+                params.pokemonId
+              }`
+            )
+            .then((res) => res.data)
+            .catch((err) => console.error(err));
+        },
+      },
+      {
+        path: "/types",
+        element: <PkmnType />,
         loader: ({ params }) => {
           return axios
             .get(

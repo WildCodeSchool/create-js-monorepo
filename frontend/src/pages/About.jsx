@@ -9,7 +9,7 @@ function About() {
   return (
     <div>
       <div className="about-body">
-        <NavLink to="https://github.com/ThibaudDps">
+        <NavLink to="https://github.com/ThibaudDps" target="_blank">
           {" "}
           <img className="seye" src={Seye} alt="seye" />
         </NavLink>

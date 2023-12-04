@@ -15,14 +15,23 @@
   text-align: center;
   color: rgb(241, 241, 241);
   text-shadow:
-    1px 0 #0000009a,
-    -2px 0 #0000009a,
-    0 2px #0000009a,
-    0 -2px #0000009a,
-    1px 1px #0000009a,
-    -1px -1px #0000009a,
-    1px -1px #0000009a,
-    -1px 1px #0000009a;
+    2px 0 #0000009a,
+    -3px 0 #0000009a,
+    0 3px #0000009a,
+    0 -3px #0000009a,
+    2px 2px #0000009a,
+    -2px -2px #0000009a,
+    2px -2px #0000009a,
+    -2px 2px #0000009a;
+
+  margin-top: 500px;
+  overflow: hidden;
+  border-right: 0.15em solid rgba(14, 14, 14, 0);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation:
+    typing 4.5s steps(40, end),
+    blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -36,7 +45,6 @@
 
 .p-about {
   color: aliceblue;
-  letter-spacing: 0.1em;
   text-shadow:
     1px 0 #0000009a,
     -2px 0 #0000009a,
@@ -46,11 +54,4 @@
     -1px -1px #0000009a,
     1px -1px #0000009a,
     -1px 1px #0000009a;
-  overflow: hidden;
-  border-right: 0.15em solid rgba(14, 14, 14, 0);
-  white-space: nowrap;
-  margin: 0 auto;
-  animation:
-    typing 4.5s steps(40, end),
-    blink-caret 0.75s step-end infinite;
 }

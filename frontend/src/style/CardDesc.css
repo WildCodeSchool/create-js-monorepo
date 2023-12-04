@@ -16,35 +16,21 @@
 .card-desc-body {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .text-desc {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20em;
 }
 
-h1,
-h2,
-p {
+.p-desc {
   text-align: center;
-  margin-top: 100px;
-}
-
-p {
+  font-size: 20px;
   overflow: hidden;
   border-right: 0.15em solid rgba(14, 14, 14, 0);
-  white-space: nowrap;
-  margin: 0 auto;
-  animation:
-    typing 4.5s steps(40, end),
-    blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  margin-top: 90px;
 }
