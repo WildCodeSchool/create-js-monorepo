@@ -15,6 +15,15 @@
   color: aliceblue;
   text-decoration: none;
   font-size: 17px;
+  text-shadow:
+    1px 0 #0000009a,
+    -2px 0 #0000009a,
+    0 2px #0000009a,
+    0 -2px #0000009a,
+    1px 1px #0000009a,
+    -1px -1px #0000009a,
+    1px -1px #0000009a,
+    -1px 1px #0000009a;
 }
 
 .nav-menu a:hover {

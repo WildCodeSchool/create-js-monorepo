@@ -10,4 +10,13 @@
   font-size: 15px;
   color: antiquewhite;
   background-color: rgb(18, 18, 18);
+  text-shadow:
+    1px 0 #0000009a,
+    -2px 0 #0000009a,
+    0 2px #0000009a,
+    0 -2px #0000009a,
+    1px 1px #0000009a,
+    -1px -1px #0000009a,
+    1px -1px #0000009a,
+    -1px 1px #0000009a;
 }
