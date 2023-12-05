@@ -11,8 +11,9 @@ function NavBar() {
         <img src={favimon} className="nav-logo" alt="pokepedia_logo" />
       </NavLink>
       <nav className="nav-menu">
-        <NavLink to="/pokemons">Pokemons</NavLink>
+        <NavLink to="/pokemons">Pokedex</NavLink>
         <NavLink to="/about">About</NavLink>
+        <NavLink to="/submit">Submit</NavLink>
       </nav>
     </div>
   );

@@ -19,14 +19,14 @@ const browse = async (req, res, next) => {
 const read = async (req, res, next) => {
   try {
     // Fetch a specific type from the database based on the provided ID
-    const type = await tables.pktype.read(req.params.id);
+    const pktype = await tables.pktype.read(req.params.id);
 
     // If the type is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the type in JSON format
-    if (type == null) {
+    if (pktype == null) {
       res.sendStatus(404);
     } else {
-      res.json(type);
+      res.json(pktype);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -40,11 +40,11 @@ const read = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the type data from the request body
-  const type = req.body;
+  const pktype = req.body;
 
   try {
     // Insert the type into the database
-    const insertId = await tables.type.create(type);
+    const insertId = await tables.type.create(pktype);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted type
     res.status(201).json({ insertId });

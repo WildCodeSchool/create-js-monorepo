@@ -10,6 +10,7 @@ import AllPkmns from "./pages/AllPkmns";
 import PkmnType from "./pages/PkmnType";
 import PkmnPage from "./pages/PkmnPage";
 import About from "./pages/About";
+import Submit from "./pages/Submit";
 import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter([
@@ -63,6 +64,11 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+
+      {
+        path: "/submit",
+        element: <Submit />,
       },
       {
         path: "*",

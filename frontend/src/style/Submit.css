@@ -1,0 +1,48 @@
+.submit {
+  text-align: center;
+  margin-top: 150px;
+  color: aliceblue;
+  text-shadow:
+    2px 0 #0000009a,
+    -3px 0 #0000009a,
+    0 3px #0000009a,
+    0 -3px #0000009a,
+    2px 2px #0000009a,
+    -2px -2px #0000009a,
+    2px -2px #0000009a;
+}
+
+.select-submit {
+  width: 60%;
+  padding: 9px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  display: block;
+  margin: 0 auto;
+  text-align-last: center;
+  text-align: center;
+}
+
+.form,
+label {
+  display: flex;
+  flex-direction: column;
+  padding: 1vh 20% 0 20%;
+}
+
+input,
+textarea {
+  padding: 9px;
+  border: 1px solid rgb(10, 7, 7);
+  border-radius: 5px;
+}
+
+.label-text {
+  margin-bottom: 10px;
+}
+
+textarea {
+  padding: 70px;
+}

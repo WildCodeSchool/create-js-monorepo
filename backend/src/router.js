@@ -1,26 +1,50 @@
 const express = require("express");
+const client = require("../database/client");
 
 const router = express.Router();
-
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
-
-// Import pkmnControllers module for handling pkmn-related operations
 const pkmnControllers = require("./controllers/pkmnControllers");
 const typeControllers = require("./controllers/typeControllers");
 
-// Route to get a list of pkmns
 router.get("/pokemons", pkmnControllers.browse);
-
-// Route to get a specific pkmn by ID
 router.get("/pokemons/:id", pkmnControllers.read);
-/* ************************************************************************* */
 
-// Route to get a list of types
 router.get("/types", typeControllers.browse);
-
-// Route to get a specific type by ID
 router.get("/types/:id", typeControllers.read);
+
+const checkDelimiter = (query) => {
+  return query.includes("WHERE") ? "AND" : "WHERE";
+};
+
+router.get("/pokemons", (req, res) => {
+  let query = "select * from pokemon";
+  const value = [];
+
+  if (req.query.pktype) {
+    query += ` ${checkDelimiter(query)} pokemontype = ?`;
+    value.push(req.query.pktype);
+  }
+
+  client
+    .query(query, value)
+    .then((result) => {
+      res.status(200).json(result[0]);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+});
+
+router.get("/types", (req, res) => {
+  client
+    .query("SELECT DISTINCT type FROM pokemon ORDER BY type_id ASC")
+    .then((types) => {
+      res.status(200).json(types[0]);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+});
 
 module.exports = router;
