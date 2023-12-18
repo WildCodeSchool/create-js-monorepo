@@ -2,16 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import axios from "axios";
+import connexion from "./services/connexion";
 
 import App from "./App";
-import Home from "./pages/Home";
-import AllPkmns from "./pages/AllPkmns";
-import PkmnType from "./pages/PkmnType";
-import PkmnPage from "./pages/PkmnPage";
-import About from "./pages/About";
-import Submit from "./pages/Submit";
-import NotFound from "./pages/NotFound";
+import Home from "./pages/Home/Home";
+import AllPkmns from "./pages/AllPkmns/AllPkmns";
+import PkmnType from "./pages/PkmnType/PkmnType";
+import PkmnPage from "./pages/PkmnPage/PkmnPage";
+import About from "./pages/About/About";
+import Submit from "./pages/Submit/Submit";
+import NotFound from "./pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +28,8 @@ const router = createBrowserRouter([
         loader: ({ request }) => {
           const query = new URL(request.url).search;
 
-          return axios
-            .get(`${import.meta.env.VITE_BACKEND_URL}/api/pokemons${query}`)
+          return connexion
+            .get(`/pokemons${query}`)
             .then((res) => res.data)
             .catch((err) => console.error(err));
         },
@@ -38,12 +38,8 @@ const router = createBrowserRouter([
         path: "/pokemons/:pokemonId",
         element: <PkmnPage />,
         loader: ({ params }) => {
-          return axios
-            .get(
-              `${import.meta.env.VITE_BACKEND_URL}/api/pokemons/${
-                params.pokemonId
-              }`
-            )
+          return connexion
+            .get(`/pokemons/${params.pokemonId}`)
             .then((res) => res.data)
             .catch((err) => console.error(err));
         },
@@ -54,8 +50,8 @@ const router = createBrowserRouter([
         loader: ({ request }) => {
           const query = new URL(request.url).search;
 
-          return axios
-            .get(`${import.meta.env.VITE_BACKEND_URL}/api/pokemons${query}`)
+          return connexion
+            .get(`/pokemons${query}`)
             .then((res) => res.data)
             .catch((err) => console.error(err));
         },

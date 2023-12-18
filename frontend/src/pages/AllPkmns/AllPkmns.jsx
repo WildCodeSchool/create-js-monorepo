@@ -1,11 +1,11 @@
 import React from "react";
 
 import { useLoaderData } from "react-router-dom";
-import CardPkmn from "../components/CardPkmn";
-import Filters from "../components/Filters";
+import CardPkmn from "../../components/CardPkmn/CardPkmn";
+import Filters from "../../components/Filters/Filters";
 
-import "../style/CardPkmn.css";
-import "../style/AllPkmns.css";
+import "../../components/CardPkmn/CardPkmn.css";
+import "./AllPkmns.css";
 
 function AllPkmns() {
   const pokemons = useLoaderData();

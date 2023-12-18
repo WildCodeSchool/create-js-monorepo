@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import notFound from "../assets/notFound.gif";
+import notFound from "../../assets/notFound.gif";
 
-import "../style/NotFound.css";
+import "./NotFound.css";
 
 function NotFound() {
   return (

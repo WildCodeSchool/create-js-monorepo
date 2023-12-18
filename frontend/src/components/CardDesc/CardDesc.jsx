@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-import "../style/CardDesc.css";
+import "./CardDesc.css";
 
 function CardDesc({ pokemon }) {
   return (

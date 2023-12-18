@@ -1,8 +1,8 @@
 import React from "react";
 
-import logomon from "../assets/logomon.svg";
+import logomon from "../../assets/logomon.svg";
 
-import "../App.css";
+import "../../App.css";
 
 function Home() {
   return (

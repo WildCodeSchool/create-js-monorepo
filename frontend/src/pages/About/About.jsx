@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import Seye from "../assets/seye.gif";
+import Seye from "../../assets/seye.gif";
 
-import "../style/About.css";
+import "./About.css";
 
 function About() {
   return (

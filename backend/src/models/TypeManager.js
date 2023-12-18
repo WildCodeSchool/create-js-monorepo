@@ -42,18 +42,27 @@ class pktypeManager extends AbstractManager {
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing pktype
+  async update(id, putType) {
+    // Execute the SQL SELECT query to retrieve a specific types by its ID
+    const [result] = await this.database.query(
+      `UPDATE ${this.table} set type = ?, icon = ? WHERE id = ?`,
+      [putType.type, putType.icon, id]
+    );
 
-  // async update(pktype) {
-  //   ...
-  // }
+    // Return the first row of the result, which represents the item
+    return result.affectedRows;
+  }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an pktype by its ID
+  async delete(id) {
+    const result = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id = ?`,
+      [id]
+    );
 
-  // async delete(id) {
-  //   ...
-  // }
+    // Return the first row of the result, which represents the type
+    return result;
+  }
 }
 
 module.exports = pktypeManager;

@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import favimon from "../assets/favimon.svg";
+import favimon from "../../assets/favimon.svg";
 
-import "../style/Navbar.css";
+import "./Navbar.css";
 
 function NavBar() {
   return (

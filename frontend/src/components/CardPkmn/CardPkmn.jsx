@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../style/CardPkmn.css";
+import "./CardPkmn.css";
 
 function CardPkmn({ pokemon }) {
   return (

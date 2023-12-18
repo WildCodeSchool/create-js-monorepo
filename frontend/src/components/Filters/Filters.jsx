@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../style/Filters.css";
+import "./Filters.css";
 
 function Filters() {
   const [types, setTypes] = useState([]);
