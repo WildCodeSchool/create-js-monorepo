@@ -1,0 +1,45 @@
+.nf-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15%;
+  width: 100%;
+}
+
+.h1-404 {
+  text-align: center;
+  color: aliceblue;
+  margin-top: 500px;
+  overflow: hidden;
+  border-right: 0.15em solid rgba(14, 14, 14, 0);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation:
+    typing 4.5s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.h3-link {
+  margin: 10px;
+  color: aliceblue;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.h3-link:hover {
+  margin: 10px;
+  color: rgb(0, 128, 240);
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}

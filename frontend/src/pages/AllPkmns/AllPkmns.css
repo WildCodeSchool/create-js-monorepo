@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.select-type {
+  background-color: aliceblue;
+}

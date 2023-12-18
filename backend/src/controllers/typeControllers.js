@@ -4,11 +4,11 @@ const tables = require("../tables");
 // The B of BREAD - Browse (Read All) operation
 const browse = async (req, res, next) => {
   try {
-    // Fetch all pokemons from the database
-    const pokemons = await tables.pokemon.readAll();
+    // Fetch all types from the database
+    const types = await tables.pktype.readAll();
 
-    // Respond with the pokemons in JSON format
-    res.json(pokemons);
+    // Respond with the types in JSON format
+    res.json(types);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -18,15 +18,15 @@ const browse = async (req, res, next) => {
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
-    // Fetch a specific pokemon from the database based on the provided ID
-    const pokemon = await tables.pokemon.read(req.params.id);
+    // Fetch a specific type from the database based on the provided ID
+    const pktype = await tables.pktype.read(req.params.id);
 
-    // If the pokemon is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the pokemon in JSON format
-    if (pokemon == null) {
+    // If the type is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the type in JSON format
+    if (pktype == null) {
       res.sendStatus(404);
     } else {
-      res.json(pokemon);
+      res.json(pktype);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -36,11 +36,11 @@ const read = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
-  const putPkmn = req.body;
+  const putType = req.body;
 
   try {
     // Fetch a specific Type from the database based on the provided ID
-    const result = await tables.pokemon.update(req.params.id, putPkmn);
+    const result = await tables.pktype.update(req.params.id, putType);
 
     // If the item is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the Type in JSON format
@@ -57,14 +57,14 @@ const edit = async (req, res, next) => {
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
-  // Extract the pokemon data from the request body
-  const pokemon = req.body;
+  // Extract the type data from the request body
+  const pktype = req.body;
 
   try {
-    // Insert the pokemon into the database
-    const insertId = await tables.pokemon.create(pokemon);
+    // Insert the type into the database
+    const insertId = await tables.type.create(pktype);
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted pokemon
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted type
     res.status(201).json({ insertId });
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -75,7 +75,7 @@ const add = async (req, res, next) => {
 // The D of BREAD - Destroy (Delete) operation
 const destroy = async (req, res, next) => {
   try {
-    await tables.pokemon.delete(req.params.id);
+    await tables.pktype.delete(req.params.id);
     res.sendStatus(204);
   } catch (err) {
     // Pass any errors to the error-handling middleware

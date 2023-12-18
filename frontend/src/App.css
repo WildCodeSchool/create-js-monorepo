@@ -1,14 +1,3 @@
-:root::-webkit-scrollbar {
-  display: none;
-}
-
-body {
-  margin: 0;
-  background-color: #282c34;
-  font-family: "Press Start 2P";
-  font-size: 12px;
-}
-
 .home {
   text-align: center;
 }
@@ -33,6 +22,15 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-shadow:
+    1px 0 #0000009a,
+    -2px 0 #0000009a,
+    0 2px #0000009a,
+    0 -2px #0000009a,
+    1px 1px #0000009a,
+    -1px -1px #0000009a,
+    1px -1px #0000009a,
+    -1px 1px #0000009a;
 }
 
 @keyframes App-logo-spin {

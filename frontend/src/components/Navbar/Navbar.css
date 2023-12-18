@@ -1,0 +1,34 @@
+.nav {
+  z-index: 2;
+  top: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-menu a {
+  margin: 10px;
+  color: aliceblue;
+  text-decoration: none;
+  font-size: 17px;
+  text-shadow:
+    1px 0 #0000009a,
+    -2px 0 #0000009a,
+    0 2px #0000009a,
+    0 -2px #0000009a,
+    1px 1px #0000009a,
+    -1px -1px #0000009a,
+    1px -1px #0000009a,
+    -1px 1px #0000009a;
+}
+
+.nav-menu a:hover {
+  margin: 10px;
+  color: rgb(0, 128, 240);
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}

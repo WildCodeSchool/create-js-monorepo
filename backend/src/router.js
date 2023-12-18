@@ -1,23 +1,21 @@
 const express = require("express");
 
 const router = express.Router();
-
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
-
-// Import pkmnControllers module for handling pkmn-related operations
 const pkmnControllers = require("./controllers/pkmnControllers");
+const typeControllers = require("./controllers/typeControllers");
 
-// Route to get a list of pkmns
+/* Pokemon routes */
 router.get("/pokemons", pkmnControllers.browse);
-
-// Route to get a specific pkmn by ID
 router.get("/pokemons/:id", pkmnControllers.read);
+router.post("/pokemons", pkmnControllers.add);
+router.put("/pokemons", pkmnControllers.edit);
+router.delete("/pokemons/:id", pkmnControllers.destroy);
 
-// Route to add a new pkmn
-router.post("/types", pkmnControllers.add);
-
-/* ************************************************************************* */
+/* Types routes */
+router.get("/types", typeControllers.browse);
+router.get("/types/:id", typeControllers.read);
+router.post("/types", typeControllers.add);
+router.put("/types", typeControllers.edit);
+router.delete("/types/:id", typeControllers.destroy);
 
 module.exports = router;

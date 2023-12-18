@@ -12,8 +12,8 @@ class pokemonManager extends AbstractManager {
   async create(pokemon) {
     // Execute the SQL INSERT query to add a new pokemon to the "pokemon" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title) values (?)`,
-      [pokemon.name]
+      `insert into ${this.table} (name, description, image, type) values (?,?,?,?)`,
+      [pokemon.name, pokemon.description, pokemon.image, pokemon.type_id]
     );
 
     // Return the ID of the newly inserted pokemon
@@ -25,7 +25,7 @@ class pokemonManager extends AbstractManager {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific pokemon by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `select * from ${this.table} inner join pktype on pktype.id = ${this.table}.type_id where ${this.table}.id = ?`,
       [id]
     );
 
@@ -42,18 +42,27 @@ class pokemonManager extends AbstractManager {
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing pokemon
+  async update(id, putPkmn) {
+    // Execute the SQL SELECT query to retrieve a specific pkmns by its ID
+    const [result] = await this.database.query(
+      `UPDATE ${this.table} set name = ?, description = ?, image = ?, type_id = ? WHERE id = ?`,
+      [putPkmn.name, putPkmn.description, putPkmn.image, putPkmn.type_id, id]
+    );
 
-  // async update(pokemon) {
-  //   ...
-  // }
+    // Return the first row of the result, which represents the item
+    return result.affectedRows;
+  }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an pokemon by its ID
+  async delete(id) {
+    const result = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id = ?`,
+      [id]
+    );
 
-  // async delete(id) {
-  //   ...
-  // }
+    // Return the first row of the result, which represents the pkmn
+    return result;
+  }
 }
 
 module.exports = pokemonManager;

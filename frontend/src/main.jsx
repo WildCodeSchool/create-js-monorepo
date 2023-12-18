@@ -2,11 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import axios from "axios";
+import connexion from "./services/connexion";
 
 import App from "./App";
-import Home from "./pages/Home";
-import AllPkmns from "./pages/AllPkmns";
+import Home from "./pages/Home/Home";
+import AllPkmns from "./pages/AllPkmns/AllPkmns";
+import PkmnType from "./pages/PkmnType/PkmnType";
+import PkmnPage from "./pages/PkmnPage/PkmnPage";
+import About from "./pages/About/About";
+import Submit from "./pages/Submit/Submit";
+import NotFound from "./pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -16,18 +21,54 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/pokemons",
+        element: <AllPkmns />,
         loader: ({ request }) => {
           const query = new URL(request.url).search;
 
-          return axios
-            .get(`http://localhost:3310/api/pokemons${query}`)
+          return connexion
+            .get(`/pokemons${query}`)
             .then((res) => res.data)
             .catch((err) => console.error(err));
         },
       },
       {
-        path: "/pokemons",
-        element: <AllPkmns />,
+        path: "/pokemons/:pokemonId",
+        element: <PkmnPage />,
+        loader: ({ params }) => {
+          return connexion
+            .get(`/pokemons/${params.pokemonId}`)
+            .then((res) => res.data)
+            .catch((err) => console.error(err));
+        },
+      },
+      {
+        path: "/types",
+        element: <PkmnType />,
+        loader: ({ request }) => {
+          const query = new URL(request.url).search;
+
+          return connexion
+            .get(`/pokemons${query}`)
+            .then((res) => res.data)
+            .catch((err) => console.error(err));
+        },
+      },
+
+      {
+        path: "/about",
+        element: <About />,
+      },
+
+      {
+        path: "/submit",
+        element: <Submit />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
