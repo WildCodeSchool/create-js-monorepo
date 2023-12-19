@@ -5,7 +5,7 @@ import "./CardDesc.css";
 
 function CardDesc({ pokemon }) {
   return (
-    <div key={pokemon.id} className="card-desc">
+    <div className="card-desc">
       <div className="card-desc-body">
         <img className="card-desc-img" src={pokemon.image} alt={pokemon.name} />
         <div className="text-desc">

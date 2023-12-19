@@ -7,7 +7,7 @@ import connexion from "./services/connexion";
 import App from "./App";
 import Home from "./pages/Home/Home";
 import AllPkmns from "./pages/AllPkmns/AllPkmns";
-import PkmnType from "./pages/PkmnType/PkmnType";
+import AllTypes from "./pages/AllTypes/AllTypes";
 import PkmnPage from "./pages/PkmnPage/PkmnPage";
 import About from "./pages/About/About";
 import Submit from "./pages/Submit/Submit";
@@ -44,19 +44,19 @@ const router = createBrowserRouter([
             .catch((err) => console.error(err));
         },
       },
+
       {
         path: "/types",
-        element: <PkmnType />,
+        element: <AllTypes />,
         loader: ({ request }) => {
           const query = new URL(request.url).search;
 
           return connexion
-            .get(`/pokemons${query}`)
+            .get(`/types${query}`)
             .then((res) => res.data)
             .catch((err) => console.error(err));
         },
       },
-
       {
         path: "/about",
         element: <About />,

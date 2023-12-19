@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import PropTypes from "prop-types";
 import "./Filters.css";
 
-function Filters() {
-  const [types, setTypes] = useState([]);
-  const [selectedType, setselectedType] = useState("");
+function Filters({ selectedType, onTypeChange }) {
+  const [types, setTypes] = React.useState([]);
   const navigate = useNavigate();
 
-  const gettypes = () => {
+  const getTypes = () => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/types`)
       .then((res) => setTypes(res.data))
@@ -19,11 +19,11 @@ function Filters() {
     return url.includes("?") ? "&" : "?";
   };
 
-  useEffect(() => {
-    gettypes();
+  React.useEffect(() => {
+    getTypes();
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     let url = "/pokemons";
 
     if (selectedType !== "") {
@@ -31,7 +31,7 @@ function Filters() {
     }
 
     navigate(url);
-  }, [selectedType]);
+  }, [selectedType, navigate]);
 
   return (
     <div className="filters">
@@ -39,17 +39,22 @@ function Filters() {
         className="select-type"
         name="type"
         value={selectedType}
-        onChange={(e) => setselectedType(e.target.value)}
+        onChange={(e) => onTypeChange(e.target.value)}
       >
         <option value="">Types</option>
-        {types.map((pokemon) => (
-          <option key={pokemon.type} value={pokemon.type}>
-            {pokemon.type}
+        {types.map((type) => (
+          <option key={type.type} value={type.type}>
+            {type.type}
           </option>
         ))}
       </select>
     </div>
   );
 }
+
+Filters.propTypes = {
+  selectedType: PropTypes.string.isRequired,
+  onTypeChange: PropTypes.func.isRequired,
+};
 
 export default Filters;
