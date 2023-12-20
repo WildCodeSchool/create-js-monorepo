@@ -34,7 +34,7 @@ function Submit() {
       <h2 className="h2-submit">Have you discover a new pokemon species?</h2>
       <div className="submit">
         <form className="form" onSubmit={postPokemon}>
-          Submit your datas here!
+          <p className="submit-text">Submit your datas here!</p>
           <label>
             <p className="label-text">Name </p>
             <input

@@ -1,5 +1,27 @@
+.about-page {
+  display: flex;
+  margin-top: 10em;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-desc {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  border-image: url(https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png)
+    42 round;
+  border-width: 15px;
+  border-style: solid;
+  width: 50em;
+  height: 20em;
+  padding: 1rem;
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+
 .about-body {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,18 +34,9 @@
 }
 
 .h1-about {
+  font-size: 20px;
   text-align: center;
-  color: rgb(241, 241, 241);
-  text-shadow:
-    2px 0 #0000009a,
-    -3px 0 #0000009a,
-    0 3px #0000009a,
-    0 -3px #0000009a,
-    2px 2px #0000009a,
-    -2px -2px #0000009a,
-    2px -2px #0000009a,
-    -2px 2px #0000009a;
-
+  color: rgb(0, 0, 0);
   margin-top: 500px;
   overflow: hidden;
   border-right: 0.15em solid rgba(14, 14, 14, 0);
@@ -44,14 +57,10 @@
 }
 
 .p-about {
-  color: aliceblue;
-  text-shadow:
-    1px 0 #0000009a,
-    -2px 0 #0000009a,
-    0 2px #0000009a,
-    0 -2px #0000009a,
-    1px 1px #0000009a,
-    -1px -1px #0000009a,
-    1px -1px #0000009a,
-    -1px 1px #0000009a;
+  margin-top: 50px;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
 }

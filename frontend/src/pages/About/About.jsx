@@ -7,17 +7,22 @@ import "./About.css";
 
 function About() {
   return (
-    <div>
-      <div className="about-body">
-        <NavLink to="https://github.com/ThibaudDps" target="_blank">
-          {" "}
-          <img className="seye" src={Seye} alt="seye" />
-        </NavLink>
+    <div className="about-page">
+      {" "}
+      <div className="about-desc">
+        <div className="about-body">
+          <NavLink to="https://github.com/ThibaudDps" target="_blank">
+            {" "}
+            <img className="seye" src={Seye} alt="seye" />
+          </NavLink>
 
-        <h1 className="h1-about">Hey, I'm Thibaud !</h1>
-        <p className="p-about">
-          I'm a Pkmn trainer since 95' and a Full Stack Developer since 23'
-        </p>
+          <h1 className="h1-about">Hey, I'm Thibaud !</h1>
+          <p className="p-about">
+            I'm a Pkmn trainer since 95'
+            <br />
+            and a Full Stack Developer since 23'
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -23,13 +23,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
   text-shadow:
-    1px 0 #0000009a,
+    3px 0 #0000009a,
     -2px 0 #0000009a,
-    0 2px #0000009a,
+    0 3px #0000009a,
     0 -2px #0000009a,
-    1px 1px #0000009a,
+    3px 3px #0000009a,
     -1px -1px #0000009a,
-    1px -1px #0000009a,
+    3px -1px #0000009a,
     -1px 1px #0000009a;
 }
 

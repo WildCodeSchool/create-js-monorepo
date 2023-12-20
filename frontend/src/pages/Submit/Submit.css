@@ -4,7 +4,10 @@
   max-width: 400px; /* Set a maximum width if necessary */
   padding: 20px;
   box-sizing: border-box;
-  border: 1px solid black;
+  border-image: url(https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png)
+    42 round;
+  border-width: 15px;
+  border-style: solid;
   background-color: rgb(230, 230, 230);
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
@@ -21,18 +24,25 @@
   box-sizing: border-box;
 }
 
+.submit-text,
+.label-text {
+  font-size: 12px;
+  font-weight: bold;
+}
 .h2-submit {
+  font-size: 20px;
   text-align: center;
-  margin-top: 150px;
+  margin: 150px 0 50px;
   color: aliceblue;
   text-shadow:
     2px 0 #0000009a,
     -3px 0 #0000009a,
     0 3px #0000009a,
     0 -3px #0000009a,
-    2px 2px #0000009a,
-    -2px -2px #0000009a,
-    2px -2px #0000009a;
+    3px 3px #0000009a,
+    -1px -1px #0000009a,
+    3px -1px #0000009a,
+    -1px 1px #0000009a;
 }
 
 .submit {
@@ -66,10 +76,15 @@ textarea {
   border-radius: 5px;
 }
 
-.label-text {
-  margin-bottom: 10px;
-}
-
 button {
   margin-top: 20px;
+  border: 1px solid rgb(10, 7, 7);
+  border-radius: 5px;
+  background-color: #e2e2e2;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #ee1a1a;
+  color: white;
 }
