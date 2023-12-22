@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import connexion from "../../services/connexion";
 
-import "./Filters.css";
+import "./FilterByNav.css";
 
-function Filters() {
+function FilterByNav() {
   const [types, setTypes] = useState([]);
   const navigate = useNavigate();
 
@@ -47,4 +47,4 @@ function Filters() {
   );
 }
 
-export default Filters;
+export default FilterByNav;
