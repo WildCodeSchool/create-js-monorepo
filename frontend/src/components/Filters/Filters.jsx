@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import connexion from "../../services/connexion";
 
 import "./Filters.css";
 
@@ -9,8 +9,8 @@ function Filters() {
   const navigate = useNavigate();
 
   const getTypes = () => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/types`)
+    connexion
+      .get(`/types`)
       .then((res) => setTypes(res.data))
       .catch((error) => console.error(error));
   };
