@@ -1,7 +1,7 @@
-/* Style the form */
 .form {
-  width: 80%; /* Adjust the width of the form as needed */
-  max-width: 400px; /* Set a maximum width if necessary */
+  margin-top: 140px;
+  width: 80%;
+  max-width: 400px;
   padding: 20px;
   box-sizing: border-box;
   border-image: url(https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png)
@@ -12,6 +12,11 @@
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
   text-align: center;
+
+  animation-duration: 0.7s;
+  animation-name: animate-fade;
+  animation-delay: 0.2s;
+  animation-fill-mode: backwards;
 }
 
 /* Style form elements */
@@ -26,23 +31,9 @@
 
 .submit-text,
 .label-text {
+  line-height: 15px;
   font-size: 12px;
   font-weight: bold;
-}
-.h2-submit {
-  font-size: 20px;
-  text-align: center;
-  margin: 150px 0 50px;
-  color: aliceblue;
-  text-shadow:
-    2px 0 #0000009a,
-    -3px 0 #0000009a,
-    0 3px #0000009a,
-    0 -3px #0000009a,
-    3px 3px #0000009a,
-    -1px -1px #0000009a,
-    3px -1px #0000009a,
-    -1px 1px #0000009a;
 }
 
 .submit {

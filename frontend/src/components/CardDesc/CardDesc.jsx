@@ -14,8 +14,8 @@ function CardDesc({ pokemon }) {
             src={pokemon.icon}
             alt={pokemon.type}
           />
-          <h3>{pokemon.type}</h3>
-          <h1>{pokemon.name}</h1>
+          <h3 className="card-desc-typename">{pokemon.type}</h3>
+          <h1 className="card-desc-name">{pokemon.name}</h1>
           <p className="p-desc">{pokemon.description}</p>
         </div>
       </div>

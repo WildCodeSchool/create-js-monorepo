@@ -7,7 +7,7 @@
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
   animation-duration: 0.7s;
   animation-name: animate-fade;
-  animation-delay: 0.3s;
+  animation-delay: 0.2s;
   animation-fill-mode: backwards;
 }
 

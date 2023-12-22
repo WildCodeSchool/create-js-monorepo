@@ -16,12 +16,8 @@ function About() {
             <img className="seye" src={Seye} alt="seye" />
           </NavLink>
 
-          <h1 className="h1-about">Hey, I'm Thibaud !</h1>
-          <p className="p-about">
-            I'm a Pkmn trainer since 95'
-            <br />
-            and a Full Stack Developer since 23'
-          </p>
+          <h1 className="h1-about">Hey, I'm Thibaud</h1>
+          <p className="p-about">I'm a Pkmn trainer since 95'</p>
         </div>
       </div>
     </div>

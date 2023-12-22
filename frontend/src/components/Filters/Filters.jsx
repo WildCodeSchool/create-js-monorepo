@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import PropTypes from "prop-types";
+
 import "./Filters.css";
 
-function Filters({ selectedType, onTypeChange }) {
-  const [types, setTypes] = React.useState([]);
+function Filters() {
+  const [types, setTypes] = useState([]);
   const navigate = useNavigate();
 
   const getTypes = () => {
@@ -15,35 +15,30 @@ function Filters({ selectedType, onTypeChange }) {
       .catch((error) => console.error(error));
   };
 
-  const checkDelimiter = (url) => {
-    return url.includes("?") ? "&" : "?";
-  };
-
-  React.useEffect(() => {
+  useEffect(() => {
     getTypes();
   }, []);
 
-  React.useEffect(() => {
+  const onTypeChange = (value) => {
     let url = "/pokemons";
 
-    if (selectedType !== "") {
-      url += `${checkDelimiter(url)}type=${selectedType}`;
+    if (value !== "") {
+      url += `?type=${value}`;
     }
 
     navigate(url);
-  }, [selectedType, navigate]);
+  };
 
   return (
     <div className="filters">
       <select
         className="select-type"
         name="type"
-        value={selectedType}
         onChange={(e) => onTypeChange(e.target.value)}
       >
         <option value="">Types</option>
         {types.map((type) => (
-          <option key={type.type} value={type.type}>
+          <option key={type.id} value={type.id}>
             {type.type}
           </option>
         ))}
@@ -51,10 +46,5 @@ function Filters({ selectedType, onTypeChange }) {
     </div>
   );
 }
-
-Filters.propTypes = {
-  selectedType: PropTypes.string.isRequired,
-  onTypeChange: PropTypes.func.isRequired,
-};
 
 export default Filters;

@@ -8,17 +8,22 @@
 .about-desc {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 50px;
   border-image: url(https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png)
     42 round;
   border-width: 15px;
   border-style: solid;
-  width: 50em;
+  width: 30em;
   height: 20em;
   padding: 1rem;
   background-color: rgb(230, 230, 230);
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
+
+  animation-duration: 0.7s;
+  animation-name: animate-fade;
+  animation-delay: 0.2s;
+  animation-fill-mode: backwards;
 }
 
 .about-body {

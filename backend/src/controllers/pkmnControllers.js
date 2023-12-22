@@ -5,7 +5,7 @@ const tables = require("../tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all pokemons from the database
-    const pokemons = await tables.pokemon.readAll();
+    const pokemons = await tables.pokemon.readAll(req.query);
 
     // Respond with the pokemons in JSON format
     res.json(pokemons);

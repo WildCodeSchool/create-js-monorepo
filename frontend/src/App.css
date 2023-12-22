@@ -31,6 +31,11 @@
     -1px -1px #0000009a,
     3px -1px #0000009a,
     -1px 1px #0000009a;
+
+  animation-duration: 0.7s;
+  animation-name: animate-fade;
+  animation-delay: 0.3s;
+  animation-fill-mode: backwards;
 }
 
 @keyframes App-logo-spin {

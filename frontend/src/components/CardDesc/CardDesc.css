@@ -1,43 +1,164 @@
-.card-page {
-  display: flex;
-  justify-content: center;
-  margin-top: 10%;
+.card-desc-typename {
+  font-size: 12px;
+}
+.card-desc-name {
+  font-size: 17px;
+  font-weight: bold;
 }
 
 .card-desc {
-  border-image: url(https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png)
-    42 round;
-  border-width: 15px;
-  border-style: solid;
-  max-width: 50%;
-  width: 80em;
-  padding: 1rem;
-  background-color: rgb(230, 230, 230);
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  animation-duration: 0.7s;
+  animation-name: animate-fade;
+  animation-delay: 0.3s;
+  animation-fill-mode: backwards;
 }
 
-.card-desc-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+@media (max-width: 590px) {
+  .card-page {
+    display: flex;
+    justify-content: center;
+  }
+  .card-desc {
+    margin-top: 9em;
+    border-image: url(https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png)
+      42 round;
+    border-width: 15px;
+    border-style: solid;
+    width: 20em;
+    padding: 1rem;
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  }
+
+  .card-desc-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20em;
+  }
+
+  .card-desc-img {
+    width: 60%;
+    margin-bottom: 30px;
+  }
+
+  .text-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 15px;
+    justify-content: center;
+    width: 20em;
+  }
+
+  .card-desc-imgtype {
+    width: 30px;
+  }
+
+  .p-desc {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    overflow: hidden;
+    border-right: 0.15em solid rgba(14, 14, 14, 0);
+  }
 }
 
-.text-desc {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 15px;
-  justify-content: center;
-  width: 25em;
-}
+@media (min-width: 591px) and (max-width: 1300px) {
+  .card-page {
+    display: flex;
+    justify-content: center;
+  }
+  .card-desc {
+    margin-top: 9em;
+    border-image: url(https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png)
+      42 round;
+    border-width: 15px;
+    border-style: solid;
+    width: 30em;
+    padding: 1rem;
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  }
 
-.p-desc {
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 20px;
-  overflow: hidden;
-  border-right: 0.15em solid rgba(14, 14, 14, 0);
-  margin-top: 90px;
+  .card-desc-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30em;
+  }
+
+  .card-desc-img {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+
+  .text-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 15px;
+    justify-content: center;
+    width: 25em;
+  }
+
+  .card-desc-imgtype {
+    width: 30px;
+  }
+
+  .p-desc {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    overflow: hidden;
+    border-right: 0.15em solid rgba(14, 14, 14, 0);
+  }
+}
+@media (min-width: 1301px) {
+  .card-page {
+    display: flex;
+    justify-content: center;
+  }
+
+  .card-desc {
+    margin-top: 9em;
+    border-image: url(https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png)
+      42 round;
+    border-width: 15px;
+    border-style: solid;
+    width: 70em;
+    padding: 1rem;
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  }
+
+  .card-desc-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .text-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 15px;
+    justify-content: center;
+    width: 25em;
+  }
+
+  .p-desc {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    overflow: hidden;
+    border-right: 0.15em solid rgba(14, 14, 14, 0);
+    margin-top: 90px;
+  }
 }

@@ -33,9 +33,16 @@ class pokemonManager extends AbstractManager {
     return rows[0];
   }
 
-  async readAll() {
+  async readAll(query) {
+    const value = [];
+    let url = `select * from ${this.table}`;
+
+    if (query.type) {
+      url += " where type_id = ?";
+      value.push(query.type);
+    }
     // Execute the SQL SELECT query to retrieve all pokemons from the "pokemon" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(url, value);
 
     // Return the array of pokemons
     return rows;
