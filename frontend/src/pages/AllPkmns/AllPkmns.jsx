@@ -12,7 +12,7 @@ function AllPkmns() {
 
   return (
     <div className="">
-      <FilterByNav />
+      <FilterByNav url="/pokemons" query="type" title="Type" props="type" />
       <div className="container">
         {allPokemons.map((pokemon) => (
           <CardPkmn key={pokemon.id} pokemon={pokemon} />
