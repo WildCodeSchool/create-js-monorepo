@@ -7,7 +7,9 @@ class ItemSeeder extends AbstractSeeder {
 
   run() {
     for (let i = 0; i < 10; i += 1) {
-      this.save({ title: this.faker.lorem.word() });
+      const fakeItem = { title: this.faker.lorem.word() };
+
+      this.save(fakeItem);
     }
   }
 }
