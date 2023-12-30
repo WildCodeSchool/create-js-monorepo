@@ -12,8 +12,8 @@
   },
   "scripts": {
     "postinstall": "cross-env-shell \"husky install && cd ./frontend && npm install && cd ../backend && npm install\"",
-    "db:migrate": "cd ./backend && node migrate.js",
-    "db:seed": "cd ./backend && node seed.js",
+    "db:migrate": "cd ./backend && npm run db:migrate",
+    "db:seed": "cd ./backend && npm run db:seed",
     "dev": "cross-env-shell 'concurrently -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm:dev-*\"'",
     "dev-front": "cross-env-shell \"cd ./frontend && npm run dev\"",
     "dev-back": "cross-env-shell \"cd ./backend && npm run dev\"",

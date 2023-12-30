@@ -44,11 +44,11 @@
     },
     {
       "file": "backend/src/tables.js",
-      "description": "Ok! Here we are preparing so-called \"managers\" to fill the `tables` object. \n\nThat's normal, because your requests are done using a _Model_ of your target (in our journey, an item). So we'll have to go to the `src/models/ItemManager.js` file!",
+      "description": "Ok! Here we are preparing so-called \"repositories\" to fill the `tables` object. \n\nThat's normal, because your requests are done using a _Model_ of your target (in our journey, an item). So we'll have to go to the `src/models/ItemRepository.js` file!",
       "line": 8
     },
     {
-      "file": "backend/src/models/ItemManager.js",
+      "file": "backend/src/models/ItemRepository.js",
       "description": "Ah, here we are, we found our SQL queries!\n\nAs you can see, every method here is dead simple: \"do something with the DB, and return the result\".\nThat allows us to regroup **all** our queries in specialized files. This is easier to maintain.",
       "line": 28
     },
