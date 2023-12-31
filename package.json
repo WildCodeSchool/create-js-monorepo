@@ -11,17 +11,17 @@
     "url": "git+https://github.com/wildcodeschool/js-template-fullstack.git"
   },
   "scripts": {
-    "postinstall": "cross-env-shell \"husky install && cd ./frontend && npm install && cd ../backend && npm install\"",
-    "db:migrate": "cd ./backend && npm run db:migrate",
-    "db:seed": "cd ./backend && npm run db:seed",
+    "postinstall": "cross-env-shell \"husky install && cd ./client && npm install && cd ../server && npm install\"",
+    "db:migrate": "cd ./server && npm run db:migrate",
+    "db:seed": "cd ./server && npm run db:seed",
     "dev": "cross-env-shell 'concurrently -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm:dev-*\"'",
-    "dev-front": "cross-env-shell \"cd ./frontend && npm run dev\"",
-    "dev-back": "cross-env-shell \"cd ./backend && npm run dev\"",
+    "dev-front": "cross-env-shell \"cd ./client && npm run dev\"",
+    "dev-back": "cross-env-shell \"cd ./server && npm run dev\"",
     "lint": "lint-staged",
     "prebuild": "npm install",
-    "build": "cross-env-shell \"cd ./frontend && npm run build && cd ../backend && npm run build\"",
-    "start": "cross-env-shell \"cd ./backend && npm run start\"",
-    "clean": "cross-env-shell \"rm -rf ./node_modules ./package-lock.json ./backend/node_modules ./backend/package-lock.json ./frontend/node_modules ./frontend/package-lock.json\""
+    "build": "cross-env-shell \"cd ./client && npm run build && cd ../server && npm run build\"",
+    "start": "cross-env-shell \"cd ./server && npm run start\"",
+    "clean": "cross-env-shell \"rm -rf ./node_modules ./package-lock.json ./server/node_modules ./server/package-lock.json ./client/node_modules ./client/package-lock.json\""
   },
   "keywords": [],
   "author": "Wild Code School",

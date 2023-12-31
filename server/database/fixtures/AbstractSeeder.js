@@ -31,7 +31,9 @@ class AbstractSeeder {
   save(data) {
     // Prepare the SQL statement: "insert into <table>(<fields>) values (<some ?>)"
     const commaSeparatedFields = Object.keys(data).join(",");
-    const questionMarks = [..."?".repeat(Object.keys(data).length)].join(",");
+    const questionMarks = new Array(Object.keys(data).length)
+      .fill("?")
+      .join(",");
 
     const sql = `insert into ${this.table}(${commaSeparatedFields}) values (${questionMarks})`;
 

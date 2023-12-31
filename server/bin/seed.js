@@ -26,6 +26,7 @@ const seed = async () => {
 
         // Store the queries
         queries.push(...seeder.queries);
+        console.info(seeder.queries.length);
       });
 
     // Wait for all the insertion queries to complete

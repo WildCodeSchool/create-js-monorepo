@@ -1,24 +1,15 @@
-/* ************************************************************************* */
-// Register data repositories for tables
-/* ************************************************************************* */
-
 // Import the repository modules responsible for handling data operations on the tables
 const ItemRepository = require("./models/ItemRepository");
-
-const repositories = [
-  ItemRepository,
-  // Add other repositories here
-];
 
 // Create an empty object to hold data repositories for different tables
 const tables = {};
 
-// Register each repository as data access point for its table
-repositories.forEach((RepositoryClass) => {
-  const repository = new RepositoryClass();
+/* ************************************************************************* */
+// Register data repositories for tables
+/* ************************************************************************* */
 
-  tables[repository.table] = repository;
-});
+// Register each repository as data access point for its table
+tables.item = new ItemRepository();
 
 /* ************************************************************************* */
 

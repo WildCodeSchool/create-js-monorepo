@@ -1,5 +1,5 @@
 // Import database client
-const database = require("../../database/client");
+const database = require("../client");
 
 // Provide database access through AbstractRepository class
 class AbstractRepository {
