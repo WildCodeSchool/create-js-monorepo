@@ -6,9 +6,11 @@ const { faker } = require("@faker-js/faker");
 // Import database client
 const database = require("../client");
 
+const refs = {};
+
 // Provide database access through AbstractSeed class
 class AbstractSeeder {
-  constructor({ table, truncate }) {
+  constructor({ table, truncate = true, dependencies = [] }) {
     // thx https://www.codeheroes.fr/2017/11/08/js-classes-abstraites-et-interfaces/
     if (this.constructor === AbstractSeeder) {
       throw new TypeError(
@@ -18,32 +20,47 @@ class AbstractSeeder {
 
     this.table = table;
 
-    this.queries = [];
+    this.truncate = truncate;
 
-    // Optional: Truncate tables (remove existing data)
-    if (truncate) {
-      this.queries.push(database.query(`truncate ${this.table}`));
-    }
+    this.dependencies = dependencies;
+
+    this.promises = [];
 
     this.faker = faker;
+    this.refs = refs;
   }
 
-  save(data) {
-    // Prepare the SQL statement: "insert into <table>(<fields>) values (<some ?>)"
-    const commaSeparatedFields = Object.keys(data).join(",");
-    const questionMarks = new Array(Object.keys(data).length)
+  async #doSave(data, name) {
+    // Prepare the SQL statement: "insert into <table>(<fields>) values (<placeholders>)"
+    const fields = Object.keys(data).join(",");
+    const placeholders = new Array(Object.keys(data).length)
       .fill("?")
       .join(",");
 
-    const sql = `insert into ${this.table}(${commaSeparatedFields}) values (${questionMarks})`;
+    const sql = `insert into ${this.table}(${fields}) values (${placeholders})`;
 
-    // Perform the query and store the promise
-    this.queries.push(database.query(sql, Object.values(data)));
+    // Perform the query and if applicable store the insert id given the ref
+    const [result] = await database.query(sql, Object.values(data));
+
+    if (name != null) {
+      const { insertId } = result;
+
+      refs[name] = { ...data, insertId };
+    }
+  }
+
+  save(data, name) {
+    this.promises.push(this.#doSave(data, name));
   }
 
   // eslint-disable-next-line class-methods-use-this
   run() {
     throw new Error("You must implement this function");
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  getRef(name) {
+    return refs[name];
   }
 }
 
