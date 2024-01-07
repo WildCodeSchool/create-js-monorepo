@@ -3,20 +3,12 @@ const express = require("express");
 const router = express.Router();
 
 /* ************************************************************************* */
-// Define Your API Routes Here
+// Import And Use Routers Here
 /* ************************************************************************* */
 
-// Import itemActions module for handling item-related operations
-const itemActions = require("./controllers/itemActions");
+const items = require("./routers/items");
 
-// Route to get a list of items
-router.get("/api/items", itemActions.browse);
-
-// Route to get a specific item by ID
-router.get("/api/items/:id", itemActions.read);
-
-// Route to add a new item
-router.post("/api/items", itemActions.add);
+router.use("/items", items);
 
 /* ************************************************************************* */
 
