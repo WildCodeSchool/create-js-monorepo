@@ -11,7 +11,8 @@
     "url": "git+https://github.com/wildcodeschool/js-template-fullstack.git"
   },
   "scripts": {
-    "postinstall": "cross-env-shell \"husky install && cd ./client && npm install && cd ../server && npm install\"",
+    "postinstall": "cross-env-shell \"cd ./client && npm install && cd ../server && npm install\"",
+    "prepare": "husky install",
     "db:migrate": "cd ./server && npm run db:migrate",
     "db:seed": "cd ./server && npm run db:seed",
     "dev": "cross-env-shell 'concurrently -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm:dev-*\"'",
@@ -27,9 +28,9 @@
   "author": "Wild Code School",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^8.2.0",
+    "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3"
+    "lint-staged": "^15.2.0"
   }
 }
