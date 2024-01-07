@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Breaking change:** Refactored seed system for the database. See `backend/database/fixtures` for further details.
 
+- **Breaking change:** Renamed `backend/controllers/*Controllers.js` files as `backend/controllers/*Actions.js`. Thanks to [Matthieu Lopez](https://github.com/wildmatthieu) for the idea.
+
 [Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues) if you have any request/feedback :)
 
 ## [4.2.0] - 2023-11-30

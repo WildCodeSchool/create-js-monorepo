@@ -24,21 +24,21 @@
     },
     {
       "file": "server/src/router.js",
-      "description": "Here, we'll specify which routes are available, and what each of them does.\n\nFor the sake of readability, we don't detail route logic here, but instead link to methods situated in *controllers*.\n\nFor example, if your client calls a \"GET /items/17\", the request will be redirected to the \"read\" method in the `src/controllers/itemControllers.js` file.",
+      "description": "Here, we'll specify which routes are available, and what each of them does.\n\nFor the sake of readability, we don't detail route logic here, but instead link to methods situated in *controllers*.\n\nFor example, if your client calls a \"GET /items/17\", the request will be redirected to the \"read\" method in the `src/controllers/itemActions.js` file.",
       "line": 16
     },
     {
-      "file": "server/src/controllers/itemControllers.js",
-      "description": "Ah, here we are!\n\nThis \"read\" method in `src/controlles/itemControllers.js` is a classic Express route handler: given a request (`req`) and a response (`res`) variables, it'll execute code and try to satisfy your clients demands",
+      "file": "server/src/controllers/itemActions.js",
+      "description": "Ah, here we are!\n\nThis \"read\" method in `src/controlles/itemActions.js` is a classic Express route handler: given a request (`req`) and a response (`res`) variables, it'll execute code and try to satisfy your clients demands",
       "line": 19
     },
     {
-      "file": "server/src/controllers/itemControllers.js",
+      "file": "server/src/controllers/itemActions.js",
       "description": "Every route handler's goal is to `res.send` something, be it useful data or a status code. Here you may see we have several possibilities:\n- If we found the item our client requested (remember the \"GET /items/17\" call ?), we send it\n- If we did not find it, we send a 404 (\"Content not found\") status\n- If something goes wrong (MySQL global error, syntax typo ,...) we pass the error to `next` so Express handles it: by default, it will send a 500 (\"Internal server error\") code (we don't want potential attackers to know what broke !)",
       "line": 26
     },
     {
-      "file": "server/src/controllers/itemControllers.js",
+      "file": "server/src/controllers/itemActions.js",
       "description": "Now, I'm speaking about MySQL errors but there are no `SELECT * FROM item` queries here, there's just this `tables.item.read()` call...\n\n We're looking into the `tables` object, for a value called `item` on which we call a `read` method...\n\n Maybe this will make more sense after looking at the `src/tables.js` file!",
       "line": 22
     },
