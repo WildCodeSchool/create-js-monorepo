@@ -7,7 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing right now. [Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues) if you find something.
+### Changed
+
+- Moved `backend/migrate.js` and `backend/seed.js` into a new `backend/bin` folder. Updated backend scripts accordingly.
+
+- **Breaking change:** Renamed `frontend` and `backend` folders as `client` and `server`.
+
+- **Breaking change:** Renamed database `Manager` classes as `Repository`, and moved them from `backend/src/models` into `backend/database/models`. Also moved `backend/src/tables.js` into `backend/database/tables.js`.
+
+- **Breaking change:** Refactored `backend/database/tables.js` for a manual, explicit instantiation of the repositories.
+
+- **Breaking change:** Refactored seed system for the database. See `backend/database/fixtures` for further details.
+
+[Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues) if you have any request/feedback :)
 
 ## [4.2.0] - 2023-11-30
 
