@@ -1,8 +1,8 @@
-const AbstractManager = require("./AbstractManager");
+const AbstractRepository = require("./AbstractRepository");
 
-class ItemManager extends AbstractManager {
+class ItemRepository extends AbstractRepository {
   constructor() {
-    // Call the constructor of the parent class (AbstractManager)
+    // Call the constructor of the parent class (AbstractRepository)
     // and pass the table name "item" as configuration
     super({ table: "item" });
   }
@@ -56,4 +56,4 @@ class ItemManager extends AbstractManager {
   // }
 }
 
-module.exports = ItemManager;
+module.exports = ItemRepository;

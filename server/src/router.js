@@ -10,13 +10,13 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 
 // Route to get a list of items
-router.get("/items", itemControllers.browse);
+router.get("/api/items", itemControllers.browse);
 
 // Route to get a specific item by ID
-router.get("/items/:id", itemControllers.read);
+router.get("/api/items/:id", itemControllers.read);
 
 // Route to add a new item
-router.post("/items", itemControllers.add);
+router.post("/api/items", itemControllers.add);
 
 /* ************************************************************************* */
 
