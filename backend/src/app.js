@@ -108,6 +108,7 @@ app.use("/api", router);
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your frontend's build artifacts are located.
 
 /*
+
 const reactBuildPath = `${__dirname}/../../frontend/dist`;
 
 // Serve react resources
@@ -118,6 +119,20 @@ app.use(express.static(reactBuildPath));
 
 app.get("*", (req, res) => {
   res.sendFile(`${reactBuildPath}/index.html`);
+});
+*/
+
+/*
+const path = require("path");
+
+app.use("*", (req, res) => {
+  if (req.originalUrl.includes("assets")) {
+    res.sendFile(
+      path.resolve(__dirname, `../../frontend/dist/${req.originalUrl}`)
+    );
+  } else {
+    res.sendFile(path.resolve(__dirname, `../../frontend/dist/index.html`));
+  }
 });
 */
 
