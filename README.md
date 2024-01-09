@@ -19,15 +19,15 @@ git config --global core.autocrlf false
 - In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
 - Clone this repo, enter it
 - Run command `npm install`
-- Create environment files (`.env`) in both `backend` and `frontend`: you can copy `.env.sample` files as starters (**don't** delete them)
+- Create environment files (`.env`) in both `server` and `client`: you can copy `.env.sample` files as starters (**don't** delete them)
 
 ### Available Commands
 
 - `db:migrate` : Run the database migration script
 - `db:seed` : Run the database seed script
-- `dev` : Starts both servers (frontend + backend) in one terminal
-- `dev-front` : Starts the React frontend server
-- `dev-back` : Starts the Express backend server
+- `dev` : Starts both servers (client + server) in one terminal
+- `dev-front` : Starts the React client server
+- `dev-back` : Starts the Express server server
 - `lint` : Runs validation tools (will be executed on every _commit_, and refuse unclean code)
 
 ## FAQ
@@ -60,18 +60,18 @@ And a public variable from the tab `/settings/variables/actions` :
 
 Use this same tab to add the other environment variables required for the project if any.
 
-Only the backend will be accessible. The root path `"/"` will redirect to the dist folder on your frontend. In order to allow that, please uncomment the line as explain on `backend/src/app.js` (Line 102).
-Because the backend will serve the front, the global variable VITE_BACKEND_URL will be set with an empty string.
+Only the server will be accessible. The root path `"/"` will redirect to the dist folder of your client. In order to allow that, please uncomment the line as explained in `server/src/app.js` (Line 102).
+Because the server will also serve the client, the global variable VITE_SERVER_URL will be set with an empty string.
 
 Your url will be ` https://${PROJECT-NAME}.${subdomain}.wilders.dev/`.
 
 ### About the database
 
-The database is automaticaly deployed with the name of your repo. During the build of the projet (`docker-entry.sh`), the `node migrate.js` command is executed in the backend. If you want to seed automaticaly your database using the `seed.js` script, replace the command _build_ on you `backend/package.json` by `node migrate.js && node seed.js`.
+The database is automaticaly deployed with the name of your repo. During the build of the projet (`docker-entry.sh`), the `node migrate.js` command is executed in the server. If you want to seed automaticaly your database using the `seed.js` script, replace the command _build_ on you `server/package.json` by `node migrate.js && node seed.js`.
 
 ### About public assets (pictures, fonts...)
 
-Don't use any public folder on your frontend. This folder won't be accessible online. You may move your public assets in the `backend/public` folder. Prefer [static assets](https://vitejs.dev/guide/assets) when possible.
+Don't use any public folder on your client. This folder won't be accessible online. You may move your public assets in the `server/public` folder. Prefer [static assets](https://vitejs.dev/guide/assets) when possible.
 
 ### About Logs
 
