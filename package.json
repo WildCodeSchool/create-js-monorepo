@@ -1,25 +1,29 @@
 {
-  "name": "template-fullstack",
+  "name": "our-resql",
   "version": "4.2.0",
-  "description": "project template for the React-Express-MySQL cursus in Wild Code School",
-  "homepage": "https://github.com/wildcodeschool/js-template-fullstack#readme",
+  "description": "Our pedagogical framework for the React-Express-MySQL cursus in Wild Code School",
+  "homepage": "https://github.com/wildcodeschool/our-resql#readme",
   "bugs": {
-    "url": "https://github.com/wildcodeschool/js-template-fullstack/issues"
+    "url": "https://github.com/wildcodeschool/our-resql/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wildcodeschool/js-template-fullstack.git"
+    "url": "git+https://github.com/wildcodeschool/our-resql.git"
   },
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
-    "postinstall": "cross-env-shell \"cd ./client && npm install && cd ../server && npm install\"",
-    "prepare": "husky install",
-    "db:migrate": "cd ./server && npm run db:migrate",
-    "db:seed": "cd ./server && npm run db:seed",
-    "dev": "cross-env-shell 'concurrently -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm:dev-*\"'",
-    "dev-front": "cross-env-shell \"cd ./client && npm run dev\"",
-    "dev-back": "cross-env-shell \"cd ./server && npm run dev\"",
+    "postinstall": "husky install",
+    "db:migrate": "npm run db:migrate --workspace=server",
+    "db:seed": "npm run db:seed --workspace=server",
+    "dev": "concurrently -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm:dev:*\"",
+    "dev:client": "npm run dev --workspace=client",
+    "dev:server": "npm run dev --workspace=server",
     "lint": "lint-staged",
-    "clean": "cross-env-shell \"rm -rf ./node_modules ./package-lock.json ./server/node_modules ./server/package-lock.json ./client/node_modules ./client/package-lock.json\""
+    "test": "npm run test --workspaces --if-present",
+    "clean": "cross-env-shell \"rm -rf ./node_modules ./package-lock.json\""
   },
   "keywords": [],
   "author": "Wild Code School",

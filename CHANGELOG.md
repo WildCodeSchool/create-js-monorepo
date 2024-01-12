@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Breaking change:** Renamed `frontend` and `backend` folders as `client` and `server`.
 
+- Managed `client` and `server` subfolders through [npm workspaces](https://docs.npmjs.com/cli/v10/using-npm/workspaces).
+
 - **Breaking change:** Renamed database `Manager` classes as `Repository`, and moved them from `backend/src/models` into `backend/database/models`. Also moved `backend/src/tables.js` into `backend/database/tables.js`.
 
 - **Breaking change:** Refactored `backend/database/tables.js` for a manual, explicit instantiation of the repositories.

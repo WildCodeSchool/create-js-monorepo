@@ -1,4 +1,5 @@
 {
+  "name": "@our-resql/server",
   "scripts": {
     "dev": "nodemon --ignore ./database/fixtures index.js",
     "db:migrate": "node ./bin/migrate.js",
@@ -24,6 +25,6 @@
   },
   "lint-staged": {
     "*.sql": "prettier --check",
-    "*.js": "eslint"
+    "*.js": "eslint --report-unused-disable-directives"
   }
 }
