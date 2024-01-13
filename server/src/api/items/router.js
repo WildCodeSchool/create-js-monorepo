@@ -7,7 +7,7 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import itemActions module for handling item-related operations
-const itemActions = require("../controllers/itemActions");
+const itemActions = require("../../controllers/itemActions");
 
 // Route to get a list of items
 router.get("/", itemActions.browse);
