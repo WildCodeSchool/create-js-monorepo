@@ -1,5 +1,5 @@
 // Import access to database tables
-const tables = require("../tables");
+const tables = require("../../database/tables");
 
 // The B of BREAD - Browse (Read All) operation
 const browse = async (req, res, next) => {

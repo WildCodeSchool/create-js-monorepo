@@ -7,7 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing right now. [Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues) if you find something.
+### Changed
+
+- Moved `backend/migrate.js` and `backend/seed.js` into a new `backend/bin` folder. Updated backend scripts accordingly.
+
+- **Breaking change:** Renamed `frontend` and `backend` folders as `client` and `server`.
+
+- **Breaking change:** Renamed database `Manager` classes as `Repository`, and moved them from `backend/src/models` into `backend/database/models`. Also moved `backend/src/tables.js` into `backend/database/tables.js`.
+
+- **Breaking change:** Refactored `backend/database/tables.js` for a manual, explicit instantiation of the repositories.
+
+- **Breaking change:** Refactored seed system for the database. See `backend/database/fixtures` for further details.
+
+- **Breaking change:** Renamed `backend/controllers/*Controllers.js` files as `backend/controllers/*Actions.js`. Thanks to [Matthieu Lopez](https://github.com/wildmatthieu) for the idea.
+
+[Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues) if you have any request/feedback :)
+
+## [4.2.0] - 2023-11-30
+
+### Added
+
+- Added `clean` script in root `package.json`. Thanks to [Damien Buchet](https://github.com/dbuchet) for the idea.
+
+### Changed
+
+- Changed `--cached` option of the `git diff` command in the pre-commit hook for the more explicit alias `--staged`.
+
+### Fixed
+
+- Fixed allow list in pre-commit hook : root `package.json` file can **not** be changed anymore (but root `package-lock.json` may be regenerated).
+
+- Fixed GitHub actions for deployment when repository is hosted on a GitHub organization account. Thanks to [Jean-François Morin](https://github.com/jfm-wcs) and [Julien Richard](https://github.com/jujuck).
+
+- Fixed job triggers for deployment. Thanks to [Jean-François Morin](https://github.com/jfm-wcs) and [Julien Richard](https://github.com/jujuck).
 
 ## [4.1.2] - 2023-10-31
 

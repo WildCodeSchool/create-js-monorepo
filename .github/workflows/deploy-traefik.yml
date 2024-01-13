@@ -10,26 +10,7 @@ on:
     types: [closed]
 
 jobs:
-  check-secrets:
-    if: (github.event.pull_request.merged || github.event_name == 'push')
-    runs-on: ubuntu-latest
-    outputs:
-      caprover-server: ${{ steps.caprover-server.outputs.defined }}
-    steps:
-      - name: Check for secrets availability
-        id: defined
-        # perform secret check & put boolean result as an output
-        shell: bash
-        run: |
-          if [ "${{ secrets.SSH_USER }}" != '' && "${{ secrets.SSH_HOST }}" != '' && "${{ secrets.SSH_PASSWORD }}" != '' ]; then
-            echo "defined=true" >> $GITHUB_OUTPUT;
-          else
-            echo "defined=false" >> $GITHUB_OUTPUT;
-          fi
-
   deploy:
-    needs: check-secrets
-    if: needs.check-secrets.outputs.defined == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to VPS
@@ -38,4 +19,4 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           host: ${{ secrets.SSH_HOST }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script: cd && cd traefik/deploy && bash ./js-project.sh ${{ github.actor }} ${{ github.event.repository.name }} ${{ vars.PROJECT_NAME }} '${{ toJSON(vars) }}'
+          script: cd && cd traefik/deploy && bash ./js-project.sh ${{ github.event.repository.owner.name }} ${{ github.event.repository.name }} ${{ vars.PROJECT_NAME }} '${{ toJSON(vars) }}'

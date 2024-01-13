@@ -29,8 +29,8 @@ jobs:
         with:
           path: |
             ./node_modules
-            ./backend/node_modules
-            ./frontend/node_modules
+            ./server/node_modules
+            ./client/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install package dependencies

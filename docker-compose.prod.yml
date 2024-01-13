@@ -1,4 +1,4 @@
-version: '3.4'
+version: "3.4"
 
 services:
   web:
@@ -7,13 +7,13 @@ services:
     volumes:
       - .:/var/www
       - ./docker-entry.sh:/etc/entrypoint.sh
-    entrypoint: [ "sh", "/etc/entrypoint.sh" ]
+    entrypoint: ["sh", "/etc/entrypoint.sh"]
     env_file:
       - ../envs/.env-${GITHUB_REPOSITORY_NAME}
     environment:
       APP_PORT: 3310
-      APP_SECRET: 123456789
-      FRONTEND_URL: "https://${PROJECT_NAME}.${HOST}"
+      APP_SECRET: ${APP_SECRET:-123456789}
+      CLIENT_URL: "https://${PROJECT_NAME}.${HOST}"
       DB_HOST: ${DATABASE_SUBDOMAIN_NAME}-db
       DB_PORT: 3306
       DB_USER: ${USER_NAME}
