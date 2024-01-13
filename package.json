@@ -10,9 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/wildcodeschool/js-template-fullstack.git"
   },
-  "config": {
-    "cli": "npm"
-  },
   "scripts": {
     "postinstall": "cross-env-shell \"cd ./client && npm install && cd ../server && npm install\"",
     "prepare": "husky install",
