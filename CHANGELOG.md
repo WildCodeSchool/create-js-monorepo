@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Encouraged the organization of routers with `router.js` subfiles in subfolders following URL paths. Thanks to [Ayoub Idrissi Ouedrhiri](https://github.com/ioayoub) for the idea.
+
 - Moved `backend/migrate.js` and `backend/seed.js` into a new `backend/bin` folder. Updated backend scripts accordingly.
 
 - **Breaking change:** Renamed `frontend` and `backend` folders as `client` and `server`.
