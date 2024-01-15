@@ -6,7 +6,7 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Import itemActions module for handling item-related operations
+// Import item-related actions
 const { browse, read, add } = require("../../controllers/itemActions");
 
 // Route to get a list of items
