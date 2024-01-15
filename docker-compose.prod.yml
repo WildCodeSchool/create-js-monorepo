@@ -19,6 +19,7 @@ services:
       DB_USER: ${USER_NAME}
       DB_PASSWORD: ${USER_PASSWORD}
       DB_NAME: ${DB_NAME}
+      VITE_BACKEND_URL: ""
     networks:
       - proxy
     labels:
