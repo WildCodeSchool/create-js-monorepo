@@ -90,13 +90,6 @@ const router = require("./router");
 // Mount the API routes under the "/api" endpoint
 app.use(router);
 
-// Serve static files from the "public" directory
-/*
-app.use("/public/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../", req.originalUrl));
-});
-*/
-
 /* ************************************************************************* */
 
 // Production-ready setup: What is it for, and when should I enable it?
