@@ -115,7 +115,9 @@ app.use("/public/*", (req, res) => {
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your client's build artifacts are located.
 
 /*
-const reactBuildPath = `${__dirname}/../../frontend/dist`;
+const path = require("node:path");
+
+const reactBuildPath = path.resolve(`${__dirname}/../../client/dist`);
 
 // Serve react resources
 
@@ -125,20 +127,6 @@ app.use(express.static(reactBuildPath));
 
 app.get("*", (req, res) => {
   res.sendFile(`${reactBuildPath}/index.html`);
-});
-*/
-
-/*
-const path = require("path");
-
-app.use("*", (req, res) => {
-  if (req.originalUrl.includes("assets")) {
-    res.sendFile(
-      path.resolve(__dirname, `../../frontend/dist/${req.originalUrl}`)
-    );
-  } else {
-    res.sendFile(path.resolve(__dirname, `../../frontend/dist/index.html`));
-  }
 });
 */
 
