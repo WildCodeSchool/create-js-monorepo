@@ -90,13 +90,6 @@ const router = require("./router");
 // Mount the API routes under the "/api" endpoint
 app.use(router);
 
-// Serve static files from the "public" directory
-/*
-app.use("/public/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../", req.originalUrl));
-});
-*/
-
 /* ************************************************************************* */
 
 // Production-ready setup: What is it for, and when should I enable it?
@@ -115,7 +108,7 @@ app.use("/public/*", (req, res) => {
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your client's build artifacts are located.
 
 /*
-const reactBuildPath = `${__dirname}/../../frontend/dist`;
+const reactBuildPath = `${__dirname}/../../client/dist`;
 
 // Serve react resources
 
@@ -124,21 +117,7 @@ app.use(express.static(reactBuildPath));
 // Redirect unhandled requests to the react index file
 
 app.get("*", (req, res) => {
-  res.sendFile(`${reactBuildPath}/index.html`);
-});
-*/
-
-/*
-const path = require("path");
-
-app.use("*", (req, res) => {
-  if (req.originalUrl.includes("assets")) {
-    res.sendFile(
-      path.resolve(__dirname, `../../frontend/dist/${req.originalUrl}`)
-    );
-  } else {
-    res.sendFile(path.resolve(__dirname, `../../frontend/dist/index.html`));
-  }
+  res.sendFile("index.html", { root: reactBuildPath } );
 });
 */
 
