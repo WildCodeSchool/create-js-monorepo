@@ -117,7 +117,7 @@ app.use(express.static(reactBuildPath));
 // Redirect unhandled requests to the react index file
 
 app.get("*", (req, res) => {
-  res.sendFile(`${reactBuildPath}/index.html`);
+  res.sendFile("index.html", { root: reactBuildPath } );
 });
 */
 

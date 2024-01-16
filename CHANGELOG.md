@@ -23,6 +23,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Breaking change:** Renamed `backend/controllers/*Controllers.js` files as `backend/controllers/*Actions.js`. Thanks to [Matthieu Lopez](https://github.com/wildmatthieu) for the idea.
 
+### Fixed
+
+- Fixed serving of React build from the server. Thanks to [Samuel Faber](https://github.com/samuelfaberdev), [Anthony Gorski](https://github.com/GorskiAnthony) and [Julien Richard](https://github.com/jujuck).
+
 [Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues) if you have any request/feedback :)
 
 ## [4.2.0] - 2023-11-30
