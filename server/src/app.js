@@ -108,9 +108,7 @@ app.use(router);
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your client's build artifacts are located.
 
 /*
-const path = require("node:path");
-
-const reactBuildPath = path.resolve(`${__dirname}/../../client/dist`);
+const reactBuildPath = `${__dirname}/../../client/dist`;
 
 // Serve react resources
 
@@ -119,7 +117,7 @@ app.use(express.static(reactBuildPath));
 // Redirect unhandled requests to the react index file
 
 app.get("*", (req, res) => {
-  res.sendFile(`${reactBuildPath}/index.html`);
+  res.sendFile("index.html", { root: reactBuildPath } );
 });
 */
 
