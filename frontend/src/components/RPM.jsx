@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
-import "./Avatar.scss";
+import "./RPM.scss";
 
-function YourReactComponent() {
+function RPM() {
   useEffect(() => {
     // Initial setup code, only runs once when the component mounts
-    const subdomain = "loreal-avatar"; // Replace with your custom subdomain
+    const subdomain = "loreal-avatar";
     const frame = document.getElementById("frame");
     frame.src = `https://${subdomain}.readyplayer.me/avatar?frameApi`;
 
@@ -57,29 +57,16 @@ function YourReactComponent() {
     };
   }, []); // useEffect will run once when the component mounts
 
-  const displayIframe = () => {
-    // Code to run when the iframe is displayed
-    document.getElementById("frame").hidden = false;
-  };
-
   return (
     <div className="avatar">
-      <h2>L'Oréal AVATAR</h2>
-      <input
-        type="button"
-        value="Open Ready Player Me"
-        onClick={displayIframe}
-      />
-      <p id="avatarUrl">Avatar URL:</p>
       <iframe
         id="frame"
         className="frame"
         allow="camera *; microphone *; clipboard-write"
         title="Ready Player Me Avatar"
-        hidden
       />
     </div>
   );
 }
 
-export default YourReactComponent;
+export default RPM;

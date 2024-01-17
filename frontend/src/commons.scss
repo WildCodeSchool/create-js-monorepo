@@ -1,0 +1,22 @@
+%button {
+  font-size: calc(0.8rem + 0.2vw);
+  // font-weight: 800;
+  padding: 15px 25px;
+  border-style: none;
+  border-radius: 0.8rem;
+  background-color: #000000;
+  color: #f1f2f2;
+  font-size: 17px;
+  &:hover {
+    background: linear-gradient(
+      0deg,
+      rgba(224, 145, 27, 1) 0%,
+      rgba(255, 249, 102, 1) 44%,
+      rgba(241, 239, 199, 1) 52%,
+      rgba(255, 249, 102, 1) 62%,
+      rgba(224, 145, 27, 1) 100%
+    );
+    color: black;
+    font-weight: 700;
+  }
+}
