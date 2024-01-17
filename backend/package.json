@@ -28,7 +28,9 @@
     "supertest": "^6.3.3"
   },
   "lint-staged": {
-    "*.sql": "prettier --check",
-    "*.js": "eslint"
+    "*.js": [
+      "prettier --check",
+      "eslint"
+    ]
   }
 }
