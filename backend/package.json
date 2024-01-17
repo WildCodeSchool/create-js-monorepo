@@ -5,13 +5,17 @@
     "db:seed": "node seed.js",
     "build": "node migrate.js",
     "start": "node index.js",
-    "test": "jest"
+    "test": "jest",
+    "crud:maker": "node ./node_modules/wild-js-crud/index.js"
   },
   "dependencies": {
     "@readyplayerme/react-avatar-creator": "^0.4.0",
+    "argon2": "^0.31.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mysql2": "^3.5.2"
+    "joi": "^17.11.1",
+    "mysql2": "^3.5.2",
+    "wild-js-crud": "^1.2.2"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
