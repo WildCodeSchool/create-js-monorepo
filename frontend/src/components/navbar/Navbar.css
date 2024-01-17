@@ -1,0 +1,30 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  orientation: landscape;
+  padding: 1rem;
+  border-bottom: solid 1px rgb(243, 241, 241);
+}
+
+.nav_link {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+  align-items: center;
+}
+
+.nav_logo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nav_p {
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+}
