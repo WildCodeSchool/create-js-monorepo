@@ -8,6 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@readyplayerme/react-avatar-creator": "^0.4.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mysql2": "^3.5.2"
