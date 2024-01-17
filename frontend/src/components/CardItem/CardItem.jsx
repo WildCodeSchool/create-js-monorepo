@@ -7,7 +7,7 @@ function CardItem({ data }) {
       <Link className="CardItem_card" to={`${data.id}`}>
         <img
           className="CardItem_img"
-          src={data.image}
+          src={data.photo}
           alt="photographie"
           style={{ cursor: "pointer" }}
         />
