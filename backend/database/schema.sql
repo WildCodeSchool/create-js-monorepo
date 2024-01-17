@@ -20,7 +20,6 @@ create table user (
 create table product (
   id int primary key auto_increment not null,
   name VARCHAR(255) NOT NULL,
-  brand VARCHAR(255) NOT NULL,
   object VARCHAR(255) NOT NULL,
   price INT NOT NULL,
   is_in_card TINYINT NOT NULL,
