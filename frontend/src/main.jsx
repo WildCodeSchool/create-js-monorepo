@@ -9,12 +9,17 @@ import Concept from "./pages/Concept";
 import Votes from "./pages/Votes";
 import Login from "./pages/Login";
 import CardsAll from "./pages/CardsAll/CardsAll";
+import Home from "./pages/home/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
       {
         path: "/histoire",
         element: <Histoire />,
