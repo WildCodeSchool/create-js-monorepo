@@ -1,3 +1,14 @@
 body {
   background-image: url("src/assets/loreal-ecran.png");
 }
+
+.HomePage__button {
+  background-color: black;
+  color: aliceblue;
+  position: absolute;
+  left: 83%;
+  bottom: 93%;
+  font-size: 11px;
+  height: 3%;
+  width: 5%;
+}
