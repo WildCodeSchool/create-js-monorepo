@@ -9,6 +9,7 @@ import Concept from "./pages/Concept";
 import Votes from "./pages/Votes";
 import Login from "./pages/Login";
 import CardsAll from "./pages/CardsAll/CardsAll";
+import Home from "./pages/home/Home";
 
 const router = createBrowserRouter([
   {
@@ -16,23 +17,27 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "",
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/histoire",
         element: <Histoire />,
       },
       {
-        path: "",
+        path: "/concept",
         element: <Concept />,
       },
       {
-        path: "",
+        path: "/candidats",
         element: <Candidats />,
       },
       {
-        path: "",
+        path: "/votes",
         element: <Votes />,
       },
       {
-        path: "",
+        path: "/login",
         element: <Login />,
       },
     ],
