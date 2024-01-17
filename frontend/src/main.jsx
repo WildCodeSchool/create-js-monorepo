@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/carte",
+    path: "/candidats",
     element: <CardsAll />,
     loader: () => {
       return connexion
