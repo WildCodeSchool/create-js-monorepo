@@ -1,8 +1,13 @@
-import Routourne from "./components/Routourne/Routourne";
+import { Outlet } from "react-router-dom";
+
 import "./App.css";
 
 function App() {
-  return <Routourne />;
+  return (
+    <div className="App">
+      <Outlet />
+    </div>
+  );
 }
 
 export default App;
