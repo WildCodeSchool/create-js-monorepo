@@ -1,7 +1,6 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  orientation: landscape;
   padding: 1rem;
   border-bottom: solid 1px rgb(243, 241, 241);
 }
