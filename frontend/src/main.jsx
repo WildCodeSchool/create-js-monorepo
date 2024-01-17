@@ -8,6 +8,7 @@ import Histoire from "./pages/Histoire";
 import Concept from "./pages/Concept";
 import Votes from "./pages/Votes";
 import Login from "./pages/Login";
+import CardsAll from "./pages/CardsAll/CardsAll";
 
 const router = createBrowserRouter([
   {
@@ -38,10 +39,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/carte",
-    // element: <Carte />,
+    element: <CardsAll />,
     loader: () => {
       return connexion
-        .get("/terminals")
+        .get("/Candidats")
         .then((response) => response.data)
         .catch((err) => console.error(err));
     },
