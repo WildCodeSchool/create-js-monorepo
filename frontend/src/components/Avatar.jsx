@@ -63,7 +63,7 @@ function YourReactComponent() {
   };
 
   return (
-    <div>
+    <div className="avatar">
       <h2>L'Oréal AVATAR</h2>
       <input
         type="button"
