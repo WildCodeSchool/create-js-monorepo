@@ -1,0 +1,27 @@
+.page-avatar {
+  background-image: url("../assets/sky.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo {
+  width: 100%;
+  height: 15vh;
+  display: block;
+  margin: auto;
+  background-color: white;
+}
+
+.intro-text {
+  text-align: center;
+  margin-top: 0.8rem;
+  color: whitesmoke;
+  background-color: black;
+  width: 80vw;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 15px;
+}
