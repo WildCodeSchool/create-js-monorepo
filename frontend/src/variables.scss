@@ -1,0 +1,64 @@
+$black: #000000;
+$white: #ffffff;
+$red: #e32847;
+
+$font: "camptonBook";
+$fontItalic: "camptonBookItalic";
+$fontBold: "camptonBold";
+$fontBoldItalic: "camptonBoldItalic";
+$fontThin: "camptonThin";
+$fontThinItalic: "camptonThinItalic";
+
+@font-face {
+  font-family: "camptonBook";
+  src:
+    url("./src/font/camptonbook-webfont.woff2") format("woff2"),
+    url("./src/font/camptonbook-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "camptonBookItalic";
+  src:
+    url("./src/font/camptonbookitalic-webfont.woff2") format("woff2"),
+    url("./src/font/camptonbookitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "camptonBold";
+  src:
+    url("./src/font/camptonbold-webfont.woff2") format("woff2"),
+    url("./src/font/camptonbold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "camptonBoldItalic";
+  src:
+    url("./src/font/camptonbolditalic-webfont.woff2") format("woff2"),
+    url("./src/font/camptonbolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "camptonThin";
+  src:
+    url("./src/font/camptonthin-webfont.woff2") format("woff2"),
+    url("./src/font/camptonthin-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "camptonThinItalic";
+  src:
+    url("./src/font/camptonthinitalic-webfont.woff2") format("woff2"),
+    url("./src/font/camptonthinitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
