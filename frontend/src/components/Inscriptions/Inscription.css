@@ -1,0 +1,42 @@
+.Inscriptionform {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: none;
+}
+
+.classinput,
+.classbut {
+  display: flex;
+  margin-left: 25vw;
+  margin-right: 25vw;
+  margin-top: 1.2vw;
+  border-radius: 0.5vw;
+  height: 2vw;
+  background-color: #fae7c0;
+  border-color: white;
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.classtextarea {
+  display: flex;
+  margin-left: 25vw;
+  margin-right: 25vw;
+  margin-top: 2vw;
+  height: 10vw;
+  border-radius: 0.5vw;
+  background-color: #fae7c0;
+  border-color: white;
+  text-align: left;
+  vertical-align: top;
+  padding-bottom: vw;
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.classbut {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
