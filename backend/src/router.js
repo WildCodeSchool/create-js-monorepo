@@ -3,6 +3,11 @@ const express = require("express");
 
 const router = express.Router();
 
+const authControllers = require("./controllers/authControllers");
+
+// Authentification routes
+router.post("/login", authControllers.login);
+
 const user_productControllers = require("./controllers/user_productControllers");
 
 router.get("/user_products", user_productControllers.browse);
