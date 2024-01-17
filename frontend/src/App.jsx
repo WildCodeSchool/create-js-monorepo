@@ -33,6 +33,7 @@ function App() {
           >
             Vite Docs
           </a>
+          <p>coucou</p>
         </p>
       </header>
     </div>
