@@ -1,10 +1,8 @@
-import Counter from "./components/Counter";
-import logo from "./assets/logo.svg";
-
 import "./App.css";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
-  return <div className="App">fred</div>;
+  return <HomePage />;
 }
 
 export default App;
