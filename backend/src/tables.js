@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* ************************************************************************* */
 // Register Data Managers for Tables
 /* ************************************************************************* */
@@ -5,7 +6,16 @@
 // Import the manager modules responsible for handling data operations on the tables
 const ItemManager = require("./models/ItemManager");
 
+const UserManager = require("./models/UserManager");
+
+const ProductManager = require("./models/ProductManager");
+
+const User_productManager = require("./models/User_productManager");
+
 const managers = [
+  User_productManager,
+  ProductManager,
+  UserManager,
   ItemManager,
   // Add other managers here
 ];
