@@ -1,6 +1,10 @@
 import "./HomePage.scss";
 
 function HomePage() {
-  return <div>the fred</div>;
+  return (
+    <button className="HomePage__button" type="button">
+      Login
+    </button>
+  );
 }
 export default HomePage;
