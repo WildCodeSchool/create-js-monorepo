@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import connexion from "./services/connexion";
 import App from "./App";
 import Candidats from "./pages/Candidats";
 import Histoire from "./pages/Histoire";
@@ -36,6 +35,16 @@ const router = createBrowserRouter([
         element: <Login />,
       },
     ],
+  },
+  {
+    path: "/carte",
+    // element: <Carte />,
+    loader: () => {
+      return connexion
+        .get("/terminals")
+        .then((response) => response.data)
+        .catch((err) => console.error(err));
+    },
   },
 ]);
 
