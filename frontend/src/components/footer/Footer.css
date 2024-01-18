@@ -1,0 +1,25 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-top: solid 1px rgb(243, 241, 241);
+  margin-top: 100px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer img {
+  width: 50px;
+}
+
+/*
+home : mb 80px
+concept : mb 100px
+*/
