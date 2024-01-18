@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import "./AvatarImage.scss";
+import "./Scene.scss";
 import Logo from "../assets/loreal_logo.svg";
 
-function Avatar() {
+function Scene() {
   return (
     <div className="page_avatarImage">
       <Link to="/" className="logo">
@@ -11,4 +11,4 @@ function Avatar() {
     </div>
   );
 }
-export default Avatar;
+export default Scene;

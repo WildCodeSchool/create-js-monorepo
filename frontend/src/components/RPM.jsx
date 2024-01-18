@@ -41,7 +41,6 @@ function RPM() {
       if (json.eventName === "v1.avatar.exported") {
         const pngUrl = json.data.url.replace(".glb", ".png");
         console.error(`Avatar PNG URL: ${pngUrl}`);
-        // Add a random query parameter to the URL to force reloading
         setAvatarUrl(`${pngUrl}?random=${Math.random()}`);
         setHideIframe(false);
       }
@@ -62,7 +61,6 @@ function RPM() {
 
   return (
     <div className="avatar">
-      {/* Use the 'hideIframe' state to conditionally apply a CSS class */}
       <iframe
         id="frame"
         className={`frame ${hideIframe ? "hidden" : ""}`}
