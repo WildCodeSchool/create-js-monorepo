@@ -1,0 +1,7 @@
+# .env.sample - Sample Environment Variables for Frontend (Vite)
+
+# Backend API URL (call it in React with import.meta.env.VITE_BACKEND_URL)
+VITE_BACKEND_URL=http://localhost:8000
+
+# Other Environment Variables (if needed)
+# VITE_OTHER_VARIABLE=value
