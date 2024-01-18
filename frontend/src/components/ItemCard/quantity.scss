@@ -1,0 +1,21 @@
+@import "./src/variables.scss";
+
+.item__quantity {
+  &__label {
+    font-family: $font;
+  }
+  &__switch {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    &__button {
+      margin: 0 0.5rem;
+      padding: 0;
+      width: 2rem;
+      height: auto;
+      border: none;
+      background-color: $white;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "./src/variables.scss";
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid $black;
+  border-top: 0;
+  &__image {
+    width: 5rem;
+    padding: 0.5rem;
+  }
+
+  &__name {
+    margin: auto 0;
+    flex: 1;
+    text-align: center;
+  }
+
+  &__quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto 0;
+    flex: 1;
+  }
+
+  &__price {
+    margin: auto 0;
+    flex: 1;
+    text-align: center;
+    font-family: $fontBold;
+  }
+}
