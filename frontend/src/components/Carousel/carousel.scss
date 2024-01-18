@@ -16,14 +16,18 @@
 }
 
 .carousel__item {
-  width: 20rem;
+  width: 25rem;
   position: absolute;
   top: 8%;
-  right: 30%;
+  right: 25%;
   font-family: $font;
 
   &__title {
     font-size: 2.2rem;
+
+    &--white {
+      color: $white;
+    }
   }
 
   &__button {
@@ -33,10 +37,20 @@
     padding: 1rem 1.5rem;
     margin: 1rem 0;
     font-size: 1.5rem;
+    font-family: $fontBold;
+
+    &--white {
+      color: $black;
+      background-color: $white;
+    }
   }
 
   &__description {
     font-size: 1.5rem;
+
+    &--white {
+      color: $white;
+    }
   }
 }
 

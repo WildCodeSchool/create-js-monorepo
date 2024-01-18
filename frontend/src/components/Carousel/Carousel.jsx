@@ -10,27 +10,27 @@ function Carousel() {
     {
       title: "Soldes d'hiver",
       description: "Jusqu'à 30% de réduction !",
-      buttonText: "J'en profite",
-    },
-    {
-      title: "Men Expert",
-      description: "Découvrez nos Best-Sellers",
-      buttonText: "Je découvre",
+      buttonText: "J'EN PROFITE",
     },
     {
       title: "Infaillible Mat Résistance",
       description: "Des couleurs mates sans transfert",
-      buttonText: "Je découvre",
+      buttonText: "JE DECOUVRE",
     },
     {
       title: "Dream Long",
       description: "La routine de soin dédiéeaux problèmes des cheveux longs.",
-      buttonText: "Je découvre",
+      buttonText: "JE DECOUVRE",
+    },
+    {
+      title: "Men Expert",
+      description: "Découvrez nos Best-Sellers",
+      buttonText: "JE DECOUVRE",
     },
     {
       title: "Compose ta box",
       description: "Reçois tes produits favoris tous les mois !",
-      buttonText: "Je découvre",
+      buttonText: "JE DECOUVRE",
     },
   ];
 
@@ -43,7 +43,7 @@ function Carousel() {
     <main className="carousel-container">
       <AliceCarousel
         autoPlay
-        autoPlayInterval={7000}
+        autoPlayInterval={4000}
         infinite
         autoPlayControls
         onSlideChanged={handleSlideChange}
@@ -51,11 +51,6 @@ function Carousel() {
       >
         <img
           src="./src/assets/images/banniere1.jpg"
-          className="carousel__image"
-          alt=""
-        />
-        <img
-          src="./src/assets/images/banniere5.jpg"
           className="carousel__image"
           alt=""
         />
@@ -70,27 +65,51 @@ function Carousel() {
           alt=""
         />
         <img
+          src="./src/assets/images/banniere5.jpg"
+          className="carousel__image"
+          alt=""
+        />
+        <img
           src="./src/assets/images/banniere6.png"
           className="carousel__image"
           alt=""
         />
       </AliceCarousel>
       <article className="carousel__item">
-        <h2 className="carousel__item__title">
+        <h2
+          className={
+            currentSlide === 3
+              ? "carousel__item__title carousel__item__title--white"
+              : "carousel__item__title"
+          }
+        >
           {currentSlide === 5
             ? itemTexts[0].title
             : currentSlide === -1
               ? itemTexts[itemTexts.length - 1].title
               : itemTexts[currentSlide].title}
         </h2>
-        <p className="carousel__item__description">
+        <p
+          className={
+            currentSlide === 3
+              ? "carousel__item__description carousel__item__description--white"
+              : "carousel__item__description"
+          }
+        >
           {currentSlide === 5
             ? itemTexts[0].description
             : currentSlide === -1
               ? itemTexts[itemTexts.length - 1].description
               : itemTexts[currentSlide].description}
         </p>
-        <button type="button" className="carousel__item__button">
+        <button
+          type="button"
+          className={
+            currentSlide === 3
+              ? "carousel__item__button carousel__item__button--white"
+              : "carousel__item__button"
+          }
+        >
           {currentSlide === 5
             ? itemTexts[0].buttonText
             : currentSlide === -1
