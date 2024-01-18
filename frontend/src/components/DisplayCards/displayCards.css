@@ -1,0 +1,7 @@
+.DisplayCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: auto;
+  gap: 2rem;
+}

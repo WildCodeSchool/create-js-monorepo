@@ -1,8 +1,13 @@
 import React from "react";
 import DisplayCards from "../../components/DisplayCards/DisplayCards";
+import "./CardsAll.css";
 
 function CardsAll() {
-  return <DisplayCards basePath="/cars" />;
+  return (
+    <div className="ContainerCardsAll">
+      <DisplayCards basePath="/candidats" />
+    </div>
+  );
 }
 
 export default CardsAll;
