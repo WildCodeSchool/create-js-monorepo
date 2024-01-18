@@ -5,8 +5,12 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  border: 1px solid $black;
-  padding: 1.5rem;
+  border: 1px solid rgb(0, 0, 0, 0.3);
+  padding: 1rem;
+
+  &:hover {
+    border: 1px solid $black;
+  }
   &__label {
     font-family: $font;
     position: absolute;
@@ -23,7 +27,7 @@
       margin: 0 0.5rem;
       padding: 0;
       width: 2rem;
-      height: auto;
+      height: 2rem;
       border: none;
       background-color: $white;
       cursor: pointer;

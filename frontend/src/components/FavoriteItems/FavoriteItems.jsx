@@ -12,7 +12,7 @@ function FavoriteItems() {
     const items = db.filter((e) => e.new_customerID === randClientId);
     items.forEach((e, index) => {
       e.id = index;
-      e.quantity = Math.floor(Math.random() * 4) + 1;
+      e.quantity = Math.floor(Math.random() * 2) + 1;
     });
     return items.slice(0, 4);
   };
