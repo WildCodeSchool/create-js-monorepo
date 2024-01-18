@@ -1,0 +1,44 @@
+.myAccount {
+  background-color: lightgrey;
+  .myAccount__header {
+    width: 100vw;
+    .myAccount__header__img {
+      width: 100vw;
+    }
+    .MyAccount__title {
+      background-color: pink;
+    }
+  }
+
+  .myAccount__sideBar {
+    display: flex;
+    .myAccount__sideBar__list {
+      display: flex;
+      flex-direction: column;
+      width: 20vw;
+      gap: 1px;
+      .myAccount__sideBar__list__element {
+        display: flex;
+        justify-content: left;
+        padding-left: 2vw;
+        align-items: center;
+        height: 5vh;
+        list-style: none;
+        background-color: white;
+        font-weight: 600;
+      }
+      .myAccount__sideBar__list__element:hover {
+        color: red;
+      }
+      .disconnect {
+        margin-top: 2vh;
+        background-color: black;
+        color: white;
+      }
+      .disconnect:hover {
+        color: white;
+        background-color: red;
+      }
+    }
+  }
+}

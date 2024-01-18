@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "src": "http://placekitten.com/g/200/30@0",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente architecto ducimus!",
+    "price": "10€",
+    "alt": "a l'oréal product"
+  },
+  {
+    "id": 2,
+    "src": "http://placekitten.com/g/200/30@0",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente architecto ducimus!",
+    "price": "11€",
+    "alt": "a l'oréal product"
+  },
+  {
+    "id": 3,
+    "src": "http://placekitten.com/g/200/30@0",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente architecto ducimus!",
+    "price": "12€",
+    "alt": "a l'oréal product"
+  },
+  {
+    "id": 4,
+    "src": "http://placekitten.com/g/200/30@0",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente architecto ducimus!",
+    "price": "13€",
+    "alt": "a l'oréal product"
+  },
+  {
+    "id": 5,
+    "src": "http://placekitten.com/g/200/30@0",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente architecto ducimus!",
+    "price": "14€",
+    "alt": "a l'oréal product"
+  }
+]

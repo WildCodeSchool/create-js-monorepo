@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "src": "https://picsum.photos/300/300",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente architecto ducimus!",
+    "price": "10€",
+    "alt": "a l'oréal product"
+  },
+  {
+    "id": 2,
+    "src": "https://picsum.photos/100/200",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente architecto ducimus!",
+    "price": "11€",
+    "alt": "a l'oréal product"
+  },
+  {
+    "id": 3,
+    "src": "https://picsum.photos/300/200",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente architecto ducimus!",
+    "price": "12€",
+    "alt": "a l'oréal product"
+  },
+  {
+    "id": 4,
+    "src": "https://picsum.photos/200/300",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente architecto ducimus!",
+    "price": "13€",
+    "alt": "a l'oréal product"
+  },
+  {
+    "id": 5,
+    "src": "https://picsum.photos/536/354",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sapiente architecto ducimus!",
+    "price": "14€",
+    "alt": "a l'oréal product"
+  }
+]
