@@ -7,7 +7,7 @@ import Page404 from "./pages/Page404";
 import App from "./App";
 import Home from "./pages/Home";
 import Avatar from "./pages/Avatar";
-import AvatarImage from "./pages/AvatarImage";
+import Scene from "./pages/Scene";
 
 const router = createBrowserRouter([
   {
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
         element: <Avatar />,
       },
       {
-        path: "/avatarImage",
-        element: <AvatarImage />,
+        path: "/scene",
+        element: <Scene />,
       },
     ],
   },
