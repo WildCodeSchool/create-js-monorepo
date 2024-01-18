@@ -12,6 +12,7 @@ import PageInscription from "./pages/PageInscription";
 import CardsAll from "./pages/CardsAll/CardsAll";
 import Home from "./pages/home/Home";
 import CardsId from "./pages/CardsId/CardsId";
+import Admin from "./pages/Admin/Admin";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,16 @@ const router = createBrowserRouter([
         element: <PageInscription />,
       },
     ],
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
+    loader: () => {
+      return connexion
+        .get("/Candidats")
+        .then((response) => response.data)
+        .catch((err) => console.error(err));
+    },
   },
   {
     path: "/candidates",
