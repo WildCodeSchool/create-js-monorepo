@@ -5,6 +5,8 @@ const router = express.Router();
 
 const authControllers = require("./controllers/authControllers");
 
+const { hashPwd } = require("./services/hashPwd");
+
 // Authentification routes
 router.post("/login", authControllers.login);
 
@@ -34,7 +36,7 @@ const validateUser = require("./validators/validateUser");
 
 router.get("/users", userControllers.browse);
 router.get("/users/:id", userControllers.read);
-router.post("/users", validateUser, userControllers.add);
+// router.post("/users", validateUser, userControllers.add);
 router.put("/users/:id", validateUser, userControllers.edit);
 // router.delete("/users/:id", userControllers.destroy);
 
@@ -53,6 +55,8 @@ router.get("/items/:id", itemControllers.read);
 
 // Route to add a new item
 router.post("/items", itemControllers.add);
+
+router.post("/users", hashPwd, userControllers.add);
 
 /* ************************************************************************* */
 
