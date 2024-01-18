@@ -2,10 +2,13 @@ import "./HomePage.scss";
 
 function HomePage() {
   return (
-    <>
-      <button className="HomePage__button" type="button">
-        Mon compte
-      </button>
+    <body>
+      <img className="nav" src="src/assets/barnav loreal.png" alt="" />
+      <div className="HomePage__button">
+        <button className="HomePage__button__button" type="button">
+          Mon compte
+        </button>
+      </div>
       <img className="card1" name="card1" src="src/assets/card1.png" alt="" />
       <img
         className="incontournables"
@@ -35,7 +38,7 @@ function HomePage() {
           </button>
         </li>
       </ul>
-    </>
+    </body>
   );
 }
 export default HomePage;
