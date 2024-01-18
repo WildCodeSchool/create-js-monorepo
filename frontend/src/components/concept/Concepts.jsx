@@ -8,7 +8,6 @@ function Concepts() {
       <img className="concept_img" src={logo} alt="L'Oréal" />
       <h3 className="concept_evmt">Concept de l'évènement</h3>
       <p className="paragraphe">
-        Concept de l’évènement
         <br />
         Tu en as rêvé, deviens la nouvelle égérie de la marque.
         <br />
