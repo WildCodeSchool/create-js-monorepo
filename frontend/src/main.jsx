@@ -7,7 +7,7 @@ import Candidats from "./pages/Candidats";
 import Histoire from "./pages/Histoire";
 import Concept from "./pages/Concept";
 import Votes from "./pages/Votes";
-import Login from "./pages/Login";
+import Login from "./pages/login/Login";
 import PageInscription from "./pages/PageInscription";
 import CardsAll from "./pages/CardsAll/CardsAll";
 import Home from "./pages/home/Home";
