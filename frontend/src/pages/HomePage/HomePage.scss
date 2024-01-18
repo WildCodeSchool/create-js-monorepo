@@ -11,13 +11,14 @@
 
   .HomePage__button__button {
     background-color: black;
+    border: none;
     color: white;
     position: absolute;
     left: 73%;
     bottom: 94%;
     font-size: 8px;
     height: 3%;
-    width: 5%;
+    width: 4%;
   }
 }
 .card1 {
@@ -37,10 +38,16 @@
 .button {
   background-color: black;
   border: none;
-  height: 40px;
-  width: 222px;
+  height: 46px;
+  width: 255px;
   color: white;
   font-size: 10px;
   margin-right: 16px;
   font-family: $fontBold;
+}
+.button:hover {
+  background-color: crimson;
+}
+.HomePage__button__button:hover {
+  background-color: crimson;
 }
