@@ -12,7 +12,6 @@ function MyAccount() {
         />
       </header>
       <div className="myAccount__mainContainer">
-        <h1>ma branche TNIG</h1>
         <aside className="myAccount__sideBar">
           <ul className="myAccount__sideBar__list">
             <li className="myAccount__sideBar__list__element">Mon compte</li>
@@ -39,16 +38,32 @@ function MyAccount() {
             <h2 className="myAccount">MON COMPTE</h2>
             <div className="button__countainer">
               <button className="myAccount__button" type="submit">
-                bt1
+                MODIFIER LES INFORMATIONS
               </button>
               <button className="myAccount__button" type="submit">
-                bt2
+                CHANGER LE MOT DE PASSE
               </button>
             </div>
-            <h4>nom</h4>
-            <p>John Couscous</p>
-            <h4>Adresse mail</h4>
-            <p>JohnCoucous@parfum.com</p>
+            <h4 className="myAccount__subClassTitle">Nom</h4>
+            <p className="myAccount__subClassCountent">John Couscous</p>
+            <h4 className="myAccount__subClassTitle">Adresse mail</h4>
+            <p className="myAccount__subClassCountent">
+              JohnCoucous@parfum.com
+            </p>
+            <h2 className="myAccount__linkAccount">LIER COMPTE</h2>
+            <div className="myAccount__FB">
+              <div className="myAccount__FbCountainer">
+                <img
+                  className="myAccount__fbLogo"
+                  src="../src/assets/images/logo-facebook.png"
+                  alt="facebook logo"
+                />
+                <h4 className="myAccount__subClassTitle">Facebook</h4>
+              </div>
+              <button className="myAccount__linkAccount__Button" type="submit">
+                CONNEXION
+              </button>
+            </div>
           </article>
         </main>
       </div>

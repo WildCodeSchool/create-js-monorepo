@@ -2,79 +2,112 @@
 
 .myAccount {
   font-family: $font;
-  background-color: lightgrey;
-  .myAccount__header {
-    width: 100vw;
-    .myAccount__header__img {
-      width: 100vw;
-    }
-    .MyAccount__title {
-      background-color: pink;
-    }
-  }
-  .myAccount__mainContainer {
-    display: flex;
-    flex-direction: row;
-  }
-  .myAccount__sideBar {
-    display: flex;
-    .myAccount__sideBar__list {
-      display: flex;
-      flex-direction: column;
-      width: 20vw;
-      gap: 1px;
-      .myAccount__sideBar__list__element {
-        display: flex;
-        justify-content: left;
-        padding-left: 2vw;
-        align-items: center;
-        height: 5vh;
-        list-style: none;
-        background-color: white;
-        font-weight: 600;
-      }
-      .myAccount__sideBar__list__element:hover {
-        color: red;
-        cursor: pointer;
-      }
-      .disconnect {
-        margin-top: 2vh;
-        background-color: black;
-        color: white;
-      }
-      .disconnect:hover {
-        color: white;
-        background-color: red;
-      }
-      a {
-        all: unset;
-      }
-    }
-  }
-  .myAccount__main {
-    justify-content: left;
-    margin-left: 2vw;
+  background-color: white;
+}
 
-    .myAccount__main__article {
+.myAccount__header {
+  width: 100vw;
+  background-color: rgb(236, 234, 234);
+
+  .myAccount__header__img {
+    width: 100vw;
+  }
+}
+.myAccount__linkAccount {
+  margin-top: 5vh;
+}
+.myAccount__mainContainer {
+  background-color: rgb(236, 234, 234);
+  min-height: 100vh;
+  padding-top: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.myAccount__sideBar {
+  display: flex;
+  .myAccount__sideBar__list {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    gap: 1px;
+    .myAccount__sideBar__list__element {
       display: flex;
-      flex-direction: column;
       justify-content: left;
-      padding: 2vw;
-      width: 30vw;
+      padding-left: 2vw;
+      align-items: center;
+      height: 5vh;
+      list-style: none;
       background-color: white;
-      .button__countainer {
-        display: flex;
-        justify-content: space-around;
-      }
-      .myAccount {
-        background-color: yellow;
-      }
+      font-weight: 600;
+    }
+    .myAccount__sideBar__list__element:hover {
+      color: red;
+      cursor: pointer;
+    }
+    .disconnect {
+      margin-top: 2vh;
+      background-color: black;
+      color: white;
+    }
+    .disconnect:hover {
+      color: white;
+      background-color: red;
+    }
+    a {
+      all: unset;
     }
   }
-  .myAccount__button {
-    background-color: black;
-    color: white;
-    width: 80%;
-    height: 50px;
+}
+.myAccount__main {
+  justify-content: left;
+  margin-left: 2vw;
+
+  .myAccount__main__article {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 2vw;
+    width: 30vw;
+    background-color: white;
+    .button__countainer {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .myAccount__subClassTitle {
+      margin: 1vh 0;
+      font-weight: 600;
+      color: grey;
+      font-size: 11px;
+    }
+    .myAccount__subClassCountent {
+      padding-bottom: 0.5vh;
+      border-bottom: 1px solid black;
+    }
   }
+}
+.myAccount__button {
+  background-color: black;
+  color: white;
+  width: 45%;
+  height: 50px;
+}
+.myAccount__linkAccount__Button {
+  background-color: black;
+  color: white;
+  width: 45%;
+  height: 50px;
+}
+.myAccount__FB {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.myAccount__fbLogo {
+  width: 25px;
+}
+.myAccount__FbCountainer {
+  margin-left: 1vw;
+  display: flex;
 }
