@@ -19,8 +19,28 @@ body {
   position: absolute;
   top: 20%;
 }
-.incontournables{
-    width: 100%;
+.incontournables {
+  width: 100%;
   position: absolute;
   top: 70%;
+}
+
+.boxButton {
+  position: absolute;
+  top: 100%;
+  display: flex;
+  //justify-content: space-evenly;
+  list-style: none;
+  color: aliceblue;
+  height: 6%;
+  width: 100%;
+}
+.button {
+  background-color: black;
+  height: 39px;
+  width: 204px;
+  color: aliceblue;
+  font-size: 12px;
+  padding: 3%;
+  //margin-right: 10px;
 }
