@@ -19,12 +19,21 @@ const browse = async (req, res, next) => {
 // Log In
 const log = async (req, res, next) => {
   try {
-    const login = await tables.auth.readByEmail(
+    const login = await tables.votant.readByEmail(
       req.body.email,
       req.body.password
     );
     if (login) {
-      res.sendStatus(200);
+      res.status(200).json({
+        connected: {
+          id: login.id,
+          nom: login.nom,
+          prenom: login.prenom,
+          age: login.age,
+          region: login.region,
+          email: login.email,
+        },
+      });
     } else {
       res.sendStatus(403);
     }

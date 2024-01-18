@@ -21,5 +21,9 @@ router.post("/items", itemControllers.add);
 router.post("/login", authControllers.log);
 
 /* ************************************************************************* */
+const candidatControllers = require("./controllers/candidatControllers");
+
+router.get("/candidats", candidatControllers.browse);
+router.get("/candidats/:id", candidatControllers.read);
 
 module.exports = router;

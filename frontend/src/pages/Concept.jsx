@@ -1,9 +1,12 @@
+import { Outlet } from "react-router-dom";
 import React from "react";
+import Concepts from "../components/concept/Concepts";
 
 function Concept() {
   return (
-    <div className="Concept">
-      <h3>Concept</h3>
+    <div>
+      <Concepts />
+      <Outlet />
     </div>
   );
 }

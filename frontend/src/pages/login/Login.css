@@ -1,9 +1,16 @@
 .contain-form-login {
-  margin-top: 70px;
+  box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.25);
+  width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 auto;
 }
 
 .contain-form-login h2 {
   margin-bottom: 50px;
+  font-weight: 400;
 }
 
 .contain-input input {
@@ -16,6 +23,7 @@
   height: 28px;
   margin-bottom: 25px;
   font-family: Inter;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .contain-submit-login .button-submit {
@@ -25,7 +33,23 @@
   color: rgba(0, 0, 0, 0.5);
   width: 170px;
   height: 28px;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
+  margin-top: 10px;
   font-family: Inter;
   font-size: 13px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.contain-validation-errorconnexion {
+  height: 120px;
+  margin-top: 50px;
+}
+
+.validation {
+  font-weight: bold;
+}
+
+.errorconnexion {
+  color: #a30000;
+  font-weight: bold;
 }

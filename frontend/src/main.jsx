@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import connexion from "./services/connexion";
 import App from "./App";
 import Candidats from "./pages/Candidats";
 import Histoire from "./pages/Histoire";
 import Concept from "./pages/Concept";
 import Votes from "./pages/Votes";
 import Login from "./pages/login/Login";
+import CardsAll from "./pages/CardsAll/CardsAll";
+import Home from "./pages/home/Home";
 
 const router = createBrowserRouter([
   {
@@ -16,19 +17,23 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "",
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/histoire",
         element: <Histoire />,
       },
       {
-        path: "",
+        path: "/concept",
         element: <Concept />,
       },
       {
-        path: "",
+        path: "/candidats",
         element: <Candidats />,
       },
       {
-        path: "",
+        path: "/votes",
         element: <Votes />,
       },
       {
@@ -36,6 +41,16 @@ const router = createBrowserRouter([
         element: <Login />,
       },
     ],
+  },
+  {
+    path: "/candidats",
+    element: <CardsAll />,
+    loader: () => {
+      return connexion
+        .get("/Candidats")
+        .then((response) => response.data)
+        .catch((err) => console.error(err));
+    },
   },
 ]);
 
