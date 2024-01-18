@@ -112,7 +112,7 @@ function LoginModal() {
               <div className="pass-link">
                 <a href="/forgot-password">Mot de passe oublié ?</a>
               </div>
-              <div className="field btn">
+              <div className="field btn" onClick={handleLogin}>
                 <div
                   type="button"
                   className="btn-layer"

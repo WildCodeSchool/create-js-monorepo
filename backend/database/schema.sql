@@ -12,7 +12,7 @@ create table item (
 create table user (
   id int primary key auto_increment not null,
   email VARCHAR(80) NOT NULL,
-  hash VARCHAR(255) NOT NULL,
+  hashedPwd VARCHAR(255) NOT NULL,
   is_admin TINYINT NOT NULL,
   avatar VARCHAR(255)
 );

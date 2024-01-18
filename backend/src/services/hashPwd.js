@@ -2,12 +2,13 @@ const argon2 = require("argon2");
 
 const hashingOptions = {
   type: argon2.argon2id,
-  memoryCost: 19 * 2 ** 10,
-  timeCost: 2,
+  memoryCost: 2 ** 16,
+  timeCost: 5,
   parallelism: 1,
 };
 
 const hashPwd = async (req, res, next) => {
+  console.info(req.body);
   try {
     // const hash = await argon2.hash(req.body.password, hashingOptions);
     // delete req.body.password;
@@ -15,10 +16,11 @@ const hashPwd = async (req, res, next) => {
     // req.user = { ...req.body, password: hash };
 
     // const { password } = req.body;
-    const hash = await argon2.hash(req.body.password, hashingOptions);
-    delete req.body.password;
-    req.body.hash = hash;
+    const hashedPwd = await argon2.hash(req.body.password, hashingOptions);
 
+    req.body.hash = hashedPwd;
+
+    delete req.body.password;
     next();
   } catch (err) {
     next(err);
