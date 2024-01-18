@@ -1,14 +1,21 @@
 body {
-  background-image: url("src/assets/loreal-ecran.png");
+  background-image: url("src/assets/barnav loreal.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .HomePage__button {
   background-color: black;
   color: aliceblue;
   position: absolute;
-  left: 84%;
-  bottom: 93%;
-  font-size: 11px;
+  left: 73%;
+  bottom: 94%;
+  font-size: 8px;
   height: 3%;
-  width: 4%;
+  width: 5%;
+}
+.card1 {
+  width: 100%;
+  position: absolute;
+  top: 20%;
 }
