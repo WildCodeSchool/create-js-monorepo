@@ -1,3 +1,5 @@
+@import "../commons.scss";
+
 .avatar {
   display: flex;
   align-items: center;
@@ -26,6 +28,11 @@
     margin-bottom: 1rem;
   }
 }
+
+.img-download-block {
+  padding-bottom: 50px;
+}
+
 body {
   background-color: black;
 }
