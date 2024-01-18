@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from "react";
-import PngAvatar from "./PngAvatar";
 
 import "./RPM.scss";
 import "../commons.scss";
@@ -99,7 +98,6 @@ function RPM() {
       downloadImage(avatarUrl);
     }
   };
-
   return (
     <div className="avatar">
       <iframe
@@ -109,12 +107,17 @@ function RPM() {
         title="Ready Player Me Avatar"
       />
       <div className="img-download-block">
-        <PngAvatar avatarUrl={avatarUrl} />
         {avatarUrl && (
-          <button type="button" onClick={handleDownload} className="button">
-            Télécharger l'avatar
-          </button>
+          <img
+            key={avatarUrl}
+            src={avatarUrl}
+            alt="Ready Player Me Avatar"
+            className="avatar-image"
+          />
         )}
+        <button type="button" onClick={handleDownload} className="button">
+          Télécharger l'avatar
+        </button>
       </div>
     </div>
   );
