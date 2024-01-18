@@ -18,6 +18,7 @@
   border-color: white;
   color: rgba(0, 0, 0, 0.5);
   border: none;
+  padding-left: 15px;
 }
 
 .classtextarea {
@@ -29,14 +30,18 @@
   border-radius: 0.5vw;
   background-color: #fae7c0;
   border-color: white;
-  text-align: left;
-  vertical-align: top;
-  padding-bottom: vw;
+  /* text-align: left; */
+  /* vertical-align: top; */
+  align-items: flex-start;
   color: rgba(0, 0, 0, 0.5);
   border: none;
+  padding-left: 15px;
 }
 
 .classbut {
-  font-size: 14px;
+  justify-content: center;
+  font-size: 15px;
   color: rgba(0, 0, 0, 0.5);
+  width: 170px;
+  align-items: center;
 }

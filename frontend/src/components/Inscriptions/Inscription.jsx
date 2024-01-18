@@ -70,7 +70,7 @@ function Inscription() {
           required
         />
         <button type="submit" className="classbut">
-          ENVOI DU FORMULAIRE
+          ENVOYER
         </button>
       </form>
     </div>
