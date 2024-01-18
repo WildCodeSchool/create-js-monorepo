@@ -1,12 +1,31 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./LoginModal.scss";
 
 function LoginModal() {
   const [isLoginFormVisible, setLoginFormVisible] = useState(true);
+  const [isModalVisible, setModalVisible] = useState(true);
+  const modalRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      // Clic en dehors de la modal, donc masquer la modal si elle est visible
+      if (isModalVisible) {
+        setModalVisible(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -39,7 +58,7 @@ function LoginModal() {
       });
   };
   return (
-    <div className="wrapper">
+    <div className={`wrapper ${isModalVisible ? "" : "hidden"}`} ref={modalRef}>
       <div className="title-text">
         <div className={`title ${isLoginFormVisible ? "login" : "signup"}`}>
           {isLoginFormVisible ? "Se connecter" : "S'inscrire"}
