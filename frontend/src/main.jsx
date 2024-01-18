@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import PageInscription from "./pages/PageInscription";
 import CardsAll from "./pages/CardsAll/CardsAll";
 import Home from "./pages/home/Home";
+import CardsId from "./pages/CardsId/CardsId";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,16 @@ const router = createBrowserRouter([
     loader: () => {
       return connexion
         .get("/Candidats")
+        .then((response) => response.data)
+        .catch((err) => console.error(err));
+    },
+  },
+  {
+    path: "/candidates/:id",
+    element: <CardsId />,
+    loader: ({ params }) => {
+      return connexion
+        .get(`/Candidats/${params.id}`)
         .then((response) => response.data)
         .catch((err) => console.error(err));
     },
