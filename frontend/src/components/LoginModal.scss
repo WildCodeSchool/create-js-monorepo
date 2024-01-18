@@ -162,6 +162,7 @@ form .btn {
 form .btn .btn-layer {
   height: 100%;
   width: 300%;
+  color: white;
   @extend %button;
 
   // position: absolute;
@@ -179,6 +180,7 @@ form .btn .btn-layer {
 }
 form .btn:hover .btn-layer {
   left: 0;
+  color: white;
 }
 form .btn input[type="submit"] {
   height: 100%;

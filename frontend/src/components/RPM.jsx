@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import "./RPM.scss";
 
 function RPM() {
+  const [avatarUrl, setAvatarUrl] = useState("");
+  const [hideIframe, setHideIframe] = useState(false);
+
   useEffect(() => {
-    // Initial setup code, only runs once when the component mounts
     const subdomain = "loreal-avatar";
     const frame = document.getElementById("frame");
     frame.src = `https://${subdomain}.readyplayer.me/avatar?frameApi`;
@@ -36,10 +38,11 @@ function RPM() {
       }
 
       if (json.eventName === "v1.avatar.exported") {
-        console.error(`Avatar URL: ${json.data.url}`);
-        document.getElementById("avatarUrl").innerHTML =
-          `Avatar URL: ${json.data.url}`;
-        document.getElementById("frame").hidden = true;
+        const pngUrl = json.data.url.replace(".glb", ".png");
+        console.error(`Avatar PNG URL: ${pngUrl}`);
+        // Add a random query parameter to the URL to force reloading
+        setAvatarUrl(`${pngUrl}?random=${Math.random()}`);
+        setHideIframe(false);
       }
 
       if (json.eventName === "v1.user.set") {
@@ -52,19 +55,27 @@ function RPM() {
     window.addEventListener("message", subscribe);
 
     return () => {
-      // Cleanup code, removes the event listener when the component unmounts
       window.removeEventListener("message", subscribe);
     };
-  }, []); // useEffect will run once when the component mounts
+  }, []);
 
   return (
     <div className="avatar">
+      {/* Use the 'hideIframe' state to conditionally apply a CSS class */}
       <iframe
         id="frame"
-        className="frame"
+        className={`frame ${hideIframe ? "hidden" : ""}`}
         allow="camera *; microphone *; clipboard-write"
         title="Ready Player Me Avatar"
       />
+      {avatarUrl && (
+        <img
+          key={avatarUrl}
+          src={avatarUrl}
+          alt="Ready Player Me Avatar"
+          className="avatar-image"
+        />
+      )}
     </div>
   );
 }
