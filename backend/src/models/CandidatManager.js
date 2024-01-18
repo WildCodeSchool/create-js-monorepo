@@ -30,7 +30,7 @@ class CandidatManager extends AbstractManager {
     );
 
     // Return the first row of the result, which represents the Candidat
-    return rows[0];
+    return rows;
   }
 
   async readAll() {

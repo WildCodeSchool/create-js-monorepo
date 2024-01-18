@@ -8,8 +8,10 @@ import Histoire from "./pages/Histoire";
 import Concept from "./pages/Concept";
 import Votes from "./pages/Votes";
 import Login from "./pages/login/Login";
+import PageInscription from "./pages/PageInscription";
 import CardsAll from "./pages/CardsAll/CardsAll";
 import Home from "./pages/home/Home";
+import CardsId from "./pages/CardsId/CardsId";
 
 const router = createBrowserRouter([
   {
@@ -40,14 +42,28 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
+      {
+        path: "/signin",
+        element: <PageInscription />,
+      },
     ],
   },
   {
-    path: "/candidats",
+    path: "/candidates",
     element: <CardsAll />,
     loader: () => {
       return connexion
         .get("/Candidats")
+        .then((response) => response.data)
+        .catch((err) => console.error(err));
+    },
+  },
+  {
+    path: "/candidates/:id",
+    element: <CardsId />,
+    loader: ({ params }) => {
+      return connexion
+        .get(`/Candidats/${params.id}`)
         .then((response) => response.data)
         .catch((err) => console.error(err));
     },

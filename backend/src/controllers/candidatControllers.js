@@ -23,7 +23,7 @@ const read = async (req, res, next) => {
 
     // If the Candidat is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the Candidat in JSON format
-    if (Candidat == null) {
+    if (Candidat.length === 0) {
       res.sendStatus(404);
     } else {
       res.json(Candidat);
