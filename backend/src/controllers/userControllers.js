@@ -85,6 +85,15 @@ const destroy = async (req, res, next) => {
   }
 };
 
+const createUser = async (req, res, next) => {
+  try {
+    const user = await tables.user.create(req.user, null);
+    res.json({ user });
+  } catch (err) {
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -92,4 +101,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  createUser,
 };
