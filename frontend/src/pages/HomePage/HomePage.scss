@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 .nav {
   width: 100%;
 }
@@ -9,7 +11,7 @@
 
   .HomePage__button__button {
     background-color: black;
-    color: aliceblue;
+    color: white;
     position: absolute;
     left: 73%;
     bottom: 94%;
@@ -37,7 +39,8 @@
   border: none;
   height: 40px;
   width: 222px;
-  color: aliceblue;
-  font-size: 11px;
+  color: white;
+  font-size: 10px;
   margin-right: 16px;
+  font-family: $fontBold;
 }
