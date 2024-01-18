@@ -1,12 +1,23 @@
+/* eslint-disable react/no-array-index-key */
 import { useEffect, useState } from "react";
-import { useGlobalContext } from "../../Context/Context";
+import db from "../../db";
 import ItemCard from "../ItemCard/ItemCard";
 import "./favoriteItems.scss";
 
 function FavoriteItems() {
   const [totalPrice, setTotalPrice] = useState(0);
-  const { favorites } = useGlobalContext();
-  const [displayFavorites, setDisplayFavorites] = useState(favorites);
+  const getItems = () => {
+    const rand = Math.floor(Math.random() * 50);
+    const randClientId = db[rand].new_customerID;
+    const items = db.filter((e) => e.new_customerID === randClientId);
+    items.forEach((e, index) => {
+      e.id = index;
+      e.quantity = Math.floor(Math.random() * 4) + 1;
+    });
+    return items.slice(0, 4);
+  };
+  // const { favorites } = useGlobalContext();
+  const [displayFavorites, setDisplayFavorites] = useState(getItems());
 
   const quantityChange = (id, quantity) => {
     const item = displayFavorites.find((e) => e.id === id);
@@ -18,7 +29,7 @@ function FavoriteItems() {
   const calculateTotalPrice = () => {
     let total = 0;
     displayFavorites.forEach((e) => {
-      total += e.price * e.quantity;
+      total += e.Price * e.quantity;
     });
     setTotalPrice(total);
   };
@@ -33,7 +44,7 @@ function FavoriteItems() {
   };
 
   return (
-    <>
+    <div className="container">
       <h1 className="title">Vos articles favoris :</h1>
       <section className="favorites">
         <ul className="favorites__list">
@@ -42,11 +53,11 @@ function FavoriteItems() {
               <ItemCard
                 key={e.id}
                 id={e.id}
-                brand={e.brand}
-                name={e.name}
-                price={e.price}
+                brand={e.Brand}
+                name={e.Item_Purchased_x}
+                price={e.Price}
                 quantity={e.quantity}
-                src={e.src}
+                src={e.links}
                 setTotalPrice={setTotalPrice}
                 quantityChange={quantityChange}
                 removeItem={removeItem}
@@ -71,7 +82,7 @@ function FavoriteItems() {
           </p>
         </section>
       </section>
-    </>
+    </div>
   );
 }
 

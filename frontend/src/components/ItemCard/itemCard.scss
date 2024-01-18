@@ -7,10 +7,15 @@
   padding: 1rem;
   border: 1px solid $black;
   border-top: 0;
-  &__image {
+
+  &__imageContainer {
+    display: flex;
+    justify-content: center;
     width: 10rem;
-    height: fit-content;
-    margin: auto 0;
+  }
+  &__image {
+    max-height: 5rem;
+    margin: auto;
   }
 
   &__group {
