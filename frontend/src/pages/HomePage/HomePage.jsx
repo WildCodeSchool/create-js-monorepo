@@ -19,22 +19,22 @@ function HomePage() {
       <ul className="boxButton">
         <li>
           <button className="button" type="button">
-            ajouter a la box
+            AJOUTER A LA BOX
           </button>
         </li>
         <li>
           <button className="button" type="button">
-            ajouter a la box
+            AJOUTER A LA BOX
           </button>
         </li>
         <li>
           <button className="button" type="button">
-            ajouter a la box
+            AJOUTER A LA BOX
           </button>
         </li>
         <li>
           <button className="button" type="button">
-            ajouter a la box
+            AJOUTER A LA BOX
           </button>
         </li>
       </ul>
