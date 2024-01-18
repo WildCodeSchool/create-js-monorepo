@@ -1,0 +1,31 @@
+.contain-form-login {
+  margin-top: 70px;
+}
+
+.contain-form-login h2 {
+  margin-bottom: 50px;
+}
+
+.contain-input input {
+  border-radius: 5px;
+  background: #fae7c0;
+  border: none;
+  padding: 5px 10px;
+  color: rgba(0, 0, 0, 0.5);
+  width: 306px;
+  height: 28px;
+  margin-bottom: 25px;
+  font-family: Inter;
+}
+
+.contain-submit-login .button-submit {
+  border-radius: 5px;
+  background: #fae7c0;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+  width: 170px;
+  height: 28px;
+  margin-bottom: 10px;
+  font-family: Inter;
+  font-size: 13px;
+}

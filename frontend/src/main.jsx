@@ -8,7 +8,7 @@ import Candidats from "./pages/Candidats";
 import Histoire from "./pages/Histoire";
 import Concept from "./pages/Concept";
 import Votes from "./pages/Votes";
-import Login from "./pages/Login";
+import Login from "./pages/login/Login";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <Votes />,
       },
       {
-        path: "",
+        path: "/login",
         element: <Login />,
       },
     ],
