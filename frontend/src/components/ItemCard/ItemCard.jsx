@@ -16,10 +16,29 @@ function ItemCard({
 }) {
   const [itemPrice, setItemPrice] = useState(price);
 
+  const handleClick = () => {};
+
   return (
     <article className="item">
       <img src={src} alt={`${name} de ${brand}`} className="item__image" />
-      <h3 className="item__name">{name}</h3>
+      <div className="item__group">
+        <h3 className="item__group__name">{name}</h3>
+        <div>
+          <button className="item__group__button" type="button">
+            Modifier
+          </button>
+          <button className="item__group__button" type="button">
+            Ajouter aux favoris
+          </button>
+          <button
+            className="item__group__button"
+            type="button"
+            onClick={handleClick}
+          >
+            Supprimer
+          </button>
+        </div>
+      </div>
       <Quantity
         id={id}
         price={itemPrice}
