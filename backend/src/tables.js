@@ -5,12 +5,9 @@
 // Import the manager modules responsible for handling data operations on the tables
 const ItemManager = require("./models/ItemManager");
 const CandidatManager = require("./models/CandidatManager");
+const AuthManager = require("./models/AuthManager");
 
-const managers = [
-  ItemManager,
-  CandidatManager,
-  // Add other managers here
-];
+const managers = [ItemManager, CandidatManager, AuthManager];
 
 // Create an empty object to hold data managers for different tables
 const tables = {};
