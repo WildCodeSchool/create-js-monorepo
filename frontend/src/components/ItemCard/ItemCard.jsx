@@ -23,7 +23,9 @@ function ItemCard({
 
   return (
     <article className="item">
-      <img src={src} alt={`${name} de ${brand}`} className="item__image" />
+      <div className="item__imageContainer">
+        <img src={src} alt={`${name} de ${brand}`} className="item__image" />
+      </div>
       <div className="item__group">
         <h3 className="item__group__name">{name}</h3>
         <div className="item__group__links">
