@@ -9,6 +9,7 @@ import Signup from "./pages/Signup/Signup";
 import Carousel from "./components/Carousel/Carousel";
 import MyAccount from "./pages/myAccount/myAccount";
 import FavoriteItems from "./components/FavoriteItems/FavoriteItems";
+import HomePage from "./pages/HomePage/HomePage";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/Signup",
         element: <Signup />,
       },
       {
