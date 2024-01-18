@@ -14,22 +14,22 @@ function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <a
-          href="https://www.facebook.com"
+          href="https://www.facebook.com/LOrealParisFrance/?locale=fr_FR"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img src={Facebook} alt="Facebook" />
         </a>
         <a
-          href="https://www.twitter.com"
+          href="https://twitter.com/LOrealGroupe"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img src={Twitter} alt="Twitter" />
         </a>
-        <Timer deadline={contestDeadline} className="timer" />
+        <Timer deadline={contestDeadline} />
         <a
-          href="https://www.instagram.com"
+          href="https://www.instagram.com/lorealparis/?hl=fr"
           target="_blank"
           rel="noopener noreferrer"
         >
