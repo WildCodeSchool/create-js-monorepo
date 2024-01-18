@@ -7,72 +7,72 @@ function Routourne() {
     {
       option: "0",
       image: {
-        uri: "./src/assets/petal.svg",
+        uri: "./src/assets/petal0.svg",
         landscape: false,
-        sizeMultiplier: 2.2,
+        sizeMultiplier: 2.1,
         offsetX: 20,
       },
     },
     {
       option: "0",
       image: {
-        uri: "./src/assets/petal.svg",
+        uri: "./src/assets/petal1.svg",
         landscape: false,
-        sizeMultiplier: 2.2,
+        sizeMultiplier: 2.1,
         offsetX: 20,
       },
     },
     {
       option: "0",
       image: {
-        uri: "./src/assets/petal.svg",
+        uri: "./src/assets/petal2.svg",
         landscape: false,
-        sizeMultiplier: 2.2,
+        sizeMultiplier: 2.1,
         offsetX: 20,
       },
     },
     {
       option: "0",
       image: {
-        uri: "./src/assets/petal.svg",
+        uri: "./src/assets/petal3.svg",
         landscape: false,
-        sizeMultiplier: 2.2,
+        sizeMultiplier: 2.1,
         offsetX: 20,
       },
     },
     {
       option: "0",
       image: {
-        uri: "./src/assets/petal.svg",
+        uri: "./src/assets/petal4.svg",
         landscape: false,
-        sizeMultiplier: 2.2,
+        sizeMultiplier: 2.1,
         offsetX: 20,
       },
     },
     {
       option: "0",
       image: {
-        uri: "./src/assets/petal.svg",
+        uri: "./src/assets/petal5.svg",
         landscape: false,
-        sizeMultiplier: 2.2,
+        sizeMultiplier: 2.1,
         offsetX: 20,
       },
     },
     {
       option: "0",
       image: {
-        uri: "./src/assets/petal.svg",
+        uri: "./src/assets/petal6.svg",
         landscape: false,
-        sizeMultiplier: 2.2,
+        sizeMultiplier: 2.1,
         offsetX: 20,
       },
     },
     {
       option: "0",
       image: {
-        uri: "./src/assets/petal.svg",
+        uri: "./src/assets/petal7.svg",
         landscape: false,
-        sizeMultiplier: 2.2,
+        sizeMultiplier: 2.1,
         offsetX: 20,
       },
     },
@@ -83,8 +83,7 @@ function Routourne() {
 
   const handleSpinClick = () => {
     if (!mustSpin) {
-      const newPrizeNumber = Math.floor(Math.random() * data.length);
-      setPrizeNumber(newPrizeNumber);
+      setPrizeNumber(7);
       setMustSpin(true);
     }
   };
@@ -106,8 +105,6 @@ function Routourne() {
           radiusLineWidth={0}
           radiusLineColor={["#ffd43b"]}
           innerRadius={1}
-          //   perpendicularText={1}
-          //   textDistance={75}
           pointerProps={{
             src: "./src/assets/marker.svg",
           }}
