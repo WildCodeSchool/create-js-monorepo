@@ -25,3 +25,22 @@
   padding: 1rem;
   border-radius: 15px;
 }
+
+.image-text {
+  text-align: center;
+  color: whitesmoke;
+  padding: 1rem;
+  margin-left: 32rem;
+  margin-top: 0.7rem;
+  margin-right: -1rem;
+
+  @media (max-width: 768px) {
+    margin-left: rem;
+  }
+
+  // Media query pour les petits écrans (par exemple, téléphones mobiles)
+  @media (max-width: 480px) {
+    margin-left: 11rem;
+    font-size: 2vh; // Suppression de la marge pour les très petits écrans
+  }
+}
