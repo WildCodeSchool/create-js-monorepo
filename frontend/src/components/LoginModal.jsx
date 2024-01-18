@@ -1,4 +1,8 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./LoginModal.scss";
 
 function LoginModal() {
@@ -23,6 +27,36 @@ function LoginModal() {
     };
   }, []);
 
+  const [loginInfo, setLoginInfo] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  const handleLoginRegister = (event) => {
+    const { name, value } = event.target;
+    setLoginInfo({ ...loginInfo, [name]: value });
+  };
+  console.info(loginInfo);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const { email, password } = loginInfo;
+
+    if (email === "" || password === "") {
+      return;
+    }
+
+    axios
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/login`, loginInfo, {
+        withCredentials: true,
+      })
+      .then(() => navigate("/avatar"))
+      .catch((err) => {
+        console.error(err);
+      });
+  };
   return (
     <div className={`wrapper ${isModalVisible ? "" : "hidden"}`} ref={modalRef}>
       <div className="title-text">
@@ -58,16 +92,32 @@ function LoginModal() {
           {isLoginFormVisible ? (
             <form action="#" className="login">
               <div className="field">
-                <input type="text" placeholder="Adresse Email" required />
+                <input
+                  type="text"
+                  placeholder="Adresse Email"
+                  name="email"
+                  value={loginInfo.email}
+                  onChange={handleLoginRegister}
+                />
               </div>
               <div className="field">
-                <input type="password" placeholder="Mot de passe" required />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Mot de passe"
+                  value={loginInfo.password}
+                  onChange={handleLoginRegister}
+                />
               </div>
               <div className="pass-link">
                 <a href="/forgot-password">Mot de passe oublié ?</a>
               </div>
               <div className="field btn">
-                <div className="btn-layer" />
+                <div
+                  type="button"
+                  className="btn-layer"
+                  onClick={handleLogin}
+                />
                 <input type="submit" value="Login" />
               </div>
               <div className="signup-link">
