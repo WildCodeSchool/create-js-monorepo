@@ -14,10 +14,11 @@ function Navbar() {
         <Link to="/histoire">
           <p className="nav_p">Histoire </p>
         </Link>
-        <Link to="/concept">
-          <p className="nav_p">Concept </p>
+        <Link to="/guest">
+          <p className="nav_p">Guest </p>
         </Link>
-        <Link to="/candidats">
+
+        <Link to="/candidates">
           <p className="nav_p">Candidats </p>
         </Link>
         <Link to="/votes">
