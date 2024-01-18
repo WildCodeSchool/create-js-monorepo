@@ -25,14 +25,12 @@ CREATE TABLE Votant (
 
 INSERT INTO Candidat (nom, prenom, age, region, adresse_salon, photo, email, mot_de_passe, selectionne)
 VALUES ('Dupont', 'Isabel', 35, 'Centre-Val de Loire', '123 Rue de la Coiffure', 'https://images-ext-2.discordapp.net/external/clPc1QDuJSH-DpQgDm5KTnltgITHfi__c1_oeU3vbxQ/%3Fsize%3D626%26ext%3Djpg%26ga%3DGA1.1.1882205395.1705507906%26semt%3Dais/https/img.freepik.com/photos-gratuite/belle-fille-se-trouve-dans-parc_8353-5084.jpg?format=webp&width=369&height=554', 'jean.dupont@example.com', 'abde154', false);
-INSERT INTO Candidat (nom, prenom, age, region, adresse_salon, photo, email, mot_de_passe, selectionne)
-VALUES ('Durant', 'Manon', 35, 'Centre-Val de Loire', '124 Rue de la Coiffure', 'https://images-ext-1.discordapp.net/external/alvTcQcCcyASwKCeoNxygd18QnVudjhJYERqFqbRiUs/%3Fsize%3D626%26ext%3Djpg%26ga%3DGA1.1.1882205395.1705507906%26semt%3Dais/https/img.freepik.com/photos-gratuite/jolie-jeune-femme-portrait-plein-air_624325-3784.jpg?format=webp', 'jean.dupont@example.com', 'abde154', false);
+
 INSERT INTO Candidat (nom, prenom, age, region, adresse_salon, photo, email, mot_de_passe, selectionne)
 VALUES ('Durandal', 'florence', 35, 'Centre-Val de Loire', '125 Rue de la Coiffure', 'https://images-ext-2.discordapp.net/external/I0gDo6JH0FrqXOeuTCH2MJIZx2Xac1nKTAEBeDloctY/%3Fsize%3D626%26ext%3Djpg%26ga%3DGA1.1.1882205395.1705507906%26semt%3Dais/https/img.freepik.com/photos-gratuite/bouchent-portrait-jeune-femme-blonde-odorante-queue-cheval-maquillage-lumineux-humeur-positive-jolie-robe-bleue-elegante_291049-2180.jpg?format=webp&width=369&height=554', 'jean.dupont@example.com', 'abde154', false);
 INSERT INTO Candidat (nom, prenom, age, region, adresse_salon, photo, email, mot_de_passe, selectionne)
 VALUES ('Dutetar', 'Pascale', 35, 'Centre-Val de Loire', '126 Rue de la Coiffure', 'https://images-ext-2.discordapp.net/external/X5K02ijXoChW7dqvE9Eut1j9tf_gaVyH8YWOP7p-TPo/%3Fsize%3D626%26ext%3Djpg%26ga%3DGA1.1.1882205395.1705507906%26semt%3Dais/https/img.freepik.com/photos-gratuite/jeune-coiffure-blond-urbain-gai_1139-835.jpg?format=webp&width=370&height=554', 'jean.dupont@example.com', 'abde154', false);
-INSERT INTO Candidat (nom, prenom, age, region, adresse_salon, photo, email, mot_de_passe, selectionne)
-VALUES ('pariet', 'Jacynthe', 35, 'Centre-Val de Loire', '1258 Rue de la Coiffure', 'url_de_la_photo', 'https://images-ext-1.discordapp.net/external/JK60hlsd97AMcDgnld0cqfQgKEjAURcLifI8pMghZdo/%3Fsize%3D626%26ext%3Djpg%26ga%3DGA1.1.1882205395.1705507906%26semt%3Dais/https/img.freepik.com/photos-gratuite/jolie-femme-portrait-plein-air_624325-2960.jpg?format=webp&width=369&height=554', 'abde154', false);
+
 INSERT INTO Candidat (nom, prenom, age, region, adresse_salon, photo, email, mot_de_passe, selectionne)
 VALUES ('Rose', 'Marie', 35, 'Centre-Val de Loire', '1258 Rue de la Coiffure', 'https://images-ext-1.discordapp.net/external/kAuEvqdbBuTzy7ityHT0WbZ1vbbe4tHTJ6G_OfCK1EQ/%3Fsize%3D626%26ext%3Djpg%26ga%3DGA1.1.1882205395.1705507906%26semt%3Dais/https/img.freepik.com/photos-gratuite/sourire-femme-brune-robe-blanche-pose-dans-jardin_1304-5443.jpg?format=webp&width=370&height=554', 'jean.dupont@example.com', 'abde154', false);
 INSERT INTO Candidat (nom, prenom, age, region, adresse_salon, photo, email, mot_de_passe, selectionne)
