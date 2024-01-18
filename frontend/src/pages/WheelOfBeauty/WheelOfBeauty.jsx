@@ -1,10 +1,10 @@
+import Routourne from "../../components/Routourne/Routourne";
 import "./WheelOfbeauty.scss";
 import myJson from "./wheel.json";
 
 function WheelOfbeauty() {
   return (
     <>
-      <h1 className="wheel">hi hi wheel of beauty page</h1>
       <h2>Look at my WheelOfBeauty gits possibility</h2>
       {myJson
         ? myJson.map((gift) => (
@@ -14,6 +14,7 @@ function WheelOfbeauty() {
             </section>
           ))
         : " loading"}
+      <Routourne />
     </>
   );
 }
