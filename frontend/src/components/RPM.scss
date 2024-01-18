@@ -38,14 +38,51 @@ body {
 }
 
 .avatar-image {
-  width: 26%;
   border: 1px solid white;
+  border-radius: 12px;
   position: absolute;
-  left: 0;
+  left: 25vw;
+  width: 50%;
+  top: 125vh;
+  transform: translateY(50%);
+  @media (min-width: 650px) {
+    width: 40%;
+    transform: translateY(15%);
+    margin-left: 5vw;
+    margin-top: 2.5rem;
+  }
+}
+
+.download-button {
+  font-size: calc(0.8rem + 0.2vw);
+  padding: 15px 25px;
+  border-radius: 0.8rem;
+  color: black;
+  font-weight: 600;
+  font-size: 17px;
+  background: linear-gradient(
+    0deg,
+    rgba(224, 145, 27, 1) 0%,
+    rgba(255, 249, 102, 1) 44%,
+    rgba(241, 239, 199, 1) 52%,
+    rgba(255, 249, 102, 1) 62%,
+    rgba(224, 145, 27, 1) 100%
+  );
+}
+
+.image-text {
+  position: relative;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 2vh;
   margin-bottom: 1rem;
-  transform: translateY(150%);
-  @media (max-width: 600px) {
-    width: 45%;
-    transform: translateY(250%);
+  bottom: 10vh;
+
+  @media (min-width: 650px) {
+    position: relative;
+    right: 28vw;
+    bottom: 5vh;
+    margin-bottom: 0;
+    margin-left: 55vw;
   }
 }

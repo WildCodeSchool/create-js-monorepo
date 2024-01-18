@@ -11,11 +11,6 @@ function Avatar() {
       </Link>
       <p className="intro-text">Commencez à créer votre avatar</p>
       <RPM />
-      <p className="image-text">L'image de votre avatar va apparaître ici</p>
-      <p className="image-text">
-        Pour la télécharger faites un clic droit dessus
-        <br /> "Enregister l'image sous..."{" "}
-      </p>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./RPM.scss";
 import "../commons.scss";
@@ -115,10 +115,28 @@ function RPM() {
             className="avatar-image"
           />
         )}
-        <button type="button" onClick={handleDownload} className="button">
-          Télécharger l'avatar
-        </button>
+        {avatarUrl ? (
+          <button
+            type="button"
+            onClick={handleDownload}
+            className="download-button"
+          >
+            Télécharger l'avatar
+          </button>
+        ) : (
+          <span>Attendez la génération de l'image...</span>
+        )}
       </div>
+      {avatarUrl ? null : (
+        <>
+          <p className="image-text">
+            Cliquez sur le bouton suivant pour générer votre image.
+          </p>
+          <p className="image-text">
+            L'image de votre avatar va apparaître ici
+          </p>
+        </>
+      )}
     </div>
   );
 }
