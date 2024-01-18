@@ -387,18 +387,5 @@
 }
 
 .alice-carousel__play-btn-item {
-  bottom: -100%;
-  left: 20%;
-}
-
-.alice-carousel__play-btn-item::before,
-.alice-carousel__play-btn-item::after {
-  border-left-color: $black;
-  height: 20px;
-}
-
-.alice-carousel__play-btn-item.__pause::before,
-.alice-carousel__play-btn-item.__pause::after {
-  height: 20px;
-  border-width: 0 0 0 5px;
+  display: none;
 }

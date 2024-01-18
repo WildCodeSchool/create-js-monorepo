@@ -10,6 +10,7 @@ import Carousel from "./components/Carousel/Carousel";
 import MyAccount from "./pages/myAccount/myAccount";
 import FavoriteItems from "./components/FavoriteItems/FavoriteItems";
 import HomePage from "./pages/HomePage/HomePage";
+import CarouselTwo from "./components/CarouselTwo/CarouselTwo";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/carousel",
         element: <Carousel />,
+      },
+      {
+        path: "/carouseltwo",
+        element: <CarouselTwo />,
       },
       {
         path: "/account",
