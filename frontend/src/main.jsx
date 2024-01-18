@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import connexion from "./services/connexion";
 import App from "./App";
 import Candidats from "./pages/Candidats";
-import Histoire from "./pages/Histoire";
+import Histoire from "./pages/histoire/Histoire";
 import Concept from "./pages/Concept";
 import Votes from "./pages/Votes";
 import Login from "./pages/login/Login";
