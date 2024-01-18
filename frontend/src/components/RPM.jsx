@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
+import React, { useEffect, useState } from "react";
 import PngAvatar from "./PngAvatar";
 
 import "./RPM.scss";
+import "../commons.scss";
 
 function RPM() {
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -59,6 +62,44 @@ function RPM() {
     };
   }, []);
 
+  const [imageUrl, setImageUrl] = useState(null);
+
+  const downloadImage = (imageUrl) => {
+    fetch(imageUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Create a temporary anchor element
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+
+        // Extract the filename from the URL
+        const filename = "myAvatar";
+
+        // Set the download attribute and filename
+        link.setAttribute("download", filename);
+        document.body.appendChild(link);
+
+        // Simulate a click on the anchor element to start the download
+        link.click();
+
+        // Clean up the temporary anchor element
+        link.parentNode.removeChild(link);
+
+        // Set the downloaded image URL to display on the page
+        setImageUrl(url);
+      })
+      .catch((error) => {
+        console.error("Error downloading image:", error);
+      });
+  };
+
+  const handleDownload = () => {
+    if (avatarUrl) {
+      downloadImage(avatarUrl);
+    }
+  };
+
   return (
     <div className="avatar">
       <iframe
@@ -67,7 +108,14 @@ function RPM() {
         allow="camera *; microphone *; clipboard-write"
         title="Ready Player Me Avatar"
       />
-      <PngAvatar avatarUrl={avatarUrl} />
+      <div className="img-download-block">
+        <PngAvatar avatarUrl={avatarUrl} />
+        {avatarUrl && (
+          <button type="button" onClick={handleDownload} className="button">
+            Télécharger l'avatar
+          </button>
+        )}
+      </div>
     </div>
   );
 }

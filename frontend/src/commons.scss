@@ -20,3 +20,6 @@
     font-weight: 700;
   }
 }
+.button {
+  @extend %button;
+}
