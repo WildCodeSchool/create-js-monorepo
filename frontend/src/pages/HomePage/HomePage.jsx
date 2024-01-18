@@ -13,6 +13,28 @@ function HomePage() {
         src="src/assets/incontournables.png"
         alt=""
       />
+      <ul className="boxButton">
+        <li>
+          <button className="button" type="button">
+            ajouter a la box
+          </button>
+        </li>
+        <li>
+          <button className="button" type="button">
+            ajouter a la box
+          </button>
+        </li>
+        <li>
+          <button className="button" type="button">
+            ajouter a la box
+          </button>
+        </li>
+        <li>
+          <button className="button" type="button">
+            ajouter a la box
+          </button>
+        </li>
+      </ul>
     </>
   );
 }
