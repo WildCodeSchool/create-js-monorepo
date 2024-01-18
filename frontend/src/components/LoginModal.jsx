@@ -118,7 +118,7 @@ function LoginModal() {
                   className="btn-layer"
                   onClick={handleLogin}
                 />
-                <input type="submit" value="Login" />
+                <input type="submit" value="Se Connecter" />
               </div>
               <div className="signup-link">
                 Pas encore membre ? <a href="/signup">S'inscrire</a>
@@ -141,7 +141,11 @@ function LoginModal() {
               </div>
               <div className="field btn">
                 <div className="btn-layer" />
-                <input type="submit" value="Signup" className="submit btn" />
+                <input
+                  type="submit"
+                  value="S'Inscrire"
+                  className="submit btn"
+                />
               </div>
             </form>
           )}
