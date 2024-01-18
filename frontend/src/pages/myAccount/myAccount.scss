@@ -1,4 +1,7 @@
+@import "../../variables.scss";
+
 .myAccount {
+  font-family: $font;
   background-color: lightgrey;
   .myAccount__header {
     width: 100vw;
@@ -9,7 +12,10 @@
       background-color: pink;
     }
   }
-
+  .myAccount__mainContainer {
+    display: flex;
+    flex-direction: row;
+  }
   .myAccount__sideBar {
     display: flex;
     .myAccount__sideBar__list {
@@ -29,6 +35,7 @@
       }
       .myAccount__sideBar__list__element:hover {
         color: red;
+        cursor: pointer;
       }
       .disconnect {
         margin-top: 2vh;
@@ -39,6 +46,35 @@
         color: white;
         background-color: red;
       }
+      a {
+        all: unset;
+      }
     }
+  }
+  .myAccount__main {
+    justify-content: left;
+    margin-left: 2vw;
+
+    .myAccount__main__article {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      padding: 2vw;
+      width: 30vw;
+      background-color: white;
+      .button__countainer {
+        display: flex;
+        justify-content: space-around;
+      }
+      .myAccount {
+        background-color: yellow;
+      }
+    }
+  }
+  .myAccount__button {
+    background-color: black;
+    color: white;
+    width: 80%;
+    height: 50px;
   }
 }
