@@ -29,3 +29,15 @@
 body {
   background-color: black;
 }
+
+.avatar-image {
+  width: 50%;
+  border: 1px solid white;
+  position: absolute;
+  left: 0;
+  margin-bottom: 1rem;
+  transform: translateY(150%);
+  @media (max-width: 600px) {
+    transform: translateY(240%);
+  }
+}
