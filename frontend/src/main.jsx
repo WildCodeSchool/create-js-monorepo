@@ -8,6 +8,7 @@ import WheelOfbeauty from "./pages/WheelOfBeauty/WheelOfBeauty";
 import Signup from "./pages/Signup/Signup";
 import Carousel from "./components/Carousel/Carousel";
 import MyAccount from "./pages/myAccount/myAccount";
+import CarouselTwo from "./components/Carousel/CarouselTwo";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/carousel",
         element: <Carousel />,
+      },
+      {
+        path: "/carouseldown",
+        element: <CarouselTwo />,
       },
       {
         path: "/account",
