@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import CardItem from "../CardItem/CardItem";
+import "./displayCards.css";
 
 function DisplayCards({ basePath }) {
   const items = useLoaderData();

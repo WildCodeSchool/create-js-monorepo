@@ -1,0 +1,26 @@
+.CardItem {
+  position: relative;
+  width: 350px;
+  border-radius: 1rem;
+}
+
+.CardItem_img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.CardItem_text {
+  position: absolute;
+  top: 75%;
+  left: 5%;
+  color: white;
+  text-shadow:
+    -1px -1px 1px black,
+    1px -1px 1px black,
+    -1px 1px 1px black,
+    1px 1px 1px black;
+}
+
+.CardItem_h2 {
+  margin: 5px 0; /* Ajustez la marge selon vos besoins pour réduire l'écart entre les h2 */
+}
