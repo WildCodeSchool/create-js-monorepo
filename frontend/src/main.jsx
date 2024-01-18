@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import WheelOfbeauty from "./pages/WheelOfBeauty/WheelOfBeauty";
 import Signup from "./pages/Signup/Signup";
+import MyAccount from "./pages/myAccount/myAccount";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/wheel",
         element: <WheelOfbeauty />,
+      },
+      {
+        path: "/account",
+        element: <MyAccount />,
       },
     ],
   },
