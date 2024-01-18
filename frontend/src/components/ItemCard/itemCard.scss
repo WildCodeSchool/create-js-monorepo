@@ -8,26 +8,39 @@
   border: 1px solid $black;
   border-top: 0;
   &__image {
-    width: 5rem;
-    padding: 0.5rem;
-    margin-right: 2rem;
+    width: 10rem;
+    height: fit-content;
+    margin: auto 0;
   }
 
   &__group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    &__button {
-      border: none;
-      cursor: pointer;
-      text-decoration: underline;
-      background: none;
-      font-size: 0.8rem;
-      font-family: $font;
+    margin-right: 2rem;
+
+    &__stock {
+      margin: 0 auto;
+    }
+
+    &__links {
+      display: flex;
+      gap: 2rem;
+      &__button {
+        border: none;
+        cursor: pointer;
+        text-decoration: underline;
+        background: none;
+        font-size: 0.8rem;
+        font-family: $font;
+
+        &:hover {
+          color: $red;
+        }
+      }
     }
     &__name {
       margin: auto 0;
-      flex: 1;
       text-align: center;
     }
   }
@@ -37,12 +50,10 @@
     flex-direction: column;
     align-items: center;
     margin: auto 0;
-    flex: 1;
+    padding: 1.5rem 1rem;
   }
 
   &__price {
-    margin: auto 0;
-    flex: 1;
     text-align: center;
     font-family: $fontBold;
   }

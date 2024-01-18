@@ -13,25 +13,28 @@ function ItemCard({
   src,
   setTotalPrice,
   quantityChange,
+  removeItem,
 }) {
   const [itemPrice, setItemPrice] = useState(price);
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    removeItem(id);
+  };
 
   return (
     <article className="item">
       <img src={src} alt={`${name} de ${brand}`} className="item__image" />
       <div className="item__group">
         <h3 className="item__group__name">{name}</h3>
-        <div>
-          <button className="item__group__button" type="button">
+        <div className="item__group__links">
+          <button className="item__group__links__button" type="button">
             Modifier
           </button>
-          <button className="item__group__button" type="button">
+          <button className="item__group__links__button" type="button">
             Ajouter aux favoris
           </button>
           <button
-            className="item__group__button"
+            className="item__group__links__button"
             type="button"
             onClick={handleClick}
           >
@@ -39,15 +42,21 @@ function ItemCard({
           </button>
         </div>
       </div>
-      <Quantity
-        id={id}
-        price={itemPrice}
-        quantity={quantity}
-        basePrice={price}
-        setPrice={setItemPrice}
-        setTotalPrice={setTotalPrice}
-        quantityChange={quantityChange}
-      />
+      <div className="item__group">
+        <Quantity
+          id={id}
+          price={itemPrice}
+          quantity={quantity}
+          basePrice={price}
+          setPrice={setItemPrice}
+          setTotalPrice={setTotalPrice}
+          quantityChange={quantityChange}
+        />
+        <hgroup className="item__group__stock">
+          <h3>EN STOCK</h3>
+          <p>2 jours ouvrés</p>
+        </hgroup>
+      </div>
       <p className="item__price">Prix : {itemPrice} €</p>
     </article>
   );
@@ -62,6 +71,7 @@ ItemCard.propTypes = {
   src: PropTypes.string.isRequired,
   setTotalPrice: PropTypes.func.isRequired,
   quantityChange: PropTypes.func.isRequired,
+  removeItem: PropTypes.func.isRequired,
 };
 
 export default ItemCard;

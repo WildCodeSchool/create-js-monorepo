@@ -1,8 +1,19 @@
 @import "./src/variables.scss";
 
 .item__quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid $black;
+  padding: 1.5rem;
   &__label {
     font-family: $font;
+    position: absolute;
+    top: -40%;
+    left: 10%;
+    background-color: $white;
+    padding: 0 0.5rem;
   }
   &__switch {
     display: flex;

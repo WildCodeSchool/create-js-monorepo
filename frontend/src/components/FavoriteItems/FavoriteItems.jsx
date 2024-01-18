@@ -1,46 +1,23 @@
 import { useEffect, useState } from "react";
+import { useGlobalContext } from "../../Context/Context";
 import ItemCard from "../ItemCard/ItemCard";
 import "./favoriteItems.scss";
 
 function FavoriteItems() {
   const [totalPrice, setTotalPrice] = useState(0);
-  const [favorites, setFavorites] = useState([
-    {
-      id: 1,
-      brand: "Marque 1",
-      name: "Produit 1",
-      price: 44.99,
-      quantity: 2,
-      src: "./src/assets/images/item1.jpg",
-    },
-    {
-      id: 2,
-      brand: "Marque 2",
-      name: "Produit 2",
-      price: 79.99,
-      quantity: 1,
-      src: "./src/assets/images/item2.jpg",
-    },
-    {
-      id: 3,
-      brand: "Marque 3",
-      name: "Produit 3",
-      price: 39.99,
-      quantity: 1,
-      src: "./src/assets/images/item3.jpg",
-    },
-  ]);
+  const { favorites } = useGlobalContext();
+  const [displayFavorites, setDisplayFavorites] = useState(favorites);
 
   const quantityChange = (id, quantity) => {
-    const item = favorites.find((e) => e.id === id);
+    const item = displayFavorites.find((e) => e.id === id);
     item.quantity = quantity;
-    const updatedList = favorites.map((e) => (e.id === id ? item : e));
-    setFavorites(updatedList);
+    const updatedList = displayFavorites.map((e) => (e.id === id ? item : e));
+    setDisplayFavorites(updatedList);
   };
 
   const calculateTotalPrice = () => {
     let total = 0;
-    favorites.forEach((e) => {
+    displayFavorites.forEach((e) => {
       total += e.price * e.quantity;
     });
     setTotalPrice(total);
@@ -48,14 +25,19 @@ function FavoriteItems() {
 
   useEffect(() => {
     calculateTotalPrice();
-  }, [favorites]);
+  }, [displayFavorites]);
+
+  const removeItem = (id) => {
+    const updatedList = displayFavorites.filter((e) => e.id !== id);
+    setDisplayFavorites(updatedList);
+  };
 
   return (
     <>
       <h1 className="title">Vos articles favoris :</h1>
       <section className="favorites">
         <ul className="favorites__list">
-          {favorites.map((e) => (
+          {displayFavorites.map((e) => (
             <li className="favorites__list__item">
               <ItemCard
                 key={e.id}
@@ -67,6 +49,7 @@ function FavoriteItems() {
                 src={e.src}
                 setTotalPrice={setTotalPrice}
                 quantityChange={quantityChange}
+                removeItem={removeItem}
               />
             </li>
           ))}
