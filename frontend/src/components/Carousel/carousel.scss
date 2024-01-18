@@ -1,0 +1,404 @@
+@import "react-alice-carousel/lib/scss/alice-carousel.scss";
+@import "./src/variables.scss";
+
+.carousel .carousel-container {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: $white;
+  transition: 1s;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.carousel__image {
+  object-fit: cover;
+  width: inherit;
+}
+
+.carousel__item {
+  width: 25rem;
+  position: absolute;
+  top: 8%;
+  right: 25%;
+  font-family: $font;
+
+  &__title {
+    font-size: 2.2rem;
+
+    &--white {
+      color: $white;
+    }
+  }
+
+  &__button {
+    color: $white;
+    background-color: $black;
+    border: none;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    font-family: $fontBold;
+
+    &--white {
+      color: $black;
+      background-color: $white;
+    }
+  }
+
+  &__description {
+    font-size: 1.5rem;
+
+    &--white {
+      color: $white;
+    }
+  }
+}
+
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+  display: none;
+}
+
+.alice-carousel__dots {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 35%;
+  bottom: 2%;
+  padding: 0;
+  margin: 0;
+  @media screen and (min-width: 386px) {
+    bottom: 18%;
+  }
+  @media screen and (min-width: 493px) {
+    bottom: 17%;
+    left: 30%;
+  }
+  @media screen and (min-width: 583px) {
+    bottom: 14%;
+  }
+  @media screen and (min-width: 600px) {
+    bottom: 20%;
+    left: 50%;
+  }
+  @media screen and (min-width: 716px) {
+    bottom: 17%;
+  }
+  @media screen and (min-width: 847px) {
+    bottom: 14%;
+  }
+  @media screen and (min-width: 1089px) {
+    bottom: 11%;
+    left: 50%;
+  }
+  @media screen and (min-width: 1200px) {
+    bottom: 18%;
+  }
+  @media screen and (min-width: 1405px) {
+    bottom: 2%;
+  }
+  @media screen and (min-width: 1700px) {
+    bottom: 12%;
+  }
+}
+
+.alice-carousel .alice-carousel__dots-item.__active {
+  background-color: $white;
+}
+
+.alice-carousel .alice-carousel__dots-item:not(.__active) {
+  background-color: $black;
+}
+
+.alice-carousel .alice-carousel__dots-item:not(.__active),
+.alice-carousel__dots-item.__active {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.hometext-container {
+  position: absolute;
+  background-color: $white;
+  opacity: 0.8;
+  bottom: 0;
+  left: 20%;
+  width: 80vw;
+  @media screen and (min-width: 600px) {
+    width: 55vw;
+    left: 45%;
+  }
+}
+.hometext {
+  font-family: $fontBold;
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
+  text-align: center;
+  font-size: 0.96rem;
+  @media screen and (min-width: 400px) {
+    font-size: 1rem;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 1.3rem;
+  }
+}
+
+.carousel-slide-visit_container {
+  position: absolute;
+  width: 60vw;
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  @media screen and (min-width: 600px) {
+    width: 55vw;
+    height: 30vh;
+  }
+  @media screen and (min-width: 800px) {
+    width: 50vw;
+    height: 35vh;
+  }
+  @media screen and (min-width: 1000px) {
+    width: 45vw;
+    height: 40vh;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 35vw;
+  }
+}
+.carousel-slide-visit_text {
+  color: $white;
+  font-family: $fontBold;
+}
+
+.carousel-slide-visit_button {
+  all: unset;
+  font-family: $fontBold;
+  color: $white;
+  position: absolute;
+  padding: 0.563rem 1.375rem;
+  font-size: 0.938rem;
+  cursor: pointer;
+  @media screen and (min-width: 600px) {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  @media screen and (min-width: 800px) {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+  @media screen and (min-width: 1000px) {
+    padding: 1.1rem 2.5rem;
+    font-size: 1.3rem;
+  }
+  @media screen and (min-width: 1500px) {
+    padding: 1.4rem 4rem;
+    font-size: 1.6rem;
+  }
+}
+.carousel-first-slide-visit_container {
+  background-color: rgba(blue, 0.8);
+  top: 20%;
+  left: 5%;
+}
+
+.carousel-first-slide-visit_text {
+  font-size: 1.875rem;
+  @media screen and (min-width: 450px) {
+    font-size: 2.3rem;
+  }
+  @media screen and (min-width: 700px) {
+    font-size: 2.6rem;
+  }
+  @media screen and (min-width: 900px) {
+    font-size: 2.9rem;
+  }
+  @media screen and (min-width: 1100px) {
+    font-size: 3rem;
+    margin: 1rem;
+  }
+  @media screen and (min-width: 1300px) {
+    margin: 2rem;
+  }
+  @media screen and (min-width: 1400px) {
+    font-size: 3.2rem;
+  }
+  @media screen and (min-width: 1500px) {
+    font-size: 3.7rem;
+    margin: 3.5rem;
+  }
+  @media screen and (min-width: 1600px) {
+    font-size: 3.9rem;
+  }
+}
+
+.carousel-first-slide-visit_button {
+  background-color: $red;
+  position: absolute;
+  bottom: -9%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel-second-slide-visit_container {
+  background-color: rgba($red, 0.8);
+  top: 20%;
+  left: 35%;
+  @media screen and (min-width: 600px) {
+    left: 38%;
+  }
+  @media screen and (min-width: 800px) {
+    left: 45%;
+  }
+  @media screen and (min-width: 1000px) {
+    left: 49%;
+  }
+  @media screen and (min-width: 1200px) {
+    left: 60%;
+  }
+}
+
+.carousel-second-slide-visit_text {
+  font-size: 1.75rem;
+  @media screen and (min-width: 450px) {
+    font-size: 2.4rem;
+  }
+  @media screen and (min-width: 700px) {
+    font-size: 2.8rem;
+  }
+  @media screen and (min-width: 900px) {
+    font-size: 3.1rem;
+  }
+  @media screen and (min-width: 1100px) {
+    font-size: 3.3rem;
+    margin: 1rem;
+  }
+  @media screen and (min-width: 1300px) {
+    font-size: 3.5rem;
+    margin: 2rem;
+  }
+  @media screen and (min-width: 1400px) {
+    font-size: 3.2rem;
+  }
+  @media screen and (min-width: 1500px) {
+    font-size: 3.7rem;
+    margin: 3.7rem;
+  }
+}
+
+.carousel-second-slide-visit_button {
+  bottom: -9%;
+  right: 35%;
+  background-color: grey;
+}
+
+.carousel-third-slide-visit_container {
+  background-color: rgba(purple, 0.8);
+  top: 20%;
+  left: 5%;
+}
+
+.carousel-third-slide-visit_text {
+  font-size: 2.3rem;
+  @media screen and (min-width: 450px) {
+    font-size: 2.8rem;
+    padding: 1rem;
+  }
+  @media screen and (min-width: 700px) {
+    font-size: 3rem;
+    padding: 2rem;
+  }
+  @media screen and (min-width: 900px) {
+    font-size: 3.2rem;
+    padding: 3rem;
+  }
+  @media screen and (min-width: 1100px) {
+    font-size: 3.3rem;
+    margin: 1rem;
+  }
+  @media screen and (min-width: 1300px) {
+    font-size: 3.5rem;
+    margin: 2rem;
+  }
+  @media screen and (min-width: 1400px) {
+    font-size: 3.2rem;
+    margin: 3rem;
+  }
+  @media screen and (min-width: 1500px) {
+    font-size: 4rem;
+    margin: 3rem;
+  }
+}
+
+.carousel-third-slide-visit_button {
+  bottom: -10%;
+  right: 34%;
+  background-color: $red;
+}
+
+.alice-carousel__play-btn {
+  position: absolute;
+  top: 67%;
+  left: 30.5%;
+  @media screen and (min-width: 386px) {
+    top: 72%;
+    left: 30.75%;
+  }
+  @media screen and (min-width: 493px) {
+    top: 73%;
+    left: 27%;
+  }
+  @media screen and (min-width: 583px) {
+    top: 76%;
+    left: 27.5%;
+  }
+  @media screen and (min-width: 600px) {
+    top: 70%;
+    left: 47.5%;
+  }
+  @media screen and (min-width: 716px) {
+    top: 73%;
+    left: 48%;
+  }
+  @media screen and (min-width: 847px) {
+    top: 76%;
+    left: 48.25%;
+  }
+  @media screen and (min-width: 1089px) {
+    top: 79%;
+    left: 48.5%;
+  }
+  @media screen and (min-width: 1200px) {
+    top: 72%;
+  }
+  @media screen and (min-width: 1405px) {
+    top: 75%;
+    left: 48.75%;
+  }
+  @media screen and (min-width: 1700px) {
+    top: 80%;
+    left: 49%;
+  }
+}
+
+.alice-carousel__play-btn-wrapper {
+  background-color: transparent;
+  padding: 0;
+}
+
+.alice-carousel__play-btn-item {
+  bottom: -100%;
+  left: 20%;
+}
+
+.alice-carousel__play-btn-item::before,
+.alice-carousel__play-btn-item::after {
+  border-left-color: $black;
+  height: 20px;
+}
+
+.alice-carousel__play-btn-item.__pause::before,
+.alice-carousel__play-btn-item.__pause::after {
+  height: 20px;
+  border-width: 0 0 0 5px;
+}

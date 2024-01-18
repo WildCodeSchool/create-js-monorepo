@@ -1,0 +1,50 @@
+@import "./src/variables.scss";
+
+.title {
+  margin-left: 3rem;
+}
+
+.favorites {
+  display: flex;
+  align-items: center;
+  font-family: $font;
+  &__list {
+    width: 60%;
+    padding: 0;
+    margin: 1rem;
+
+    &__item {
+      display: flex;
+      list-style: none;
+      width: 100%;
+      &:first-child {
+        border-top: 1px solid $black;
+      }
+    }
+  }
+
+  &__checkout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: max-content;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid $black;
+
+    &__title {
+      font-family: $fontBold;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+del {
+  margin: 0 0.5rem;
+}
+
+b {
+  font-family: $fontBold;
+}
