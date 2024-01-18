@@ -1,5 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap");
 
 * {
-    font-family: "Titillium Web";
+  font-family: "Titillium Web";
+}
+
+body {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(0, 0, 0) 0%,
+    rgb(64, 64, 64) 90.2%
+  );
+  height: 100vh;
 }

@@ -2,7 +2,9 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettierC": "prettier -c",
+    "prettierW": "prettier -w"
   },
   "dependencies": {
     "@mui/icons-material": "^5.14.5",
