@@ -8,6 +8,7 @@ import Histoire from "./pages/Histoire";
 import Concept from "./pages/Concept";
 import Votes from "./pages/Votes";
 import Login from "./pages/Login";
+import PageInscription from "./pages/PageInscription";
 import CardsAll from "./pages/CardsAll/CardsAll";
 import Home from "./pages/home/Home";
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/signin",
+        element: <PageInscription />,
       },
     ],
   },
