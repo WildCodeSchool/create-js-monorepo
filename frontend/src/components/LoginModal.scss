@@ -6,13 +6,19 @@
 }
 .wrapper {
   overflow: hidden;
-  max-width: 400px;
+  margin-top: 4rem;
+  width: 95vw;
+  max-width: 350px;
   background: #fff;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
   position: fixed;
 }
+.hidden {
+  display: none;
+}
+
 .wrapper .title-text {
   display: flex;
   width: 200%;
