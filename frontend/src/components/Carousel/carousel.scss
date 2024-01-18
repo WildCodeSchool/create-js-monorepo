@@ -10,6 +10,9 @@
   align-items: flex-end;
 }
 
+.carousel-container {
+  position: relative;
+}
 .carousel__image {
   object-fit: cover;
   width: inherit;

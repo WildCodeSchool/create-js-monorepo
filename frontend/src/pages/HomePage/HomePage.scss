@@ -3,24 +3,19 @@
 .nav {
   width: 100%;
 }
-.HomePage__button {
-  display: flex;
-  justify-content: end;
-  width: 100%;
-  height: 10em;
 
-  .HomePage__button__button {
-    background-color: black;
-    border: none;
-    color: white;
-    position: absolute;
-    left: 73%;
-    bottom: 94%;
-    font-size: 8px;
-    height: 3%;
-    width: 4%;
-  }
+.HomePage__button__button {
+  position: absolute;
+  left: 73%;
+  bottom: 93%;
+  font-size: 8px;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 1em;
+  border-radius: 5px;
 }
+
 .card1 {
   width: 100%;
 }
