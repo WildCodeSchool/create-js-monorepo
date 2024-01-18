@@ -45,7 +45,7 @@ const seed = async () => {
     for (let i = 0; i < 10; i += 1) {
       queriesUser.push(
         database.query(
-          "insert into user(email, password, is_admin, avatar) values (?, ?, ?, ?)",
+          "insert into user(email, hashedPwd, is_admin, avatar) values (?, ?, ?, ?)",
           [
             faker.lorem.words({ min: 1, max: 3 }),
             faker.lorem.words({ min: 1, max: 3 }),
@@ -58,7 +58,7 @@ const seed = async () => {
 
     const userAdminQueries = () =>
       database.query(
-        "INSERT INTO user(email, password, is_admin, avatar) VALUES (?, ?, ?, ?)",
+        "INSERT INTO user(email, hashedPwd, is_admin, avatar) VALUES (?, ?, ?, ?)",
         [
           "creascript@gmail.com",
           "$argon2id$v=19$m=65536,t=5,p=1$QZ8jcG2CDQf2DoFzx4sYWw$GuyTq8SnnrO2WsgzLcfw43o0f9j09og11OrsuHwrESE",
