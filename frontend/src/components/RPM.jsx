@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PngAvatar from "./PngAvatar";
 
 import "./RPM.scss";
 
@@ -68,14 +69,7 @@ function RPM() {
         allow="camera *; microphone *; clipboard-write"
         title="Ready Player Me Avatar"
       />
-      {avatarUrl && (
-        <img
-          key={avatarUrl}
-          src={avatarUrl}
-          alt="Ready Player Me Avatar"
-          className="avatar-image"
-        />
-      )}
+      <PngAvatar avatarUrl={avatarUrl} />
     </div>
   );
 }
