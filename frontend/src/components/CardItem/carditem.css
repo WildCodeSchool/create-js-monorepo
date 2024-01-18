@@ -24,3 +24,13 @@
 .CardItem_h2 {
   margin: 5px 0; /* Ajustez la marge selon vos besoins pour réduire l'écart entre les h2 */
 }
+
+.photo_1 {
+  width: 100%;
+  border-radius: 1rem;
+  filter: grayscale(100%);
+}
+
+.CardItem_img2 {
+  border-radius: 1rem;
+}
