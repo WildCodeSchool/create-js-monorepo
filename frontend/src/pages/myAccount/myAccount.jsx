@@ -12,6 +12,7 @@ function MyAccount() {
         />
       </header>
       <div className="myAccount__mainContainer">
+        <h1>ma branche TNIG</h1>
         <aside className="myAccount__sideBar">
           <ul className="myAccount__sideBar__list">
             <li className="myAccount__sideBar__list__element">Mon compte</li>
