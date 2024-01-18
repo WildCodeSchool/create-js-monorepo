@@ -117,10 +117,6 @@ function Carousel() {
               : itemTexts[currentSlide].buttonText}
         </button>
       </article>
-
-      <article className="hometext-container">
-        <p className="hometext">HELLO</p>
-      </article>
     </main>
   );
 }
