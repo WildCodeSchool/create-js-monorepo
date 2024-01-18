@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import WheelOfbeauty from "./pages/WheelOfBeauty/WheelOfBeauty";
 import Signup from "./pages/Signup/Signup";
+import Carousel from "./components/Carousel/Carousel";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/wheel",
         element: <WheelOfbeauty />,
+      },
+      {
+        path: "/carousel",
+        element: <Carousel />,
       },
     ],
   },
