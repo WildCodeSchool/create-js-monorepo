@@ -1,0 +1,195 @@
+.backMainMenuButton {
+  position: absolute;
+  border: 3px solid white;
+  top: 2vh;
+  width: 3vw;
+  height: 7vh;
+  border-radius: 200px;
+  background-color: black;
+  right: 0.5vw;
+  align-items: center;
+  color: white;
+  font-size: 1.4vw;
+  cursor: pointer;
+}
+.messagePopUp {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  color: black;
+  width: 70vw;
+  height: 70vh;
+  font-size: 3vw;
+  top: 10%;
+  left: 15%;
+  transition: transform 1000ms ease-in-out;
+  padding: 3rem 1rem;
+  text-align: center;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border: 0.15rem solid #2b160f;
+}
+.areYouSureButton {
+  display: inline;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+.elseve {
+  position: absolute;
+  width: 15vw;
+  left: 42%;
+  top: 30%;
+}
+.backtoMainMenu {
+  text-decoration: none;
+  padding: 0.8rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: white;
+  color: white;
+  border: 3px;
+  font-size: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  &:hover {
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.2));
+    scale: 1.2;
+  }
+}
+@media screen and (min-width: 700px) {
+  .backMainMenuButton {
+    width: 2.5vw;
+    height: 5vh;
+    right: 1vw;
+  }
+}
+.canvas {
+  display: inline;
+}
+.flower {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 1;
+  position: absolute;
+  top: -20%;
+}
+.petal {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: -1;
+}
+.petal1 {
+  position: relative;
+  left: -70%;
+  top: 20%;
+}
+.petal2 {
+  position: relative;
+  top: -18%;
+  left: -5%;
+}
+.petal3 {
+  position: relative;
+  top: -170%;
+  left: 72%;
+}
+.petal4 {
+  position: relative;
+  top: -363%;
+  left: -30%;
+}
+.petal5 {
+  position: relative;
+  top: -450%;
+  left: 53%;
+}
+#flower1 {
+  background-color: yellow;
+  position: absolute;
+  left: 8%;
+  animation-name: rain;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.f1p {
+  background-color: pink;
+}
+#flower2 {
+  background-color: pink;
+  position: absolute;
+  left: 25%;
+  animation-name: rain;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 1.5s;
+}
+.f2p {
+  background-color: yellow;
+}
+#flower3 {
+  background-color: red;
+  position: absolute;
+  left: 42%;
+  animation-name: rain;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+}
+.f3p {
+  background-color: yellow;
+}
+#flower4 {
+  background-color: yellow;
+  position: absolute;
+  left: 59%;
+  animation-name: rain;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 2.5s;
+}
+.f4p {
+  background-color: pink;
+}
+#flower5 {
+  background-color: green;
+  position: absolute;
+  left: 75%;
+  animation-name: rain;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  animation-delay: 3s;
+}
+.f5p {
+  background-color: lightgreen;
+}
+#flower6 {
+  background-color: magenta;
+  position: absolute;
+  left: 90%;
+  animation-name: rain;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-delay: 4.5s;
+}
+.f6p {
+  background-color: turquoise;
+}
+@keyframes rain {
+  0% {
+    transform: rotate(0deg);
+    top: -10%;
+  }
+  100% {
+    transform: rotate(720deg);
+    top: 100vh;
+  }
+}

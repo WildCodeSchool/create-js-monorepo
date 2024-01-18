@@ -1,20 +1,14 @@
 import Routourne from "../../components/Routourne/Routourne";
+import PopUp from "../../components/popUp/popUp";
 import "./WheelOfbeauty.scss";
-import myJson from "./wheel.json";
 
 function WheelOfbeauty() {
   return (
     <>
-      <h2>Look at my WheelOfBeauty gits possibility</h2>
-      {myJson
-        ? myJson.map((gift) => (
-            <section>
-              <img src={gift.src} alt="gift.alt" />
-              <p>{gift.desc}</p>
-            </section>
-          ))
-        : " loading"}
-      <Routourne />
+      <div className="wheel_container">
+        <Routourne />
+      </div>
+      <PopUp />
     </>
   );
 }
