@@ -14,6 +14,8 @@ function MyAccount() {
       <div className="myAccount__mainContainer">
         <aside className="myAccount__sideBar">
           <ul className="myAccount__sideBar__list">
+            <h1> Bonjour John Couscous </h1>
+            <h2> DETAILS DU COMPTE CLIENT </h2>
             <li className="myAccount__sideBar__list__element">Mon compte</li>
             <li className="myAccount__sideBar__list__element">
               Historique de commande
@@ -33,9 +35,9 @@ function MyAccount() {
           </ul>
         </aside>
         <main className="myAccount__main">
-          <h1 className="myAccount__title">Option de compte & inscription</h1>
+          <h3 className="myAccount__title">Option de compte & inscription</h3>
           <article className="myAccount__main__article">
-            <h2 className="myAccount">MON COMPTE</h2>
+            <h4 className="myAccount">MON COMPTE</h4>
             <div className="button__countainer">
               <button className="myAccount__button" type="submit">
                 MODIFIER LES INFORMATIONS
