@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import LoginModal from "../components/LoginModal"; // Add missing import statement
 import Logo from "../assets/loreal_logo.svg";
 import "./Home.scss";
@@ -15,7 +16,9 @@ function Home() {
 
   return (
     <div className="home-container">
-      <img src={Logo} alt="Logo Loreal" className="logo-loreal" />
+      <Link to="/" className="logo-loreal">
+        <img src={Logo} alt="Logo Loreal" className="logo-loreal" />
+      </Link>
       <h2 className="main-title">L'ORÉAL AVATAR</h2>
       <input
         type="button"
