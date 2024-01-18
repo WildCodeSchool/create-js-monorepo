@@ -9,7 +9,7 @@ function Navbar() {
       <img className="nav_logo" src={logo} alt="L'Oréal" />
       <div className="nav_link">
         <Link to="/">
-          <p className="nav_p">Home </p>
+          <p className="nav_p">Accueil </p>
         </Link>
         <Link to="/histoire">
           <p className="nav_p">Histoire </p>
@@ -21,13 +21,13 @@ function Navbar() {
           <p className="nav_p">Candidats </p>
         </Link>
         <Link to="/votes">
-          <p className="nav_p">Votant </p>
+          <p className="nav_p">Voter </p>
         </Link>
         <Link to="/login">
-          <p className="nav_p">Login </p>
+          <p className="nav_p">Connexion </p>
         </Link>
         <Link to="/signin">
-          <p className="nav_p">Sign in </p>
+          <p className="nav_p">Candidater </p>
         </Link>
       </div>
     </div>
