@@ -2,7 +2,7 @@ import "./myAccount.scss";
 
 function MyAccount() {
   return (
-    <>
+    <section className="myAccount">
       <header className="myAccount__header">
         <img
           className="myAccount__header__img"
@@ -23,10 +23,13 @@ function MyAccount() {
             Liste de favoris
           </li>
           <li className="myAccount__sideBar__list__element">Ma box</li>
+          <li className="myAccount__sideBar__list__element disconnect">
+            Déconnection
+          </li>
         </ul>
       </aside>
       <h1 className="myAccount__title">Hello account page</h1>
-    </>
+    </section>
   );
 }
 
