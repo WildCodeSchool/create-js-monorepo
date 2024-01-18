@@ -1,31 +1,28 @@
+@import "../../variables.scss";
+
 .nav {
   width: 100%;
 }
 .HomePage__button {
   display: flex;
   justify-content: end;
-  // background-image: url("src/assets/barnav loreal.png");
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-position: center;
   width: 100%;
   height: 10em;
 
   .HomePage__button__button {
     background-color: black;
-    color: aliceblue;
+    border: none;
+    color: white;
     position: absolute;
     left: 73%;
     bottom: 94%;
     font-size: 8px;
     height: 3%;
-    width: 5%;
+    width: 4%;
   }
 }
 .card1 {
   width: 100%;
-
-  // top: 20%;
 }
 .incontournables {
   width: 100%;
@@ -33,18 +30,24 @@
 
 .boxButton {
   display: flex;
-  justify-content: baseline;
+  justify-content: center;
   list-style: none;
   height: 6%;
-  width: 100%;
-  margin-left: 11vw;
+  margin-right: 28px;
 }
 .button {
   background-color: black;
   border: none;
-  height: 40px;
-  width: 224px;
-  color: aliceblue;
-  font-size: 12px;
+  height: 46px;
+  width: 255px;
+  color: white;
+  font-size: 10px;
   margin-right: 16px;
+  font-family: $fontBold;
+}
+.button:hover {
+  background-color: crimson;
+}
+.HomePage__button__button:hover {
+  background-color: crimson;
 }
