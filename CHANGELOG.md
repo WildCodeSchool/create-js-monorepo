@@ -190,7 +190,7 @@ tables.foo.callSomeCrudMethod();
 
 ### Added
 
-- Git commands for Windows users, to fix issues with different newline formats (see [README.md](README.md#windows-users)).
+- Git commands for Windows users, to fix issues with different newline formats (see [README.md](template/README.md#windows-users)).
 
 ### Changed
 

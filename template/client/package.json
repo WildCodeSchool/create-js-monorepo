@@ -1,5 +1,5 @@
 {
-  "name": "@our-resql/client",
+  "name": "@harmonia/client",
   "type": "module",
   "scripts": {
     "dev": "vite --host",

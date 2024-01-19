@@ -1,40 +1,31 @@
 {
-  "name": "our-resql",
-  "version": "4.2.0",
+  "name": "create-harmonia",
+  "version": "5.0.0",
+  "type": "module",
   "description": "Our pedagogical framework for the React-Express-MySQL cursus in Wild Code School",
-  "homepage": "https://github.com/wildcodeschool/our-resql#readme",
+  "homepage": "https://github.com/wildcodeschool/create-harmonia#readme",
   "bugs": {
-    "url": "https://github.com/wildcodeschool/our-resql/issues"
+    "url": "https://github.com/wildcodeschool/create-harmonia/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wildcodeschool/our-resql.git"
+    "url": "git+https://github.com/wildcodeschool/create-harmonia.git"
   },
-  "workspaces": [
-    "client",
-    "server"
-  ],
+  "bin": {
+    "create-harmonia": "./bin/create-harmonia.js"
+  },
   "scripts": {
     "postinstall": "husky install",
-    "db:migrate": "npm run db:migrate --workspace=server",
-    "db:seed": "npm run db:seed --workspace=server",
-    "dev": "concurrently -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm:dev:*\"",
-    "dev:client": "npm run dev --workspace=client",
-    "dev:server": "npm run dev --workspace=server",
-    "lint": "lint-staged",
-    "test": "npm run test --workspaces --if-present",
-    "clean": "cross-env-shell \"rm -rf ./client/node_modules ./server/node_modules ./node_modules ./package-lock.json\""
+    "lint": "lint-staged"
   },
   "keywords": [],
   "author": "Wild Code School",
   "license": "MIT",
   "devDependencies": {
-    "@commitlint/cli": "^18.6.0",
-    "@commitlint/config-conventional": "^18.6.0",
-    "concurrently": "^8.2.2",
-    "cross-env": "^7.0.3",
+    "@clack/prompts": "^0.7.0",
     "husky": "^8.0.3",
-    "validate-branch-name": "^1.3.0",
-    "lint-staged": "^15.2.0"
+    "kleur": "^4.1.5",
+    "lint-staged": "^15.2.0",
+    "mustache": "^4.2.0"
   }
 }
