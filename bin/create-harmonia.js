@@ -78,7 +78,7 @@ sCp.stop("Copied files");
 
 const sMustache = p.spinner();
 
-sMustache.start("Filling templates");
+sMustache.start("Tweaking things");
 
 const data = { name, org, year: new Date().getFullYear() };
 
@@ -109,7 +109,11 @@ fs.writeFileSync(
 );
 fs.rmSync(`${destDir}/LICENSE.template.md`);
 
-sMustache.stop("Filled templates");
+execSync(`mv ${destDir}/gitignore ${destDir}/.gitignore`);
+execSync(`mv ${destDir}/client/gitignore ${destDir}/client/.gitignore`);
+execSync(`mv ${destDir}/server/gitignore ${destDir}/server/.gitignore`);
+
+sMustache.stop("Tweaked things");
 
 const sGit = p.spinner();
 
