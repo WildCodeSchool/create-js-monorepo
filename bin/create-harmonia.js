@@ -31,7 +31,7 @@ if (org == null) {
   if (p.isCancel(org)) process.exit(1);
 
   if (org == null) {
-    org = /** @type {string} */ ("");
+    org = /** @type {string} */ ("{{ org }}");
   }
 }
 
@@ -138,10 +138,14 @@ if (relative !== "") {
 
 console.log(`  ${i++}: ${bold(cyan(`npm install`))}`);
 console.log(
-  `  ${i++}: ${bold(cyan(`cp client/.env.sample client/.env && nano client/.env`))}`
+  `  ${i++}: ${bold(
+    cyan(`cp client/.env.sample client/.env && nano client/.env`)
+  )}`
 );
 console.log(
-  `  ${i++}: ${bold(cyan(`cp server/.env.sample server/.env && nano server/.env`))}`
+  `  ${i++}: ${bold(
+    cyan(`cp server/.env.sample server/.env && nano server/.env`)
+  )}`
 );
 console.log(`  ${i++}: ${bold(cyan(`npm run dev`))}`);
 
