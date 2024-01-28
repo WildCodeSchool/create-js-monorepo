@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Breaking change:** Splitted backend declaration of the routes into `router.js` subfiles in subfolders following URL paths. Thanks to [Ayoub Idrissi Ouedrhiri](https://github.com/ioayoub) for the idea.
+
 - Moved `backend/migrate.js` and `backend/seed.js` into a new `backend/bin` folder. Updated backend scripts accordingly.
 
 - **Breaking change:** Renamed `frontend` and `backend` folders as `client` and `server`.
@@ -20,6 +22,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Breaking change:** Refactored seed system for the database. See `backend/database/fixtures` for further details.
 
 - **Breaking change:** Renamed `backend/controllers/*Controllers.js` files as `backend/controllers/*Actions.js`. Thanks to [Matthieu Lopez](https://github.com/wildmatthieu) for the idea.
+
+### Fixed
+
+- Fixed serving of React build from the server. Thanks to [Samuel Faber](https://github.com/samuelfaberdev), [Anthony Gorski](https://github.com/GorskiAnthony) and [Julien Richard](https://github.com/jujuck).
 
 [Open an issue](https://github.com/WildCodeSchool/js-template-fullstack/issues) if you have any request/feedback :)
 

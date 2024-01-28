@@ -85,10 +85,10 @@ app.use(
 /* ************************************************************************* */
 
 // Import the API routes from the router module
-const router = require("./router");
+const apiRouter = require("./api/router");
 
 // Mount the API routes under the "/api" endpoint
-app.use(router);
+app.use("/api", apiRouter);
 
 /* ************************************************************************* */
 
@@ -117,7 +117,7 @@ app.use(express.static(reactBuildPath));
 // Redirect unhandled requests to the react index file
 
 app.get("*", (req, res) => {
-  res.sendFile(`${reactBuildPath}/index.html`);
+  res.sendFile("index.html", { root: reactBuildPath } );
 });
 */
 
