@@ -1,10 +1,10 @@
-create table user (
+create table if not exists user (
   id int unsigned primary key auto_increment not null,
   email varchar(255) not null unique,
   password varchar(255) not null
 );
 
-create table item (
+create table if not exists item (
   id int unsigned primary key auto_increment not null,
   title varchar(255) not null,
   user_id int unsigned not null,
