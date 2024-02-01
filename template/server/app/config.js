@@ -84,8 +84,8 @@ app.use(
 
 /* ************************************************************************* */
 
-// Import the API routes from the router module
-const apiRouter = require("./api/router");
+// Import the API routes
+const apiRouter = require("./routers/api/router");
 
 // Mount the API routes under the "/api" endpoint
 app.use("/api", apiRouter);
