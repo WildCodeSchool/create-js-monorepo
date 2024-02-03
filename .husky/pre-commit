@@ -19,5 +19,5 @@ fi
 
 echo '----- Done!'
 
-npm run lint
 npx validate-branch-name
+npm run lint
