@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added `commitlint` (disabled by default). Thanks to [Arthur Heurteubise](https://github.com/ArthurHtbk) for the idea.
+
+- Added`validate-branch-name` (disabled by default). Thanks to [Arthur Heurteubise](https://github.com/ArthurHtbk) for the idea.
+
 ### Changed
 
 - **Breaking change:** Splitted backend declaration of the routes into `router.js` subfiles in subfolders following URL paths. Thanks to [Ayoub Idrissi Ouedrhiri](https://github.com/ioayoub) for the idea.
