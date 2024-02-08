@@ -13,7 +13,7 @@ class ItemSeeder extends AbstractSeeder {
         user_id: this.getRef(`user_${i}`).insertId,
       };
 
-      this.save(fakeItem);
+      this.save(fakeItem); // insert into item(title, user_id) values (?, ?)
     }
   }
 }

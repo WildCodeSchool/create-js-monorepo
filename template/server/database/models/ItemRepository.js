@@ -12,8 +12,8 @@ class ItemRepository extends AbstractRepository {
   async create(item) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title) values (?)`,
-      [item.title]
+      `insert into ${this.table} (title, user_id) values (?, ?)`,
+      [item.title, item.user_id]
     );
 
     // Return the ID of the newly inserted item

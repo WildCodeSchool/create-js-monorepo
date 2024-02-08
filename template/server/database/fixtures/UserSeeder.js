@@ -12,7 +12,7 @@ class UserSeeder extends AbstractSeeder {
         password: this.faker.internet.password(),
       };
 
-      this.save(fakeUser, `user_${i}`);
+      this.save(fakeUser, `user_${i}`); // `user_${i}` = insert into user(email, password) values (?, ?)
     }
   }
 }

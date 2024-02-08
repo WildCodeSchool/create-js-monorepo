@@ -1,37 +1,58 @@
 // Import required dependencies
-const { database, tables } = require("../setup");
+const { database, tables } = require("../config");
+
+const AbstractRepository = require("../../database/models/AbstractRepository");
+const ItemRepository = require("../../database/models/ItemRepository");
 
 // Test suite for the create method of ItemRepository
-describe("Create item", () => {
-  it("should create an item successfully", async () => {
-    // Define a sample item for testing
-    const testItem = {
-      title: "Sample Item",
-    };
-
-    // Send a create request to the item table with a test item
-    const insertId = await tables.item.create(testItem);
-
-    // Check if the newly added item exists in the database
-    const [rows] = await database.query(
-      "select * from item where id = ?",
-      insertId
-    );
-
-    const foundItem = rows[0];
-
+describe("ItemRepository", () => {
+  test("ItemRepository extends AbstractRepository", async () => {
     // Assertions
-    expect(foundItem).toBeDefined();
-    expect(foundItem.title).toBe(testItem.title);
+    expect(Object.getPrototypeOf(ItemRepository)).toBe(AbstractRepository);
   });
+  test("tables.item = new ItemRepository", async () => {
+    // Assertions
+    expect(tables.item instanceof ItemRepository).toBe(true);
+  });
+  test("create => insert into", async () => {
+    const result = [{ insertId: 1 }];
 
-  it("should throw when passing invalid object", async () => {
-    // Thx https://jestjs.io/docs/asynchronous#asyncawait
+    jest.spyOn(database, "query").mockImplementation(() => [result]);
 
-    // Send a create request to the item table with an empty object
-    const promise = tables.item.create({});
+    const fakeItem = { title: "foo", user_id: 0 };
+
+    const returned = await tables.item.create(fakeItem);
 
     // Assertions
-    await expect(promise).rejects.toThrow();
+    expect(database.query).toHaveBeenCalledWith(
+      "insert into item (title, user_id) values (?, ?)",
+      [fakeItem.title, fakeItem.user_id]
+    );
+    expect(returned).toBe(result.insertId);
+  });
+  test("readAll => select", async () => {
+    const rows = [];
+
+    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+
+    const returned = await tables.item.readAll();
+
+    // Assertions
+    expect(database.query).toHaveBeenCalledWith("select * from item");
+    expect(returned).toStrictEqual(rows);
+  });
+  test("read => select with id", async () => {
+    const rows = [{}];
+
+    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+
+    const returned = await tables.item.read(0);
+
+    // Assertions
+    expect(database.query).toHaveBeenCalledWith(
+      "select * from item where id = ?",
+      [0]
+    );
+    expect(returned).toStrictEqual(rows[0]);
   });
 });

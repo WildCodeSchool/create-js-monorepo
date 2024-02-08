@@ -1,55 +1,42 @@
 // Import required dependencies
-const { app, request, tables } = require("../setup");
+const { app, request, database } = require("../config");
 
 // Test suite for the GET /api/items route
 describe("GET /api/items", () => {
   it("should fetch items successfully", async () => {
-    // Define a sample item for testing
-    const testItem = {
-      title: "Sample Item",
-    };
+    const rows = [];
 
-    // Create a sample item in the database
-    const insertId = await tables.item.create(testItem);
+    jest.spyOn(database, "query").mockImplementation(() => [rows]);
 
     // Send a GET request to the /api/items endpoint
     const response = await request(app).get("/api/items");
 
     // Assertions
     expect(response.status).toBe(200);
-    expect(response.body).toBeInstanceOf(Array);
-
-    // Check if the created item is present in the response
-    const foundItem = response.body.find((item) => item.id === insertId);
-
-    // Assertions
-    expect(foundItem).toBeInstanceOf(Object);
-    expect(foundItem.title).toBe(testItem.title);
+    expect(response.body).toStrictEqual(rows);
   });
 });
 
 // Test suite for the GET /api/items/:id route
 describe("GET /api/items/:id", () => {
   it("should fetch a single item successfully", async () => {
-    // Define a sample item for testing
-    const testItem = {
-      title: "Sample Item",
-    };
+    const rows = [{}];
 
-    // Create a sample item in the database
-    const insertId = await tables.item.create(testItem);
+    jest.spyOn(database, "query").mockImplementation(() => [rows]);
 
     // Send a GET request to the /api/items/:id endpoint
-    const response = await request(app).get(`/api/items/${insertId}`);
+    const response = await request(app).get(`/api/items/1`);
 
     // Assertions
     expect(response.status).toBe(200);
-    expect(response.body).toBeInstanceOf(Object);
-    expect(response.body.id).toBe(insertId);
-    expect(response.body.title).toBe(testItem.title);
+    expect(response.body).toStrictEqual(rows[0]);
   });
 
   it("should return 404 for non-existent item", async () => {
+    const rows = [];
+
+    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+
     // Send a GET request to the /api/items/:id endpoint with an invalid ID
     const response = await request(app).get("/api/items/0");
 
@@ -64,25 +51,19 @@ describe("GET /api/items/:id", () => {
 // Hint: enabling log could help ;)
 describe("POST /api/items", () => {
   it("should add a new item successfully", async () => {
-    // Define a sample item for testing
-    const testItem = {
-      title: "Sample Item",
-    };
+    const result = [{ insertId: 1 }];
+
+    jest.spyOn(database, "query").mockImplementation(() => [result]);
+
+    const fakeItem = { title: "foo", user_id: 0 };
 
     // Send a POST request to the /api/items endpoint with a test item
-    const response = await request(app).post("/api/items").send(testItem);
+    const response = await request(app).post("/api/items").send(fakeItem);
 
     // Assertions
     expect(response.status).toBe(201);
     expect(response.body).toBeInstanceOf(Object);
-    expect(response.body.insertId).toEqual(expect.any(Number));
-
-    // Check if the newly added item exists in the database
-    const foundItem = await tables.item.read(response.body.insertId);
-
-    // Assertions
-    expect(foundItem).toBeDefined();
-    expect(foundItem.title).toBe(testItem.title);
+    expect(response.body.insertId).toBe(result.insertId);
   });
 });
 
