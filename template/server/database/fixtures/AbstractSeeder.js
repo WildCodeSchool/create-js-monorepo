@@ -30,27 +30,29 @@ class AbstractSeeder {
     this.refs = refs;
   }
 
-  async #doSave(data, name) {
+  async #doInsert(data) {
+    const { refName, ...values } = data;
+
     // Prepare the SQL statement: "insert into <table>(<fields>) values (<placeholders>)"
-    const fields = Object.keys(data).join(",");
-    const placeholders = new Array(Object.keys(data).length)
+    const fields = Object.keys(values).join(",");
+    const placeholders = new Array(Object.keys(values).length)
       .fill("?")
       .join(",");
 
     const sql = `insert into ${this.table}(${fields}) values (${placeholders})`;
 
     // Perform the query and if applicable store the insert id given the ref
-    const [result] = await database.query(sql, Object.values(data));
+    const [result] = await database.query(sql, Object.values(values));
 
-    if (name != null) {
+    if (refName != null) {
       const { insertId } = result;
 
-      refs[name] = { ...data, insertId };
+      refs[refName] = { ...values, insertId };
     }
   }
 
-  save(data, name) {
-    this.promises.push(this.#doSave(data, name));
+  insert(data) {
+    this.promises.push(this.#doInsert(data));
   }
 
   // eslint-disable-next-line class-methods-use-this

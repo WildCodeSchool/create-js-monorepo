@@ -10,9 +10,10 @@ class UserSeeder extends AbstractSeeder {
       const fakeUser = {
         email: this.faker.internet.email(),
         password: this.faker.internet.password(),
+        refName: `user_${i}`,
       };
 
-      this.save(fakeUser, `user_${i}`); // `user_${i}` = insert into user(email, password) values (?, ?)
+      this.insert(fakeUser); // insert into user(email, password) values (?, ?)
     }
   }
 }
