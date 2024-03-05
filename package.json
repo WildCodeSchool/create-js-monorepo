@@ -19,9 +19,6 @@
     "dev-front": "cross-env-shell \"cd ./client && npm run dev\"",
     "dev-back": "cross-env-shell \"cd ./server && npm run dev\"",
     "lint": "lint-staged",
-    "prebuild": "npm install",
-    "build": "cross-env-shell \"cd ./client && npm run build && cd ../server && npm run build\"",
-    "start": "cross-env-shell \"cd ./server && npm run start\"",
     "clean": "cross-env-shell \"rm -rf ./node_modules ./package-lock.json ./server/node_modules ./server/package-lock.json ./client/node_modules ./client/package-lock.json\""
   },
   "keywords": [],
