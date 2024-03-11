@@ -73,13 +73,15 @@ The database is automaticaly deployed with the name of your repo. During the bui
 
 Don't use any public folder on your client. This folder won't be accessible online. You may move your public assets in the `server/public` folder. Prefer [static assets](https://vitejs.dev/guide/assets) when possible.
 
-### About specific environnement variable (as email)
-Students should use the template written in the *.env.sample* file as <PROJECT_NAME><SPECIFIC_NAME>=<THE_VARIABLE>. 
-> ⚠️ Warning :Project_name should be the same as in the git public variable.
-To add it on deploiement, you have 2 steps to do :
-- Add the following variable in the *docker-compose.prod.yml* file (as in the example : PROJECT_NAME_SPECIFIC_NAME: ${PROJECT_NAME_SPECIFIC_NAME}.
-- Connect with ssh to your server. Open the global *.env* file on traefik (`nano ./traefik/data/.env`). Add the variable with the correct value and save.
-- Then, you can launch the automatic deploiement. The docker will not refresh.
+### About Specific Environment Variables (e.g., Email)
+
+Students should use the template provided in the `*.env.sample*` file as `<PROJECT_NAME><SPECIFIC_NAME>=<THE_VARIABLE>`.
+> ⚠️ **Warning:** The `PROJECT_NAME` should match the one used in the Git public variable.
+
+To add it during deployment, follow these 2 steps:
+- Add the following variable to the `docker-compose.prod.yml` file (as shown in the example: `PROJECT_NAME_SPECIFIC_NAME: ${PROJECT_NAME_SPECIFIC_NAME}`).
+- Connect to your server via SSH. Open the global `.env` file in Traefik (`nano ./traefik/data/.env`). Add the variable with the correct value and save the file.
+- Afterward, you can initiate automatic deployment. Docker will not refresh during this process.
 
 ### About Logs
 
