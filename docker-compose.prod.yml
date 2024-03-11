@@ -4,8 +4,6 @@ services:
   web:
     build: .
     container_name: ${PROJECT_NAME:-project}-web
-    volumes:
-      - ./server/public:/usr/src/app/server/public:delegated
     env_file:
       - ../envs/.env-${GITHUB_REPOSITORY_NAME}
     environment:
@@ -18,6 +16,7 @@ services:
       DB_PASSWORD: ${USER_PASSWORD}
       DB_NAME: ${DB_NAME}
       VITE_BACKEND_URL: ""
+      PROJECT_NAME_SPECIFIC_SAMPLE: ${PROJECT_NAME_SPECIFIC_SAMPLE}
     networks:
       - proxy
     labels:
