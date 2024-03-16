@@ -67,11 +67,21 @@ Your url will be ` https://${PROJECT-NAME}.${subdomain}.wilders.dev/`.
 
 ### About the database
 
-The database is automaticaly deployed with the name of your repo. During the build of the projet (`docker-entry.sh`), the `node migrate.js` command is executed in the server. If you want to seed automaticaly your database using the `seed.js` script, replace the command _build_ on you `server/package.json` by `node migrate.js && node seed.js`.
+The database is automaticaly deployed with the name of your repo. During the build of the projet (`docker-entry.sh`), the `node migrate.js` command is executed in the server. If you want to seed automaticaly your database using the `seed.js` script, replace the `cd ./server && node ./bin/migrate.js && node index.js` by `cd ./server && node ./bin/migrate.js && node ./bin/seed.js && node index.js`
 
 ### About public assets (pictures, fonts...)
 
 Don't use any public folder on your client. This folder won't be accessible online. You may move your public assets in the `server/public` folder. Prefer [static assets](https://vitejs.dev/guide/assets) when possible.
+
+### About Specific Environment Variables (e.g., Email)
+
+Students should use the template provided in the `*.env.sample*` file as `<PROJECT_NAME><SPECIFIC_NAME>=<THE_VARIABLE>`.
+> ⚠️ **Warning:** The `PROJECT_NAME` should match the one used in the Git public variable.
+
+To add it during deployment, follow these 2 steps:
+- Add the following variable to the `docker-compose.prod.yml` file (as shown in the example: `PROJECT_NAME_SPECIFIC_NAME: ${PROJECT_NAME_SPECIFIC_NAME}`).
+- Connect to your server via SSH. Open the global `.env` file in Traefik (`nano ./traefik/data/.env`). Add the variable with the correct value and save the file.
+- Afterward, you can initiate automatic deployment. Docker will not refresh during this process.
 
 ### About Logs
 

@@ -108,16 +108,23 @@ app.use("/api", apiRouter);
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your client's build artifacts are located.
 
 /*
-const reactBuildPath = `${__dirname}/../../client/dist`;
+const path = require("path");
+
+const reactBuildPath = path.join(__dirname, "/../../client/dist");
+const publicFolderPatch = path.join(__dirname, "/../public");
 
 // Serve react resources
 
 app.use(express.static(reactBuildPath));
 
+// Serve server resources
+
+app.get("*.*", express.static(publicFolderPatch, { maxAge: "1y" }));
+
 // Redirect unhandled requests to the react index file
 
-app.get("*", (req, res) => {
-  res.sendFile("index.html", { root: reactBuildPath } );
+app.get("*", (_, res) => {
+  res.sendFile(path.join(reactBuildPath, "/index.html"));
 });
 */
 
