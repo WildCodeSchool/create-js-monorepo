@@ -109,6 +109,15 @@ fs.writeFileSync(
 );
 fs.rmSync(`${destDir}/LICENSE.template.md`);
 
+fs.writeFileSync(
+  `${destDir}/README.md`,
+  Mustache.render(
+    fs.readFileSync(`${destDir}/README.template.md`, "utf8"),
+    data
+  )
+);
+fs.rmSync(`${destDir}/README.template.md`);
+
 execSync(`mv ${destDir}/gitignore ${destDir}/.gitignore`);
 execSync(`mv ${destDir}/client/gitignore ${destDir}/client/.gitignore`);
 execSync(`mv ${destDir}/server/gitignore ${destDir}/server/.gitignore`);
