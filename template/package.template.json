@@ -20,9 +20,6 @@
     "dev:client": "npm run dev --workspace=client",
     "dev:server": "npm run dev --workspace=server",
     "lint": "lint-staged",
-    "prebuild": "npm install",
-    "build": "npm run build --workspaces --if-present",
-    "start": "npm run start --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "clean": "cross-env-shell \"rm -rf ./client/node_modules ./server/node_modules ./node_modules ./package-lock.json\""
   },
