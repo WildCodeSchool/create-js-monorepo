@@ -1,7 +1,12 @@
 // Load environment variables from .env file
 require("dotenv").config();
 
-// Import the Express application from src/app.js
+// Check database connection
+// Note: This is optional and can be removed if the database connection
+// is not required when starting the application
+require("./database/client").checkConnection();
+
+// Import the Express application from app/config.js
 const app = require("./app/config");
 
 // Get the port from the environment variables

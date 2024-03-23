@@ -6,9 +6,10 @@ const { faker } = require("@faker-js/faker");
 // Import database client
 const database = require("../client");
 
+// Declare an object to store created objects from their names
 const refs = {};
 
-// Provide database access through AbstractSeed class
+// Provide faker access through AbstractSeed class
 class AbstractSeeder {
   constructor({ table, truncate = true, dependencies = [] }) {
     // thx https://www.codeheroes.fr/2017/11/08/js-classes-abstraites-et-interfaces/
@@ -31,6 +32,7 @@ class AbstractSeeder {
   }
 
   async #doInsert(data) {
+    // Extract ref name (if it exists)
     const { refName, ...values } = data;
 
     // Prepare the SQL statement: "insert into <table>(<fields>) values (<placeholders>)"
@@ -41,7 +43,7 @@ class AbstractSeeder {
 
     const sql = `insert into ${this.table}(${fields}) values (${placeholders})`;
 
-    // Perform the query and if applicable store the insert id given the ref
+    // Perform the query and if applicable store the insert id given the ref name
     const [result] = await database.query(sql, Object.values(values));
 
     if (refName != null) {

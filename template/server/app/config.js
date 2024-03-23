@@ -84,10 +84,10 @@ app.use(
 
 /* ************************************************************************* */
 
-// Import the API routes
+// Import the API router
 const apiRouter = require("./routers/api/router");
 
-// Mount the API routes under the "/api" endpoint
+// Mount the API router under the "/api" endpoint
 app.use("/api", apiRouter);
 
 /* ************************************************************************* */
@@ -111,7 +111,7 @@ app.use("/api", apiRouter);
 const path = require("path");
 
 const reactBuildPath = path.join(__dirname, "/../../client/dist");
-const publicFolderPatch = path.join(__dirname, "/../public");
+const publicFolderPath = path.join(__dirname, "/../public");
 
 // Serve react resources
 
@@ -119,7 +119,7 @@ app.use(express.static(reactBuildPath));
 
 // Serve server resources
 
-app.get("*.*", express.static(publicFolderPatch, { maxAge: "1y" }));
+app.get("*.*", express.static(publicFolderPath, { maxAge: "1y" }));
 
 // Redirect unhandled requests to the react index file
 

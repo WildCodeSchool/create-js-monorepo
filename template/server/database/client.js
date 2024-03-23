@@ -12,22 +12,24 @@ const client = mysql.createPool({
   database: DB_NAME,
 });
 
-// Try to get a connection to the database
-client
-  .getConnection()
-  .then((connection) => {
-    console.info(`Using database ${DB_NAME}`);
+client.checkConnection = () => {
+  // Try to get a connection to the database
+  client
+    .getConnection()
+    .then((connection) => {
+      console.info(`Using database ${DB_NAME}`);
 
-    connection.release();
-  })
-  .catch((error) => {
-    console.warn(
-      "Warning:",
-      "Failed to establish a database connection.",
-      "Please check your database credentials in the .env file if you need a database access."
-    );
-    console.error("Error message:", error.message);
-  });
+      connection.release();
+    })
+    .catch((error) => {
+      console.warn(
+        "Warning:",
+        "Failed to establish a database connection.",
+        "Please check your database credentials in the .env file if you need a database access."
+      );
+      console.warn(error.message);
+    });
+};
 
 // Store database name into client for further uses
 client.databaseName = DB_NAME;
