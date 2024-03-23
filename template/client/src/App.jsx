@@ -33,7 +33,7 @@ function App() {
           </li>
           <li>
             <a
-              href="https://github.com/WildCodeSchool/js-template-fullstack"
+              href="https://github.com/WildCodeSchool/create-harmonia"
               target="_blank"
               rel="noopener noreferrer"
             >
