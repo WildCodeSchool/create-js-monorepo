@@ -27,13 +27,17 @@ const update = async (req, res, next) => {
     author: req.body.author,
     parutionYear: req.body.parutionYear,
     summary: req.body.summary,
+    id: req.params.id,
   };
   try {
     const result = await tables.book.update(bookInfos);
-    console.info(result);
-    res.status(200).json({
-      msg: "fiche du livre modifié avec succès",
-    });
+    if (result.affectedRows === 0) {
+      res.status(404).json({ msg: "livre introuvable" });
+    } else {
+      res.status(200).json({
+        msg: "fiche du livre modifié avec succès",
+      });
+    }
   } catch (err) {
     next(err);
   }
@@ -51,20 +55,32 @@ const add = async (req, res, next) => {
     console.info(result);
     res.status(200).json({
       msg: "livre ajouté avec succès",
+      status: result,
     });
   } catch (err) {
     next(err);
   }
 };
 
-// const destroy = async (req, res, next) => {
-//   // do something
-// };
+const destroy = async (req, res, next) => {
+  try {
+    const result = await tables.book.destroy(req.params.id);
+    if (result.affectedRows === 0) {
+      res.status(404).json({ msg: "livre introuvable" });
+    } else {
+      res.status(200).json({
+        msg: "fiche du livre supprimée avec succès",
+      });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
 module.exports = {
   browse,
   read,
   update,
   add,
-  // destroy,
+  destroy,
 };

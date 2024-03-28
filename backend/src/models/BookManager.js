@@ -33,6 +33,14 @@ class BookManager extends AbstractManager {
     );
     return rows;
   }
+
+  async destroy(id) {
+    const [rows] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id=?`,
+      [id]
+    );
+    return rows;
+  }
 }
 
 module.exports = BookManager;
