@@ -10,12 +10,18 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 const bookControllers = require("./controllers/bookControllers");
 
+const bookMiddlewares = require("./middlewares/bookMiddlewares");
+
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
 
-router.get("/books", bookControllers.browse);
+router.get("/books", bookMiddlewares.checkIfAdmin, bookControllers.browse);
 router.get("/books/:id", bookControllers.read); // pour récuperer livre selon id
-router.post("/books", bookControllers.add); // créer une fiche livre
+router.post(
+  "/books",
+  bookMiddlewares.validateBookInformations,
+  bookControllers.add
+); // créer une fiche livre
 router.put("/books/:id", bookControllers.update); // modifier fiche livre selon son id
 router.delete("/books/:id", bookControllers.destroy); // supprimer fiche livre selon id
 
