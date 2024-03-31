@@ -1,5 +1,7 @@
 const AbstractManager = require("./AbstractManager");
 
+// ici logique des requêtes SQL
+
 class BookManager extends AbstractManager {
   constructor() {
     super({ table: "book" });

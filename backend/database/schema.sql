@@ -2,7 +2,7 @@
 
 CREATE TABLE reader (
   id INT PRIMARY KEY key auto_increment NOT NULL,
-  email VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
   username VARCHAR(100) NOT NULL
 );
