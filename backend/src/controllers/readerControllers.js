@@ -24,7 +24,7 @@ const add = async (req, res, next) => {
   const readerInfos = {
     // ce que l'on retourne du manager
     email: req.body.email,
-    password: req.body.password,
+    password: req.body.hashedPassword,
     username: req.body.username,
   };
   try {

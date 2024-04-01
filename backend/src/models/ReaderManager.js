@@ -16,6 +16,8 @@ class ReaderManager extends AbstractManager {
     return rows;
   }
 
+  // /!\ select * from user est interdit car l'on ne souahite pas voir le mdp même en hashé apparaître
+
   async readAll() {
     const [rows] = await this.database.query(`select * from ${this.table}`);
     return rows;

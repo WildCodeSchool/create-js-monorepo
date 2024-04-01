@@ -13,6 +13,7 @@ const readerControllers = require("./controllers/readerControllers");
 
 // Import pagesMiddleware
 const bookMiddlewares = require("./middlewares/bookMiddlewares");
+const authMiddlewares = require("./services/auth");
 
 // Items routes
 
@@ -52,7 +53,7 @@ router.delete("/books/:id", bookControllers.destroy);
 router.get("/readers", readerControllers.browse);
 
 // Route to add a new reader
-router.post("/readers", readerControllers.add);
+router.post("/readers", authMiddlewares.hashPassword, readerControllers.add);
 router.get("/readers/:id", readerControllers.read);
 
 module.exports = router;

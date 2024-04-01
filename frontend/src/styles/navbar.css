@@ -1,0 +1,10 @@
+nav {
+  padding: 2rem;
+}
+
+nav > a {
+  padding-right: 2rem;
+  text-decoration: none;
+  color: black;
+  text-decoration: underline;
+}
