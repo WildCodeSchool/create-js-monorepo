@@ -15,7 +15,13 @@ console.log(`
 ${grey(`create-harmonia version ${version}`)}
 `);
 
-let [org, name] = process.argv[2].split("/") ?? [];
+if (process.argv[2] == null) {
+  throw new Error(
+    "Please at least a name project, like in: npm create@latest my-project"
+  );
+}
+
+let [org, name] = process.argv[2].split("/");
 
 if (name == null) {
   name = org;
@@ -118,9 +124,9 @@ fs.writeFileSync(
 );
 fs.rmSync(`${destDir}/README.template.md`);
 
-execSync(`mv ${destDir}/gitignore ${destDir}/.gitignore`);
-execSync(`mv ${destDir}/client/gitignore ${destDir}/client/.gitignore`);
-execSync(`mv ${destDir}/server/gitignore ${destDir}/server/.gitignore`);
+fs.renameSync(`${destDir}/gitignore`, `${destDir}/.gitignore`);
+fs.renameSync(`${destDir}/client/gitignore`, `${destDir}/client/.gitignore`);
+fs.renameSync(`${destDir}/server/gitignore`, `${destDir}/server/.gitignore`);
 
 sMustache.stop("Tweaked things");
 
