@@ -17,7 +17,7 @@ ${grey(`create-harmonia version ${version}`)}
 
 if (process.argv[2] == null) {
   throw new Error(
-    "Please at least a name project, like in: npm create@latest my-project"
+    "Please provide a project name, e.g. npm create harmonia@latest my-project"
   );
 }
 
@@ -30,8 +30,8 @@ if (name == null) {
 
 if (org == null) {
   org = await p.text({
-    message: "What is your organization name?",
-    placeholder: "  (hit Enter to use empty string)",
+    message: "What is your organization's name?",
+    placeholder: "  (hit Enter to use an empty string)",
   });
 
   if (p.isCancel(org)) process.exit(1);
@@ -46,7 +46,7 @@ p.intro("Welcome to Harmonia!");
 if (name === ".") {
   const dir = await p.text({
     message: "Where should we create your project?",
-    placeholder: "  (hit Enter to use current directory)",
+    placeholder: "  (hit Enter to use the current directory)",
   });
 
   if (p.isCancel(dir)) process.exit(1);
@@ -164,7 +164,7 @@ console.log(
 );
 console.log(`  ${i++}: ${bold(cyan(`npm run dev`))}`);
 
-console.log(`\nTo stop the run, hit ${bold(cyan("Ctrl-C"))}`);
+console.log(`\nUse ${bold(cyan("Ctrl-C"))} to halt the server.`);
 console.log(
   `\nStuck? Visit us at ${cyan("https://documentation-harmonia.vercel.app/")}`
 );
