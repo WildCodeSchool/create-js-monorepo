@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Open an issue](https://github.com/WildCodeSchool/create-harmonia/issues) if you have any request/feedback :)
 
+## [5.0.8] - 2024-05-06
+
+### Added
+
+- Added `chmod` for husky files during project initialization.
+
 ## [5.0.7] - 2024-03-23
 
 ### Added
