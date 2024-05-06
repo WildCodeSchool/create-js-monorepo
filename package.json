@@ -1,6 +1,6 @@
 {
   "name": "create-harmonia",
-  "version": "5.0.9",
+  "version": "5.0.10",
   "type": "module",
   "description": "Our pedagogical framework for the React-Express-MySQL cursus in Wild Code School",
   "homepage": "https://github.com/wildcodeschool/create-harmonia#readme",
