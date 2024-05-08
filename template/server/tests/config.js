@@ -10,7 +10,7 @@ const request = require("supertest");
 const app = require("../app/config");
 
 // Import the database client and tables from database
-const database = require("../database/client");
+const databaseClient = require("../database/client");
 const tables = require("../database/tables");
 
 // Restore all mocked functions after each test
@@ -20,8 +20,8 @@ afterEach(() => {
 
 // Close the database connection after all tests have run
 afterAll((done) => {
-  database.end().then(done);
+  databaseClient.end().then(done);
 });
 
 // Export the Express application, database client, request and tables objects for use in tests
-module.exports = { app, database, request, tables };
+module.exports = { app, databaseClient, request, tables };

@@ -4,7 +4,7 @@
 const { faker } = require("@faker-js/faker");
 
 // Import database client
-const database = require("../client");
+const databaseClient = require("../client");
 
 // Declare an object to store created objects from their names
 const refs = {};
@@ -44,7 +44,7 @@ class AbstractSeeder {
     const sql = `insert into ${this.table}(${fields}) values (${placeholders})`;
 
     // Perform the query and if applicable store the insert id given the ref name
-    const [result] = await database.query(sql, Object.values(values));
+    const [result] = await databaseClient.query(sql, Object.values(values));
 
     if (refName != null) {
       const { insertId } = result;

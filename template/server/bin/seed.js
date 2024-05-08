@@ -5,7 +5,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 // Import database client
-const database = require("../database/client");
+const databaseClient = require("../database/client");
 
 const fixtures = path.join(__dirname, "..", "database", "fixtures");
 
@@ -60,7 +60,7 @@ const seed = async () => {
 
       // Use delete instead of truncate to bypass foreign key constraint
       // Wait for the delete promise to complete
-      await database.query(`delete from ${firstOut.table}`);
+      await databaseClient.query(`delete from ${firstOut.table}`);
 
       await doTruncate(stack);
     };
@@ -91,10 +91,10 @@ const seed = async () => {
     await doRun(sortedSeeders);
 
     // Close the database connection
-    database.end();
+    databaseClient.end();
 
     console.info(
-      `${database.databaseName} filled from '${path.normalize(fixtures)}' 🌱`
+      `${databaseClient.databaseName} filled from '${path.normalize(fixtures)}' 🌱`
     );
   } catch (err) {
     console.error("Error filling the database:", err.message, err.stack);

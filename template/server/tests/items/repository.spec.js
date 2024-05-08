@@ -1,5 +1,5 @@
 // Import required dependencies
-const { database, tables } = require("../config");
+const { databaseClient, tables } = require("../config");
 
 // Import repository classes
 const AbstractRepository = require("../../database/models/AbstractRepository");
@@ -25,7 +25,7 @@ describe("ItemRepository", () => {
     const result = [{ insertId: 1 }];
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [result]);
+    jest.spyOn(databaseClient, "query").mockImplementation(() => [result]);
 
     // Fake item data
     const fakeItem = { title: "foo", user_id: 0 };
@@ -34,7 +34,7 @@ describe("ItemRepository", () => {
     const returned = await tables.item.create(fakeItem);
 
     // Assertions
-    expect(database.query).toHaveBeenCalledWith(
+    expect(databaseClient.query).toHaveBeenCalledWith(
       "insert into item (title, user_id) values (?, ?)",
       [fakeItem.title, fakeItem.user_id]
     );
@@ -47,13 +47,13 @@ describe("ItemRepository", () => {
     const rows = [];
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+    jest.spyOn(databaseClient, "query").mockImplementation(() => [rows]);
 
     // Call the readAll method of the item repository
     const returned = await tables.item.readAll();
 
     // Assertions
-    expect(database.query).toHaveBeenCalledWith("select * from item");
+    expect(databaseClient.query).toHaveBeenCalledWith("select * from item");
     expect(returned).toStrictEqual(rows);
   });
 
@@ -63,13 +63,13 @@ describe("ItemRepository", () => {
     const rows = [{}];
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+    jest.spyOn(databaseClient, "query").mockImplementation(() => [rows]);
 
     // Call the read method of the item repository
     const returned = await tables.item.read(0);
 
     // Assertions
-    expect(database.query).toHaveBeenCalledWith(
+    expect(databaseClient.query).toHaveBeenCalledWith(
       "select * from item where id = ?",
       [0]
     );

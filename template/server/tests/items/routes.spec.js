@@ -1,5 +1,5 @@
 // Import required dependencies
-const { app, request, database } = require("../config");
+const { app, request, databaseClient } = require("../config");
 
 // Test suite for the GET /api/items route
 describe("GET /api/items", () => {
@@ -8,7 +8,7 @@ describe("GET /api/items", () => {
     const rows = [];
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+    jest.spyOn(databaseClient, "query").mockImplementation(() => [rows]);
 
     // Send a GET request to the /api/items endpoint
     const response = await request(app).get("/api/items");
@@ -26,7 +26,7 @@ describe("GET /api/items/:id", () => {
     const rows = [{}];
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+    jest.spyOn(databaseClient, "query").mockImplementation(() => [rows]);
 
     // Send a GET request to the /api/items/:id endpoint
     const response = await request(app).get(`/api/items/1`);
@@ -41,7 +41,7 @@ describe("GET /api/items/:id", () => {
     const rows = [];
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+    jest.spyOn(databaseClient, "query").mockImplementation(() => [rows]);
 
     // Send a GET request to the /api/items/:id endpoint with an invalid ID
     const response = await request(app).get("/api/items/0");
@@ -61,7 +61,7 @@ describe("POST /api/items", () => {
     const result = [{ insertId: 1 }];
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [result]);
+    jest.spyOn(databaseClient, "query").mockImplementation(() => [result]);
 
     // Fake item data
     const fakeItem = { title: "foo", user_id: 0 };

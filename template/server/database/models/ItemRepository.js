@@ -11,7 +11,7 @@ class ItemRepository extends AbstractRepository {
 
   async create(item) {
     // Execute the SQL INSERT query to add a new item to the "item" table
-    const [result] = await this.database.query(
+    const [result] = await this.databaseClient.query(
       `insert into ${this.table} (title, user_id) values (?, ?)`,
       [item.title, item.user_id]
     );
@@ -24,7 +24,7 @@ class ItemRepository extends AbstractRepository {
 
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
-    const [rows] = await this.database.query(
+    const [rows] = await this.databaseClient.query(
       `select * from ${this.table} where id = ?`,
       [id]
     );
@@ -35,7 +35,9 @@ class ItemRepository extends AbstractRepository {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.databaseClient.query(
+      `select * from ${this.table}`
+    );
 
     // Return the array of items
     return rows;

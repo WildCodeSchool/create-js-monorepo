@@ -1,5 +1,5 @@
 // Import database client
-const database = require("../client");
+const databaseClient = require("../client");
 
 // Provide database access through AbstractRepository class
 class AbstractRepository {
@@ -15,7 +15,7 @@ class AbstractRepository {
     this.table = table;
 
     // Provide access to the database client
-    this.database = database;
+    this.databaseClient = databaseClient;
   }
 }
 
