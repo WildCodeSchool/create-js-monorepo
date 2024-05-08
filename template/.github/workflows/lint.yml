@@ -1,4 +1,4 @@
-name: dev
+name: lint
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   lint:
-    name: Run linters
+    name: Run checks
     runs-on: ubuntu-latest
 
     permissions:
@@ -37,5 +37,5 @@ jobs:
         if: steps.cache-nextjob.outputs.cache-hit != 'true'
         run: npm install
 
-      - name: Run linters
-        run: npx lint-staged --diff="origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF}"
+      - name: Run checks
+        run: npx biome check .

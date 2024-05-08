@@ -2,7 +2,7 @@ import "./App.css";
 
 function App() {
   return (
-    <main className="container">
+    <>
       <header>
         <h1 className="logo">Harmonia</h1>
       </header>
@@ -16,6 +16,7 @@ function App() {
               rel="noopener noreferrer"
             >
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
@@ -38,6 +39,7 @@ function App() {
               rel="noopener noreferrer"
             >
               <svg
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
@@ -56,11 +58,11 @@ function App() {
         </ul>
       </nav>
 
-      <section className="text-box">
-        <h2 className="block-primary">
-          <span className="block-primary-main">Harmonia</span>
-          <span className="block-primary-sub">Votre framework JavaScript</span>
-        </h2>
+      <main className="text-box">
+        <hgroup className="block-primary">
+          <h2 className="block-primary-main">Harmonia</h2>
+          <p className="block-primary-sub">Votre framework JavaScript</p>
+        </hgroup>
         <a
           href="https://documentation-harmonia.vercel.app/"
           className="btn btn-white btn-animated"
@@ -69,7 +71,7 @@ function App() {
         >
           Documentation
         </a>
-      </section>
+      </main>
 
       <footer>
         Développé par la&nbsp;
@@ -82,7 +84,7 @@ function App() {
           Wild Code School
         </a>
       </footer>
-    </main>
+    </>
   );
 }
 

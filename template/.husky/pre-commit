@@ -20,4 +20,4 @@ fi
 echo '----- Done!'
 
 npx validate-branch-name
-npm run lint
+npm run check

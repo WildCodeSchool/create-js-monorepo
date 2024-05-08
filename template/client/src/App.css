@@ -7,7 +7,7 @@ body {
   margin: 0;
 }
 
-.container {
+#root {
   height: 100vh;
   background-image: url("./assets/images/background.webp");
   background-size: cover;
@@ -152,14 +152,8 @@ footer {
   54%,
   56%,
   100% {
-    text-shadow:
-      0 0 5px #ff1493ad,
-      0 0 15px #eee,
-      0 0 20px #ff1493ad,
-      0 0 40px #a00ac9,
-      0 0 60px #ff0000,
-      0 0 10px #970dc5,
-      0 0 98px #ff0000;
+    text-shadow: 0 0 5px #ff1493ad, 0 0 15px #eee, 0 0 20px #ff1493ad,
+      0 0 40px #a00ac9, 0 0 60px #ff0000, 0 0 10px #970dc5, 0 0 98px #ff0000;
     color: #fff;
   }
 }

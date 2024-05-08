@@ -29,7 +29,7 @@ describe("GET /api/items/:id", () => {
     jest.spyOn(database, "query").mockImplementation(() => [rows]);
 
     // Send a GET request to the /api/items/:id endpoint
-    const response = await request(app).get(`/api/items/1`);
+    const response = await request(app).get("/api/items/1");
 
     // Assertions
     expect(response.status).toBe(200);

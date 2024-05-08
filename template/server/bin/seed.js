@@ -14,29 +14,30 @@ const seed = async () => {
     const dependencyMap = {};
 
     // Construct each seeder
-    fs.readdirSync(fixtures)
-      .filter((filePath) => !filePath.startsWith("Abstract"))
-      .forEach((filePath) => {
-        // eslint-disable-next-line import/no-dynamic-require, global-require
-        const SeederClass = require(path.join(fixtures, filePath));
+    const filePaths = fs
+      .readdirSync(fixtures)
+      .filter((filePath) => !filePath.startsWith("Abstract"));
 
-        const seeder = new SeederClass();
+    for (const filePath of filePaths) {
+      const SeederClass = require(path.join(fixtures, filePath));
 
-        dependencyMap[SeederClass] = seeder;
-      });
+      const seeder = new SeederClass();
+
+      dependencyMap[SeederClass] = seeder;
+    }
 
     // Sort seeders according to their dependencies
     const sortedSeeders = [];
 
     // The recursive solver
     const solveDependencies = (n) => {
-      n.dependencies.forEach((DependencyClass) => {
+      for (const DependencyClass of n.dependencies) {
         const dependency = dependencyMap[DependencyClass];
 
         if (!sortedSeeders.includes(dependency)) {
           solveDependencies(dependency);
         }
-      });
+      }
 
       if (!sortedSeeders.includes(n)) {
         sortedSeeders.push(n);
@@ -44,9 +45,9 @@ const seed = async () => {
     };
 
     // Solve dependencies for each seeder
-    Object.values(dependencyMap).forEach((seeder) => {
+    for (const seeder of Object.values(dependencyMap)) {
       solveDependencies(seeder);
-    });
+    }
 
     // Truncate tables (starting from the depending ones)
 
