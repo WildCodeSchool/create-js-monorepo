@@ -16,7 +16,7 @@
     "server"
   ],
   "scripts": {
-    "postinstall": "husky install || true",
+    "prepare": "husky || true",
     "db:migrate": "npm run db:migrate --workspace=server",
     "db:seed": "npm run db:seed --workspace=server",
     "dev": "concurrently -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm:dev:*\"",
