@@ -38,4 +38,4 @@ jobs:
         run: npm install
 
       - name: Run checks
-        run: npx biome check --changed --since=${GITHUB_BASE_REF} .
+        run: npx biome ci --changed --since=${GITHUB_BASE_REF} .
