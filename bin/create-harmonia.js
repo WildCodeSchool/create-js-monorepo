@@ -138,7 +138,12 @@ const sGit = p.spinner();
 sGit.start("Starting git");
 
 execSync(
-  `cd ${destDir} && git init && git add -A && git commit -m "Initial commit" -n`
+  `cd ${destDir} \
+  && git init \
+  && git add -A \
+  && git commit -m "Initial commit" -n \
+  && git switch -c staging \
+  && git switch -c dev`
 );
 
 sGit.stop("Started git");
@@ -166,6 +171,7 @@ console.log(
   )}`
 );
 console.log(`  ${i++}: ${bold(cyan(`npm run dev`))}`);
+console.log(`  ${i++}: ${bold(cyan(`git push --all -u`))}`);
 
 console.log(`\nUse ${bold(cyan("Ctrl-C"))} to halt the server.`);
 console.log(
