@@ -23,19 +23,5 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Cache dependencies
-        id: cache-nextjob
-        uses: actions/cache@v3
-        with:
-          path: |
-            ./node_modules
-            ./server/node_modules
-            ./client/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Install package dependencies
-        if: steps.cache-nextjob.outputs.cache-hit != 'true'
-        run: npm install
-
       - name: Run checks
-        run: npx biome ci --changed --since=${GITHUB_BASE_REF} .
+        run: npx @biomejs/biome@1.7.3 ci --changed --since="origin/${GITHUB_BASE_REF}" .
