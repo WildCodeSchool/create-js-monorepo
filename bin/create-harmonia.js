@@ -159,6 +159,8 @@ if (relative !== "") {
   console.log(`  ${i++}: ${bold(cyan(`cd ${relative}`))}`);
 }
 
+console.log(`  ${i++}: ${bold(cyan(`git remote add origin ...`))}`);
+console.log(`  ${i++}: ${bold(cyan(`git push --all -u`))}`);
 console.log(`  ${i++}: ${bold(cyan(`npm install`))}`);
 console.log(
   `  ${i++}: ${bold(
@@ -171,7 +173,6 @@ console.log(
   )}`
 );
 console.log(`  ${i++}: ${bold(cyan(`npm run dev`))}`);
-console.log(`  ${i++}: ${bold(cyan(`git push --all -u`))}`);
 
 console.log(`\nUse ${bold(cyan("Ctrl-C"))} to halt the server.`);
 console.log(
