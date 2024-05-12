@@ -1,7 +1,7 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.7.3/schema.json",
   "files": {
-    "ignore": ["**/package-lock.json", "**/*.template.*", "coverage"]
+    "ignore": ["**/*.template.*", "coverage"]
   },
   "formatter": {
     "enabled": true,
