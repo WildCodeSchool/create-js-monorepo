@@ -24,4 +24,4 @@ jobs:
           fetch-depth: 0
 
       - name: Run checks
-        run: npx @biomejs/biome@1.7.3 ci --changed --since="origin/${GITHUB_BASE_REF}" .
+        run: npx @biomejs/biome@1.7.3 ci --error-on-warnings --changed --since="origin/${GITHUB_BASE_REF}" .
