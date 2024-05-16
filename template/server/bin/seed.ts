@@ -25,7 +25,7 @@ const seed = async () => {
         path.join(fixtures, filePath)
       );
 
-      const seeder: AbstractSeeder = new SeederClass() as AbstractSeeder;
+      const seeder = new SeederClass() as AbstractSeeder;
 
       dependencyMap[SeederClass.toString()] = seeder;
     }

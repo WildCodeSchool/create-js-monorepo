@@ -22,7 +22,6 @@ export const databaseName = DB_NAME ?? "unknown";
 import type { Pool, ResultSetHeader, RowDataPacket } from "mysql2/promise";
 
 type DatabaseClient = Pool;
-
 type Result = ResultSetHeader;
 type Rows = RowDataPacket[];
 
