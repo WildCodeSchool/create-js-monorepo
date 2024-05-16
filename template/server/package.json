@@ -2,10 +2,10 @@
   "name": "@harmonia/server",
   "scripts": {
     "dev": "ts-node-dev index",
-    "db:migrate": "ts-node ./bin/migrate && tsc --outDir ./build index",
+    "db:migrate": "ts-node ./bin/migrate",
     "db:seed": "ts-node ./bin/seed",
-    "build": "ts-node ./bin/migrate",
-    "start": "node ./build/index",
+    "build": "tsc --outDir ./dist && node ./dist/bin/migrate.js",
+    "start": "node ./dist/index",
     "test": "jest"
   },
   "dependencies": {
