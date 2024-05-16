@@ -1,17 +1,19 @@
 // Import required dependencies
-const { app, request, database } = require("../config");
+import { database, request } from "../config";
+
+import type { Result, Rows } from "../config";
 
 // Test suite for the GET /api/items route
 describe("GET /api/items", () => {
   it("should fetch items successfully", async () => {
     // Mock empty rows returned from the database
-    const rows = [];
+    const rows = [] as Rows;
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+    jest.spyOn(database, "query").mockImplementation(async () => [rows, []]);
 
     // Send a GET request to the /api/items endpoint
-    const response = await request(app).get("/api/items");
+    const response = await request.get("/api/items");
 
     // Assertions
     expect(response.status).toBe(200);
@@ -23,13 +25,13 @@ describe("GET /api/items", () => {
 describe("GET /api/items/:id", () => {
   it("should fetch a single item successfully", async () => {
     // Mock rows returned from the database
-    const rows = [{}];
+    const rows = [{}] as Rows;
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+    jest.spyOn(database, "query").mockImplementation(async () => [rows, []]);
 
     // Send a GET request to the /api/items/:id endpoint
-    const response = await request(app).get("/api/items/1");
+    const response = await request.get("/api/items/1");
 
     // Assertions
     expect(response.status).toBe(200);
@@ -38,13 +40,13 @@ describe("GET /api/items/:id", () => {
 
   it("should return 404 for non-existent item", async () => {
     // Mock empty rows returned from the database
-    const rows = [];
+    const rows = [] as Rows;
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+    jest.spyOn(database, "query").mockImplementation(async () => [rows, []]);
 
     // Send a GET request to the /api/items/:id endpoint with an invalid ID
-    const response = await request(app).get("/api/items/0");
+    const response = await request.get("/api/items/0");
 
     // Assertions
     expect(response.status).toBe(404);
@@ -58,16 +60,16 @@ describe("GET /api/items/:id", () => {
 describe("POST /api/items", () => {
   it("should add a new item successfully", async () => {
     // Mock result of the database query
-    const result = [{ insertId: 1 }];
+    const result = { insertId: 1 } as Result;
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [result]);
+    jest.spyOn(database, "query").mockImplementation(async () => [result, []]);
 
     // Fake item data
     const fakeItem = { title: "foo", user_id: 0 };
 
     // Send a POST request to the /api/items endpoint with a test item
-    const response = await request(app).post("/api/items").send(fakeItem);
+    const response = await request.post("/api/items").send(fakeItem);
 
     // Assertions
     expect(response.status).toBe(201);

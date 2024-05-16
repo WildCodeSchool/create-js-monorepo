@@ -1,38 +1,42 @@
 // Load environment variables from .env file
-require("dotenv").config();
+import "dotenv/config";
 
-const fs = require("node:fs");
-const path = require("node:path");
+import fs from "node:fs";
+import path from "node:path";
 
 // Import database client
-const database = require("../database/client");
+import database, { databaseName } from "../database/client";
+
+import type { AbstractSeeder } from "../database/fixtures/AbstractSeeder";
 
 const fixtures = path.join(__dirname, "..", "database", "fixtures");
 
 const seed = async () => {
   try {
-    const dependencyMap = {};
+    const dependencyMap: { [key: string]: AbstractSeeder } = {};
 
     // Construct each seeder
     const filePaths = fs
       .readdirSync(fixtures)
-      .filter((filePath) => !filePath.startsWith("Abstract"));
+      .filter((filePath: string) => !filePath.startsWith("Abstract"));
 
     for (const filePath of filePaths) {
-      const SeederClass = require(path.join(fixtures, filePath));
+      const { default: SeederClass } = await import(
+        path.join(fixtures, filePath)
+      );
 
-      const seeder = new SeederClass();
+      const seeder: AbstractSeeder = new SeederClass() as AbstractSeeder;
 
-      dependencyMap[SeederClass] = seeder;
+      dependencyMap[SeederClass.toString()] = seeder;
     }
 
     // Sort seeders according to their dependencies
-    const sortedSeeders = [];
+    const sortedSeeders: AbstractSeeder[] = [];
 
     // The recursive solver
-    const solveDependencies = (n) => {
+    const solveDependencies = (n: AbstractSeeder) => {
       for (const DependencyClass of n.dependencies) {
-        const dependency = dependencyMap[DependencyClass];
+        const dependency = dependencyMap[DependencyClass.toString()];
 
         if (!sortedSeeders.includes(dependency)) {
           solveDependencies(dependency);
@@ -52,12 +56,12 @@ const seed = async () => {
     // Truncate tables (starting from the depending ones)
 
     // The truncate solver
-    const doTruncate = async (stack) => {
+    const doTruncate = async (stack: AbstractSeeder[]) => {
       if (stack.length === 0) {
         return;
       }
 
-      const firstOut = stack.pop();
+      const firstOut = stack.pop() as AbstractSeeder;
 
       // Use delete instead of truncate to bypass foreign key constraint
       // Wait for the delete promise to complete
@@ -71,12 +75,12 @@ const seed = async () => {
     // Run each seeder
 
     // The run solver
-    const doRun = async (queue) => {
+    const doRun = async (queue: AbstractSeeder[]) => {
       if (queue.length === 0) {
         return;
       }
 
-      const firstOut = queue.shift();
+      const firstOut = queue.shift() as AbstractSeeder;
 
       // Use delete instead of truncate to bypass foreign key constraint
       // Wait for the delete promise to complete
@@ -95,10 +99,11 @@ const seed = async () => {
     database.end();
 
     console.info(
-      `${database.databaseName} filled from '${path.normalize(fixtures)}' 🌱`
+      `${databaseName} filled from '${path.normalize(fixtures)}' 🌱`
     );
   } catch (err) {
-    console.error("Error filling the database:", err.message, err.stack);
+    const { message, stack } = err as Error;
+    console.error("Error filling the database:", message, stack);
   }
 };
 

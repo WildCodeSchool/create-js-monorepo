@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 
 const router = express.Router();
 
@@ -6,10 +6,10 @@ const router = express.Router();
 // Import And Use Routers Here
 /* ************************************************************************* */
 
-const itemsRouter = require("./items/router");
+import itemsRouter from "./items/router";
 
 router.use("/items", itemsRouter);
 
 /* ************************************************************************* */
 
-module.exports = router;
+export default router;

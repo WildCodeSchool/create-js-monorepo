@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -13,7 +13,10 @@
     "react-router-dom": "^6.23.0"
   },
   "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.2.2",
     "vite": "^5.2.11"
   }
 }

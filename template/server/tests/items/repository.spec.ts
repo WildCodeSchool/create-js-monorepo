@@ -1,9 +1,11 @@
 // Import required dependencies
-const { database, tables } = require("../config");
+import { database, tables } from "../config";
+
+import type { Result, Rows } from "../config";
 
 // Import repository classes
-const AbstractRepository = require("../../database/models/AbstractRepository");
-const ItemRepository = require("../../database/models/ItemRepository");
+import AbstractRepository from "../../database/models/AbstractRepository";
+import ItemRepository from "../../database/models/ItemRepository";
 
 // Test suite for ItemRepository
 describe("ItemRepository", () => {
@@ -22,10 +24,10 @@ describe("ItemRepository", () => {
   // Test: Check if create method inserts data into the 'item' table
   test("create => insert into", async () => {
     // Mock result of the database query
-    const result = [{ insertId: 1 }];
+    const result = { insertId: 1 } as Result;
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [result]);
+    jest.spyOn(database, "query").mockImplementation(async () => [result, []]);
 
     // Fake item data
     const fakeItem = { title: "foo", user_id: 0 };
@@ -44,10 +46,10 @@ describe("ItemRepository", () => {
   // Test: Check if readAll method selects all data from the 'item' table
   test("readAll => select", async () => {
     // Mock empty rows returned from the database
-    const rows = [];
+    const rows = [] as Rows;
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+    jest.spyOn(database, "query").mockImplementation(async () => [rows, []]);
 
     // Call the readAll method of the item repository
     const returned = await tables.item.readAll();
@@ -60,10 +62,10 @@ describe("ItemRepository", () => {
   // Test: Check if read method selects data from the 'item' table based on id
   test("read => select with id", async () => {
     // Mock rows returned from the database
-    const rows = [{}];
+    const rows = [{}] as Rows;
 
     // Mock the implementation of the database query method
-    jest.spyOn(database, "query").mockImplementation(() => [rows]);
+    jest.spyOn(database, "query").mockImplementation(async () => [rows, []]);
 
     // Call the read method of the item repository
     const returned = await tables.item.read(0);
