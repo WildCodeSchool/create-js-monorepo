@@ -24,7 +24,6 @@
     "client": {
       "name": "@harmonia/client",
       "dependencies": {
-        "prop-types": "^15.8.1",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-router-dom": "^6.23.0"
@@ -3843,9 +3842,9 @@
       "integrity": "sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow=="
     },
     "node_modules/electron-to-chromium": {
-      "version": "1.4.772",
-      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.772.tgz",
-      "integrity": "sha512-jFfEbxR/abTTJA3ci+2ok1NTuOBBtB4jH+UT6PUmRN+DY3WSD4FFRsgoVQ+QNIJ0T7wrXwzsWCI2WKC46b++2A==",
+      "version": "1.4.774",
+      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.774.tgz",
+      "integrity": "sha512-132O1XCd7zcTkzS3FgkAzKmnBuNJjK8WjcTtNuoylj7MYbqw5eXehjQ5OK91g0zm7OTKIPeaAG4CPoRfD9M1Mg==",
       "dev": true
     },
     "node_modules/emittery": {
@@ -6575,14 +6574,6 @@
         "url": "https://github.com/sponsors/sindresorhus"
       }
     },
-    "node_modules/object-assign": {
-      "version": "4.1.1",
-      "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
-      "integrity": "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==",
-      "engines": {
-        "node": ">=0.10.0"
-      }
-    },
     "node_modules/object-inspect": {
       "version": "1.13.1",
       "resolved": "https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.1.tgz",
@@ -6925,21 +6916,6 @@
       "engines": {
         "node": ">= 6"
       }
-    },
-    "node_modules/prop-types": {
-      "version": "15.8.1",
-      "resolved": "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz",
-      "integrity": "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==",
-      "dependencies": {
-        "loose-envify": "^1.4.0",
-        "object-assign": "^4.1.1",
-        "react-is": "^16.13.1"
-      }
-    },
-    "node_modules/prop-types/node_modules/react-is": {
-      "version": "16.13.1",
-      "resolved": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
-      "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
     },
     "node_modules/proxy-addr": {
       "version": "2.0.7",

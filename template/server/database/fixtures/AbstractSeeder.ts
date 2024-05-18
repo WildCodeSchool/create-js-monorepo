@@ -1,5 +1,3 @@
-/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
-
 // Import Faker library for generating fake data
 import { faker } from "@faker-js/faker";
 
