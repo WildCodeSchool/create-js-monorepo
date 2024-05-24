@@ -157,12 +157,16 @@ if (relative !== "") {
 console.log(`  ${i++}: ${bold(cyan(`npm install`))}`);
 console.log(
   `  ${i++}: ${bold(
-    cyan(`cp client/.env.sample client/.env && nano client/.env`)
+    cyan(
+      `copy 'client/.env.sample' as 'client/.env' and check the contents of 'client/.env'`
+    )
   )}`
 );
 console.log(
   `  ${i++}: ${bold(
-    cyan(`cp server/.env.sample server/.env && nano server/.env`)
+    cyan(
+      `copy 'server/.env.sample' as 'server/.env' and check the contents of 'server/.env'`
+    )
   )}`
 );
 console.log(`  ${i++}: ${bold(cyan(`npm run dev`))}`);
