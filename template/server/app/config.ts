@@ -61,79 +61,47 @@ app.use(
 
 /* ************************************************************************* */
 
-// Cookies: Why and how to use the `cookie-parser` module?
-
-// Cookies are small pieces of data stored in the client's browser. They are often used to store user-specific information or session data.
-
-// The `cookie-parser` module allows us to parse and manage cookies in our Express application. It parses the `Cookie` header in incoming requests and populates `req.cookies` with an object containing the cookies.
-
-// To use `cookie-parser`, make sure it is installed in `server/package.json` (you may need to install it separately):
-// npm install cookie-parser
-
-// Then, import the module and use it as middleware in your Express application:
-
-// import cookieParser from "cookie-parser";
-// app.use(cookieParser());
-
-// Once `cookie-parser` is set up, you can read and set cookies in your routes.
-// For example, to set a cookie named "username" with the value "john":
-// res.cookie("username", "john");
-
-// To read the value of a cookie named "username":
-// const username = req.cookies.username;
-
-/* ************************************************************************* */
-
 // Import the API router
-import apiRouter from "./routers/api/router";
+import router from "./router";
 
 // Mount the API router under the "/api" endpoint
-app.use("/api", apiRouter);
+app.use(router);
 
 /* ************************************************************************* */
 
-// Production-ready setup: What is it for, and when should I enable it?
+// Production-ready setup: What is it for?
 
-// The code includes commented sections to set up a production environment where the client and server are executed from the same processus.
+// The code includes sections to set up a production environment where the client and server are executed from the same processus.
 
 // What it's for:
 // - Serving client static files from the server, which is useful when building a single-page application with React.
 // - Redirecting unhandled requests (e.g., all requests not matching a defined API route) to the client's index.html. This allows the client to handle client-side routing.
 
-// When to enable it:
-// It depends on your project and its structure. If you are developing a single-page application, you'll enable these sections when you are ready to deploy your project to production.
-
-// To enable production configuration:
-// 1. Uncomment the lines related to serving static files and redirecting unhandled requests.
-// 2. Ensure that the `reactBuildPath` points to the correct directory where your client's build artifacts are located.
-
-/*
 import path from "node:path";
-
-const reactBuildPath = path.join(__dirname, "/../../client/dist");
-const publicFolderPath = path.join(__dirname, "/../public");
-
-// Serve react resources
-
-app.use(express.static(reactBuildPath));
 
 // Serve server resources
 
-app.get("*.*", express.static(publicFolderPath, { maxAge: "1y" }));
+const publicFolderPath = path.join(__dirname, "../../server/public");
+
+app.use(express.static(publicFolderPath));
+
+// Serve react resources
+
+const reactBuildPath = path.join(__dirname, "../../client/dist");
+
+app.use(express.static(reactBuildPath));
 
 // Redirect unhandled requests to the react index file
 
 app.get("*", (_, res) => {
-  res.sendFile(path.join(reactBuildPath, "/index.html"));
+  res.sendFile("index.html", { root: reactBuildPath });
 });
-*/
 
 /* ************************************************************************* */
 
-// Middleware for Error Logging (Uncomment to enable)
+// Middleware for Error Logging
 // Important: Error-handling middleware should be defined last, after other app.use() and routes calls.
 
-/*
 import type { ErrorRequestHandler } from "express";
 
 // Define a middleware function to log errors
@@ -148,7 +116,6 @@ const logErrors: ErrorRequestHandler = (err, req, res, next) => {
 
 // Mount the logErrors middleware globally
 app.use(logErrors);
-*/
 
 /* ************************************************************************* */
 

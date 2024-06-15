@@ -1,12 +1,12 @@
 {
-  "name": "@harmonia/server",
+  "name": "@js-monorepo/server",
   "scripts": {
     "dev": "ts-node-dev index",
     "db:migrate": "ts-node ./bin/migrate",
     "db:seed": "ts-node ./bin/seed",
-    "build": "tsc --outDir ./dist && node ./dist/bin/migrate.js",
-    "start": "node ./dist/index",
-    "test": "jest"
+    "build": "tsc --outDir ../dist && node ../dist/bin/migrate.js",
+    "start": "node ../dist/index",
+    "test": "jest --verbose"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

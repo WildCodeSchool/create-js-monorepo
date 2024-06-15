@@ -15,9 +15,6 @@ const client = mysql.createPool({
 // Ready to export
 export default client;
 
-// Store database name into client for further uses
-export const databaseName = DB_NAME ?? "unknown";
-
 // Types export
 import type { Pool, ResultSetHeader, RowDataPacket } from "mysql2/promise";
 

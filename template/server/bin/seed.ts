@@ -5,11 +5,11 @@ import fs from "node:fs";
 import path from "node:path";
 
 // Import database client
-import database, { databaseName } from "../database/client";
+import database from "../database/client";
 
 import type { AbstractSeeder } from "../database/fixtures/AbstractSeeder";
 
-const fixtures = path.join(__dirname, "..", "database", "fixtures");
+const fixturesPath = path.join(__dirname, "../database/fixtures");
 
 const seed = async () => {
   try {
@@ -17,12 +17,12 @@ const seed = async () => {
 
     // Construct each seeder
     const filePaths = fs
-      .readdirSync(fixtures)
+      .readdirSync(fixturesPath)
       .filter((filePath: string) => !filePath.startsWith("Abstract"));
 
     for (const filePath of filePaths) {
       const { default: SeederClass } = await import(
-        path.join(fixtures, filePath)
+        path.join(fixturesPath, filePath)
       );
 
       const seeder = new SeederClass() as AbstractSeeder;
@@ -55,51 +55,27 @@ const seed = async () => {
 
     // Truncate tables (starting from the depending ones)
 
-    // The truncate solver
-    const doTruncate = async (stack: AbstractSeeder[]) => {
-      if (stack.length === 0) {
-        return;
-      }
-
-      const firstOut = stack.pop() as AbstractSeeder;
-
+    for (const seeder of sortedSeeders.toReversed()) {
       // Use delete instead of truncate to bypass foreign key constraint
       // Wait for the delete promise to complete
-      await database.query(`delete from ${firstOut.table}`);
-
-      await doTruncate(stack);
-    };
-
-    await doTruncate([...sortedSeeders]);
+      await database.query(`delete from ${seeder.table}`);
+    }
 
     // Run each seeder
 
-    // The run solver
-    const doRun = async (queue: AbstractSeeder[]) => {
-      if (queue.length === 0) {
-        return;
-      }
-
-      const firstOut = queue.shift() as AbstractSeeder;
-
-      // Use delete instead of truncate to bypass foreign key constraint
-      // Wait for the delete promise to complete
-      firstOut.run();
+    for (const seeder of sortedSeeders) {
+      await seeder.run();
 
       // Wait for all the insertion promises to complete
-      // We do want to wait in a loop to satisfy dependencies
-      await Promise.all(firstOut.promises);
-
-      await doRun(queue);
-    };
-
-    await doRun(sortedSeeders);
+      // We do want to wait in order to satisfy dependencies
+      await Promise.all(seeder.promises);
+    }
 
     // Close the database connection
     database.end();
 
     console.info(
-      `${databaseName} filled from '${path.normalize(fixtures)}' 🌱`
+      `${process.env.DB_NAME} filled from '${path.normalize(fixturesPath)}' 🌱`,
     );
   } catch (err) {
     const { message, stack } = err as Error;

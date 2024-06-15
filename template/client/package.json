@@ -1,5 +1,5 @@
 {
-  "name": "@harmonia/client",
+  "name": "@js-monorepo/client",
   "type": "module",
   "scripts": {
     "dev": "vite --host",

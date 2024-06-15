@@ -3,12 +3,15 @@ import express from "express";
 const router = express.Router();
 
 /* ************************************************************************* */
-// Import And Use Routers Here
+// Define Your API Routes Here
 /* ************************************************************************* */
 
-import itemsRouter from "./items/router";
+// Define item-related routes
+import itemActions from "./modules/item/itemActions";
 
-router.use("/items", itemsRouter);
+router.get("/api/items", itemActions.browse);
+router.get("/api/items/:id", itemActions.read);
+router.post("/api/items", itemActions.add);
 
 /* ************************************************************************* */
 

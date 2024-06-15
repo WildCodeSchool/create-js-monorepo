@@ -1,6 +1,6 @@
-import AbstractRepository from "./AbstractRepository";
+import databaseClient from "../../../database/client";
 
-import type { Result, Rows } from "./AbstractRepository";
+import type { Result, Rows } from "../../../database/client";
 
 interface Item {
   id: number;
@@ -8,20 +8,14 @@ interface Item {
   user_id: number;
 }
 
-class ItemRepository extends AbstractRepository {
-  constructor() {
-    // Call the constructor of the parent class (AbstractRepository)
-    // and pass the table name "item" as configuration
-    super({ table: "item" });
-  }
-
+class ItemRepository {
   // The C of CRUD - Create operation
 
-  async create(item: Readonly<Omit<Item, "id">>) {
+  async create(item: Omit<Item, "id">) {
     // Execute the SQL INSERT query to add a new item to the "item" table
-    const [result] = await this.database.query<Result>(
-      `insert into ${this.table} (title, user_id) values (?, ?)`,
-      [item.title, item.user_id]
+    const [result] = await databaseClient.query<Result>(
+      "insert into item (title, user_id) values (?, ?)",
+      [item.title, item.user_id],
     );
 
     // Return the ID of the newly inserted item
@@ -32,9 +26,9 @@ class ItemRepository extends AbstractRepository {
 
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
-    const [rows] = await this.database.query<Rows>(
-      `select * from ${this.table} where id = ?`,
-      [id]
+    const [rows] = await databaseClient.query<Rows>(
+      "select * from item where id = ?",
+      [id],
     );
 
     // Return the first row of the result, which represents the item
@@ -43,9 +37,7 @@ class ItemRepository extends AbstractRepository {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query<Rows>(
-      `select * from ${this.table}`
-    );
+    const [rows] = await databaseClient.query<Rows>("select * from item");
 
     // Return the array of items
     return rows as Item[];
@@ -54,7 +46,7 @@ class ItemRepository extends AbstractRepository {
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing item
 
-  // async update(item: Readonly<Item>) {
+  // async update(item: Item) {
   //   ...
   // }
 
@@ -66,4 +58,4 @@ class ItemRepository extends AbstractRepository {
   // }
 }
 
-export default ItemRepository;
+export default new ItemRepository();
