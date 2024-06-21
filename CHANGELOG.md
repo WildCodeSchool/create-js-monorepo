@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-[Open an issue](https://github.com/WildCodeSchool/create-harmonia/issues) if you have any request/feedback :)
+[Open an issue](https://github.com/WildCodeSchool/create-js-monorepo/issues) if you have any request/feedback :)
 
 ### Changed
 
