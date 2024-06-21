@@ -1,6 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Lato", sans-serif;
-  font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
   color: #eee;
@@ -12,21 +17,30 @@ body {
   background-image: url("./assets/images/background.webp");
   background-size: cover;
   background-position: top;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 30px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 1fr;
+  align-content: start;
+  padding: 1rem;
+}
+
+header {
+  grid-column: 1 / 2;
+  grid-row: 1;
 }
 
 .logo {
-  font-size: 20px;
-  margin-top: 16px;
+  font-size: larger;
+}
+
+.navbar {
+  grid-column: -2 / -1;
+  grid-row: 1;
 }
 
 .navbar ul {
   display: flex;
-  gap: 20px;
+  gap: 1rem;
   list-style: none;
 }
 
@@ -34,10 +48,10 @@ body {
   text-decoration: none;
   color: #eee;
   display: flex;
-  gap: 5px;
+  gap: 0.5rem;
   justify-content: end;
+  align-items: center;
   margin-top: auto;
-  font-size: 15px;
 }
 
 .navbar a:hover {
@@ -45,29 +59,26 @@ body {
 }
 
 .text-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  grid-column: 1 / -1;
+  grid-row: 1;
+  align-self: center;
   text-align: center;
 }
 
 .block-primary {
   text-transform: uppercase;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
 .block-primary-main {
-  font-size: 50px;
-  font-weight: 400;
+  font-size: 3em;
   letter-spacing: 5px;
   animation: blink 12s infinite;
 }
 
 .block-primary-sub {
   display: block;
-  font-size: 18px;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 7px;
 }
 
@@ -75,7 +86,7 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
   display: inline-block;
   border-radius: 100px;
   transition: all 0.2s;
@@ -95,13 +106,13 @@ body {
 .btn-white {
   background-color: #fff;
   color: #777;
-  font-size: 14px;
 }
 
 footer {
-  position: absolute;
-  top: 85%;
-  left: 75%;
+  grid-column: -2 / -1;
+  grid-row: 1;
+  align-self: end;
+  text-align: right;
 }
 
 .wcs {
@@ -110,31 +121,7 @@ footer {
 }
 
 .wcs:hover {
-  border-bottom: solid 1px #ff1493ad;
-}
-
-@media screen and (max-width: 760px) {
-  .logo {
-    display: none;
-  }
-
-  .container {
-    justify-content: center;
-  }
-
-  footer {
-    position: absolute;
-    top: 85%;
-    left: 20%;
-  }
-}
-
-@media screen and (min-width: 761px) and (max-width: 960px) {
-  footer {
-    position: absolute;
-    top: 85%;
-    left: 60%;
-  }
+  text-decoration: underline;
 }
 
 @keyframes blink {
