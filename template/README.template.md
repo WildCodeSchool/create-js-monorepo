@@ -87,15 +87,15 @@ my-project/
 │   │   │   │   ├── itemActions.ts
 │   │   │   │   └── itemRepository.ts
 │   │   │   └── ...
-│   │   ├── config.ts
+│   │   ├── app.ts
+│   │   ├── main.ts
 │   │   └── router.ts
 │   ├── database/
 │   │   ├── client.ts
 │   │   └── schema.sql
 │   ├── tests/
 │   ├── .env
-│   ├── .env.sample
-│   └── index.ts
+│   └── .env.sample
 │
 └── client/
     ├── src/

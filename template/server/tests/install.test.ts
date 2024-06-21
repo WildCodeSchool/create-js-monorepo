@@ -26,10 +26,10 @@ describe("Installation", () => {
 
   // Test: Check if the .env file is properly filled with valid database connection information
   test("You have filled /server/.env with valid information to connect to your database", async () => {
-    // Check if the connection is successful
     expect.assertions(0);
 
     try {
+      // Check if the connection is successful
       await databaseClient.getConnection();
     } catch (error) {
       expect(error).toBeDefined();

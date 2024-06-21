@@ -4,10 +4,10 @@ import "dotenv/config";
 // Check database connection
 // Note: This is optional and can be removed if the database connection
 // is not required when starting the application
-import "./database/checkConnection";
+import "../database/checkConnection";
 
-// Import the Express application from app/config.js
-import app from "./app/config";
+// Import the Express application from ./app
+import app from "./app";
 
 // Get the port from the environment variables
 const port = process.env.APP_PORT;

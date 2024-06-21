@@ -2,7 +2,7 @@
 import supertest from "supertest";
 
 // Import the Express application
-import app from "../../app/config";
+import app from "../../src/app";
 
 // Import databaseClient
 import databaseClient from "../../database/client";
