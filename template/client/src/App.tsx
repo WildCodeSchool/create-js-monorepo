@@ -11,7 +11,7 @@ function App() {
         <ul>
           <li>
             <a
-              href="https://documentation-harmonia.vercel.app/"
+              href="https://wildcodeschool-js-monorepo.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -64,7 +64,7 @@ function App() {
           <p className="block-primary-sub">Votre framework JavaScript</p>
         </hgroup>
         <a
-          href="https://documentation-harmonia.vercel.app/"
+          href="https://wildcodeschool-js-monorepo.vercel.app/"
           className="btn btn-white btn-animated"
           target="_blank"
           rel="noopener noreferrer"

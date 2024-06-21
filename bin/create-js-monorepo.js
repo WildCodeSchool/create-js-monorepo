@@ -41,7 +41,7 @@ if (org == null) {
   }
 }
 
-p.intro("Welcome to JS Monorepo!");
+p.intro("Welcome to your JS Monorepo!");
 
 if (name === ".") {
   const dir = await p.text({
@@ -157,17 +157,17 @@ if (relative !== "") {
 console.log(`  ${i++}: ${bold(cyan(`npm install`))}`);
 console.log(
   `  ${i++}: ${bold(
-    cyan(`cp client/.env.sample client/.env && nano client/.env`)
+    cyan(`create client/.env and fill it after client/.env.sample`)
   )}`
 );
 console.log(
   `  ${i++}: ${bold(
-    cyan(`cp server/.env.sample server/.env && nano server/.env`)
+    cyan(`create server/.env and fill it after server/.env.sample`)
   )}`
 );
 console.log(`  ${i++}: ${bold(cyan(`npm run dev`))}`);
 
 console.log(`\nUse ${bold(cyan("Ctrl-C"))} to halt the server.`);
 console.log(
-  `\nStuck? Visit us at ${cyan("https://documentation-harmonia.vercel.app/")}`
+  `\nStuck? Visit us at ${cyan("https://wildcodeschool-js-monorepo.vercel.app/")}`
 );
