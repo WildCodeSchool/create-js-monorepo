@@ -1,9 +1,9 @@
 {
   "name": "@js-monorepo/server",
   "scripts": {
-    "dev": "ts-node-dev ./src/main",
-    "db:migrate": "ts-node ./bin/migrate",
-    "db:seed": "ts-node ./bin/seed",
+    "dev": "tsx watch --clear-screen=false ./src/main",
+    "db:migrate": "tsx ./bin/migrate",
+    "db:seed": "tsx ./bin/seed",
     "build": "tsc --outDir ../dist && node ../dist/bin/migrate.js",
     "start": "node ../dist/src/main",
     "test": "jest --verbose"
@@ -21,7 +21,7 @@
     "jest": "^29.7.0",
     "supertest": "^7.0.0",
     "ts-jest": "^29.1.4",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.4.5"
+    "tsx": "^4.15.7",
+    "typescript": "^5.5.2"
   }
 }
