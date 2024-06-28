@@ -4,20 +4,34 @@ Ce projet est un monorepo JS, suivant l'architecture React-Express-MySQL telle q
 
 ```mermaid
 sequenceDiagram
-    participant ClientR as Client (React)
-    participant ClientF as Client (Fetcher)
-    participant ServerE as Server (Express)
-    participant ServerM as Server (Module)
-    participant DB as Database (MySQL)
+    box Web Client
+    participant React as React
+    participant Fetcher as Fetcher
+    end
+    box Web Server
+    participant Express as Express
+    participant Module as Module
+    end
+    box DB Server
+    participant DB as MySQL Server
+    end
 
-    ClientR->>ClientF: Déclenche
-    ClientF->>ServerE: Envoie une requête (HTTP)
-    ServerE->>ServerM: Dispatche la requête
-    ServerM->>DB: Exécute une requête SQL
-    DB->>ServerM: Retourne les données
-    ServerM->>ServerE: Prépare une réponse
-    ServerE->>ClientF: Retourne la réponse (HTTP)
-    ClientF->>ClientR: Met à jour
+    React-)Fetcher: event
+    activate Fetcher
+    Fetcher-)Express: requête (HTTP)
+    activate Express
+    Express-)Module: appel
+    activate Module
+    Module-)DB: requête SQL
+    activate DB
+    DB--)Module: données
+    deactivate DB
+    Module--)Express: json
+    deactivate Module
+    Express--)Fetcher: réponse HTTP
+    deactivate Express
+    Fetcher--)React: render
+    deactivate Fetcher
 ```
 
 Il est pré-configuré avec un ensemble d'outils pour aider les étudiants à produire du code de qualité industrielle, tout en restant un outil pédagogique :
