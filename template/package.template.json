@@ -1,7 +1,6 @@
 {
   "name": "{{name}}",
   "version": "0.0.1",
-  "private": true,
   "description": "",
   "homepage": "https://github.com/WildCodeSchool/{{name}}#readme",
   "bugs": {
