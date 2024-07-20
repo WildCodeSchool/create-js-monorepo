@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Open an issue](https://github.com/WildCodeSchool/create-js-monorepo/issues) if you have any request/feedback :)
 
+## [7.0.0] - 2024-07-20
+
 ### Changed
 
 - **Breaking change:** Renamed package from `create-harmonia` to `@wildcodeschool/create-js-monorepo`.
