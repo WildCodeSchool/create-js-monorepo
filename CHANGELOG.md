@@ -7,7 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-[Open an issue](https://github.com/WildCodeSchool/create-harmonia/issues) if you have any request/feedback :)
+[Open an issue](https://github.com/WildCodeSchool/create-js-monorepo/issues) if you have any request/feedback :)
+
+## [7.0.0] - 2024-07-20
+
+### Changed
+
+- **Breaking change:** Renamed package from `create-harmonia` to `@wildcodeschool/create-js-monorepo`.
+
+- **Breaking change:** Migrated from ESLint and Prettier to [Biome](https://biomejs.dev/).
+
+- **Breaking change:** Migrated client and server to TypeScript.
+
+- **Breaking change:** Refactored server from MVC to module-based architecture.
 
 ## [5.0.9] - 2024-05-06
 
