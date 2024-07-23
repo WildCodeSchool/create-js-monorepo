@@ -1,0 +1,29 @@
+name: check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - develop
+      - dev
+
+jobs:
+  lint:
+    name: Run checks
+    runs-on: ubuntu-latest
+
+    permissions:
+      checks: write
+      contents: write
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+
+      - name: Run checks
+        run: biome ci --error-on-warnings --changed --since="origin/${GITHUB_BASE_REF}" .

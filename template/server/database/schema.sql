@@ -10,3 +10,12 @@ create table item (
   user_id int unsigned not null,
   foreign key(user_id) references user(id)
 );
+
+insert into user(id, email, password)
+values
+  (1, "jdoe@mail.com", "123456");
+
+insert into item(id, title, user_id)
+values
+  (1, "Stuff", 1),
+  (2, "Doodads", 1);
