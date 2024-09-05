@@ -4,7 +4,7 @@ const { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
 // Create a connection pool to the database
 import mysql from "mysql2/promise";
 
-const client = mysql.createPool({
+const client: mysql.Pool = mysql.createPool({
   host: DB_HOST,
   port: Number.parseInt(DB_PORT as string),
   user: DB_USER,
@@ -16,10 +16,8 @@ const client = mysql.createPool({
 export default client;
 
 // Types export
-import type { Pool, ResultSetHeader, RowDataPacket } from "mysql2/promise";
+type DatabaseClientType = mysql.Pool;
+type ResultType = mysql.ResultSetHeader;
+type RowsType = mysql.RowDataPacket[];
 
-type DatabaseClient = Pool;
-type Result = ResultSetHeader;
-type Rows = RowDataPacket[];
-
-export type { DatabaseClient, Result, Rows };
+export type { DatabaseClientType, ResultType, RowsType };
