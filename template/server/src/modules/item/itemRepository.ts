@@ -1,19 +1,14 @@
 import databaseClient from "../../../database/client";
 
-import type { Result, Rows } from "../../../database/client";
-
-interface Item {
-  id: number;
-  title: string;
-  user_id: number;
-}
+import type { ResultType, RowsType } from "../../../database/client";
+import {ItemType} from "../../lib/definitions";
 
 class ItemRepository {
   // The C of CRUD - Create operation
 
-  async create(item: Omit<Item, "id">) {
+  async create(item: Omit<ItemType, "id">): Promise<Number> {
     // Execute the SQL INSERT query to add a new item to the "item" table
-    const [result] = await databaseClient.query<Result>(
+    const [result] = await databaseClient.query<ResultType>(
       "insert into item (title, user_id) values (?, ?)",
       [item.title, item.user_id],
     );
@@ -24,23 +19,23 @@ class ItemRepository {
 
   // The Rs of CRUD - Read operations
 
-  async read(id: number) {
+  async read(id: number): Promise<ItemType> {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
-    const [rows] = await databaseClient.query<Rows>(
+    const [rows] = await databaseClient.query<RowsType>(
       "select * from item where id = ?",
       [id],
     );
 
     // Return the first row of the result, which represents the item
-    return rows[0] as Item;
+    return rows[0] as ItemType;
   }
 
-  async readAll() {
+  async readAll(): Promise<ItemType[]> {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await databaseClient.query<Rows>("select * from item");
+    const [rows] = await databaseClient.query<RowsType>("select * from item");
 
     // Return the array of items
-    return rows as Item[];
+    return rows as ItemType[];
   }
 
   // The U of CRUD - Update operation

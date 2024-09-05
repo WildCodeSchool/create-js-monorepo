@@ -10,13 +10,13 @@ import "../database/checkConnection";
 import app from "./app";
 
 // Get the port from the environment variables
-const port = process.env.APP_PORT;
+const port: string | undefined = process.env.APP_PORT;
 
 // Start the server and listen on the specified port
 app
-  .listen(port, () => {
+  .listen(port, (): void => {
     console.info(`Server is listening on port ${port}`);
   })
-  .on("error", (err: Error) => {
+  .on("error", (err: Error): void => {
     console.error("Error:", err.message);
   });

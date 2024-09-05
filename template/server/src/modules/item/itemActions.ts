@@ -2,12 +2,13 @@ import type { RequestHandler } from "express";
 
 // Import access to data
 import itemRepository from "./itemRepository";
+import {ItemType} from "../../lib/definitions";
 
 // The B of BREAD - Browse (Read All) operation
 const browse: RequestHandler = async (req, res, next) => {
   try {
     // Fetch all items
-    const items = await itemRepository.readAll();
+    const items: ItemType[] = await itemRepository.readAll();
 
     // Respond with the items in JSON format
     res.json(items);
@@ -21,8 +22,8 @@ const browse: RequestHandler = async (req, res, next) => {
 const read: RequestHandler = async (req, res, next) => {
   try {
     // Fetch a specific item based on the provided ID
-    const itemId = Number(req.params.id);
-    const item = await itemRepository.read(itemId);
+    const itemId: number = Number(req.params.id);
+    const item: ItemType = await itemRepository.read(itemId);
 
     // If the item is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the item in JSON format

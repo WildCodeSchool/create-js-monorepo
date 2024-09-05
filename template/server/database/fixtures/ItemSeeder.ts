@@ -10,11 +10,17 @@ class ItemSeeder extends AbstractSeeder {
     super({ table: "item", truncate: true, dependencies: [UserSeeder] });
   }
 
-  // The run method - Populate the 'item' table with fake data
-
-  run() {
+  /**
+   * Populate the 'item' table with fake data.
+   *
+   * This method generates 10 fake items, each with a fake title and a user_id
+   * which is the insertId of the corresponding user from UserSeeder (in the
+   * order they were inserted). The fake item data is inserted into the 'item'
+   * table.
+   */
+  run(): void {
     // Generate and insert fake data into the 'item' table
-    for (let i = 0; i < 10; i += 1) {
+    for (let i: number = 0; i < 10; i += 1) {
       // Generate fake item data
       const fakeItem = {
         title: this.faker.lorem.word(), // Generate a fake title using faker library

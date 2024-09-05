@@ -2,7 +2,7 @@
 
 import express from "express";
 
-const app = express();
+const app: express.Express = express();
 
 // Configure it
 
@@ -81,13 +81,13 @@ import path from "node:path";
 
 // Serve server resources
 
-const publicFolderPath = path.join(__dirname, "../../server/public");
+const publicFolderPath: string = path.join(__dirname, "../../server/public");
 
 app.use(express.static(publicFolderPath));
 
 // Serve react resources
 
-const reactBuildPath = path.join(__dirname, "../../client/dist");
+const reactBuildPath: string = path.join(__dirname, "../../client/dist");
 
 app.use(express.static(reactBuildPath));
 
