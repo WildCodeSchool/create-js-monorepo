@@ -70,7 +70,7 @@ const seed: () => Promise<void> = async (): Promise<void> => {
   }
   
   // Close the database connection
-  database.end();
+  await database.end();
 };
 
 // Run the seed function with .then and .catch
