@@ -6,7 +6,7 @@ import type { Faker } from "@faker-js/faker";
 // Import database client
 import database from "../client";
 
-import type { Result } from "../client";
+import type { ResultType } from "../client";
 
 // Declare an object to store created objects from their names
 type Ref = object & { insertId: number };
@@ -26,8 +26,8 @@ abstract class AbstractSeeder implements SeederOptions {
   dependencies: (typeof AbstractSeeder)[];
   promises: Promise<void>[];
   faker: Faker;
-
-  constructor({
+  
+  protected constructor({
     table,
     truncate = true,
     dependencies = [] as (typeof AbstractSeeder)[],
@@ -43,20 +43,20 @@ abstract class AbstractSeeder implements SeederOptions {
     this.faker = faker;
   }
 
-  async #doInsert(data: { refName?: string } & object) {
+  async #doInsert(data: { refName?: string } & object): Promise<void> {
     // Extract ref name (if it exists)
     const { refName, ...values } = data;
 
     // Prepare the SQL statement: "insert into <table>(<fields>) values (<placeholders>)"
-    const fields = Object.keys(values).join(",");
-    const placeholders = new Array(Object.keys(values).length)
+    const fields: string = Object.keys(values).join(",");
+    const placeholders: string = new Array(Object.keys(values).length)
       .fill("?")
       .join(",");
 
     const sql = `insert into ${this.table}(${fields}) values (${placeholders})`;
 
     // Perform the query and if applicable store the insert id given the ref name
-    const [result] = await database.query<Result>(sql, Object.values(values));
+    const [result] = await database.query<ResultType>(sql, Object.values(values));
 
     if (refName != null) {
       const { insertId } = result;
@@ -65,15 +65,35 @@ abstract class AbstractSeeder implements SeederOptions {
     }
   }
 
-  insert(data: { refName?: string } & object) {
+  insert(data: { refName?: string } & object): void {
     this.promises.push(this.#doInsert(data));
   }
-
-  run() {
+  
+  /**
+   * This function should be overridden by child classes and should
+   * populate the database table associated with the seeder.
+   */
+  run(): void {
     throw new Error("You must implement this function");
   }
 
-  getRef(name: string) {
+  /**
+   * Get a reference to a created object by its name.
+   *
+   * @example
+   * class UserSeeder extends AbstractSeeder {
+   *   run() {
+   *     this.insert({ email: "user1@example.com", refName: "user1" });
+   *     this.insert({ email: "user2@example.com", refName: "user2" });
+   *   }
+   * }
+   *
+   * const user1Ref = userSeeder.getRef("user1");
+   * expect(user1Ref).toHaveProperty("email", "user1@example.com");
+   * expect(user1Ref).toHaveProperty("insertId", expect.any(Number));
+   *
+   */
+  getRef(name: string): Ref {
     return refs[name];
   }
 }
