@@ -19,7 +19,7 @@ const app = express();
 // For this pedagogical template, the CORS code is commented out to show the need for defining specific allowed origins.
 
 // To enable CORS and define allowed origins:
-// 1. Install the `cors` module in the server directory
+// 1. Install the `cors` module in the server directory (and `types/cores` as dev dependency)
 // 2. Uncomment the line `import cors from "cors";`
 // 3. Uncomment the section `app.use(cors({ origin: [...] }))`
 // 4. Be sure to only have URLs in the array with domains from which you want to allow requests.

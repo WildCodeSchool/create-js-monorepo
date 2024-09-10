@@ -1,5 +1,5 @@
 {
-  "name": "@wildcodeschool/create-js-monorepo",
+  "name": "create-wcs-js-monorepo",
   "version": "7.0.0",
   "type": "module",
   "description": "Our pedagogical framework for the React-Express-MySQL cursus in Wild Code School",
