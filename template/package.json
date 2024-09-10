@@ -12,7 +12,7 @@
   },
   "workspaces": ["client", "server"],
   "scripts": {
-    "check": "biome check --error-on-warnings --staged .",
+    "check": "biome check --error-on-warnings --no-errors-on-unmatched --staged .",
     "clean": "node ./bin/clean",
     "db:migrate": "npm run db:migrate --workspace=server",
     "db:seed": "npm run db:seed --workspace=server",
