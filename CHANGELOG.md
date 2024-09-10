@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Open an issue](https://github.com/WildCodeSchool/create-js-monorepo/issues) if you have any request/feedback :)
 
+## [7.0.1] - 2024-09-10
+
+### Changed
+
+- Renamed package from `@wildcodeschool/create-js-monorepo` (can't publish on this one for now) to `create-wcs-js-monorepo`.
+
+### Added
+
+- Added comment about cors types in server
+
 ## [7.0.0] - 2024-07-20
 
 ### Changed
