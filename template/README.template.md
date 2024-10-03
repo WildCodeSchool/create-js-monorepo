@@ -240,6 +240,53 @@ class ItemRepository {
 export default new ItemRepository();
 ```
 
+**Ajouter un middleware** 
+
+```typescript
+// ...
+
+/* ************************************************************************* */
+// Define Your API Routes Here
+/* ************************************************************************* */
+
+// Define item-related routes
+import itemActions from "./modules/item/itemActions";
+
+const foo: RequestHandler = (req, res, next) => {
+  req.message = "hello middleware";
+
+  next();
+}
+
+router.get("/api/items", foo, itemActions.browse);
+
+/* ************************************************************************* */
+
+// ...
+```
+
+`req.message` sera disponible dans `itemActions.browse`.
+
+⚠️ La propriété `message` doit être ajoutée dans `src/types/express/index.d.ts` :
+
+```diff
+// to make the file a module and avoid the TypeScript error
+export type {};
+
+declare global {
+  namespace Express {
+    export interface Request {
+      /* ************************************************************************* */
+      // Add your custom properties here, for example:
+      //
+      // user?: { ... };
+      /* ************************************************************************* */
++      message: string;
+    }
+  }
+}
+```
+
 ### REST
 
 | Opération | Méthode | Chemin d'URL | Corps de la requête | SQL    | Réponse (Succès)               | Réponse (Erreur)                                                       |

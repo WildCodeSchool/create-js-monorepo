@@ -9,15 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Open an issue](https://github.com/WildCodeSchool/create-js-monorepo/issues) if you have any request/feedback :)
 
-## [7.0.1] - 2024-09-10
+## [7.0.2] - 2024-10-03
+
+### Fixed
+
+- Fixed type declarations to use `import.meta.env` in client without error. Thanks to [Kevin Peset](https://github.com/kpeset) for the fix.
+
+## [7.0.1] - 2024-09-29
 
 ### Changed
 
-- Renamed package from `@wildcodeschool/create-js-monorepo` (can't publish on this one for now) to `create-wcs-js-monorepo`.
+- Renamed package from `@wildcodeschool/create-js-monorepo` (someone created the org before me) to `@this-is-to-learn/create-js-monorepo`.
 
 ### Added
 
-- Added comment about cors types in server
+- Added comment about cors types in server.
+
+- Added middleware example in template README.
+
+- Added `server/src/types/express/index.d.ts` to extend Express Request type. Thanks to [Kevin Peset](https://github.com/kpeset) for pointing the issue in middleware declarations.
+
+### Fixed
+
+- Fixed Biome check when there is no files to check. Thanks to [Victorien Elvinger](https://github.com/conaclos) for the answer in Biome discord.
 
 ## [7.0.0] - 2024-07-20
 

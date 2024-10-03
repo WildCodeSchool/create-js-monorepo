@@ -2,11 +2,11 @@ import databaseClient from "../../../database/client";
 
 import type { Result, Rows } from "../../../database/client";
 
-interface Item {
+type Item = {
   id: number;
   title: string;
   user_id: number;
-}
+};
 
 class ItemRepository {
   // The C of CRUD - Create operation

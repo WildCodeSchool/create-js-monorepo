@@ -8,11 +8,11 @@ It's pre-configured with a set of tools which'll help students produce industry-
 Basic usage:
 
 ```bash
-npm create wcs-js-monorepo@latest my-project
+npm create @this-is-to-learn/js-monorepo@latest my-project
 ```
 
 You may prefix your project name with the name of your organization:
 
 ```bash
-npm create wcs-js-monorepo@latest my-org/my-project
+npm create @this-is-to-learn/js-monorepo@latest my-org/my-project
 ```

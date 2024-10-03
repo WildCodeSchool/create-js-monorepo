@@ -12,7 +12,7 @@
   },
   "workspaces": ["client", "server"],
   "scripts": {
-    "check": "biome check --error-on-warnings --staged .",
+    "check": "biome check --error-on-warnings --no-errors-on-unmatched --staged .",
     "clean": "node ./bin/clean",
     "db:migrate": "npm run db:migrate --workspace=server",
     "db:seed": "npm run db:seed --workspace=server",
@@ -26,11 +26,11 @@
   "author": "WildCodeSchool",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "1.8.1",
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "concurrently": "^8.2.2",
-    "husky": "^9.0.11",
-    "validate-branch-name": "^1.3.0"
+    "@biomejs/biome": "1.9.2",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "concurrently": "^9.0.1",
+    "husky": "^9.1.6",
+    "validate-branch-name": "^1.3.1"
   }
 }
