@@ -10,18 +10,18 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "mysql2": "^3.10.1"
+    "express": "^4.21.0",
+    "mysql2": "^3.11.3"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.4.1",
-    "@types/express": "^4.17.21",
-    "@types/jest": "^29.5.12",
+    "@faker-js/faker": "^9.0.3",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.13",
     "@types/supertest": "^6.0.2",
     "jest": "^29.7.0",
     "supertest": "^7.0.0",
-    "ts-jest": "^29.1.4",
-    "tsx": "^4.15.7",
-    "typescript": "^5.5.2"
+    "ts-jest": "^29.2.5",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
   }
 }

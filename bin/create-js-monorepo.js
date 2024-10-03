@@ -17,7 +17,7 @@ ${grey(`create-js-monorepo version ${version}`)}
 
 if (process.argv[2] == null) {
   throw new Error(
-    "Please provide a project name, e.g. npm create wcs-js-monorepo@latest my-project"
+    "Please provide a project name, e.g. npm create @this-is-to-learn/js-monorepo@latest my-project"
   );
 }
 
