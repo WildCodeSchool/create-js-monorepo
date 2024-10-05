@@ -2346,6 +2346,15 @@
       "integrity": "sha512-he+DHOWReW0nghN24E1WUqM0efK4kI9oTqDm6XmK8ZPe2djZ90BSNdGnIyCLzCPw7/pogPlGbzI2wHGGmi4O/Q==",
       "dev": true
     },
+    "node_modules/@types/cors": {
+      "version": "2.8.17",
+      "resolved": "https://registry.npmjs.org/@types/cors/-/cors-2.8.17.tgz",
+      "integrity": "sha512-8CGDvrBj1zgo2qE+oS3pOCyYNqCPryMWY2bGfwA0dcfopWGgxs+78df0Rs3rc9THP4JkOhLsAa+15VdpAqkcUA==",
+      "dev": true,
+      "dependencies": {
+        "@types/node": "*"
+      }
+    },
     "node_modules/@types/estree": {
       "version": "1.0.6",
       "resolved": "https://registry.npmjs.org/@types/estree/-/estree-1.0.6.tgz",
@@ -3303,6 +3312,18 @@
       "resolved": "https://registry.npmjs.org/cookiejar/-/cookiejar-2.1.4.tgz",
       "integrity": "sha512-LDx6oHrK+PhzLKJU9j5S7/Y3jM/mUHvD/DeI1WQmJn652iPC5Y4TBzC9l+5OMOXlyTTA+SmVUPm0HQUwpD5Jqw==",
       "dev": true
+    },
+    "node_modules/cors": {
+      "version": "2.8.5",
+      "resolved": "https://registry.npmjs.org/cors/-/cors-2.8.5.tgz",
+      "integrity": "sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==",
+      "dependencies": {
+        "object-assign": "^4",
+        "vary": "^1"
+      },
+      "engines": {
+        "node": ">= 0.10"
+      }
     },
     "node_modules/cosmiconfig": {
       "version": "9.0.0",
@@ -6257,6 +6278,14 @@
         "node": ">=4"
       }
     },
+    "node_modules/object-assign": {
+      "version": "4.1.1",
+      "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
+      "integrity": "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
     "node_modules/object-inspect": {
       "version": "1.13.2",
       "resolved": "https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.2.tgz",
@@ -8191,12 +8220,14 @@
     "server": {
       "name": "@js-monorepo/server",
       "dependencies": {
+        "cors": "^2.8.5",
         "dotenv": "^16.4.5",
         "express": "^4.21.0",
         "mysql2": "^3.11.3"
       },
       "devDependencies": {
         "@faker-js/faker": "^9.0.3",
+        "@types/cors": "^2.8.17",
         "@types/express": "^5.0.0",
         "@types/jest": "^29.5.13",
         "@types/supertest": "^6.0.2",
