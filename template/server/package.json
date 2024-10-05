@@ -9,12 +9,14 @@
     "test": "jest --verbose"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "mysql2": "^3.11.3"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.0.3",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.13",
     "@types/supertest": "^6.0.2",

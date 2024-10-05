@@ -8,7 +8,7 @@ const app = express();
 
 /* ************************************************************************* */
 
-// CORS Handling: Why is the current code commented out and do I need to define specific allowed origins for my project?
+// CORS Handling: Why is the current code present and do I need to define specific allowed origins for my project?
 
 // CORS (Cross-Origin Resource Sharing) is a security mechanism in web browsers that blocks requests from a different domain than the server.
 // You may find the following magic line in forums:
@@ -16,28 +16,26 @@ const app = express();
 // app.use(cors());
 
 // You should NOT do that: such code uses the `cors` module to allow all origins, which can pose security issues.
-// For this pedagogical template, the CORS code is commented out to show the need for defining specific allowed origins.
+// For this pedagogical template, the CORS code allows CLIENT_URL in development mode (when process.env.CLIENT_URL is defined).
 
-// To enable CORS and define allowed origins:
-// 1. Install the `cors` module in the server directory (and `types/cores` as dev dependency)
-// 2. Uncomment the line `import cors from "cors";`
-// 3. Uncomment the section `app.use(cors({ origin: [...] }))`
-// 4. Be sure to only have URLs in the array with domains from which you want to allow requests.
-// For example: ["http://mysite.com", "http://another-domain.com"]
-
-/*
 import cors from "cors";
 
+if (process.env.CLIENT_URL != null) {
+  app.use(cors({ origin: [process.env.CLIENT_URL] }));
+}
+
+// If you need to allow extra origins, you can add something like this:
+
+/*
 app.use(
   cors({
-    origin: [
-      process.env.CLIENT_URL, // keep this one, after checking the value in `server/.env`
-      "http://mysite.com",
-      "http://another-domain.com",
-    ]
-  })
+    origin: ["http://mysite.com", "http://another-domain.com"],
+  }),
 );
 */
+
+// With ["http://mysite.com", "http://another-domain.com"]
+// to be replaced with an array of your trusted origins
 
 /* ************************************************************************* */
 
