@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fixed error messages in server when client build doesn't exist.
 
+- Removed mentions to out of date documentation https://wildcodeschool-js-monorepo.vercel.app/.
+
 ## [7.1.0] - 2024-10-05
 
 ### Added

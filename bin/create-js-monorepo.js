@@ -180,5 +180,5 @@ console.log(`  ${i++}: ${bold(cyan(`npm run dev`))}`);
 
 console.log(`\nUse ${bold(cyan("Ctrl-C"))} to halt the server.`);
 console.log(
-  `\nStuck? Visit us at ${cyan("https://wildcodeschool-js-monorepo.vercel.app/")}`
+  `\nStuck? Visit us at ${cyan("https://github.com/wildcodeschool/create-js-monorepo/")}`
 );
