@@ -75,25 +75,30 @@ app.use(router);
 // - Serving client static files from the server, which is useful when building a single-page application with React.
 // - Redirecting unhandled requests (e.g., all requests not matching a defined API route) to the client's index.html. This allows the client to handle client-side routing.
 
+import fs from "node:fs";
 import path from "node:path";
 
 // Serve server resources
 
 const publicFolderPath = path.join(__dirname, "../../server/public");
 
-app.use(express.static(publicFolderPath));
+if (fs.existsSync(publicFolderPath)) {
+  app.use(express.static(publicFolderPath));
+}
 
-// Serve react resources
+// Serve client resources
 
-const reactBuildPath = path.join(__dirname, "../../client/dist");
+const clientBuildPath = path.join(__dirname, "../../client/dist");
 
-app.use(express.static(reactBuildPath));
+if (fs.existsSync(clientBuildPath)) {
+  app.use(express.static(clientBuildPath));
 
-// Redirect unhandled requests to the react index file
+  // Redirect unhandled requests to the client index file
 
-app.get("*", (_, res) => {
-  res.sendFile("index.html", { root: reactBuildPath });
-});
+  app.get("*", (_, res) => {
+    res.sendFile("index.html", { root: clientBuildPath });
+  });
+}
 
 /* ************************************************************************* */
 

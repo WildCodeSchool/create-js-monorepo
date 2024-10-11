@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Open an issue](https://github.com/WildCodeSchool/create-js-monorepo/issues) if you have any request/feedback :)
 
+## [7.1.1] - 2024-10-11
+
+### Fixed
+
+- Fixed error messages in server when client build doesn't exist.
+
+- Removed mentions to out of date documentation https://wildcodeschool-js-monorepo.vercel.app/.
+
 ## [7.1.0] - 2024-10-05
 
 ### Added

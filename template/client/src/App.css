@@ -40,6 +40,7 @@ header {
 
 .navbar ul {
   display: flex;
+  justify-content: end;
   gap: 1rem;
   list-style: none;
 }
@@ -49,9 +50,7 @@ header {
   color: #eee;
   display: flex;
   gap: 0.5rem;
-  justify-content: end;
   align-items: center;
-  margin-top: auto;
 }
 
 .navbar a:hover {
