@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Open an issue](https://github.com/WildCodeSchool/create-js-monorepo/issues) if you have any request/feedback :)
 
+## [7.1.2] - 2024-10-15
+
+### Fixed
+
+- Removed deprecated lines in husky files. Thanks to [Kevin Peset](https://github.com/kpeset) for pointing the issue.
+
 ## [7.1.1] - 2024-10-11
 
 ### Fixed
