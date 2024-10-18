@@ -7,26 +7,10 @@ RUN apk add --no-cache libc6-compat
 
 WORKDIR /usr/src/app
 
-RUN corepack enable && \
-	corepack prepare --activate pnpm@latest && \
-	pnpm config -g set store-dir /.pnpm-store
+COPY . .
 
-COPY --link ./server/package.json ./server/
-COPY --link ./client/package.json ./client/
-
+RUN npm install
 RUN cd client && \
-    pnpm fetch && \
-    pnpm install
-RUN cd server && \
-    pnpm fetch && \
-    pnpm install
-
-COPY ./client ./client
-
-RUN cd client && \
-    pnpm run build
-
-COPY ./server ./server
-COPY docker-entry.sh .
+    npm run build
 
 CMD ["sh","./docker-entry.sh"]

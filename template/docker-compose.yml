@@ -17,7 +17,7 @@ services:
       DB_USER: user
       DB_PASSWORD: password
       DB_NAME: js_template_fullstack
-      VITE_BACKEND_URL: ""
+      VITE_API_URL: ""
     depends_on:
       database:
         condition: service_healthy
