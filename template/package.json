@@ -12,6 +12,7 @@
   },
   "workspaces": ["client", "server"],
   "scripts": {
+    "build": "npm run build --workspaces --if-present",
     "check": "biome check --error-on-warnings --no-errors-on-unmatched --staged .",
     "clean": "node ./bin/clean",
     "db:migrate": "npm run db:migrate --workspace=server",
@@ -20,6 +21,7 @@
     "dev:client": "npm run dev --workspace=client",
     "dev:server": "npm run dev --workspace=server",
     "prepare": "husky || true",
+    "start": "npm run start --workspace=server",
     "test": "npm run test --workspaces --if-present"
   },
   "keywords": [],
