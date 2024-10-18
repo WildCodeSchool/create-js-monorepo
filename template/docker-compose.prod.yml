@@ -9,7 +9,6 @@ services:
     environment:
       APP_PORT: 3310
       APP_SECRET: ${APP_SECRET:-123456789}
-      CLIENT_URL: "https://${PROJECT_NAME}.${HOST}"
       DB_HOST: ${DATABASE_SUBDOMAIN_NAME}-db
       DB_PORT: 3306
       DB_USER: ${USER_NAME}
