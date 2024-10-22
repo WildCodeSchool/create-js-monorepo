@@ -2,16 +2,17 @@
   "name": "{{name}}",
   "version": "0.0.1",
   "description": "",
-  "homepage": "https://github.com/WildCodeSchool/{{name}}#readme",
+  "homepage": "https://github.com/{{org}}/{{name}}#readme",
   "bugs": {
-    "url": "https://github.com/WildCodeSchool/{{name}}/issues"
+    "url": "https://github.com/{{org}}/{{name}}/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WildCodeSchool/{{name}}.git"
+    "url": "git+https://github.com/{{org}}/{{name}}.git"
   },
   "workspaces": ["client", "server"],
   "scripts": {
+    "build": "npm run build --workspaces --if-present",
     "check": "biome check --error-on-warnings --no-errors-on-unmatched --staged .",
     "clean": "node ./bin/clean",
     "db:migrate": "npm run db:migrate --workspace=server",
@@ -20,10 +21,11 @@
     "dev:client": "npm run dev --workspace=client",
     "dev:server": "npm run dev --workspace=server",
     "prepare": "husky || true",
+    "start": "npm run start --workspace=server",
     "test": "npm run test --workspaces --if-present"
   },
   "keywords": [],
-  "author": "WildCodeSchool",
+  "author": "{{org}}",
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "1.9.2",
