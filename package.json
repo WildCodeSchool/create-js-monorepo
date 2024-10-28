@@ -1,6 +1,6 @@
 {
   "name": "@this-is-to-learn/create-js-monorepo",
-  "version": "7.1.6",
+  "version": "7.1.7",
   "type": "module",
   "description": "Our pedagogical framework for the React-Express-MySQL cursus in Wild Code School",
   "homepage": "https://github.com/wildcodeschool/create-js-monorepo#readme",
