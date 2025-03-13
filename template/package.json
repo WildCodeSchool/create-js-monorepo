@@ -14,7 +14,7 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "check": "biome check --error-on-warnings --no-errors-on-unmatched --staged . && npm run check-types --workspaces --if-present",
-    "format":"biome format --write ./server/** ./client/**",
+    "check:fix":"biome check --write --error-on-warnings --no-errors-on-unmatched --staged .",
     "clean": "node ./bin/clean",
     "db:migrate": "npm run db:migrate --workspace=server",
     "db:seed": "npm run db:seed --workspace=server",
