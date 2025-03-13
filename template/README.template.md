@@ -65,10 +65,28 @@ Il est pré-configuré avec un ensemble d'outils pour aider les étudiants à pr
 
 Assurez-vous de lancer ces commandes dans un terminal Git pour éviter [les problèmes de formats de nouvelles lignes](https://en.wikipedia.org/wiki/Newline#Issues_with_different_newline_formats) :
 
+1. Solution avec Git
+
 ```sh
 git config --global core.eol lf
 git config --global core.autocrlf false
 ```
+Cela garantit que tous les fichiers suivis par Git utilisent le format LF sur votre ordinateur.
+
+2. Alternative avec [`.editorconfig`](https://editorconfig.org/)
+
+Vous pouvez également utiliser un fichier `.editorconfig` pour définir des règles de fin de ligne. Ajoutez ce fichier à la racine de votre projet :
+
+```ini
+# .editorconfig
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+```
+
+Cela uniformise la configuration pour tous les membres du projet, quel que soit leur système d'exploitation ou éditeur de code, en appliquant automatiquement le format LF.
 
 ## Installation & Utilisation
 
