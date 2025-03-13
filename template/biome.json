@@ -3,12 +3,7 @@
   "files": {
     "ignore": ["**/dist/*", "**/*.template.*", "**/tsconfig.json", "coverage"]
   },
-  "formatter": { 
-    "indentStyle": "space",
-    "ignore": [
-      "**/*.json"
-    ]
-  },
+  "formatter": { "indentStyle": "space" },
   "organizeImports": { "enabled": true },
   "linter": {
     "enabled": true,
