@@ -124,6 +124,7 @@ fs.writeFileSync(
 );
 fs.rmSync(`${destDir}/README.template.md`);
 
+fs.renameSync(`${destDir}/gitattributes`, `${destDir}/.gitattributes`);
 fs.renameSync(`${destDir}/gitignore`, `${destDir}/.gitignore`);
 fs.renameSync(`${destDir}/client/gitignore`, `${destDir}/client/.gitignore`);
 fs.renameSync(`${destDir}/server/gitignore`, `${destDir}/server/.gitignore`);
