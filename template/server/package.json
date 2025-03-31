@@ -5,26 +5,26 @@
     "dev": "tsx watch --clear-screen=false ./src/main",
     "db:migrate": "tsx ./bin/migrate",
     "db:seed": "tsx ./bin/seed",
-    "build": "tsx ./bin/migrate && tsc ./src/main --outDir ../dist --esModuleInterop",
-    "start": "node ../dist/src/main",
+    "build": "tsx ./bin/migrate",
+    "start": "tsx ./src/main",
     "test": "jest --verbose"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "mysql2": "^3.11.3"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.14.0"
   },
   "devDependencies": {
-    "@faker-js/faker": "^9.0.3",
+    "@faker-js/faker": "^9.6.0",
     "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
-    "@types/jest": "^29.5.13",
-    "@types/supertest": "^6.0.2",
+    "@types/express": "^5.0.1",
+    "@types/jest": "^29.5.14",
+    "@types/supertest": "^6.0.3",
     "jest": "^29.7.0",
-    "supertest": "^7.0.0",
-    "ts-jest": "^29.2.5",
-    "tsx": "^4.19.1",
-    "typescript": "^5.6.2"
+    "supertest": "^7.1.0",
+    "ts-jest": "^29.3.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
   }
 }

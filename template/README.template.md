@@ -1,6 +1,6 @@
 # {{name}}
 
-Ce projet est un monorepo JS, suivant l'architecture React-Express-MySQL telle qu'enseignée à la Wild Code School (v7.1.7) :
+Ce projet est un monorepo JS, suivant l'architecture React-Express-MySQL telle qu'enseignée à la Wild Code School (v7.2.0) :
 
 ```mermaid
 sequenceDiagram
@@ -37,7 +37,6 @@ sequenceDiagram
 Il est pré-configuré avec un ensemble d'outils pour aider les étudiants à produire du code de qualité industrielle, tout en restant un outil pédagogique :
 
 - **Concurrently** : Permet d'exécuter plusieurs commandes simultanément dans le même terminal.
-- **Husky** : Permet d'exécuter des commandes spécifiques déclenchées par des événements _git_.
 - **Vite** : Alternative à _Create-React-App_, offrant une expérience plus fluide avec moins d'outils.
 - **Biome** : Alternative à _ESlint_ et _Prettier_, assurant la qualité du code selon des règles choisies.
 - **Supertest** : Bibliothèque pour tester les serveurs HTTP en node.js.
@@ -46,7 +45,6 @@ Il est pré-configuré avec un ensemble d'outils pour aider les étudiants à pr
 
 - [{{name}}](#name)
   - [Table des Matières](#table-des-matières)
-  - [Utilisateurs Windows](#utilisateurs-windows)
   - [Installation \& Utilisation](#installation--utilisation)
   - [Les choses à retenir](#les-choses-à-retenir)
     - [Commandes de Base](#commandes-de-base)
@@ -60,33 +58,6 @@ Il est pré-configuré avec un ensemble d'outils pour aider les étudiants à pr
     - [Variables d'environnement spécifiques](#variables-denvironnement-spécifiques)
     - [Logs](#logs)
     - [Contribution](#contribution)
-
-## Utilisateurs Windows
-
-Assurez-vous de lancer ces commandes dans un terminal Git pour éviter [les problèmes de formats de nouvelles lignes](https://en.wikipedia.org/wiki/Newline#Issues_with_different_newline_formats) :
-
-1. Solution avec Git
-
-```sh
-git config --global core.eol lf
-git config --global core.autocrlf false
-```
-Cela garantit que tous les fichiers suivis par Git utilisent le format LF sur votre ordinateur.
-
-2. Alternative avec [`.editorconfig`](https://editorconfig.org/)
-
-Vous pouvez également utiliser un fichier `.editorconfig` pour définir des règles de fin de ligne. Ajoutez ce fichier à la racine de votre projet :
-
-```ini
-# .editorconfig
-root = true
-
-[*]
-end_of_line = lf
-insert_final_newline = true
-```
-
-Cela uniformise la configuration pour tous les membres du projet, quel que soit leur système d'exploitation ou éditeur de code, en appliquant automatiquement le format LF.
 
 ## Installation & Utilisation
 

@@ -9,6 +9,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Open an issue](https://github.com/WildCodeSchool/create-js-monorepo/issues) if you have any request/feedback :)
 
+## [7.2.0] - 2025-03-31
+
+### Fixed
+
+- Replaced husky with native config for git hooks.
+
+- Used `tsx` in script `start` to avoid server transpilation.
+
+### Added
+
+- Added `check:fix` script. Thanks to [Florian Schaessens](https://github.com/Dolpheus89).
+
+- Added `.gitattributes` file to [mind the end of line](https://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/).
+
+## [7.1.8] - 2025-01-03
+
+### Fixed
+
+- Fixed import path in seed system. Thanks to [Brian Boudrioux](https://github.com/Brian-boudrioux).
+
 ## [7.1.7] - 2024-10-28
 
 ### Fixed
