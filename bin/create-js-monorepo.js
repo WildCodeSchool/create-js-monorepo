@@ -129,8 +129,8 @@ fs.renameSync(`${destDir}/gitignore`, `${destDir}/.gitignore`);
 fs.renameSync(`${destDir}/client/gitignore`, `${destDir}/client/.gitignore`);
 fs.renameSync(`${destDir}/server/gitignore`, `${destDir}/server/.gitignore`);
 
-fs.chmodSync(`${destDir}/.husky/commit-msg`, 0o775);
-fs.chmodSync(`${destDir}/.husky/pre-commit`, 0o775);
+fs.chmodSync(`${destDir}/.git-hooks/commit-msg`, 0o775);
+fs.chmodSync(`${destDir}/.git-hooks/pre-commit`, 0o775);
 
 sMustache.stop("Tweaked things");
 
