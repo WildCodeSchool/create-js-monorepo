@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Open an issue](https://github.com/WildCodeSchool/create-js-monorepo/issues) if you have any request/feedback :)
 
+## [7.2.2] - 2025-04-16
+
+### Fixed
+
+- Fixed missing shebang in git hooks. Thanks to [Nicolas Michel](https://github.com/MrLootman) for pointing this.
+
 ## [7.2.1] - 2025-04-02
 
 ### Fixed
