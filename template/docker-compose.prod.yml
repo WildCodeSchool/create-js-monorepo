@@ -6,6 +6,7 @@ services:
     container_name: ${PROJECT_NAME:-project}-web
     env_file:
       - ../envs/.env-${GITHUB_REPOSITORY_NAME}
+    command: sh -c "npm run build && npm run start"
     environment:
       APP_PORT: 3310
       APP_SECRET: ${APP_SECRET:-123456789}

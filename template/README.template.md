@@ -302,6 +302,38 @@ declare global {
 
 ## FAQ
 
+### Installation avec Docker
+> ⚠️ Prérequis : Vous devez avoir installé Docker et Docker Compose sur votre machine.  
+> Suivez les instructions ici : [Docker Installation](https://docs.docker.com/get-docker/).
+
+Lorsque Docker est installé et démarré, exécutez la commande suivante pour construire l'image Docker et démarrer les conteneurs :
+```bash
+docker compose up -d --build
+```
+La partie _client_ de l'application sera accessible à l'adresse http://localhost:3000 et la partie _serveur_ à l'adresse http://localhost:3310.  
+Pour arrêter et supprimer les conteneurs, exécutez :
+```bash
+docker compose down
+```
+
+#### Mode développement
+Les dépendances (du dossier `node_modules`) sont installées dans le conteneur Docker et ne seront pas visibles directement. Si vous utilisez un IDE comme VSCode et que vous souhaitez modifier des fichiers de votre application, vous devez installer les dépendances localement pour prévenir toute erreur de fichiers manquants.  
+```bash
+npm install
+```
+
+#### Installation de nouvelles dépendances
+Pour installer de nouvelles dépendances, procédez en local comme d'habitude avec `npm install <package-name>`, puis, synchronisez les dépendances dans le conteneur Docker avec la commande suivante :
+```bash
+docker compose exec web sh -c "npm install"
+```
+
+#### Accéder à la base de données
+Pour vous connecter à la base de données avec votre terminal, exécutez la commande suivante :
+```bash
+docker compose exec database sh -c "mysql -uuser -ppassword js_template_fullstack"
+```
+
 ### Déploiement avec Traefik
 
 > ⚠️ Prérequis : Vous devez avoir installé et configuré Traefik sur votre VPS au préalable. Suivez les instructions ici : [VPS Traefik Starter Kit](https://github.com/WildCodeSchool/vps-traefik-starter-kit/).
