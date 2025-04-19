@@ -36,4 +36,3 @@ RUN npm install
 # Set the default command to run the build and start the application.
 # To improve: Separate build and runtime steps. Consider running the build in a multi-stage build
 # to create a smaller final image without unnecessary build tools or intermediate files.
-CMD npm run build && npm run start
