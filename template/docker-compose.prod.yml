@@ -1,31 +1,22 @@
-version: "3.4"
+version: "3.8"
 
 services:
-  web:
-    build: .
-    container_name: ${PROJECT_NAME:-project}-web
-    env_file:
-      - ../envs/.env-${GITHUB_REPOSITORY_NAME}
-    command: sh -c "npm run build && npm run start"
-    environment:
-      APP_PORT: 3310
-      APP_SECRET: ${APP_SECRET:-123456789}
-      DB_HOST: ${DATABASE_SUBDOMAIN_NAME}-db
-      DB_PORT: 3306
-      DB_USER: ${USER_NAME}
-      DB_PASSWORD: ${USER_PASSWORD}
-      DB_NAME: ${DB_NAME}
-      VITE_API_URL: ""
-      PROJECT_NAME_SPECIFIC_SAMPLE: ${PROJECT_NAME_SPECIFIC_SAMPLE}
-    networks:
-      - proxy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.docker.network=proxy"
-      - "traefik.http.routers.${PROJECT_NAME:-project}-secure.entrypoints=websecure"
-      - "traefik.http.routers.${PROJECT_NAME:-project}-secure.rule=Host(`${PROJECT_NAME:-project}.${HOST:-localhost}`)"
-      - "traefik.http.services.${PROJECT_NAME:-project}.loadbalancer.server.port=3310"
+    web:
+        image: ${DOCKER_IMAGE}
+        container_name: ${PROJECT_NAME}-web
+        restart: always
+        env_file:
+            - .env
+        networks:
+            - proxy
+        labels:
+            - "traefik.enable=true"
+            - "traefik.docker.network=proxy"
+            - "traefik.http.routers.${PROJECT_NAME}-secure.entrypoints=websecure"
+            - "traefik.http.routers.${PROJECT_NAME}-secure.rule=Host(`${PROJECT_NAME}.${HOST}`)"
+            - "traefik.http.services.${PROJECT_NAME}.loadbalancer.server.port=3310"
+            - "traefik.http.routers.${PROJECT_NAME}-secure.tls.certresolver=letsencrypt"
 
 networks:
-  proxy:
-    external: true
+    proxy:
+        external: true
